@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
@@ -11,3 +12,141 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view>
+=======
+<!-- 头部 -->
+<view class="top">
+  <view class="search-block">
+    <navigator url="">
+      <image src="/images/icon-search.png"/>
+      <text>搜索</text>
+    </navigator>
+  </view>
+</view>
+
+<!--轮播banner-->
+<swiper indicator-dots="true"  autoplay="true" interval="2000" duration="2000" circular="true" class="banner">  
+	<block wx:for="{{imgUrls}}">  
+		<swiper-item>  
+		  <navigator url="{{item.link}}">  
+		   <image src="{{item.url}}" class="banner-image"/>  
+		  </navigator>  
+		</swiper-item>  
+	</block>  
+</swiper>
+
+<!--功能展示-->
+<view class="section">
+  <view class="selection-item">
+    <image src="/images/food.png"/>
+    <text>餐饮</text>
+  </view>
+  <view class="selection-item">
+    <image src="/images/room.png"/>
+    <text>会议室</text>
+  </view>
+  <view class="selection-item">
+    <image src="/images/car.png"/>
+    <text>车辆</text>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="divLine"></view>
+
+<!--热销商品-->
+<view class="show-title">
+   <text>热销菜品</text>
+   <navigator url="/pages/user/user" hover-class="none">
+      <view class="text-more">查看全部</view>
+      <image src="/images/right.png"/> 
+    </navigator>
+</view>
+<view class="show-content">
+  <view class="content-item">
+      <image src="/images/img3.png"/>
+      <view class="content-price">
+          <view class="new-price">￥97.9</view>
+          <view class="old-price">￥101</view>
+      </view>
+      <view class="content-name">菜名2</view>
+      <view class="content-store">店门2</view>
+  </view>
+  <view class="content-item">
+      <image src="/images/img2.png"/>
+      <view class="content-price">
+          <view class="new-price">￥97.9</view>
+          <view class="old-price">￥101</view>
+      </view>
+      <view class="content-name">菜名1</view>
+      <view class="content-store">店门1</view>
+  </view>
+  <view class="content-item">
+      <image src="/images/img1.jpeg"/>
+      <view class="content-price">
+          <view class="new-price">￥9.9</view>
+          <view class="old-price">￥10</view>
+      </view>
+      <view class="content-name">菜名3</view>
+      <view class="content-store">店门3</view>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="divLine"></view>
+
+<!--热约会议室-->
+<view class="show-title">
+   <text>热约会议室</text>
+   <navigator url="/pages/user/user" hover-class="none">
+      <view class="text-more">查看全部</view>
+      <image src="/images/right.png"/> 
+    </navigator>
+</view>
+<view class="show-content">
+  <view class="content-item">
+      <image src="/images/img3.png"/>
+      <view class="content-name">会议室名</view>
+      <view class="content-store">可预约时间</view>
+  </view>
+  <view class="content-item">
+      <image src="/images/img2.png"/>
+      <view class="content-name">会议室名</view>
+      <view class="content-store">可预约时间</view>
+  </view>
+  <view class="content-item">
+      <image src="/images/img1.jpeg"/>
+      <view class="content-name">会议室名</view>
+      <view class="content-store">可预约时间</view>
+  </view>
+</view>
+
+<!-- 分割线 -->
+<view class="divLine"></view>
+
+<!--热约车辆-->
+<view class="show-title">
+   <text>热约车辆</text>
+   <navigator url="/pages/user/user" hover-class="none">
+      <view class="text-more">查看全部</view>
+      <image src="/images/right.png"/> 
+    </navigator>
+</view>
+<view class="show-content">
+  <view class="content-item">
+      <image src="/images/img3.png"/>
+      <view class="content-name">车名</view>
+      <view class="content-store">可预约时间</view>
+  </view>
+  <view class="content-item">
+      <image src="/images/img2.png"/>
+      <view class="content-name">车名</view>
+      <view class="content-store">可预约时间</view>
+  </view>
+  <view class="content-item">
+      <image src="/images/img1.jpeg"/>
+      <view class="content-name">车名</view>
+      <view class="content-store">可预约时间</view>
+  </view>
+</view>
+
+>>>>>>> 92705a4a3d4c534adfa172effc9c916903672eb8
