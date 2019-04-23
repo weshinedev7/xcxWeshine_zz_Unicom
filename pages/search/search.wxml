@@ -1,11 +1,11 @@
-
-<!-- 头部搜索 -->
+<!-- 头部 -->
 <view class="top">
-	<view class="top-search">
-		<input placeholder="请输入你的搜索内容" focus="" value=""/>
-		<!-- <input focus="" value=""/> -->
-			<image src="../../image/Magnifier.png"></image>
-	</view>
+  <view class="search-block">
+    <navigator url="/pages/search/search">
+      <image src="/images/icon-search.png"/>
+      <text>搜索</text>
+    </navigator>
+  </view>
 </view>
 
 <view class="history">
