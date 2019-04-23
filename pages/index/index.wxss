@@ -1,3 +1,26 @@
+<<<<<<< HEAD
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+=======
 /* pages/index/index.wxss */
 .fr{
 	float:right;
@@ -153,3 +176,4 @@
     width: 100%;
     height: 3rpx;
 }
+>>>>>>> 92705a4a3d4c534adfa172effc9c916903672eb8

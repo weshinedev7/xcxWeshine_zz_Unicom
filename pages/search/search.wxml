@@ -1,0 +1,24 @@
+
+<!-- 头部搜索 -->
+<view class="top">
+	<view class="top-search">
+		<input placeholder="请输入你的搜索内容" focus="" value=""/>
+		<!-- <input focus="" value=""/> -->
+			<image src="../../image/Magnifier.png"></image>
+	</view>
+</view>
+
+<view class="history">
+	<view class="history-text">历史搜索:</view>
+	<view type="button" bindtap="search" value="最新" class="history-button">最新</view>
+	<view type="button" bindtap="history" class="history-button">最新</view>
+	<view type="button" bindtap="history" class="history-button">最新</view>
+	<view type="button" bindtap="history" class="history-button">最新</view>
+	<view type="button" bindtap="history" class="history-button">最新</view>
+	<view type="button" bindtap="history" class="history-button">最新</view>
+	<view type="button" bindtap="history" class="history-button">最新</view>
+	<view type="button" bindtap="history" class="history-button">最新</view>
+	<view type="button" bindtap="history" class="history-button">最新</view>
+	<!-- <button type="button" bindtap="history" class="history-button">最新</button> -->
+</view>
+
