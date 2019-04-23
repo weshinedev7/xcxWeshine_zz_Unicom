@@ -1,0 +1,8 @@
+{
+	"navigationBarBackgroundColor": "#ffffff",
+	"navigationBarTextStyle": "black",
+	"navigationBarTitleText": "预约车辆",
+	"backgroundColor": "#eeeeee",
+	"backgroundTextStyle": "light",
+	"usingComponents": {}
+}

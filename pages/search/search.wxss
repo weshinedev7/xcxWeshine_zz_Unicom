@@ -1,0 +1,58 @@
+/* pages/search/search.wxss */
+/* 顶部搜索 */
+.top{width:100%;
+						height:100rpx;
+						}
+
+.top-search{width:90%;
+						height:100rpx;
+						margin:30rpx auto;
+						position: relative;
+						border-bottom:1rpx solid rgb(236, 231, 231)}
+
+.top-search input{
+						width:100%;
+						height:60rpx;
+						font-size:25rpx;
+						text-align: center;
+						line-height: 60rpx;
+						border-radius: 26rpx;
+						position: absolute;
+						right: 0rpx;
+						border:1rpx solid #A3552D;
+						top: 25rpx;
+						}
+
+
+.top-search .search text{color:#212121;}
+
+
+.top-search image{width:30rpx;
+						height:30rpx;
+						position: absolute;
+						left: 20rpx;
+						top: 40rpx;
+						}
+
+
+.history{width:80%;
+						min-height:250rpx;
+						margin:20rpx auto
+						}
+
+.history-text{font-size:25rpx;
+						color:rgb(156, 151, 151);
+						margin:10rpx 0rpx;
+					}
+
+.history-button{width:100rpx;
+						height:50rpx;
+						font-size:25rpx;
+						padding:0rpx 0rpx;
+						line-height: 50rpx;
+						float:left;
+						text-align:center;
+						border-radius: 20rpx;
+						margin:8rpx 20rpx;
+						border:1rpx solid #a8a8a8;
+						}
