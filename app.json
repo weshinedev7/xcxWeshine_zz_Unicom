@@ -9,7 +9,8 @@
     "pages/restaurant/restaurant",
     "pages/appointment/appointment",
     "pages/order/order",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/food/food"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -7,8 +7,6 @@
 
   <view class='page__bd_content'>
 
-   <image class="slide-image" src="http://pic.qqtn.com/up/2017-12/15126388387704237.jpg" mode="scaleToFill"/>
-
    <view class="name">K</view>
 
    <view class="age">♂21</view>

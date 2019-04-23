@@ -1,7 +1,7 @@
 <!-- 头部 -->
 <view class="top">
   <view class="search-block">
-    <navigator url="">
+    <navigator url="/pages/search/search">
       <image src="/images/icon-search.png"/>
       <text>搜索</text>
     </navigator>
@@ -21,10 +21,10 @@
 
 <!--功能展示-->
 <view class="section">
-  <view class="selection-item">
+  <navigator url="/pages/food/food" hover-class="none" class="selection-item">
     <image src="/images/food.png"/>
     <text>餐饮</text>
-  </view>
+  </navigator>
   <view class="selection-item">
     <image src="/images/room.png"/>
     <text>会议室</text>
