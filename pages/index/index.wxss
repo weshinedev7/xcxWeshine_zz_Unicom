@@ -1,0 +1,155 @@
+/* pages/index/index.wxss */
+.fr{
+	float:right;
+}
+.fl{
+	float:left;
+}
+
+/*头部*/
+.top{
+	width:100%;
+	height:90rpx;
+}
+.search-block {
+  margin: 10rpx 30rpx;
+  display: block;
+}
+.search-block navigator {
+  display: block;
+  background: #eee;
+  text-align: left;
+  height: 50rpx;
+  line-height: 70rpx;
+  border: 10rpx solid #eee;
+  border-radius: 30rpx;
+  color: #b2b2b2;
+  position: relative;
+  display:flex; 
+  align-items:center;
+
+}
+.search-block navigator image {
+  height: 30rpx;
+  width: 30rpx;
+  margin: 0 10rpx;
+}
+.search-block navigator text{
+	font-size:30rpx;
+	margin: 0 10rpx;
+}
+
+/*轮播banner*/
+.banner{
+	width:100%;
+	height:400rpx;
+}
+.banner-image{
+	width:100%;
+	height:400rpx;
+}
+
+/*功能*/
+.section{
+   margin:30rpx 30rpx 0rpx 0rpx;
+   height: 110rpx;
+   display:flex; 
+   align-items:center;
+   justify-content:center;
+}
+.selection-item{
+    margin:0rpx 0rpx 0 30rpx;
+	width:30%;
+	height:100%;
+	display:flex; 
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+.selection-item image{
+	width:70rpx;
+	height:90rpx;
+	margin:5rpx auto;
+}
+.selection-item text{
+    margin:10rpx 10rpx 0;
+	font-size:25rpx;
+	color:#A9A9A9;
+}
+
+/*热销商品*/
+.show-title{
+    margin:15rpx 0;
+	width:100%;
+	height:100rpx;
+	display:flex; 
+	align-items:center;
+}
+.show-title text{
+	font-size:35rpx;
+	margin-left:30rpx;
+	width:60%;
+}
+.show-title navigator{
+	width:40%;
+	display:flex; 
+	align-items:center;
+	float:right;
+	margin-right:30rpx;
+	display: flex;
+	flex-direction:row;
+	justify-content:flex-end;
+}
+.text-more{
+	font-size:25rpx;
+	color:#d81e06;
+
+}
+.show-title navigator image{
+	width:30rpx;
+	height:30rpx;
+}
+.show-content{
+	margin-right:30rpx;
+	display:flex; 
+}
+.content-item{
+	margin-left:30rpx;
+	width:50%;
+	height:100%;
+}
+.content-item image{
+	width:100%;
+	height:300rpx;
+	border-radius:20rpx;
+}
+.content-price{
+	display:flex; 
+	align-items:center;
+	height:50rpx;
+}
+.new-price{
+	color:#d81e06;
+	font-weight:bold;
+	font-size:25rpx;
+}
+.old-price{
+	color:#A9A9A9;
+	font-size:20rpx;
+	text-decoration:line-through;
+	margin-left:20rpx;
+}
+.content-name{
+	font-size:25rpx;
+}
+.content-store{
+	font-size:20rpx;
+}
+
+/*分割线*/
+.divLine{
+    margin:20rpx 0;
+	background: #eee;
+    width: 100%;
+    height: 3rpx;
+}
