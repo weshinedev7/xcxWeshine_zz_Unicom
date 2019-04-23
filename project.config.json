@@ -12,19 +12,9 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-<<<<<<< HEAD
-	"libVersion": "2.6.6",
-	"appid": "wx231e129b17eb104b",
-	"projectname": "zz_unicom_comprehensive_department_first",
-=======
 	"libVersion": "2.6.4",
 	"appid": "wx231e129b17eb104b",
-<<<<<<< HEAD
-	"projectname": "%E7%BA%BF%E4%B8%8A",
-=======
 	"projectname": "huadian1",
->>>>>>> 92705a4a3d4c534adfa172effc9c916903672eb8
->>>>>>> 1121672b295f5823fc96dd1c1c5c2f1f4aafe694
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -47,4 +37,5 @@
 			"list": []
 		}
 	}
-}
+} 
+  

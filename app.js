@@ -10,11 +10,7 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-<<<<<<< HEAD
-      }
-    })
-=======
-        
+
       }
     })
 
@@ -32,7 +28,6 @@ App({
       },
     })
 
->>>>>>> 92705a4a3d4c534adfa172effc9c916903672eb8
     // 获取用户信息
     wx.getSetting({
       success: res => {
