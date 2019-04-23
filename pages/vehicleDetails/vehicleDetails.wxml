@@ -1,31 +1,10 @@
-<!-- <view class="banner">
-	<image class="centent-img" src="/image/cf4.jpg" />
-</view> -->
-<swiper class='swiper-item__content' current="" bindchange="changeswiper">
-
- <swiper-item class="swip">
-
-  <view class='page__bd_content'>
-
-   <image class="slide-image" src="http://pic.qqtn.com/up/2017-12/15126388387704237.jpg" mode="scaleToFill"/>
-
-   <view class="name">K</view>
-
-   <view class="age">♂21</view>
-
-   <view class="conste">金牛座</view>
-
-   <view class="status">文化/教育</view>
-
-  </view>
-
- </swiper-item>
-
+<!--轮播banner-->
+<swiper indicator-dots="true"  autoplay="true" interval="2000" duration="2000" circular="true" class="banner">  
+  <block wx:for="{{imgUrls}}">  
+    <swiper-item>  
+      <navigator url="{{item.link}}">  
+       <image src="{{item.url}}" class="banner-image"/>  
+      </navigator>  
+    </swiper-item>  
+  </block>  
 </swiper>
-<view class="page__ft">
-
- <image class="notlike {{left?'active':''}}" src="../../images/notlike.png" />
-
- <image class="like {{right?'active':''}}" src="../../images/like.png" />
-
- </view>
