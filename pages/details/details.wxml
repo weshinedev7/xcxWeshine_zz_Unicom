@@ -1,0 +1,97 @@
+<!--轮播banner-->
+<swiper indicator-dots="true"  autoplay="true" interval="2000" duration="2000" circular="true" class="banner">  
+	<block wx:for="{{imgUrls}}">  
+		<swiper-item>  
+			<navigator url="{{item.link}}">  
+			<image src="{{item.url}}" class="banner-image"/>  
+			</navigator>  
+		</swiper-item>  
+	</block>  
+</swiper>
+
+<!-- 主体 -->
+<view class="main">
+	<view class="main-name">糖醋排骨</view>
+	<view class="show">
+	   <view>门店1</view>
+	   <view class="l2">评分:5.5</view>
+	   <view class="l2">已售:333</view>
+	</view>
+
+    <view class="show-number">
+      <view class="flex-row flex-y-center mb-20">
+        <view class="flex-grow-1 number-size">数量</view>
+        <view class="flex-grow-0">
+          <view class="flex-row number-input-box">
+            <view class="flex-grow-0 flex-x-center flex-y-center number-btn number-sub" bindtap="numberSub">-</view>
+            <view class="flex-grow-0">
+              <input class="flex-grow-1 number-input" value="{{number}}" type="number" step="1" min="1" bindblur="numberBlur" />
+            </view>
+            <view class="flex-grow-0 flex-x-center flex-y-center number-btn number-add" bindtap="numberAdd">+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="display">
+       <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
+       	菜品介绍
+       </view>
+       <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
+       	评价
+       </view>
+    </view>
+
+    <!--介绍-->
+    <view wx:if="{{check=='0'}}" class="eval-all">
+		<view class="brief-content">介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍</view>
+    </view>
+
+    <!--评价-->
+    <view wx:if="{{check=='1'}}" class="eval-all">
+
+         <view class="evaluate">
+			<view class="content_left_content">
+				<image class="centent-img" src="/images/none.png" />
+			</view>
+			<view class="content_left_right">
+				<view class="introduction">服务5分、菜品3分。总体挺好。服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分</view>
+				<view class="immediately">2019-03-04</view>
+			</view>
+		</view>
+		<view class="line"></view>
+		<view class="evaluate">
+			<view class="content_left_content">
+				<image class="centent-img" src="/images/none.png" />
+			</view>
+			<view class="content_left_right">
+				<view class="introduction">服务5分、菜品3分。总体挺好。</view>
+				<view class="immediately">2019-03-04</view>
+			</view>
+		</view>
+		<view class="line"></view>
+		<view class="evaluate">
+			<view class="content_left_content">
+				<image class="centent-img" src="/images/none.png" />
+			</view>
+			<view class="content_left_right">
+				<view class="introduction">服务5分、菜品3分。总体挺好。服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分</view>
+				<view class="immediately">2019-03-04</view>
+			</view>
+		</view>
+		<view class="line"></view>
+    </view>
+</view>
+
+<!-- 底部 -->
+<view class="nav_container">
+    <view class="price">
+		<text class="money">￥139</text>
+		<text class="original_price">￥:149</text>
+	</view>
+    <view class="pay">
+        自付
+    </view>
+    <view class="de-pay">
+        部门代付
+    </view>
+</view>
