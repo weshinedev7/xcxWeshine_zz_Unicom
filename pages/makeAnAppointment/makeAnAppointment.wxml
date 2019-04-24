@@ -5,7 +5,6 @@
  	<text class='menu_right {{menuTapCurrent=="1"?"borders":""}}' data-current="1" catchtap="menuTap">预约历史</text>
 </view>
 
-
 <!-- 预约选项卡 -->
 	<view class="content_left" hidden="{{menuTapCurrent!='0'}}">
 		<view class="main">
