@@ -1,0 +1,227 @@
+/* pages/makeAnAppointment/makeAnAppointment.wxss */
+
+/* 预约会议室申请 */
+.top{width:100%;
+			height:100rpx;
+			background: red}
+
+
+/* pages/makeAnAppointment/makeAnAppointment.wxss */
+page {
+  /* background-color: #ccc; */
+}
+ /* 顶部搜索 */
+.top{width:100%;
+						height:100rpx;
+						/* background: #212121; */
+						}
+
+.top-search{width:90%;
+						height:100rpx;
+						margin:30rpx auto;
+						position: relative;
+						}
+
+.top-search navigator{
+						width:100%;
+						height:60rpx;
+						font-size:25rpx;
+						text-align: center;
+						line-height: 60rpx;
+						border-radius: 26rpx;
+						position: absolute;
+						right: 0rpx;
+						border:1rpx solid #A3552D;
+						top: 25rpx;
+						}
+
+
+.top-search .search text{color:#212121;}
+
+
+.top-search image{width:30rpx;
+						height:30rpx;
+						position: absolute;
+						left: 276rpx;
+						top: 16rpx;
+						}
+
+
+
+ /* 内容 */
+ /* 选项卡 */
+.menu_box{
+				display: flex;
+				height: 80rpx;
+				}
+
+.menu_left,.menu_right{
+				flex: 1;
+				font-size:25rpx;
+				line-height: 80rpx;
+				text-align: center;
+				}
+
+
+.borders{
+				border-bottom: 4rpx solid #A3552D;
+				color: #434053;
+				}
+
+
+.content_left,.content_right{
+				min-height: 300rpx;
+				border-top:1rpx solid #ccc;
+				}
+
+.main{margin-top:50rpx;
+			width:100%;
+			height:2000rpx;
+			margin-bottom:70rpx;
+			/* background: blue; */
+			}
+
+.title{width: 80%;
+				height: 65rpx;
+				margin:0rpx auto;
+				/* background: red; */
+				}
+
+
+.title .text{
+				width:160rpx;
+				font-size:30rpx;
+				height: 60rpx;
+				text-align: center;
+				line-height: 60rpx;
+				float:left;
+			}
+
+.title input{
+				width:65%;
+				height: 60rpx;
+				padding:0rpx 20rpx;
+				float:left;
+				border:1rpx solid #838383;
+				border-radius: 26rpx;
+				font-size:25rpx;
+			}
+
+
+
+
+/* 会议开始时间 */
+.start_date{width: 80%;
+				height: 65rpx;
+				margin:20rpx auto 0rpx;
+				/* background: red; */}
+
+.start_date .text{
+				width:160rpx;
+				font-size:30rpx;
+				height: 60rpx;
+				/* text-align: center; */
+				line-height: 60rpx;
+				float:left;
+			}
+
+
+.start_date input{
+				width:65%;
+				height: 60rpx;
+				padding:0rpx 20rpx;
+				float:left;
+				border:1rpx solid #838383;
+				border-radius: 26rpx;
+				font-size:25rpx;
+			}
+
+
+.meeting-content{width: 80%;
+				margin:40rpx auto 0rpx;
+				padding-top:20rpx;
+				font-size:30rpx;
+				height: 60rpx;
+				border-top:1rpx dashed  #838383;
+				text-align: center;
+				line-height: 60rpx;
+			}
+
+
+.meeting{width: 80%;
+				min-height: 300rpx;
+				margin:20rpx auto 40rpx;
+				/* background: red; */
+				}
+
+
+.meeting textarea{width: 95%;
+				min-height:200rpx;
+				padding:20rpx 10rpx;
+				font-size:30rpx;
+				border:1rpx solid  #838383;
+				border-radius: 26rpx;
+}
+
+
+/* 底部重置提交 */
+.nav_container{
+			position: fixed;
+			width: 100%;
+			height: 120rpx;
+			bottom:0px;
+			background-color: white;
+			z-index: 999;
+			box-shadow:0rpx 6rpx 6rpx 6rpx #838383;
+		}
+
+.price{margin-top:30rpx;
+			width:200rpx;
+			float:left;
+			margin:30rpx 0rpx 0rpx 50rpx
+		}
+
+
+.money-label{font-size:22rpx;
+			color:red;
+			}
+
+.money{font-size:40rpx;
+			color:red;
+			font-weight: 700;
+			}
+
+.original_price{font-size:22rpx;
+				color:#838383;
+				margin-left:20rpx;
+				text-decoration:line-through;
+				}
+
+
+/* 立即购买 */
+.reset{width: 180rpx;
+		height:70rpx;
+		float:left;
+		margin:25rpx 0rpx 0rpx 80rpx;
+		text-align: center;
+		line-height: 70rpx;
+		background: red;
+		color:white;
+		border-radius: 26rpx;
+		font-size:27rpx;
+
+		}
+
+/* 立即购买 */
+.submit{width: 180rpx;
+		height:70rpx;
+		float:right;
+		margin:25rpx 80rpx 0rpx 0rpx;
+		text-align: center;
+		line-height: 70rpx;
+		background: #838383;
+		color:white;
+		border-radius: 26rpx;
+		font-size:27rpx;
+
+		}
