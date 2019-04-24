@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    check:0
+  },
 
+  selectStore:function(e){
+    let _this=this;
+    _this.setData({
+      check: e.currentTarget.dataset.id
+    });
+    console.log(_this.data.check);
   },
 
   /**

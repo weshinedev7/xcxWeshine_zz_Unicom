@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/food/food",
 		"pages/vehicleDetails/vehicleDetails",
 		"pages/vehicle/vehicle",
 		"pages/conferenceRoom/conferenceRoom",
@@ -9,8 +10,8 @@
     "pages/restaurant/restaurant",
     "pages/appointment/appointment",
     "pages/order/order",
-    "pages/user/user",
-    "pages/food/food"
+    "pages/user/user"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
