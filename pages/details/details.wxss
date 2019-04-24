@@ -22,8 +22,9 @@
 
 .show{
     width:100%;
-	font-size:30rpx;
+	font-size:25rpx;
 	margin-top:10rpx;
+	margin-bottom:20rpx;
 	padding-left:0rpx;
 	color:#A9A9A9;
 	display: flex;

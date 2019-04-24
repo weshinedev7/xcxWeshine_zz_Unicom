@@ -20,7 +20,7 @@
 
     <view class="show-number">
       <view class="flex-row flex-y-center mb-20">
-        <view class="flex-grow-1 number-size">数量</view>
+        <view class="flex-grow-1 number-size">购买数量</view>
         <view class="flex-grow-0">
           <view class="flex-row number-input-box">
             <view class="flex-grow-0 flex-x-center flex-y-center number-btn number-sub" bindtap="numberSub">-</view>

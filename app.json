@@ -1,7 +1,7 @@
 {
   "pages":[
-		"pages/conferenceRoom/conferenceRoom",
 		"pages/index/index",
+    "pages/conferenceRoom/conferenceRoom",
 		"pages/makeAnAppointment/makeAnAppointment",
     "pages/food/food",
 		"pages/details/details",
