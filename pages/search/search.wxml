@@ -1,24 +1,10 @@
 <!-- 头部 -->
 <view class="top">
   <view class="search-block">
-    <navigator url="/pages/search/search">
+    <navigator url="">
       <image src="/images/icon-search.png"/>
       <text>搜索</text>
     </navigator>
   </view>
 </view>
-
-<view class="history">
-	<view class="history-text">历史搜索:</view>
-	<view type="button" bindtap="search" value="最新" class="history-button">最新</view>
-	<view type="button" bindtap="history" class="history-button">最新</view>
-	<view type="button" bindtap="history" class="history-button">最新</view>
-	<view type="button" bindtap="history" class="history-button">最新</view>
-	<view type="button" bindtap="history" class="history-button">最新</view>
-	<view type="button" bindtap="history" class="history-button">最新</view>
-	<view type="button" bindtap="history" class="history-button">最新</view>
-	<view type="button" bindtap="history" class="history-button">最新</view>
-	<view type="button" bindtap="history" class="history-button">最新</view>
-	<!-- <button type="button" bindtap="history" class="history-button">最新</button> -->
-</view>
-
+<view class="search-text">搜索</view>

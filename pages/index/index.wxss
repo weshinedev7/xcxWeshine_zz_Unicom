@@ -108,18 +108,23 @@
 .show-title navigator image{
 	width:30rpx;
 	height:30rpx;
+	justify-content:space-between;
+
 }
 .show-content{
-	margin-right:30rpx;
-	display:flex; 
+	display:flex;
+    flex-wrap:wrap;
+    height:450rpx;
+    margin-bottom:15rpx;
+    margin-right:30rpx;
 }
 .content-item{
 	margin-left:30rpx;
-	width:50%;
+	width:211rpx;
 	height:100%;
 }
 .content-item image{
-	width:100%;
+	width:211rpx;
 	height:300rpx;
 	border-radius:20rpx;
 }

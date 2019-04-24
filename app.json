@@ -3,6 +3,7 @@
 		"pages/conferenceRoom/conferenceRoom",
 		"pages/index/index",
 		"pages/makeAnAppointment/makeAnAppointment",
+    "pages/food/food",
 		"pages/vehicleDetails/vehicleDetails",
 		"pages/vehicle/vehicle",
 		"pages/search/search",
@@ -10,8 +11,8 @@
     "pages/restaurant/restaurant",
     "pages/appointment/appointment",
     "pages/order/order",
-    "pages/user/user",
-    "pages/food/food"
+    "pages/user/user"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
