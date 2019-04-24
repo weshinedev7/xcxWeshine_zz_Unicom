@@ -1,13 +1,13 @@
 
 <!-- 头部搜索 -->
+<!-- 头部 -->
 <view class="top">
-	<view class="top-search">
-		<!-- <input placeholder="请输入" focus="" /> -->
-		<navigator url="/pages/search/search" hover-class="none" class="search">
-			<image src="../../image/Magnifier.png"></image>
-    	<text>请输入</text>
-  	</navigator>
-	</view>
+  <view class="search-block">
+    <navigator url="/pages/search/search">
+      <image src="/images/icon-search.png"/>
+      <text>搜索</text>
+    </navigator>
+  </view>
 </view>
 
 	<!-- 按条件选择 -->
@@ -191,7 +191,7 @@
 <!-- 内容 -->
 		<view class="main">
 			<view class="content_left_content">
-				<image class="centent-img" src="/image/pic1.jpg" />
+				<image class="centent-img" src="/images/img3.png" />
 			</view>
 			<view class="content_left_right">
 				<view class="content_name">会议室名</view>
@@ -201,7 +201,7 @@
 		</view>
 		<view class="main">
 			<view class="content_left_content">
-				<image class="centent-img" src="/image/pic2.jpg" />
+				<image class="centent-img" src="/images/img3.png" />
 			</view>
 
 			<view class="content_left_right">
@@ -212,7 +212,7 @@
 		</view>
 		<view class="main">
 			<view class="content_left_content">
-				<image class="centent-img" src="/image/pic7.jpg" />
+				<image class="centent-img" src="/images/img3.png" />
 			</view>
 
 			<view class="content_left_right">
@@ -223,7 +223,7 @@
 		</view>
 		<view class="main">
 			<view class="content_left_content">
-				<image class="centent-img" src="/image/pro2.jpg" />
+				<image class="centent-img" src="/images/img3.png" />
 			</view>
 
 			<view class="content_left_right">
@@ -234,7 +234,7 @@
 		</view>
 		<view class="main">
 			<view class="content_left_content">
-				<image class="centent-img" src="/image/cf1.jpg" />
+				<image class="centent-img" src="/images/img3.png" />
 			</view>
 
 			<view class="content_left_right">
@@ -245,7 +245,7 @@
 		</view>
 		<view class="main">
 			<view class="content_left_content">
-				<image class="centent-img" src="/image/cf4.jpg" />
+				<image class="centent-img" src="/images/img3.png" />
 			</view>
 
 			<view class="content_left_right">
@@ -256,7 +256,7 @@
 		</view>
 		<view class="main">
 			<view class="content_left_content">
-				<image class="centent-img" src="/image/cf5.jpg" />
+				<image class="centent-img" src="/images/img3.png" />
 			</view>
 
 			<view class="content_left_right">
@@ -267,7 +267,7 @@
 		</view>
 		<view class="main">
 			<view class="content_left_content">
-				<image class="centent-img" src="/image/1.jpg" />
+				<image class="centent-img" src="/images/img3.png" />
 			</view>
 
 			<view class="content_left_right">

@@ -1,0 +1,92 @@
+<!-- <view class="top"></view> -->
+<!-- 选项卡 -->
+<view class="menu_box">
+ 	<text class='menu_left {{menuTapCurrent=="0"?"borders":""}}' data-current="0" catchtap="menuTap">预约信息</text>
+ 	<text class='menu_right {{menuTapCurrent=="1"?"borders":""}}' data-current="1" catchtap="menuTap">预约历史</text>
+</view>
+
+<!-- 预约选项卡 -->
+	<view class="content_left" hidden="{{menuTapCurrent!='0'}}">
+		<view class="main">
+			<view class="title">
+				<view class="text">会议标题：</view>
+				<input placeholder="请输入会议标题" auto-focus/>
+			</view>
+			<view class="start_date">
+				<view class="text">开始时间:</view>
+				
+					<view class="tui-picker-content">
+						<picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+							<view class="tui-picker-detail font"><input value="{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:00" disabled/></view>
+						</picker>
+					</view>
+				
+			</view>
+			<view class="start_date">
+				<view class="text">结束时间:</view>
+				<view class="tui-picker-content">
+ <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+ <view class="tui-picker-detail">
+ 				<input value="{{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}:00" disabled/>
+ </view>
+ </picker>
+</view>
+
+			</view>
+			<view class="start_date">
+				<view class="text">会议人数:</view>
+				<input placeholder="会议人数"/>
+			</view>
+			<view class="meeting-content">会议内容</view>
+			<view class="meeting">
+				 <textarea placeholder="会议内容..." maxlength="1000"/>
+			</view>
+			
+			<view class="start_date">
+				<view class="text">桌签:</view>
+				<input placeholder="桌签"/>
+			</view>
+			<view class="start_date">
+				<view class="text">投影仪:</view>
+				<input placeholder="投影仪"/>
+			</view>
+			<view class="start_date">
+				<view class="text">笔记本电脑:</view>
+				<input placeholder="笔记本电脑"/>
+			</view>
+			<view class="start_date">
+				<view class="text">白板:</view>
+				<input placeholder="白板"/>
+			</view>
+			<view class="start_date">
+				<view class="text">点名发言:</view>
+				<input placeholder="点名发言"/>
+			</view>
+			<view class="start_date">
+				<view class="text">茶水:</view>
+				<input placeholder="茶水"/>
+			</view>
+			<view class="start_date">
+				<view class="text">鲜花:</view>
+				<input placeholder="鲜花"/>
+			</view>
+			
+			<view class="meeting-content">现场背景音乐</view>
+			<view class="meeting">
+				 <textarea placeholder="现场背景音乐..."  maxlength="1000"/>
+			</view>
+		</view>
+		  <view class="nav_container">
+    <view class="reset">重置</view>
+    <view class="submit">提交</view>
+  </view>
+	</view>
+
+<!-- 底部 -->
+<!-- <view class='container'> -->
+
+
+
+<!-- 预约历史 -->
+	<!-- <view class="content_right" hidden="{{menuTapCurrent!='1'}}">
+	</view> -->
