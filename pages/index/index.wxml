@@ -38,14 +38,14 @@
 <!-- 分割线 -->
 <view class="divLine"></view>
 
-<!--热销商品-->
 <view class="show-title">
-   <text>热销菜品</text>
-   <navigator url="/pages/user/user" hover-class="none">
+   <text>猜你喜欢</text>
+   <navigator url="/pages/food/food" hover-class="none">
       <view class="text-more">查看全部</view>
       <image src="/images/right.png"/> 
     </navigator>
 </view>
+
 <view class="show-content">
   <view class="content-item">
       <image src="/images/img3.png"/>
@@ -74,63 +74,15 @@
       <view class="content-name">菜名3</view>
       <view class="content-store">店门3</view>
   </view>
-</view>
-
-<!-- 分割线 -->
-<view class="divLine"></view>
-
-<!--热约会议室-->
-<view class="show-title">
-   <text>热约会议室</text>
-   <navigator url="/pages/user/user" hover-class="none">
-      <view class="text-more">查看全部</view>
-      <image src="/images/right.png"/> 
-    </navigator>
-</view>
-<view class="show-content">
-  <view class="content-item">
-      <image src="/images/img3.png"/>
-      <view class="content-name">会议室名</view>
-      <view class="content-store">可预约时间</view>
-  </view>
-  <view class="content-item">
-      <image src="/images/img2.png"/>
-      <view class="content-name">会议室名</view>
-      <view class="content-store">可预约时间</view>
-  </view>
   <view class="content-item">
       <image src="/images/img1.jpeg"/>
-      <view class="content-name">会议室名</view>
-      <view class="content-store">可预约时间</view>
+      <view class="content-price">
+          <view class="new-price">￥9.9</view>
+          <view class="old-price">￥10</view>
+      </view>
+      <view class="content-name">菜名3</view>
+      <view class="content-store">店门3</view>
   </view>
 </view>
 
-<!-- 分割线 -->
-<view class="divLine"></view>
-
-<!--热约车辆-->
-<view class="show-title">
-   <text>热约车辆</text>
-   <navigator url="/pages/user/user" hover-class="none">
-      <view class="text-more">查看全部</view>
-      <image src="/images/right.png"/> 
-    </navigator>
-</view>
-<view class="show-content">
-  <view class="content-item">
-      <image src="/images/img3.png"/>
-      <view class="content-name">车名</view>
-      <view class="content-store">可预约时间</view>
-  </view>
-  <view class="content-item">
-      <image src="/images/img2.png"/>
-      <view class="content-name">车名</view>
-      <view class="content-store">可预约时间</view>
-  </view>
-  <view class="content-item">
-      <image src="/images/img1.jpeg"/>
-      <view class="content-name">车名</view>
-      <view class="content-store">可预约时间</view>
-  </view>
-</view>
 

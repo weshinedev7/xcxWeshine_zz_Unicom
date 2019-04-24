@@ -87,7 +87,7 @@
   color:#A9A9A9;
   font-size:25rpx;
   text-decoration:line-through;
-  margin-left:20rpx;
+  margin-left:10rpx;
 }
 .score{
   font-size:25rpx;
@@ -100,6 +100,9 @@
   width:50%;
   float:right;
   text-align:right
+}
+.store-name{
+  font-size:25rpx;
 }
 
 .middle_none{text-align:center;font-size:28rpx;color:#666;margin-top:40rpx;}
