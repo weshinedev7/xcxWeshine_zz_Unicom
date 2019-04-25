@@ -54,7 +54,20 @@
 				<image class="centent-img" src="/images/none.png" />
 			</view>
 			<view class="content_left_right">
-				<view class="introduction">服务5分、菜品3分。总体挺好。服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分</view>
+				<view class="introduction">
+				    <view>人员服务:
+				        <text>一般</text>
+				    </view>
+				    <view>菜品质量:
+				    	<text>好</text>
+				    </view>
+				    <view>卫生质量:
+				        <text>有待改进</text>
+				    </view>
+				    <view>备注说明:
+				        <text>可以尝试一下，挺好吃的，就是需要提高卫生条件等</text>
+				    </view>
+				</view>
 				<view class="immediately">2019-03-04</view>
 			</view>
 		</view>
@@ -64,7 +77,20 @@
 				<image class="centent-img" src="/images/none.png" />
 			</view>
 			<view class="content_left_right">
-				<view class="introduction">服务5分、菜品3分。总体挺好。</view>
+				<view class="introduction">
+				    <view>人员服务:
+				        <text>一般</text>
+				    </view>
+				    <view>菜品质量:
+				    	<text>好</text>
+				    </view>
+				    <view>卫生质量:
+				        <text>有待改进</text>
+				    </view>
+				    <view>备注说明:
+				        <text>可以尝试一下</text>
+				    </view>
+				</view>
 				<view class="immediately">2019-03-04</view>
 			</view>
 		</view>
@@ -74,7 +100,20 @@
 				<image class="centent-img" src="/images/none.png" />
 			</view>
 			<view class="content_left_right">
-				<view class="introduction">服务5分、菜品3分。总体挺好。服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分。总体挺好服务5分、菜品3分</view>
+				<view class="introduction">
+				    <view>人员服务:
+				        <text>一般</text>
+				    </view>
+				    <view>菜品质量:
+				    	<text>好</text>
+				    </view>
+				    <view>卫生质量:
+				        <text>有待改进</text>
+				    </view>
+				    <view>备注说明:
+				        <text>可以尝试一下</text>
+				    </view>
+				</view>
 				<view class="immediately">2019-03-04</view>
 			</view>
 		</view>
