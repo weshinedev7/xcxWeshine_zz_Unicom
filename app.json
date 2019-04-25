@@ -1,29 +1,20 @@
 {
   "pages":[
-<<<<<<< HEAD
 		"pages/index/index",
 		"pages/vehicleDetails/vehicleDetails",
 		"pages/user/user",
 		"pages/conferenceRoom/conferenceRoom",
 		"pages/search/search",
-=======
-    "pages/index/index",
-		"pages/conferenceRoom/conferenceRoom",
->>>>>>> 2b2e40e395990d9a0304786ae1c6d8f67279d231
 		"pages/makeAnAppointment/makeAnAppointment",
     "pages/food/food",
 		"pages/details/details",
 		"pages/vehicle/vehicle",
 		"pages/OrderingMeals/OrderingMeals",
-<<<<<<< HEAD
     "pages/restaurant/restaurant",
     "pages/appointment/appointment",
-    "pages/order/order"
-=======
-    "pages/score/score",
     "pages/order/order",
-    "pages/user/user"
->>>>>>> 2b2e40e395990d9a0304786ae1c6d8f67279d231
+    "pages/score/score",
+    "pages/user/user",
     
   ],
   "window":{
