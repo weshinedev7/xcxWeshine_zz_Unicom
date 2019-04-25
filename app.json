@@ -1,5 +1,6 @@
 {
   "pages":[
+    
 		"pages/index/index",
     "pages/conferenceRoom/conferenceRoom",
 		"pages/makeAnAppointment/makeAnAppointment",
@@ -8,8 +9,7 @@
 		"pages/vehicle/vehicle",
 		"pages/search/search",
 		"pages/OrderingMeals/OrderingMeals",
-    "pages/restaurant/restaurant",
-    "pages/appointment/appointment",
+    "pages/score/score",
     "pages/order/order",
     "pages/user/user"
     

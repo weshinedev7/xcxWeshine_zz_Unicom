@@ -44,7 +44,7 @@
     </view>
     <view class="flex-row count-order">
          <view class="flex-grow-1 text-style">合计:￥123</view>
-         <view class="flex-grow-0 score">评分</view>
+         <navigator url="/pages/score/score" hover-class="none" class="flex-grow-0 score">评分</navigator>
     </view>
 
     <view class="flex-row flex-grow-1 order-info">
@@ -66,7 +66,7 @@
     </view>
     <view class="flex-row count-order">
          <view class="flex-grow-1 text-style">合计:￥123</view>
-         <view class="flex-grow-0 score">评分</view>
+         <navigator url="/pages/score/score" hover-class="none" class="flex-grow-0 score">评分</navigator>
     </view>
 </view>
 
