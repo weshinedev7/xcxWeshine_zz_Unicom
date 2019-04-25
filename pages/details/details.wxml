@@ -37,7 +37,7 @@
        	菜品介绍
        </view>
        <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
-       	评价
+       	评分
        </view>
     </view>
 
