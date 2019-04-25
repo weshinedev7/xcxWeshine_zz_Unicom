@@ -25,14 +25,16 @@
     <image src="/images/food.png"/>
     <text>餐饮</text>
   </navigator>
-  <navigator   url="/pages/conferenceRoom/conferenceRoom" hover-class="none"  class="selection-item">
+  <navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none"  class="selection-item">
     <image src="/images/room.png"/>
     <text>会议室</text>
   </navigator>
-  <view class="selection-item">
-    <image src="/images/car.png"/>
-    <text>车辆</text>
-  </view>
+  <navigator url="/pages/vehicle/vehicle" hover-class="none"  class="selection-item">
+		<!-- <view class="selection-item"> -->
+			<image src="/images/car.png"/>
+			<text>车辆</text>
+		<!-- </view> -->
+  </navigator>
 </view>
 
 <!-- 分割线 -->

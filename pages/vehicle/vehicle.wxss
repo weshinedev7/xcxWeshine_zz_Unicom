@@ -107,14 +107,14 @@
 
 .introduction{font-size:23rpx;margin-top:5rpx;}
 
-.immediately{font-size:25rpx;
+.frequency{font-size:20rpx;
 				width:150rpx;
-				/* height:40rpx; */
-				font-weight: 900;
-				color:red;
+				margin-top:5rpx;
+				color:#838383;
 				line-height: 36rpx;
 				float:left;
 				}
+
 
 
 .page-top image{width:20rpx;

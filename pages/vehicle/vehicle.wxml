@@ -13,10 +13,10 @@
 <!-- 按时间筛选 -->
 <view class="date_title">
 	<view class="date_start">
-		会议开始时间
+		用车开始时间
 	</view>
 	<view class="date_end">
-		会议结束时间
+		用车结束时间
 	</view>
 </view>
 <!-- <view class="date"></view> -->
@@ -27,9 +27,19 @@
 				<image class="centent-img" src="/images/img3.png" />
 			</view>
 			<view class="content_left_right">
-				<view class="content_name">会议室名</view>
-				<view class="introduction">会议室简介会议室简介会议室简介会议室简介</view>
-				<view class="immediately"></view>
+				<view class="content_name">车辆名</view>
+				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
+				<view class="frequency">会议次数:99</view>
+			</view>
+		</view>
+		<view class="main">
+			<view class="content_left_content">
+				<image class="centent-img" src="/images/img3.png" />
+			</view>
+			<view class="content_left_right">
+				<view class="content_name">车辆名</view>
+				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
+				<view class="frequency">会议次数:99</view>
 			</view>
 		</view>
 		<view class="main">
@@ -38,20 +48,9 @@
 			</view>
 
 			<view class="content_left_right">
-				<view class="content_name">会议室名</view>
-				<view class="introduction">会议室简介会议室简介会议室简介会议室简介</view>
-				<view class="immediately"></view>
-			</view>
-		</view>
-		<view class="main">
-			<view class="content_left_content">
-				<image class="centent-img" src="/images/img3.png" />
-			</view>
-
-			<view class="content_left_right">
-				<view class="content_name">会议室名</view>
-				<view class="introduction">会议室简介会议室简介会议室简介会议室简介</view>
-				<view class="immediately"></view>
+				<view class="content_name">车辆名</view>
+				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
+				<view class="frequency">会议次数:99</view>
 			</view>
 		</view>
 
