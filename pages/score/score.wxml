@@ -24,7 +24,7 @@
 		</view>
 
 		<view class="title">
-			<view class="text" for='hygiene'>卫生：</view>
+			<view class="text" for='hygiene'>卫生质量：</view>
 		</view>
 		<view class="radio-content">
 			<radio-group class="item-right radio-group" bindchange="changeHygiene">
@@ -35,7 +35,7 @@
 		</view>
 		
 
-		<view class="meeting-content">备注</view>
+		<view class="meeting-content">备注说明</view>
 		<view class="meeting">
 			 <textarea value="{{remarks}}" placeholder="说明备注..." maxlength="1000"/>
 		</view>

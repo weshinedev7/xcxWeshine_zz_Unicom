@@ -185,7 +185,10 @@
 	margin-top:10rpx;
 }
 
-.introduction{font-size:23rpx;margin-top:5rpx;}
+.introduction{font-size:25rpx;margin-top:5rpx;margin-bottom:10rpx}
+.introduction view text{
+	margin-left:10rpx;
+}
 
 .immediately{
 	font-size:25rpx;
