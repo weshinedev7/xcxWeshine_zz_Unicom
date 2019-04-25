@@ -4,9 +4,14 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-
+		check: 0
 	},
-
+	selectDispaly: function (e) {
+		let _this = this;
+		_this.setData({
+			check: e.currentTarget.dataset.id
+		});
+	},
 	/**
 	 * 生命周期函数--监听页面加载
 	 */

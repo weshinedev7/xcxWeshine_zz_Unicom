@@ -1,19 +1,17 @@
 {
   "pages":[
 		"pages/index/index",
-		"pages/vehicleDetails/vehicleDetails",
 		"pages/conferenceRoom/conferenceRoom",
+		"pages/vehicleDetails/vehicleDetails",
 		"pages/search/search",
 		"pages/makeAnAppointment/makeAnAppointment",
     "pages/food/food",
 		"pages/details/details",
 		"pages/vehicle/vehicle",
-		"pages/OrderingMeals/OrderingMeals",
-    "pages/restaurant/restaurant",
-    "pages/appointment/appointment",
     "pages/order/order",
     "pages/score/score",
-    "pages/user/user"
+    "pages/user/user",
+		"pages/bookingVehicle/bookingVehicle"
     
   ],
   "window":{

@@ -18,17 +18,17 @@
 <!-- 内容 -->
 <view class="main">
 	<view class="main_center">
-		<view class="center_list">
-			<view class="center_list_text">点餐</view>
-			<view><image src="../../images/right-2.png" /></view>
-		</view>
-		<view class="center_list">
-			<view class="center_list_text">预约会议室</view>
-			<view><image src="../../images/right-2.png" /></view>
-		</view>
-		<view class="center_list">
-			<view class="center_list_text">预约车辆</view>
-			<view><image src="../../images/right-2.png" /></view>
-		</view>
+		<navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none">
+			<view class="center_list">
+				<view class="center_list_text">预约会议室</view>
+				<view><image src="../../images/right-2.png" /></view>
+			</view>
+		</navigator>
+		<navigator url="/pages/vehicle/vehicle" hover-class="none">
+			<view class="center_list">
+				<view class="center_list_text">预约车辆</view>
+				<view><image src="../../images/right-2.png" /></view>
+			</view>
+		</navigator>
 	</view>
 </view>

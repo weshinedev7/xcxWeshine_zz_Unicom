@@ -5,6 +5,11 @@
 			height:100rpx;
 			background: red}
 
+
+/* pages/makeAnAppointment/makeAnAppointment.wxss */
+page {
+  /* background-color: #ccc; */
+}
  /* 顶部搜索 */
 .top{width:100%;
 						height:100rpx;

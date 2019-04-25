@@ -72,7 +72,7 @@
 		  <view class="nav_container">
     <view class="reset">重置</view>
 			
-  <navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none"  class="selection-item">
+  <navigator url="/pages/vehicle/vehicle" hover-class="none"  class="selection-item">
     <view class="submit">提交</view>
 	</navigator>
   </view>

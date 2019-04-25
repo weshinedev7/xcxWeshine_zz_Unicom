@@ -25,11 +25,11 @@
     <image src="/images/food.png"/>
     <text>餐饮</text>
   </navigator>
-  <navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none"  class="selection-item">
+  <navigator url="/pages/makeAnAppointment/makeAnAppointment" hover-class="none"  class="selection-item">
     <image src="/images/room.png"/>
     <text>会议室</text>
   </navigator>
-  <navigator url="/pages/vehicle/vehicle" hover-class="none"  class="selection-item">
+  <navigator url="/pages/bookingVehicle/bookingVehicle" hover-class="none"  class="selection-item">
 			<image src="/images/car.png"/>
 			<text>车辆</text>
   </navigator>

@@ -1,26 +1,17 @@
-
-<!-- 头部搜索 -->
-<!-- 头部 -->
-<view class="top">
-  <view class="search-block">
-    <navigator url="/pages/search/search">
-      <image src="/images/icon-search.png"/>
-      <text>搜索</text>
-    </navigator>
-  </view>
+<!-- 选项卡 -->
+<view class="display">
+   <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
+   	全部
+   </view>
+   <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
+   	未通过
+   </view>
+   <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
+   	已通过
+   </view>
 </view>
 
-<!-- 按时间筛选 -->
-<view class="date_title">
-	<view class="date_start">
-		用车开始时间
-	</view>
-	<view class="date_end">
-		用车结束时间
-	</view>
-</view>
-<!-- <view class="date"></view> -->
-  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
+<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
 		<view class="main">
 			<view class="content_left_content">
 				<image class="centent-img" src="/images/img3.png" />
@@ -28,7 +19,7 @@
 			<view class="content_left_right">
 				<view class="content_name">车辆名</view>
 				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
-				<view class="frequency">会议次数:99</view>
+				<view class="frequency">预约次数:99</view>
 			</view>
 		</view>
 	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
@@ -39,7 +30,7 @@
 			<view class="content_left_right">
 				<view class="content_name">车辆名</view>
 				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
-				<view class="frequency">会议次数:99</view>
+				<view class="frequency">预约次数:99</view>
 			</view>
 		</view>
 	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
@@ -50,51 +41,7 @@
 			<view class="content_left_right">
 				<view class="content_name">车辆名</view>
 				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
-				<view class="frequency">会议次数:99</view>
-			</view>
-		</view>
-	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
-		<view class="main">
-			<view class="content_left_content">
-				<image class="centent-img" src="/images/img3.png" />
-			</view>
-			<view class="content_left_right">
-				<view class="content_name">车辆名</view>
-				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
-				<view class="frequency">会议次数:99</view>
-			</view>
-		</view>
-	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
-		<view class="main">
-			<view class="content_left_content">
-				<image class="centent-img" src="/images/img3.png" />
-			</view>
-			<view class="content_left_right">
-				<view class="content_name">车辆名</view>
-				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
-				<view class="frequency">会议次数:99</view>
-			</view>
-		</view>
-	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
-		<view class="main">
-			<view class="content_left_content">
-				<image class="centent-img" src="/images/img3.png" />
-			</view>
-			<view class="content_left_right">
-				<view class="content_name">车辆名</view>
-				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
-				<view class="frequency">会议次数:99</view>
-			</view>
-		</view>
-	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
-		<view class="main">
-			<view class="content_left_content">
-				<image class="centent-img" src="/images/img3.png" />
-			</view>
-			<view class="content_left_right">
-				<view class="content_name">车辆名</view>
-				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
-				<view class="frequency">会议次数:99</view>
+				<view class="frequency">预约次数:99</view>
 			</view>
 		</view>
 	</navigator>
