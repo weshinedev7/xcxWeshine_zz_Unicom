@@ -25,11 +25,7 @@
     <image src="/images/food.png"/>
     <text>餐饮</text>
   </navigator>
-<<<<<<< HEAD
   <navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none"  class="selection-item">
-=======
-  <navigator   url="" hover-class="none"  class="selection-item">
->>>>>>> 2b2e40e395990d9a0304786ae1c6d8f67279d231
     <image src="/images/room.png"/>
     <text>会议室</text>
   </navigator>
