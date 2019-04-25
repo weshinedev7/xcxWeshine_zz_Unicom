@@ -2,7 +2,6 @@
   "pages":[
 		"pages/index/index",
 		"pages/conferenceRoom/conferenceRoom",
-		"pages/vehicleDetails/vehicleDetails",
 		"pages/search/search",
 		"pages/makeAnAppointment/makeAnAppointment",
     "pages/food/food",
