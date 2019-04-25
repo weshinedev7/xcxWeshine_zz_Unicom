@@ -43,16 +43,19 @@
 
 <!-- 底部 -->
 <!-- <view class='container'> -->
+
   <view class="nav_container">
+  	<navigator url="/pages/makeAnAppointment/makeAnAppointment">
     <!-- <view class="price">
 			<text class="money-label">￥:</text>
 			<text class="money">139</text>
 			<text class="original_price">￥:149</text>
 		</view> -->
-    <view class="pay">
-			<!-- <view class="pay-content"> -->
-			立即预约
-			<!-- </view> -->
-		</view>
+			<view class="pay">
+				<!-- <view class="pay-content"> -->
+				立即预约
+				<!-- </view> -->
+			</view>
+		</navigator>
   </view>
 <!-- </view> -->

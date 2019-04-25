@@ -30,10 +30,8 @@
     <text>会议室</text>
   </navigator>
   <navigator url="/pages/vehicle/vehicle" hover-class="none"  class="selection-item">
-		<!-- <view class="selection-item"> -->
 			<image src="/images/car.png"/>
 			<text>车辆</text>
-		<!-- </view> -->
   </navigator>
 </view>
 

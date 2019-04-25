@@ -20,8 +20,7 @@
 	</view>
 </view>
 <!-- <view class="date"></view> -->
-
-
+  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
 		<view class="main">
 			<view class="content_left_content">
 				<image class="centent-img" src="/images/img3.png" />
@@ -32,6 +31,7 @@
 				<view class="frequency">会议次数:99</view>
 			</view>
 		</view>
+	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
 		<view class="main">
 			<view class="content_left_content">
 				<image class="centent-img" src="/images/img3.png" />
@@ -42,15 +42,59 @@
 				<view class="frequency">会议次数:99</view>
 			</view>
 		</view>
+	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
 		<view class="main">
 			<view class="content_left_content">
 				<image class="centent-img" src="/images/img3.png" />
 			</view>
-
 			<view class="content_left_right">
 				<view class="content_name">车辆名</view>
 				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
 				<view class="frequency">会议次数:99</view>
 			</view>
 		</view>
-
+	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
+		<view class="main">
+			<view class="content_left_content">
+				<image class="centent-img" src="/images/img3.png" />
+			</view>
+			<view class="content_left_right">
+				<view class="content_name">车辆名</view>
+				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
+				<view class="frequency">会议次数:99</view>
+			</view>
+		</view>
+	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
+		<view class="main">
+			<view class="content_left_content">
+				<image class="centent-img" src="/images/img3.png" />
+			</view>
+			<view class="content_left_right">
+				<view class="content_name">车辆名</view>
+				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
+				<view class="frequency">会议次数:99</view>
+			</view>
+		</view>
+	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
+		<view class="main">
+			<view class="content_left_content">
+				<image class="centent-img" src="/images/img3.png" />
+			</view>
+			<view class="content_left_right">
+				<view class="content_name">车辆名</view>
+				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
+				<view class="frequency">会议次数:99</view>
+			</view>
+		</view>
+	</navigator>  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
+		<view class="main">
+			<view class="content_left_content">
+				<image class="centent-img" src="/images/img3.png" />
+			</view>
+			<view class="content_left_right">
+				<view class="content_name">车辆名</view>
+				<view class="introduction">车辆名车辆名车辆名车辆名车辆名车辆名</view>
+				<view class="frequency">会议次数:99</view>
+			</view>
+		</view>
+	</navigator>
