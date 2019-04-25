@@ -1,10 +1,8 @@
 <!-- 头部 -->
 <view class="top">
   <view class="search-block">
-    <navigator url="">
-      <image src="/images/icon-search.png"/>
-      <text>搜索</text>
-    </navigator>
+		<input type="text" placeholder="请输入搜索内容"/>
+    <image src="/images/icon-search.png"/>
   </view>
+		<view class="search-text">搜索</view>
 </view>
-<view class="search-text">搜索</view>
