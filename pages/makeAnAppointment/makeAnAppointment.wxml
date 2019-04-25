@@ -1,4 +1,3 @@
-<!-- <view class="top"></view> -->
 <!-- 选项卡 -->
 <view class="menu_box">
  	<text class='menu_left {{menuTapCurrent=="0"?"borders":""}}' data-current="0" catchtap="menuTap">预约信息</text>
@@ -81,12 +80,6 @@
     <view class="submit">提交</view>
   </view>
 	</view>
-
-<!-- 底部 -->
-<!-- <view class='container'> -->
-
-
-
 <!-- 预约历史 -->
 	<!-- <view class="content_right" hidden="{{menuTapCurrent!='1'}}">
 	</view> -->
