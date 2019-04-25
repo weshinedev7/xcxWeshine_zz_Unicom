@@ -27,11 +27,11 @@
   </navigator>
   <navigator url="/pages/makeAnAppointment/makeAnAppointment" hover-class="none"  class="selection-item">
     <image src="/images/room.png"/>
-    <text>会议室</text>
+    <text>预约会议室</text>
   </navigator>
   <navigator url="/pages/bookingVehicle/bookingVehicle" hover-class="none"  class="selection-item">
 			<image src="/images/car.png"/>
-			<text>车辆</text>
+			<text>预约车辆</text>
   </navigator>
 </view>
 

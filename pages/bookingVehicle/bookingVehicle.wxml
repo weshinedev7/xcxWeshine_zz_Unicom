@@ -1,12 +1,8 @@
 
 <!-- 预约选项卡 -->
 		<view class="main">
-			<view class="title">
-				<view class="text">会议标题：</view>
-				<input placeholder="请输入会议标题" auto-focus/>
-			</view>
 			<view class="start_date">
-				<view class="text">开始时间:</view>
+				<view class="text">使用时间:</view>
 				
 					<view class="tui-picker-content">
 						<picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
@@ -27,55 +23,20 @@
 
 			</view>
 			<view class="start_date">
-				<view class="text">会议人数:</view>
-				<input placeholder="会议人数"/>
+				<view class="text">乘坐人数:</view>
+				<input placeholder="乘坐人数"/>
 			</view>
-			<view class="meeting-content">会议内容</view>
+			<view class="meeting-content">使用途径</view>
 			<view class="meeting">
-				 <textarea placeholder="会议内容..." maxlength="1000"/>
-			</view>
-			
-			<view class="start_date">
-				<view class="text">桌签:</view>
-				<input placeholder="桌签"/>
-			</view>
-			<view class="start_date">
-				<view class="text">投影仪:</view>
-				<input placeholder="投影仪"/>
-			</view>
-			<view class="start_date">
-				<view class="text">笔记本电脑:</view>
-				<input placeholder="笔记本电脑"/>
-			</view>
-			<view class="start_date">
-				<view class="text">白板:</view>
-				<input placeholder="白板"/>
-			</view>
-			<view class="start_date">
-				<view class="text">点名发言:</view>
-				<input placeholder="点名发言"/>
-			</view>
-			<view class="start_date">
-				<view class="text">茶水:</view>
-				<input placeholder="茶水"/>
-			</view>
-			<view class="start_date">
-				<view class="text">鲜花:</view>
-				<input placeholder="鲜花"/>
-			</view>
-			
-			<view class="meeting-content">现场背景音乐</view>
-			<view class="meeting">
-				 <textarea placeholder="现场背景音乐..."  maxlength="1000"/>
+				 <textarea placeholder="使用途径..." maxlength="1000"/>
 			</view>
 		</view>
-		  <view class="nav_container">
-    <view class="reset">重置</view>
-			
-  <navigator url="/pages/vehicle/vehicle" hover-class="none"  class="selection-item">
-    <view class="submit">提交</view>
-	</navigator>
-  </view>
+		<view class="nav_container">
+			<view class="reset">重置</view>
+			<navigator url="/pages/vehicle/vehicle" hover-class="none"  class="selection-item">
+				<view class="submit">提交</view>
+			</navigator>
+		</view>
 <!-- 预约历史 -->
 	<!-- <view class="content_right" hidden="{{menuTapCurrent!='1'}}">
 	</view> -->

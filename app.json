@@ -1,6 +1,7 @@
 {
   "pages":[
 		"pages/index/index",
+		"pages/bookingVehicle/bookingVehicle",
 		"pages/conferenceRoom/conferenceRoom",
 		"pages/search/search",
 		"pages/makeAnAppointment/makeAnAppointment",
@@ -9,8 +10,7 @@
 		"pages/vehicle/vehicle",
     "pages/order/order",
     "pages/score/score",
-    "pages/user/user",
-		"pages/bookingVehicle/bookingVehicle"
+    "pages/user/user"
     
   ],
   "window":{
