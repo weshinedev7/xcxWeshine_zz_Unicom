@@ -33,7 +33,7 @@
 
 <block wx:if="{{check=='0'}}">
   <view class="content" >
-    <view class="child">
+    <navigator url="/pages/details/details" class="child" hover-class="none">
       <image src="/images/img1.jpeg"/>
       <view class="content-name">单人爆辣尖椒炒肉单人爆辣尖椒炒肉</view>
       <view class="store-name">[门店1]</view>
@@ -45,8 +45,8 @@
           <view class="new-price">￥199.9</view>
             <view class="old-price">￥101</view>
       </view>
-    </view>
-    <view class="child">
+    </navigator>
+    <navigator url="/pages/details/details" class="child" hover-class="none">
       <image src="/images/img2.png"/>
       <view class="content-name">麻辣酸菜鱼爽口</view>
       <view class="store-name">[门店3]</view>
@@ -58,8 +58,8 @@
           <view class="new-price">￥19997.9</view>
             <view class="old-price">￥101</view>
       </view>
-    </view>
-    <view class="child">
+    </navigator>
+    <navigator url="/pages/details/details" class="child" hover-class="none">
       <image src="/images/img3.png"/>
       <view class="content-name">招牌必点红烧肉</view>
       <view class="store-name">[门店1]</view>
@@ -71,13 +71,13 @@
           <view class="new-price">￥97.9</view>
             <view class="old-price">￥101</view>
       </view>
-    </view>
+    </navigator>
   </view>
 </block>
 
 <block wx:elif="{{check=='1'}}">
   <view class="content" >
-    <view class="child">
+    <navigator url="/pages/details/details" class="child" hover-class="none">
       <image src="/images/img2.png"/>
       <view class="content-name">麻辣酸菜鱼爽口</view>
       <view class="store-name">[门店1]</view>
@@ -89,8 +89,8 @@
           <view class="new-price">￥19997.9</view>
             <view class="old-price">￥101</view>
       </view>
-    </view>
-    <view class="child">
+    </navigator>
+    <navigator url="/pages/details/details" class="child" hover-class="none">
       <image src="/images/img3.png"/>
       <view class="content-name">招牌必点红烧肉</view>
       <view class="store-name">[门店1]</view>
@@ -102,7 +102,7 @@
           <view class="new-price">￥97.9</view>
             <view class="old-price">￥101</view>
       </view>
-    </view>
+    </navigator>
   </view>
 </block>
 

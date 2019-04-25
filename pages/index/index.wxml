@@ -47,7 +47,7 @@
 </view>
 
 <view class="show-content">
-  <view class="content-item">
+  <navigator url="/pages/details/details" hover-class="none" class="content-item">
       <image src="/images/img3.png"/>
       <view class="content-price">
           <view class="new-price">￥97.9</view>
@@ -55,8 +55,8 @@
       </view>
       <view class="content-name">菜名2</view>
       <view class="content-store">店门2</view>
-  </view>
-  <view class="content-item">
+  </navigator>
+  <navigator url="/pages/details/details" hover-class="none" class="content-item">
       <image src="/images/img2.png"/>
       <view class="content-price">
           <view class="new-price">￥97.9</view>
@@ -64,8 +64,8 @@
       </view>
       <view class="content-name">菜名1</view>
       <view class="content-store">店门1</view>
-  </view>
-  <view class="content-item">
+  </navigator>
+  <navigator url="/pages/details/details" hover-class="none" class="content-item">
       <image src="/images/img1.jpeg"/>
       <view class="content-price">
           <view class="new-price">￥9.9</view>
@@ -73,8 +73,8 @@
       </view>
       <view class="content-name">菜名3</view>
       <view class="content-store">店门3</view>
-  </view>
-  <view class="content-item">
+  </navigator>
+  <navigator url="/pages/details/details" hover-class="none" class="content-item">
       <image src="/images/img1.jpeg"/>
       <view class="content-price">
           <view class="new-price">￥9.9</view>
@@ -82,7 +82,7 @@
       </view>
       <view class="content-name">菜名3</view>
       <view class="content-store">店门3</view>
-  </view>
+  </navigator>
 </view>
 
 
