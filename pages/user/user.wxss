@@ -122,3 +122,13 @@ page {
 		color:#858282;
 	}
 
+
+.login{float:right;
+		width:15%;
+		font-size:25rpx;
+		height:50rpx;
+		color:#838383;
+		line-height: 50rpx;
+		padding:0rpx;
+		margin-top:5rpx;
+		}

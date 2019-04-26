@@ -1,0 +1,95 @@
+<!-- 头部 -->
+<view class="top">
+  <view class="search-block">
+    <navigator url="/pages/search/search">
+      <image src="/images/icon-search.png"/>
+      <text>搜索</text>
+    </navigator>
+  </view>
+</view>
+
+<!-- 选项卡 -->
+<view class="display">
+  <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
+    全部
+  </view>
+  <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
+    正在销售
+  </view>
+  <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
+    已下架
+  </view>
+</view>
+
+<!-- 内容 -->
+
+<view wx:if="{{check=='0'}}" class="eval-all">
+<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
+		<view class="main">
+			<view class="content_left_content">
+				<image class="centent-img" src="/images/img3.png" />
+			</view>
+			<view class="content_left_right">
+				<view class="content_name">会议室名</view>
+				<view class="introduction">会议室简介会议室简介会议室简介</view>
+				<view class="frequency">会议次数:99</view>
+			</view>
+		</view>
+		</navigator>
+		<view class="main">
+			<view class="content_left_content">
+				<image class="centent-img" src="/images/img3.png" />
+			</view>
+
+			<view class="content_left_right">
+				<view class="content_name">会议室名</view>
+				<view class="introduction">会议室简介会议室简介会议室简介</view>
+				<view class="frequency">会议次数:99</view>
+			</view>
+		</view>
+		<view class="main">
+			<view class="content_left_content">
+				<image class="centent-img" src="/images/img3.png" />
+			</view>
+
+			<view class="content_left_right">
+				<view class="content_name">会议室名</view>
+				<view class="introduction">会议室简介会议室简介会议室简介</view>
+				<view class="frequency">会议次数:99</view>
+			</view>
+		</view>
+</view>
+  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="selection-item">
+    <view class="main">
+      <view class="content_left_content">
+        <image class="centent-img" src="/images/img3.png" />
+      </view>
+      <view class="content_left_right">
+        <view class="content_name">会议室名</view>
+        <view class="introduction">会议室简介会议室简介会议室简介</view>
+        <view class="frequency">会议次数:99</view>
+      </view>
+    </view>
+  </navigator>
+  <view class="main">
+    <view class="content_left_content">
+      <image class="centent-img" src="/images/img3.png" />
+    </view>
+
+    <view class="content_left_right">
+      <view class="content_name">会议室名</view>
+      <view class="introduction">会议室简介会议室简介会议室简介</view>
+      <view class="frequency">会议次数:99</view>
+    </view>
+  </view>
+  <view class="main">
+    <view class="content_left_content">
+      <image class="centent-img" src="/images/img3.png" />
+    </view>
+
+    <view class="content_left_right">
+      <view class="content_name">会议室名</view>
+      <view class="introduction">会议室简介会议室简介会议室简介</view>
+      <view class="frequency">会议次数:99</view>
+    </view>
+  </view>
