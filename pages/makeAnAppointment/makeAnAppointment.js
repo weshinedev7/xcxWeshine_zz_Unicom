@@ -8,7 +8,15 @@ Page({
 	 */
 	data: {
 		"menuTapCurrent": 0,
-
+		items: [
+			{ name: '茶水', value: '茶水' },
+			{ name: '桌签', value: '桌签', checked: 'true' },
+			{ name: '笔记本电脑', value: '笔记本电脑' },
+			{ name: '投影仪', value: '投影仪' },
+			{ name: '鲜花', value: '鲜花' },
+			{ name: '点名发言', value: '点名发言' },
+			{ name: '背景音乐', value: '背景音乐' },
+		]
 	},
 
 	/**

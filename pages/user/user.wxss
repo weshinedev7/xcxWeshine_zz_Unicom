@@ -36,7 +36,7 @@ page {
 
 
 
-.user_id{
+.user_tel{
 		width:100%;
 		height:70rpx;
 		line-height: 70rpx;
@@ -46,9 +46,10 @@ page {
 
 
 /* 顶部头像 */
-.top_right{width:22%;
+.top_right{width:19.5%;
 		height:130rpx;
 		float:right;
+		margin-right:20rpx;
 		border-radius: 75rpx;
 		}
 
@@ -56,6 +57,7 @@ page {
 
 .top_right image{width:100%;
 		height:100%;
+		border-radius: 75rpx;
 		}
 
 
@@ -73,9 +75,9 @@ page {
 		float:right;
 		text-align: center;
 		line-height: 65rpx;
-		font-size:26rpx;
+		padding:0rpx 0rpx;
+		font-size:25rpx;
 		color:rgb(138, 136, 133);
-		border:1rpx solid #c2bfbf;
 		border-radius: 10rpx;
 		}
 
@@ -84,19 +86,18 @@ page {
 .main{width:100%;
 		background: white;
 		margin-top:20rpx;
-		padding-top:30rpx;
+		padding:30rpx 0rpx;
 		}
 
 
 
 .main_center{width:90%;
-		height:800rpx;
 		margin:0rpx auto;
 		}
 
 
 .center_list{width:100%;
-		height:60rpx;
+		height:80rpx;
 		padding:20rpx 0rpx;
 		line-height: 60rpx;
 		color:#858282;
@@ -106,9 +107,9 @@ page {
 
 
 
-.center_list_text{font-size:26rpx;
+.center_list_text{font-size:30rpx;
 		float:left;
-		width:20%;
+		width:30%;
 		height:60rpx;
 	}
 

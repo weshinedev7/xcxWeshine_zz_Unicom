@@ -1,17 +1,20 @@
 {
   "pages":[
 		"pages/index/index",
+<<<<<<< HEAD
     "pages/login/login",
+=======
+		"pages/makeAnAppointment/makeAnAppointment",
+		"pages/vehicle/vehicle",
+		"pages/user/user",
+>>>>>>> 71553ff2cc0b77cccdeef6a53b57873dee48f5d4
 		"pages/bookingVehicle/bookingVehicle",
 		"pages/conferenceRoom/conferenceRoom",
 		"pages/search/search",
-		"pages/makeAnAppointment/makeAnAppointment",
     "pages/food/food",
 		"pages/details/details",
-		"pages/vehicle/vehicle",
     "pages/order/order",
-    "pages/score/score",
-    "pages/user/user"
+    "pages/score/score"
     
   ],
   "window":{

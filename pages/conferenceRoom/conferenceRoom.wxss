@@ -26,20 +26,22 @@
 				}
 
 .content_left_content{
-				width:220rpx;
+				/* width:220rpx; */
+				width:32%;
 				float:left;
 				}
 
 .centent-img{width:180rpx;
 				height:130rpx;
 				border-radius: 20rpx;
-				margin:20rpx 0rpx 0rpx 25rpx;
+				margin:20rpx 0rpx 0rpx 20rpx;
 				}
 
 
-.content_left_right{width:450rpx;
+.content_left_right{width:65%;
 				height:130rpx;
-				margin-top:25rpx;
+				padding:0rpx 10rpx;
+				margin-top:20rpx;
 				float:right;
 				}
 

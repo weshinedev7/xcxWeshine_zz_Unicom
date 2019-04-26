@@ -35,38 +35,23 @@
 				 <textarea placeholder="会议内容..." maxlength="1000"/>
 			</view>
 			
-			<view class="start_date">
-				<view class="text">桌签:</view>
-				<input placeholder="桌签"/>
-			</view>
-			<view class="start_date">
-				<view class="text">投影仪:</view>
-				<input placeholder="投影仪"/>
-			</view>
-			<view class="start_date">
-				<view class="text">笔记本电脑:</view>
-				<input placeholder="笔记本电脑"/>
-			</view>
-			<view class="start_date">
-				<view class="text">白板:</view>
-				<input placeholder="白板"/>
-			</view>
-			<view class="start_date">
-				<view class="text">点名发言:</view>
-				<input placeholder="点名发言"/>
-			</view>
-			<view class="start_date">
-				<view class="text">茶水:</view>
-				<input placeholder="茶水"/>
-			</view>
-			<view class="start_date">
-				<view class="text">鲜花:</view>
-				<input placeholder="鲜花"/>
+
+			<!-- 补充选项 -->
+			<view class="meeting-content">补充选项</view>
+			<view class="supplement">
+				<view class="supplement-content">
+					<checkbox-group bindchange="checkboxChange">
+						<label class="checkbox" wx:for="{{items}}">
+									<checkbox value="{{item.name}}" checked="{{item.checked}}" />
+									{{item.value}}
+						</label>
+					</checkbox-group>
+				</view>
 			</view>
 			
-			<view class="meeting-content">现场背景音乐</view>
+			<view class="meeting-content">备注</view>
 			<view class="meeting">
-				 <textarea placeholder="现场背景音乐..."  maxlength="1000"/>
+				 <textarea placeholder="备注..."  maxlength="1000"/>
 			</view>
 		</view>
 		  <view class="nav_container">

@@ -18,8 +18,8 @@
 				height: 60rpx;
 				padding:0rpx 20rpx;
 				float:left;
-				border:1rpx solid #838383;
-				border-radius: 26rpx;
+				border-bottom:1rpx solid #c4c0c0;
+				/* border-radius: 26rpx; */
 				font-size:25rpx;
 			}
 
@@ -29,7 +29,7 @@
 				padding-top:20rpx;
 				font-size:30rpx;
 				height: 60rpx;
-				border-top:1rpx dashed  #838383;
+				/* border-top:1rpx dashed  #838383; */
 				text-align: center;
 				line-height: 60rpx;
 			}
@@ -45,7 +45,7 @@
 				min-height:200rpx;
 				padding:20rpx 10rpx;
 				font-size:30rpx;
-				border:1rpx solid  #838383;
+				border:1rpx solid  #bebdbd;
 				border-radius: 26rpx;
 }
 
