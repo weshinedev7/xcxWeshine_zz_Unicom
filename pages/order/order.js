@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    check:0
+    check:0,
+    list:['','','','']
   },
 
   selectDispaly:function(e){

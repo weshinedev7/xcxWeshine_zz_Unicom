@@ -54,10 +54,11 @@
 .order-info {
   font-size: 9pt;
   color: #888;
+  border-bottom:1px solid #eee;
 }
 .goods-list{
 	magrin:0 30rpx;
-  border-top:1px solid #eee;
+  
 }
 .goods-pic {
   width: 156rpx;
@@ -97,7 +98,7 @@
   margin:30rpx 0;
   height:100rpx;
   align-items: center;
-  border-bottom:2px solid #eee;
+  border-bottom:3px solid #eee;
 }
 
 .text-style{
