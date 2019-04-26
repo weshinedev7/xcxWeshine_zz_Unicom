@@ -1,0 +1,13 @@
+<view class="top">
+  <view class="block">
+        <image src="/images/user_sele.png" mode="aspectFill"/>
+		<input type="text" placeholder="账号"/>        
+  </view>
+
+  <view class="block">
+        <image src="/images/pass.png" mode="aspectFill"/>
+		<input type="text" placeholder="密码"/>        
+  </view>
+
+  <view class="btn-login">登录</view>
+</view>
