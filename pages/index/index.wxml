@@ -9,11 +9,11 @@
 </view>
 
 <!--轮播banner-->
-<swiper indicator-dots="true"  autoplay="true" interval="2000" duration="2000" circular="true" class="banner">  
+<swiper indicator-dots="true"  autoplay="true" interval="5000" duration="1000" circular="true" class="banner">  
   <block wx:for="{{imgUrls}}">  
     <swiper-item>  
       <navigator url="{{item.link}}">  
-       <image src="{{item.url}}" class="banner-image"/>  
+       <image src="{{item.url}}" class="banner-image" mode="aspectFill"/>  
       </navigator>  
     </swiper-item>  
   </block>  
@@ -22,15 +22,15 @@
 <!--功能展示-->
 <view class="section">
   <navigator url="/pages/food/food" hover-class="none" class="selection-item">
-    <image src="/images/food.png"/>
+    <image src="/images/food.png" mode="aspectFit"/>
     <text>餐饮</text>
   </navigator>
   <navigator url="/pages/makeAnAppointment/makeAnAppointment" hover-class="none"  class="selection-item">
-    <image src="/images/room.png"/>
+    <image src="/images/room.png" mode="aspectFit"/>
     <text>预约会议室</text>
   </navigator>
   <navigator url="/pages/bookingVehicle/bookingVehicle" hover-class="none"  class="selection-item">
-			<image src="/images/car.png"/>
+			<image src="/images/car.png" mode="aspectFit"/>
 			<text>预约车辆</text>
   </navigator>
 </view>
@@ -48,7 +48,7 @@
 
 <view class="show-content">
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
-      <image src="/images/img3.png"/>
+      <image src="/images/img3.png" mode="aspectFill"/>
       <view class="content-price">
           <view class="new-price">￥97.9</view>
           <view class="old-price">￥101</view>
@@ -57,7 +57,7 @@
       <view class="content-store">店门2</view>
   </navigator>
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
-      <image src="/images/img2.png"/>
+      <image src="/images/img2.png" mode="aspectFill"/>
       <view class="content-price">
           <view class="new-price">￥97.9</view>
           <view class="old-price">￥101</view>
@@ -66,7 +66,7 @@
       <view class="content-store">店门1</view>
   </navigator>
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
-      <image src="/images/img1.jpeg"/>
+      <image src="/images/img1.jpeg" mode="aspectFill"/>
       <view class="content-price">
           <view class="new-price">￥9.9</view>
           <view class="old-price">￥10</view>
@@ -75,7 +75,7 @@
       <view class="content-store">店门3</view>
   </navigator>
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
-      <image src="/images/img1.jpeg"/>
+      <image src="/images/img1.jpeg" mode="aspectFill"/>
       <view class="content-price">
           <view class="new-price">￥9.9</view>
           <view class="old-price">￥10</view>

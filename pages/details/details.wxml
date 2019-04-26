@@ -3,7 +3,7 @@
 	<block wx:for="{{imgUrls}}">  
 		<swiper-item>  
 			<navigator url="{{item.link}}">  
-			<image src="{{item.url}}" class="banner-image"/>  
+			<image src="{{item.url}}" class="banner-image" mode="aspectFill"/>  
 			</navigator>  
 		</swiper-item>  
 	</block>  
@@ -51,7 +51,7 @@
 
          <view class="evaluate">
 			<view class="content_left_content">
-				<image class="centent-img" src="/images/none.png" />
+				<image class="centent-img" src="/images/none.png" mode="aspectFill"/>
 			</view>
 			<view class="content_left_right">
 				<view class="introduction">
@@ -74,7 +74,7 @@
 		<view class="line"></view>
 		<view class="evaluate">
 			<view class="content_left_content">
-				<image class="centent-img" src="/images/none.png" />
+				<image class="centent-img" src="/images/none.png" mode="aspectFill"/>
 			</view>
 			<view class="content_left_right">
 				<view class="introduction">
@@ -97,7 +97,7 @@
 		<view class="line"></view>
 		<view class="evaluate">
 			<view class="content_left_content">
-				<image class="centent-img" src="/images/none.png" />
+				<image class="centent-img" src="/images/none.png" mode="aspectFill"/>
 			</view>
 			<view class="content_left_right">
 				<view class="introduction">
