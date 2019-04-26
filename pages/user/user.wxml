@@ -1,2 +1,34 @@
-<!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<!-- 用户中心 -->
+<!-- 顶部 -->
+<view class="top">
+	<view class="top_centent">
+		<view class="top_left">
+			<view class="user_name">从你的全世界路过</view>
+			<view class="user_id">(普通用户) ID:1008456</view>
+		</view>
+		<view class="top_right">
+			<image src="../../images/user.png" />
+		</view>
+		<view class="top_bottom">
+			<view class="get_user_details">更改个人信息</view>
+		</view>
+	</view> 
+</view>
+
+<!-- 内容 -->
+<view class="main">
+	<view class="main_center">
+		<navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none">
+			<view class="center_list">
+				<view class="center_list_text">预约会议室</view>
+				<view><image src="../../images/right-2.png" /></view>
+			</view>
+		</navigator>
+		<navigator url="/pages/vehicle/vehicle" hover-class="none">
+			<view class="center_list">
+				<view class="center_list_text">预约车辆</view>
+				<view><image src="../../images/right-2.png" /></view>
+			</view>
+		</navigator>
+	</view>
+</view>

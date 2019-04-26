@@ -1,7 +1,7 @@
 {
 	"navigationBarBackgroundColor": "#ffffff",
 	"navigationBarTextStyle": "black",
-	"navigationBarTitleText": "预约会议室",
+	"navigationBarTitleText": "会议记录",
 	"backgroundColor": "#eeeeee",
 	"backgroundTextStyle": "light",
   "usingComponents": {}

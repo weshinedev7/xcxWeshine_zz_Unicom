@@ -1,11 +1,5 @@
-<!-- 选项卡 -->
-<view class="menu_box">
- 	<text class='menu_left {{menuTapCurrent=="0"?"borders":""}}' data-current="0" catchtap="menuTap">预约信息</text>
- 	<text class='menu_right {{menuTapCurrent=="1"?"borders":""}}' data-current="1" catchtap="menuTap">预约历史</text>
-</view>
 
 <!-- 预约选项卡 -->
-	<view class="content_left" hidden="{{menuTapCurrent!='0'}}">
 		<view class="main">
 			<view class="title">
 				<view class="text">会议标题：</view>
@@ -77,9 +71,11 @@
 		</view>
 		  <view class="nav_container">
     <view class="reset">重置</view>
+			
+  <navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none"  class="selection-item">
     <view class="submit">提交</view>
+	</navigator>
   </view>
-	</view>
 <!-- 预约历史 -->
 	<!-- <view class="content_right" hidden="{{menuTapCurrent!='1'}}">
 	</view> -->
