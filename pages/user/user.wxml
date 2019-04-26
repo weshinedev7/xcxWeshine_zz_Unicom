@@ -4,13 +4,13 @@
 	<view class="top_centent">
 		<view class="top_left">
 			<view class="user_name">从你的全世界路过</view>
-			<view class="user_id">(普通用户) ID:1008456</view>
+			<view class="user_tel">182****9478</view>
 		</view>
 		<view class="top_right">
-			<image src="../../images/user.png" />
+			<image src="../../images/head.jpg" />
 		</view>
 		<view class="top_bottom">
-			<view class="get_user_details">更改个人信息</view>
+			<button class="get_user_details">更新个人信息</button>
 		</view>
 	</view> 
 </view>
