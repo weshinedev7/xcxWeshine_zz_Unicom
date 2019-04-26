@@ -56,7 +56,7 @@
       </view>
       <view class="content_left_right">
         <view class="content_name">会议室名</view>
-        <view class="introduction">会议室简介会议室简介会议室简介会议室简介</view>
+        <view class="introduction">会议室简介会议室简介会议室简介</view>
         <view class="frequency">会议次数:99</view>
       </view>
     </view>
@@ -68,7 +68,7 @@
 
     <view class="content_left_right">
       <view class="content_name">会议室名</view>
-      <view class="introduction">会议室简介会议室简介会议室简介会议室简介</view>
+      <view class="introduction">会议室简介会议室简介会议室简介</view>
       <view class="frequency">会议次数:99</view>
     </view>
   </view>
@@ -79,8 +79,7 @@
 
     <view class="content_left_right">
       <view class="content_name">会议室名</view>
-      <view class="introduction">会议室简介会议室简介会议室简介会议室简介</view>
+      <view class="introduction">会议室简介会议室简介会议室简介</view>
       <view class="frequency">会议次数:99</view>
     </view>
   </view>
-</view>
