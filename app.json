@@ -3,6 +3,7 @@
 		"pages/index/index",
 		"pages/varietyOfDishes/varietyOfDishes",
 		"pages/user/user",
+    "pages/login/login",
 		"pages/makeAnAppointment/makeAnAppointment",
 		"pages/vehicle/vehicle",
 		"pages/bookingVehicle/bookingVehicle",

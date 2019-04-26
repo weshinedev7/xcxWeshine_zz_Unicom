@@ -1,0 +1,39 @@
+.top{
+  width:100%;
+  margin-top:80rpx;
+}
+.block {
+    margin: 30rpx 80rpx;
+    height: 100rpx;
+    display:flex;
+    align-items:center;
+    border-radius: 30rpx;
+    background: #eee;
+}
+.block input{
+  background: #eee;
+  height: 100rpx;
+  float:left;
+  line-height: 70rpx;
+  color: #b2b2b2;
+  font-size:35rpx;
+  margin-left:20rpx;
+}
+
+.block image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-left:30rpx;
+}
+
+.btn-login{
+  margin: 30rpx 80rpx;
+  height: 100rpx;
+  display:flex;
+  align-items:center;
+  border-radius: 30rpx;
+  background: #1296db;
+  text-align:center;
+  justify-content:center;
+  color: #b2b2b2;
+}
