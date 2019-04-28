@@ -13,15 +13,16 @@
 			
 			<view class="icon">
 				<view class="icon-title">菜品图片
-					<image src="/images/add_icon.png" class="add_image"></image>
+					<!-- <image src="/images/add_icon.png" class="add_image" bindtap="uploadimg" bindtap='uploadpic'></image> -->
 				</view>
-				<view class="add_icon">
-					<!-- <view class="icon_text">请上传图片</view> -->
+				<!-- <view class="add_icon">
+					<view class="icon_text">请上传图片</view>
 						<image src="/images/img1.jpeg"></image>
 						<image src="/images/img2.png"></image>
 						<image src="/images/img3.png"></image>
-						<image src="/images/img2.png"></image>
-				</view>
+						<image src="{{source}}"></image>
+				</view> -->
+				<include src="../template/up-pic.wxml" />
 			</view>
 			
 

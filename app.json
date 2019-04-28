@@ -1,9 +1,9 @@
 {
   "pages":[
-		"pages/index/index",
 		"pages/varietyOfDishes/varietyOfDishes",
-		"pages/varietyOfEdit/varietyOfEdit",
+		"pages/index/index",
 		"pages/varietyOfAdd/varietyOfAdd",
+		"pages/varietyOfEdit/varietyOfEdit",
 		"pages/user/user",
     "pages/login/login",
 		"pages/makeAnAppointment/makeAnAppointment",
@@ -31,14 +31,14 @@
   "tabBar": {
     "backgroundColor": "#fff",
     "borderStyle": "black",
-    "color": "#888",
-    "selectedColor": "#1296db",
+    "color": "#666666",
+    "selectedColor": "#dd2727",
     "list": [
         {
             "pagePath": "pages/index/index",
             "text": "首页",
-            "iconPath": "images/home.png",
-            "selectedIconPath": "images/home_sele.png"
+            "iconPath": "images/index.png",
+            "selectedIconPath": "images/index_sele.png"
         },
         {
             "pagePath": "pages/order/order",

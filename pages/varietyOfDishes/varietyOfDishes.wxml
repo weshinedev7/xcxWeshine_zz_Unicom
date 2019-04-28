@@ -26,101 +26,82 @@
 
 <!-- 内容 -->
 
-<view wx:if="{{check=='0'}}" class="eval-all">
-<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
+<view wx:if="{{check=='0'}}" wx:for="{{food}}" class="eval-all">
 
-		<view class="main">
+	<view class="main">
+	<navigator url="/pages/details/details" hover-class="none"  class="selection-item">
 
 			<view class="content_left_content">
-				<image class="centent-img" src="/images/img3.png" />
+				<image class="centent-img" src="{{item.icon}}" />
+				<view class="{{item.status == 0?'':'status'}}">{{item.status == 0?'':'已下架'}}</view>
 			</view>
 
 			<view class="content_left_right">
-				<view class="content_name">会议室名</view>
-				<view class="introduction">会议室简介会议室简介会议室简介会议室简介会议室简介会议室简介会议室简介会议室简介会议室简介</view>
-				<view class="frequency">会议次数:99</view>
+				<view class="content_name">{{item.name}}
+				</view>
+				<view class="introduction">{{item.details}}</view>
+				<view class="price">￥:{{item.price}}/份</view>
+				<view class="frequency">已售:{{item.sold}}份</view>
 			</view>
+	</navigator>
 				<view class="operation">
 					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
-					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
-				</view>
-		</view>
-
-		</navigator>
-		<view class="main">
-			<view class="content_left_content">
-				<image class="centent-img" src="/images/img3.png" />
-			</view>
-
-			<view class="content_left_right">
-				<view class="content_name">会议室名</view>
-				<view class="introduction">会议室简介会议室简介会议室简介</view>
-				<view class="frequency">会议次数:99</view>
-			</view>
-				<view class="operation">
-					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
-					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
-				</view>
-		</view>
-		<view class="main">
-			<view class="content_left_content">
-				<image class="centent-img" src="/images/img3.png" />
-			</view>
-
-			<view class="content_left_right">
-				<view class="content_name">会议室名</view>
-				<view class="introduction">会议室简介会议室简介会议室简介</view>
-				<view class="frequency">会议次数:99</view>
-			</view>
-				<view class="operation">
-					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
-					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
-				</view>
+					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf" style="background:{{item.status == 0?'#51C332':'#dd2727'}}">{{item.status == 0?'下架':'上架'}}</navigator>
 		</view>
 </view>
-  <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="selection-item">
-    <view class="main">
-      <view class="content_left_content">
-        <image class="centent-img" src="/images/img3.png" />
-      </view>
-      <view class="content_left_right">
-        <view class="content_name">会议室名</view>
-        <view class="introduction">会议室简介会议室简介会议室简介</view>
-        <view class="frequency">会议次数:99</view>
-      </view>
-				<view class="operation">
-					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
-					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
-				</view>
-    </view>
-  </navigator>
-  <view class="main">
-    <view class="content_left_content">
-      <image class="centent-img" src="/images/img3.png" />
-    </view>
 
-    <view class="content_left_right">
-      <view class="content_name">会议室名</view>
-      <view class="introduction">会议室简介会议室简介会议室简介</view>
-      <view class="frequency">会议次数:99</view>
-    </view>
-				<view class="operation">
-					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
-					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
-				</view>
-  </view>
-  <view class="main">
-    <view class="content_left_content">
-      <image class="centent-img" src="/images/img3.png" />
-    </view>
+</view>
 
-    <view class="content_left_right">
-      <view class="content_name">会议室名</view>
-      <view class="introduction">会议室简介会议室简介会议室简介</view>
-      <view class="frequency">会议次数:99</view>
-    </view>
+
+<view wx:if="{{check=='1'}}" wx:for="{{food_upper}}" class="eval-all">
+
+	<view class="main">
+	<navigator url="/pages/details/details" hover-class="none"  class="selection-item">
+
+			<view class="content_left_content">
+				<image class="centent-img" src="{{item.icon}}" />
+				<view class="{{item.status == 0?'':'status'}}">{{item.status == 0?'':'已下架'}}</view>
+			</view>
+
+			<view class="content_left_right">
+				<view class="content_name">{{item.name}}
+				</view>
+				<view class="introduction">{{item.details}}</view>
+				<view class="price">￥:{{item.price}}/份</view>
+				<view class="frequency">已售:{{item.sold}}份</view>
+			</view>
+	</navigator>
 				<view class="operation">
 					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
-					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
+					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf" style="background:{{item.status == 0?'#51C332':'#dd2727'}}">{{item.status == 0?'下架':'上架'}}</navigator>
+		</view>
+</view>
+
+</view>
+
+
+<view wx:if="{{check=='2'}}" wx:for="{{food_lower}}" class="eval-all">
+
+	<view class="main">
+	<navigator url="/pages/details/details" hover-class="none"  class="selection-item">
+
+			<view class="content_left_content">
+				<image class="centent-img" src="{{item.icon}}" />
+				<view class="{{item.status == 0?'':'status'}}">{{item.status == 0?'':'已下架'}}</view>
+			</view>
+
+			<view class="content_left_right">
+				<view class="content_name">{{item.name}}
 				</view>
-  </view>
+				<view class="introduction">{{item.details}}</view>
+				<view class="price">￥:{{item.price}}/份</view>
+				<view class="frequency">已售:{{item.sold}}份</view>
+			</view>
+	</navigator>
+				<view class="operation">
+					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
+					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf" style="background:{{item.status == 0?'#51C332':'#dd2727'}}">{{item.status == 0?'下架':'上架'}}</navigator>
+		</view>
+</view>
+
+</view>
