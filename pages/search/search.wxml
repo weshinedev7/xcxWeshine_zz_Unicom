@@ -1,8 +1,43 @@
 <!-- 头部 -->
 <view class="top">
   <view class="search-block">
-		<input type="text" placeholder="请输入搜索内容"/>
+		<input class="input" name="search" placeholder="请输入菜品名" bindinput ="searchInput"/>
     <image src="/images/icon-search.png"/>
   </view>
-		<view class="search-text">搜索</view>
+		<view class="search-text" bindtap="search">搜索</view>
+</view>
+
+<view wx:if="{{show==1}}">
+	 <view class="content" >
+    <navigator url="/pages/details/details" class="child" hover-class="none">
+      <image src="/images/img2.png"/>
+      <view class="content-name">麻辣酸菜鱼爽口</view>
+      <view class="store-name">门店1</view>
+      <view class="content-price">
+          <view class="score">评分:5</view>
+          <view class="shell">已售:55</view>
+      </view>
+      <view class="content-price">
+          <view class="new-price">￥19997.9</view>
+            <view class="old-price">￥101</view>
+      </view>
+    </navigator>
+    <navigator url="/pages/details/details" class="child" hover-class="none">
+      <image src="/images/img3.png"/>
+      <view class="content-name">招牌必点红烧肉</view>
+      <view class="store-name">门店1</view>
+      <view class="content-price">
+          <view class="score">评分:5</view>
+          <view class="shell">已售:55</view>
+      </view>
+      <view class="content-price">
+          <view class="new-price">￥97.9</view>
+            <view class="old-price">￥101</view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view wx:if="{{show==0}}" class="middle_none">
+暂无符合您搜索内容的菜品
 </view>

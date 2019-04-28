@@ -39,6 +39,7 @@
 <view class="divLine"></view>
 
 <view class="show-title">
+   <image src="/images/like.png"mode="aspectFit" />
    <text>猜你喜欢</text>
    <navigator url="/pages/food/food" hover-class="none">
       <view class="text-more">查看全部</view>
@@ -53,7 +54,7 @@
           <view class="new-price">￥97.9</view>
           <view class="old-price">￥101</view>
       </view>
-      <view class="content-name">菜名2</view>
+      <view class="content-name">酸辣土豆丝</view>
       <view class="content-store">店门2</view>
   </navigator>
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
@@ -62,8 +63,26 @@
           <view class="new-price">￥97.9</view>
           <view class="old-price">￥101</view>
       </view>
-      <view class="content-name">菜名1</view>
+      <view class="content-name">变态麻辣十三香小龙虾</view>
       <view class="content-store">店门1</view>
+  </navigator>
+  <navigator url="/pages/details/details" hover-class="none" class="content-item">
+      <image src="/images/img1.jpeg" mode="aspectFill"/>
+      <view class="content-price">
+          <view class="new-price">￥9.9</view>
+          <view class="old-price">￥10</view>
+      </view>
+      <view class="content-name">菜名3</view>
+      <view class="content-store">店门3</view>
+  </navigator>
+  <navigator url="/pages/details/details" hover-class="none" class="content-item">
+      <image src="/images/img1.jpeg" mode="aspectFill"/>
+      <view class="content-price">
+          <view class="new-price">￥9.9</view>
+          <view class="old-price">￥10</view>
+      </view>
+      <view class="content-name">菜名3</view>
+      <view class="content-store">店门3</view>
   </navigator>
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
       <image src="/images/img1.jpeg" mode="aspectFill"/>
