@@ -23,6 +23,7 @@ Page({
   },
 
   reset:function(e){
+    console.log(e)
     this.setData({
       service:[
         { name: '好', checked: true},

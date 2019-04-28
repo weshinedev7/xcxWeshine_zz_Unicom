@@ -16,11 +16,11 @@
   </view>
   <view class="top_view {{check=='2' ? 'active' : ''}}" bindtap='selectStore' data-id="2">
     <image src="/images/none.png" class="top_icon"></image>
-    <text>门店1</text>
+    <text>门店2</text>
   </view>
   <view class="top_view {{check=='3' ? 'active' : ''}}" bindtap='selectStore' data-id="3">
     <image src="/images/none.png" class="top_icon"></image>
-    <text>门店1</text>
+    <text>门店3</text>
   </view>
   <view class="top_view {{check=='0' ? 'active' : ''}}" bindtap='selectStore' data-id="0">
     <image src='/images/icon10.png' class="top_icon"></image>
@@ -36,7 +36,7 @@
     <navigator url="/pages/details/details" class="child" hover-class="none">
       <image src="/images/img1.jpeg"/>
       <view class="content-name">单人爆辣尖椒炒肉单人爆辣尖椒炒肉</view>
-      <view class="store-name">[门店1]</view>
+      <view class="store-name">门店1</view>
       <view class="content-price">
           <view class="score">评分:10</view>
           <view class="shell">已售:555</view>
@@ -49,7 +49,7 @@
     <navigator url="/pages/details/details" class="child" hover-class="none">
       <image src="/images/img2.png"/>
       <view class="content-name">麻辣酸菜鱼爽口</view>
-      <view class="store-name">[门店3]</view>
+      <view class="store-name">门店3</view>
       <view class="content-price">
           <view class="score">评分:5</view>
           <view class="shell">已售:55</view>
@@ -62,7 +62,7 @@
     <navigator url="/pages/details/details" class="child" hover-class="none">
       <image src="/images/img3.png"/>
       <view class="content-name">招牌必点红烧肉</view>
-      <view class="store-name">[门店1]</view>
+      <view class="store-name">门店1</view>
       <view class="content-price">
           <view class="score">评分:5</view>
           <view class="shell">已售:55</view>
@@ -80,7 +80,7 @@
     <navigator url="/pages/details/details" class="child" hover-class="none">
       <image src="/images/img2.png"/>
       <view class="content-name">麻辣酸菜鱼爽口</view>
-      <view class="store-name">[门店1]</view>
+      <view class="store-name">门店1</view>
       <view class="content-price">
           <view class="score">评分:5</view>
           <view class="shell">已售:55</view>
@@ -93,7 +93,7 @@
     <navigator url="/pages/details/details" class="child" hover-class="none">
       <image src="/images/img3.png"/>
       <view class="content-name">招牌必点红烧肉</view>
-      <view class="store-name">[门店1]</view>
+      <view class="store-name">门店1</view>
       <view class="content-price">
           <view class="score">评分:5</view>
           <view class="shell">已售:55</view>

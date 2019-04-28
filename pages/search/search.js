@@ -6,6 +6,28 @@ Page({
 	 */
 	data: {
 		search:'',
+		show:'2',
+	},
+
+	searchInput:function(e)
+    {
+		this.setData({
+		search: e.detail.value
+		})
+	},
+
+	search:function(e){
+		var search=this.data.search;
+		console.log(search);
+		if(search===''){
+			this.setData({
+				show:'0'
+			})
+		}else{
+			this.setData({
+				show:'1'
+			})
+		}
 	},
 
 	/**
@@ -63,10 +85,4 @@ Page({
 	onShareAppMessage: function () {
 
 	},
-	search:function(e){
-		this.setData({
-			search: e,
-		})
-		// console.log()
-	}
 })

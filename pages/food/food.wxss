@@ -76,12 +76,18 @@
 }
 .content-name{
   font-size:30rpx;
-  height:80rpx;
+  height:40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
 }
 .new-price{
   color:#d81e06;
   font-weight:bold;
   font-size:30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
 }
 .old-price{
   color:#A9A9A9;

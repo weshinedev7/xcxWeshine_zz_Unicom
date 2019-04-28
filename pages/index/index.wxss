@@ -84,10 +84,17 @@
 	display:flex; 
 	align-items:center;
 }
+.show-title image{
+	width:40rpx;
+	height:40rpx;
+	margin-left:30rpx;
+	width:10%;
+}
 .show-title text{
 	font-size:35rpx;
-	margin-left:30rpx;
-	width:60%;
+	margin-left:0rpx;
+	float:left;
+	width:50%;
 }
 .show-title navigator{
 	width:40%;
@@ -135,7 +142,7 @@
 .new-price{
 	color:#d81e06;
 	font-weight:bold;
-	font-size:25rpx;
+	font-size:30rpx;
 }
 .old-price{
 	color:#A9A9A9;
@@ -145,9 +152,15 @@
 }
 .content-name{
 	font-size:25rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
 }
 .content-store{
 	font-size:20rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
 }
 
 /*分割线*/
