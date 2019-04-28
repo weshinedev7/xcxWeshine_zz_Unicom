@@ -30,7 +30,7 @@
 				<view><image src="../../images/right-2.png" /></view>
 			</view>
 		</navigator>
-		<navigator url="/pages/vehicle/vehicle" hover-class="none">
+		<navigator url="/pages/login/login" hover-class="none">
 			<view class="center_list">
 				<view class="center_list_text">菜品</view>
 				<view><image src="../../images/right-2.png" /><button class="login">未登录</button></view>

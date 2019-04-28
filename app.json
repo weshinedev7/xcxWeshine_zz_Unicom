@@ -2,6 +2,8 @@
   "pages":[
 		"pages/index/index",
 		"pages/varietyOfDishes/varietyOfDishes",
+		"pages/varietyOfEdit/varietyOfEdit",
+		"pages/varietyOfAdd/varietyOfAdd",
 		"pages/user/user",
     "pages/login/login",
 		"pages/makeAnAppointment/makeAnAppointment",

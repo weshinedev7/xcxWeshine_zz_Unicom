@@ -8,6 +8,7 @@
         <image src="/images/pass.png" mode="aspectFill"/>
 		<input type="text" placeholder="密码"/>        
   </view>
-
+<navigator url="/pages/varietyOfDishes/varietyOfDishes" hover-class="none">
   <view class="btn-login">登录</view>
+</navigator>
 </view>

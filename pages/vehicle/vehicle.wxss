@@ -13,8 +13,8 @@
 }
 
 .active{
-	color: #A3552D;
-	border-bottom: 1px solid #A3552D;
+	color: #dd2727;
+	border-bottom: 1px solid #dd2727;
 }
 
 

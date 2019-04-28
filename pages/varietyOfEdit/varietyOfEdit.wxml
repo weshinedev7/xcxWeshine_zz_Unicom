@@ -1,0 +1,52 @@
+
+<!-- 预约选项卡 -->
+		<view class="main">
+			<view class="title">
+				<view class="text">菜品名称：</view>
+				<input placeholder="请输入菜名" auto-focus value="菜品1" />
+			</view>
+
+			<view class="start_date">
+				<view class="text">菜品价格：</view>
+				<input placeholder="请输入价格" value="99"/>
+			</view>
+			
+			<view class="icon">
+				<view class="icon-title">菜品图片
+					<image src="/images/add_icon.png" class="add_image"></image>
+				</view>
+				<view class="add_icon">
+					<!-- <view class="icon_text">请上传图片</view> -->
+						<image src="/images/img1.jpeg" hover-class="delete"></image>
+						<image src="/images/img2.png" hover-class="delete"></image>
+						<image src="/images/img3.png" hover-class="delete"></image>
+						<image src="/images/img2.png" hover-class="delete"></image>
+				</view>
+			</view>
+			
+
+			<!-- 补充选项 -->
+			<view class="supplement">
+				<view class="supplement-content">
+					<radio-group bindchange="checkboxChange">
+						<label class="checkbox" wx:for="{{items}}">
+									<radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+						</label>
+					</radio-group>
+				</view>
+			</view>
+
+
+			<view class="meeting-content">菜品详情</view>
+			<view class="meeting">
+				 <textarea placeholder="菜品详情..." maxlength="1000" value="还不错"/>
+			</view>
+		</view>
+
+		<view class="nav_container">
+			<view class="reset">重置</view>
+					
+			<navigator url="/pages/varietyOfDishes/varietyOfDishes" hover-class="none"  class="selection-item">
+				<view class="submit">提交</view>
+			</navigator>
+  	</view>

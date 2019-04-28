@@ -1,12 +1,15 @@
 <!-- 头部 -->
 <view class="top">
   <view class="search-block">
-    <navigator url="/pages/search/search">
+    <navigator class="navigator" url="/pages/search/search">
       <image src="/images/icon-search.png"/>
       <text>搜索</text>
     </navigator>
   </view>
 </view>
+<navigator class="add" url="/pages/varietyOfAdd/varietyOfAdd">
+  <image src="/images/add.png"/>
+</navigator>
 
 <!-- 选项卡 -->
 <view class="display">
@@ -25,16 +28,24 @@
 
 <view wx:if="{{check=='0'}}" class="eval-all">
 <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none"  class="selection-item">
+
 		<view class="main">
+
 			<view class="content_left_content">
 				<image class="centent-img" src="/images/img3.png" />
 			</view>
+
 			<view class="content_left_right">
 				<view class="content_name">会议室名</view>
-				<view class="introduction">会议室简介会议室简介会议室简介</view>
+				<view class="introduction">会议室简介会议室简介会议室简介会议室简介会议室简介会议室简介会议室简介会议室简介会议室简介</view>
 				<view class="frequency">会议次数:99</view>
 			</view>
+				<view class="operation">
+					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
+					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
+				</view>
 		</view>
+
 		</navigator>
 		<view class="main">
 			<view class="content_left_content">
@@ -46,6 +57,10 @@
 				<view class="introduction">会议室简介会议室简介会议室简介</view>
 				<view class="frequency">会议次数:99</view>
 			</view>
+				<view class="operation">
+					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
+					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
+				</view>
 		</view>
 		<view class="main">
 			<view class="content_left_content">
@@ -57,6 +72,10 @@
 				<view class="introduction">会议室简介会议室简介会议室简介</view>
 				<view class="frequency">会议次数:99</view>
 			</view>
+				<view class="operation">
+					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
+					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
+				</view>
 		</view>
 </view>
   <navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="selection-item">
@@ -69,6 +88,10 @@
         <view class="introduction">会议室简介会议室简介会议室简介</view>
         <view class="frequency">会议次数:99</view>
       </view>
+				<view class="operation">
+					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
+					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
+				</view>
     </view>
   </navigator>
   <view class="main">
@@ -81,6 +104,10 @@
       <view class="introduction">会议室简介会议室简介会议室简介</view>
       <view class="frequency">会议次数:99</view>
     </view>
+				<view class="operation">
+					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
+					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
+				</view>
   </view>
   <view class="main">
     <view class="content_left_content">
@@ -92,4 +119,8 @@
       <view class="introduction">会议室简介会议室简介会议室简介</view>
       <view class="frequency">会议次数:99</view>
     </view>
+				<view class="operation">
+					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
+					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf">下架</navigator>
+				</view>
   </view>
