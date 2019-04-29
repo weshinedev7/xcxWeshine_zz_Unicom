@@ -49,58 +49,58 @@
 
 <view class="show-content">
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
-      <image src="/images/img3.png" mode="aspectFill"/>
+      <image src="/images/hgr.jpg" mode="aspectFill"/>
       <view class="content-price">
-          <view class="new-price">￥97.9</view>
-          <view class="old-price">￥101</view>
+          <view class="new-price">￥16.9</view>
+          <view class="old-price">￥18</view>
+      </view>
+      <view class="content-name">川香回锅肉</view>
+      <view class="content-store">北食堂</view>
+  </navigator>
+  <navigator url="/pages/details/details" hover-class="none" class="content-item">
+      <image src="/images/doufu.jpg" mode="aspectFill"/>
+      <view class="content-price">
+          <view class="new-price">￥8.8</view>
+          <view class="old-price">￥10</view>
+      </view>
+      <view class="content-name">麻婆豆腐</view>
+      <view class="content-store">北食堂</view>
+  </navigator>
+  <navigator url="/pages/details/details" hover-class="none" class="content-item">
+      <image src="/images/gbjd.jpg" mode="aspectFill"/>
+      <view class="content-price">
+          <view class="new-price">￥11.9</view>
+          <view class="old-price">￥15</view>
+      </view>
+      <view class="content-name">宫保鸡丁</view>
+      <view class="content-store">一食堂</view>
+  </navigator>
+  <navigator url="/pages/details/details" hover-class="none" class="content-item">
+      <image src="/images/jiyu.jpeg" mode="aspectFill"/>
+      <view class="content-price">
+          <view class="new-price">￥15</view>
+          <view class="old-price">￥20</view>
+      </view>
+      <view class="content-name">红烧鲫鱼</view>
+      <view class="content-store">二食堂</view>
+  </navigator>
+  <navigator url="/pages/details/details" hover-class="none" class="content-item">
+      <image src="/images/szt.jpg" mode="aspectFill"/>
+      <view class="content-price">
+          <view class="new-price">￥10</view>
+          <view class="old-price">￥15</view>
+      </view>
+      <view class="content-name">红烧狮子头</view>
+      <view class="content-store">北食堂</view>
+  </navigator>
+  <navigator url="/pages/details/details" hover-class="none" class="content-item">
+      <image src="/images/tds.jpg" mode="aspectFill"/>
+      <view class="content-price">
+          <view class="new-price">￥6</view>
+          <view class="old-price">￥8</view>
       </view>
       <view class="content-name">酸辣土豆丝</view>
-      <view class="content-store">店门2</view>
-  </navigator>
-  <navigator url="/pages/details/details" hover-class="none" class="content-item">
-      <image src="/images/img2.png" mode="aspectFill"/>
-      <view class="content-price">
-          <view class="new-price">￥97.9</view>
-          <view class="old-price">￥101</view>
-      </view>
-      <view class="content-name">变态麻辣十三香小龙虾</view>
-      <view class="content-store">店门1</view>
-  </navigator>
-  <navigator url="/pages/details/details" hover-class="none" class="content-item">
-      <image src="/images/img1.jpeg" mode="aspectFill"/>
-      <view class="content-price">
-          <view class="new-price">￥9.9</view>
-          <view class="old-price">￥10</view>
-      </view>
-      <view class="content-name">菜名3</view>
-      <view class="content-store">店门3</view>
-  </navigator>
-  <navigator url="/pages/details/details" hover-class="none" class="content-item">
-      <image src="/images/img1.jpeg" mode="aspectFill"/>
-      <view class="content-price">
-          <view class="new-price">￥9.9</view>
-          <view class="old-price">￥10</view>
-      </view>
-      <view class="content-name">菜名3</view>
-      <view class="content-store">店门3</view>
-  </navigator>
-  <navigator url="/pages/details/details" hover-class="none" class="content-item">
-      <image src="/images/img1.jpeg" mode="aspectFill"/>
-      <view class="content-price">
-          <view class="new-price">￥9.9</view>
-          <view class="old-price">￥10</view>
-      </view>
-      <view class="content-name">菜名3</view>
-      <view class="content-store">店门3</view>
-  </navigator>
-  <navigator url="/pages/details/details" hover-class="none" class="content-item">
-      <image src="/images/img1.jpeg" mode="aspectFill"/>
-      <view class="content-price">
-          <view class="new-price">￥9.9</view>
-          <view class="old-price">￥10</view>
-      </view>
-      <view class="content-name">菜名3</view>
-      <view class="content-store">店门3</view>
+      <view class="content-store">一食堂</view>
   </navigator>
 </view>
 

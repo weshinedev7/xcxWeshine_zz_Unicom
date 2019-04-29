@@ -43,7 +43,7 @@
 
 	<view class="nav_container">
 	    <view class="reset" bindtap="reset">重置</view>
-	    <view class="submit">提交</view>
+	    <view class="submit" bindtap="submit">提交</view>
    </view>
 </view>
 
