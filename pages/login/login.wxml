@@ -1,14 +1,12 @@
 <view class="top">
   <view class="block">
         <image src="/images/user_sele.png" mode="aspectFill"/>
-		<input type="text" placeholder="账号"/>        
+		<input type="text" class="input" data-model='user' placeholder="账号" bindinput='getInput'/>        
   </view>
 
   <view class="block">
         <image src="/images/pass.png" mode="aspectFill"/>
-		<input type="text" placeholder="密码"/>        
+		<input type='text' password="true"  class="input" data-model='pwd' placeholder="密码" bindinput='getInput'/>        
   </view>
-<navigator url="/pages/varietyOfDishes/varietyOfDishes" hover-class="none">
-  <view class="btn-login">登录</view>
-</navigator>
+  <view class="btn-login" bindtap="userLogin">登录</view>
 </view>

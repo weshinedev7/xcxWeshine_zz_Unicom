@@ -1,14 +1,12 @@
 {
   "pages":[
     "pages/index/index",
-		"pages/varietyOfDishes/varietyOfDishes",
 		"pages/varietyOfAdd/varietyOfAdd",
 		"pages/varietyOfEdit/varietyOfEdit",
 		"pages/varietyOfDishes/varietyOfDishes",
 		"pages/makeAnAppointment/makeAnAppointment",
 		"pages/bookingVehicle/bookingVehicle",
 		"pages/details/details",
-		"pages/varietyOfAdd/varietyOfAdd",
 		"pages/user/user",
     "pages/login/login",
 		"pages/vehicle/vehicle",
