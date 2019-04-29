@@ -46,11 +46,16 @@ Page({
 
   submit:function(e){
     wx.showToast({
-        title: '成功',
-        icon: 'succes',
-        duration: 1000,
-        mask:true
-    })
+      title: '评分成功',
+      icon: 'succes',
+      duration: 2000,
+      mask: true
+    });
+    setTimeout(function () {
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+    }, 3000);
   },
 
   /**

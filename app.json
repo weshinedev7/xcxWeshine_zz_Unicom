@@ -1,14 +1,14 @@
 {
-	"pages": [
-		"pages/index/index",
-		"pages/bookingVehicle/bookingVehicle",
-		"pages/reservationRoomEdit/reservationRoomEdit",
-		"pages/makeAnAppointment/makeAnAppointment",
+  "pages":[
+    "pages/index/index",
 		"pages/varietyOfAdd/varietyOfAdd",
 		"pages/varietyOfEdit/varietyOfEdit",
+		"pages/reservationRoomEdit/reservationRoomEdit",
 		"pages/varietyOfDishes/varietyOfDishes",
 		"pages/details/details",
 		"pages/user/user",
+		"pages/bookingVehicle/bookingVehicle",
+		"pages/makeAnAppointment/makeAnAppointment",
 		"pages/login/login",
 		"pages/vehicle/vehicle",
 		"pages/conferenceRoom/conferenceRoom",

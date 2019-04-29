@@ -40,7 +40,7 @@
 				<view class="content_name">{{item.name}}
 				</view>
 				<view class="introduction">{{item.details}}</view>
-				<view class="price">￥:{{item.price}}/份</view>
+				<view class="price">￥{{item.price}}/份</view>
 				<view class="frequency">已售:{{item.sold}}份</view>
 			</view>
 	</navigator>
