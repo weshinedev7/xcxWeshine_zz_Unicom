@@ -123,7 +123,6 @@
 <view class="nav_container">
     <view class="price">
 		<text class="money">￥{{food.price}}</text>
-		<text class="original_price">￥149</text>
 		<text class="money">￥6</text>
 		<text class="original_price">￥8</text>
 	</view>
