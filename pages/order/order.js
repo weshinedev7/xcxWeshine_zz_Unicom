@@ -6,7 +6,7 @@ Page({
    */
   data: {
     check:0,
-    list:['','','','']
+    list:['','']
   },
 
   selectDispaly:function(e){

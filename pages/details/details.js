@@ -9,13 +9,13 @@ Page({
 		imgUrls: [
 			{
 				link: '/pages/user/user',
-				url: '/images/img1.jpeg'
+				url: '/images/tds.jpg'
 			}, {
 				link: '/pages/user/user',
-				url: '/images/img2.png'
+				url: '/images/tds1.jpg'
 			}, {
 				link: '/pages/user/user',
-				url: '/images/img3.png'
+				url: '/images/tds3.jpeg'
 			}
 		],
 		number:1,
@@ -54,6 +54,12 @@ Page({
       check: e.currentTarget.dataset.id
     });
     console.log(_this.data.check);
+  },
+
+  toOrder:function(e){
+  	wx.switchTab({
+  		url: '/pages/order/order'
+	})
   },
 
 	/**

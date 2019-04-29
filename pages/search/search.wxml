@@ -10,29 +10,29 @@
 <view wx:if="{{show==1}}">
 	 <view class="content" >
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/img2.png"/>
-      <view class="content-name">麻辣酸菜鱼爽口</view>
-      <view class="store-name">门店1</view>
+      <image src="/images/jiyu.jpeg"/>
+      <view class="content-name">红烧鲫鱼</view>
+      <view class="store-name">二食堂</view>
       <view class="content-price">
-          <view class="score">评分:5</view>
-          <view class="shell">已售:55</view>
+          <view class="score">评分:9</view>
+          <view class="shell">已售:33</view>
       </view>
       <view class="content-price">
-          <view class="new-price">￥19997.9</view>
-            <view class="old-price">￥101</view>
+          <view class="new-price">￥15</view>
+            <view class="old-price">￥20</view>
       </view>
     </navigator>
-    <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/img3.png"/>
-      <view class="content-name">招牌必点红烧肉</view>
-      <view class="store-name">门店1</view>
+     <navigator url="/pages/details/details" class="child" hover-class="none">
+      <image src="/images/tds.jpg"/>
+      <view class="content-name">酸辣土豆丝</view>
+      <view class="store-name">一食堂</view>
       <view class="content-price">
-          <view class="score">评分:5</view>
+          <view class="score">评分:8</view>
           <view class="shell">已售:55</view>
       </view>
       <view class="content-price">
-          <view class="new-price">￥97.9</view>
-            <view class="old-price">￥101</view>
+          <view class="new-price">￥6</view>
+            <view class="old-price">￥8</view>
       </view>
     </navigator>
   </view>

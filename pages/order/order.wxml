@@ -11,61 +11,100 @@
 </view>
 
 <!--评价-->
-<view wx:if="{{check=='0'}}" class="eval-all" wx:for="{{list}}" wx:key="*this">
+<view wx:if="{{check=='0'}}" class="eval-all">
   <view class="flex-row flex-grow-1 order-info">
     <view class="flex-grow-1 tl">订单号:20190425000000{{item.ordernum}}</view>
     <view class="flex-grow-0 tr">2019-04-25</view>
   </view>
   <view class="goods-list flex-row">
-    <image class="goods-pic" mode="aspectFill" src="/images/img2.png" />
+    <image class="goods-pic" mode="aspectFill" src="/images/hgr.jpg" />
     <view class="content flex-grow-1">
       <view class="flex-grow-1">
-        <view class="goods-name text-style">五香排骨</view>
-        <view class="attr-item">门店1</view>
+        <view class="goods-name text-style">川香回锅肉</view>
+        <view class="attr-item">北食堂</view>
       </view>
       <view class="flex-grow-1 flex-row">
-        <view class="flex-grow-1 num">×2</view>
-        <view class="flex-grow-0 price">￥333</view>
-      </view>
-    </view>
-  </view>
-  <view class="goods-list flex-row">
-    <image class="goods-pic" mode="aspectFill" src="/images/img2.png" />
-    <view class="content flex-grow-1">
-      <view class="flex-grow-1">
-        <view class="goods-name text-style">测试测试</view>
-        <view class="attr-item">门店1</view>
-      </view>
-      <view class="flex-grow-1 flex-row">
-        <view class="flex-grow-1 num">×2</view>
-        <view class="flex-grow-0 price">￥333</view>
+        <view class="flex-grow-1 num">×1</view>
+        <view class="flex-grow-0 price">￥18</view>
       </view>
     </view>
   </view>
   <view class="flex-row count-order">
-    <view class="flex-grow-1 text-style">合计:￥123</view>
+    <view class="flex-grow-1 text-style">合计:￥18</view>
     <navigator url="/pages/score/score" hover-class="none" class="flex-grow-0 score">评分</navigator>
   </view>
 
-  <!-- <view class="flex-row flex-grow-1 order-info">
+  <view class="flex-row flex-grow-1 order-info">
     <view class="flex-grow-1 tl">订单号:20190425000000</view>
     <view class="flex-grow-0 tr">2019-04-25</view>
   </view>
   <view class="goods-list flex-row">
-    <image class="goods-pic" mode="aspectFill" src="/images/img2.png" />
+    <image class="goods-pic" mode="aspectFill" src="/images/jiyu.jpeg" />
     <view class="content flex-grow-1">
       <view class="flex-grow-1">
-        <view class="goods-name text-style">五香排骨</view>
-        <view class="attr-item">门店1</view>
+        <view class="goods-name text-style">红烧鲫鱼</view>
+        <view class="attr-item">二食堂</view>
       </view>
       <view class="flex-grow-1 flex-row">
         <view class="flex-grow-1 num">×2</view>
-        <view class="flex-grow-0 price">￥333</view>
+        <view class="flex-grow-0 price">￥30</view>
       </view>
     </view>
   </view>
   <view class="flex-row count-order">
-    <view class="flex-grow-1 text-style">合计:￥123</view>
+    <view class="flex-grow-1 text-style">合计:￥15</view>
     <navigator url="/pages/score/score" hover-class="none" class="flex-grow-0 score">评分</navigator>
-  </view> -->
+  </view>
+  
 </view>
+
+<!--自付-->
+<view wx:if="{{check=='1'}}" class="eval-all">
+  <view class="flex-row flex-grow-1 order-info">
+    <view class="flex-grow-1 tl">订单号:20190425000000{{item.ordernum}}</view>
+    <view class="flex-grow-0 tr">2019-04-25</view>
+  </view>
+  <view class="goods-list flex-row">
+    <image class="goods-pic" mode="aspectFill" src="/images/hgr.jpg" />
+    <view class="content flex-grow-1">
+      <view class="flex-grow-1">
+        <view class="goods-name text-style">川香回锅肉</view>
+        <view class="attr-item">北食堂</view>
+      </view>
+      <view class="flex-grow-1 flex-row">
+        <view class="flex-grow-1 num">×1</view>
+        <view class="flex-grow-0 price">￥18</view>
+      </view>
+    </view>
+  </view>
+  <view class="flex-row count-order">
+    <view class="flex-grow-1 text-style">合计:￥18</view>
+    <navigator url="/pages/score/score" hover-class="none" class="flex-grow-0 score">评分</navigator>
+  </view>
+</view>
+
+<!--部门代付-->
+<view wx:if="{{check=='2'}}" class="eval-all">
+  <view class="flex-row flex-grow-1 order-info">
+    <view class="flex-grow-1 tl">订单号:20190425000000</view>
+    <view class="flex-grow-0 tr">2019-04-25</view>
+  </view>
+  <view class="goods-list flex-row">
+    <image class="goods-pic" mode="aspectFill" src="/images/jiyu.jpeg" />
+    <view class="content flex-grow-1">
+      <view class="flex-grow-1">
+        <view class="goods-name text-style">红烧鲫鱼</view>
+        <view class="attr-item">二食堂</view>
+      </view>
+      <view class="flex-grow-1 flex-row">
+        <view class="flex-grow-1 num">×2</view>
+        <view class="flex-grow-0 price">￥30</view>
+      </view>
+    </view>
+  </view>
+  <view class="flex-row count-order">
+    <view class="flex-grow-1 text-style">合计:￥15</view>
+    <navigator url="/pages/score/score" hover-class="none" class="flex-grow-0 score">评分</navigator>
+  </view>
+</view>
+
