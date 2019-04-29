@@ -1,65 +1,62 @@
 {
-  "pages":[
-    "pages/index/index",
-		"pages/varietyOfDishes/varietyOfDishes",
+	"pages": [
+		"pages/index/index",
+		"pages/bookingVehicle/bookingVehicle",
+		"pages/reservationRoomEdit/reservationRoomEdit",
+		"pages/makeAnAppointment/makeAnAppointment",
 		"pages/varietyOfAdd/varietyOfAdd",
 		"pages/varietyOfEdit/varietyOfEdit",
 		"pages/varietyOfDishes/varietyOfDishes",
-		"pages/makeAnAppointment/makeAnAppointment",
-		"pages/bookingVehicle/bookingVehicle",
 		"pages/details/details",
-		"pages/varietyOfAdd/varietyOfAdd",
 		"pages/user/user",
-    "pages/login/login",
+		"pages/login/login",
 		"pages/vehicle/vehicle",
 		"pages/conferenceRoom/conferenceRoom",
 		"pages/search/search",
-    "pages/food/food",
-    "pages/order/order",
-    "pages/score/score"
-    
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "郑州联通",
-    "navigationBarTextStyle":"black"
-  },
-  
-  "networkTimeout":{
-    "request":10000,
-    "downloadFile":10000
-  },
-  "tabBar": {
-    "backgroundColor": "#fff",
-    "borderStyle": "black",
-    "color": "#666666",
-    "selectedColor": "#dd2727",
-    "list": [
-        {
-            "pagePath": "pages/index/index",
-            "text": "首页",
-            "iconPath": "images/index.png",
-            "selectedIconPath": "images/index_sele.png"
-        },
-        {
-            "pagePath": "pages/order/order",
-            "text": "订单",
-            "iconPath": "images/order.png",
-            "selectedIconPath": "images/order_sele.png"
-        },
-        {
-            "pagePath": "pages/user/user",
-            "text": "我的",
-            "iconPath": "images/user.png",
-            "selectedIconPath": "images/user_sele.png"
-        }
-    ]
-  },
-  "debug":true,
-  "permission": {
-    "scope.userLocation": {
-        "desc": "为了给您提供更好的服务，请允许小程序使用您的地理位置"
-    }
-  }
+		"pages/food/food",
+		"pages/order/order",
+		"pages/score/score"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "郑州联通",
+		"navigationBarTextStyle": "black"
+	},
+	"networkTimeout": {
+		"request": 10000,
+		"downloadFile": 10000
+	},
+	"tabBar": {
+		"backgroundColor": "#fff",
+		"borderStyle": "black",
+		"color": "#666666",
+		"selectedColor": "#dd2727",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "images/index.png",
+				"selectedIconPath": "images/index_sele.png"
+			},
+			{
+				"pagePath": "pages/order/order",
+				"text": "订单",
+				"iconPath": "images/order.png",
+				"selectedIconPath": "images/order_sele.png"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"text": "我的",
+				"iconPath": "images/user.png",
+				"selectedIconPath": "images/user_sele.png"
+			}
+		]
+	},
+	"debug": true,
+	"permission": {
+		"scope.userLocation": {
+			"desc": "为了给您提供更好的服务，请允许小程序使用您的地理位置"
+		}
+	}
 }

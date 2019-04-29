@@ -1,64 +1,87 @@
+<view class="main">
 
-		<view class="main">
+  <view class="content">
+    <view class="text">菜品名称:</view>
+    <input placeholder="请输入菜名" value="宫保鸡丁" />
+  </view>
 
-			<view class="content">
-				<view class="text">菜品名称:</view>
-					<input placeholder="请输入菜名" value="宫保鸡丁" />
-			</view>
+  <view class="content">
+    <view class="text">菜品价格:</view>
+    <input placeholder="请输入价格" value="99" class="price" />
+    <view class="text">元/份</view>
+  </view>
 
-			<view class="content">
-				<view class="text">菜品价格:</view>
-				<input placeholder="请输入价格" value="99" class="price"/>
-				<view class="text">元/份</view>
-			</view>
+  <view class="content">
+    <view class="text">是否上架:</view>
+    <radio-group bindchange="checkboxChange">
+      <label class="checkbox" wx:for="{{items}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}</label>
+    </radio-group>
+  </view>
 
-			<view class="content">
-				<view class="text">是否上架:</view>
-					<radio-group bindchange="checkboxChange">
-						<label class="checkbox" wx:for="{{items}}">
-							<radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}</label>
-					</radio-group>
-			</view>
+  <view class="details">
+    <view class="details_title">菜品详情:</view>
 
-			<view class="details">
-				<view class="text">菜品详情:</view>
+    <view class="meeting">
+      <textarea placeholder="菜品详情..." maxlength="2000" />
+    </view>
 
-				<view class="meeting">
-					<textarea placeholder="菜品详情..." maxlength="2000"/>
-				</view>
-
-			</view>
-			
-			<view class="picture">
-				<view class="text">菜品图片:</view>
+  </view>
 
 
-				<view class="picture_list">
-				
-					<view wx:for="{{upload_picture_list}}" class="picture_item" wx:key="{{index}}">
-						<image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill" class="image"></image>
-						<!-- <image wx:if="{{item.upload_percent == 100}}" src="{{item.path_server}}" mode="aspectFill" class="image"></image> -->
-						<view class="upload_progress" wx:if="{{item.upload_percent < 100}}" data-index="{{index}}" bindtap="previewImg">{{item.upload_percent}}%</view>
-						<text class='del' bindtap='deleteImg' data-src='{{image}}' style='display:{{isDel}}' data-index="{{index}}">×</text>
-					</view>
+<!-- 缩略图 -->
+  <view class="picture">
+    <view class="picture_title">菜品缩略图:</view>
 
-					<view class='picture_item'>
-							<view class="add-image" bindtap='uploadpic'>
-								<image src="/images/add_icon.png"></image>
-							</view>
-					</view>
 
-				</view>
+    <view class="picture_list">
 
-			</view>
-					
+      <view wx:for="{{upload_picture_list}}" class="picture_item" wx:key="{{index}}">
+        <image src="{{source}}" mode="aspectFill" class="image"></image>
+        <text class='del' bindtap='deleteImg' data-src='{{image}}' style='display:{{isDel}}' data-index="{{index}}">×</text>
+      </view>
+
+      <view class='picture_item'>
+        <view class="add-image" bindtap='uploadimg'>
+          <image src="/images/add_icon.png"></image>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <!-- 图片展示 -->
+  <view class="picture">
+    <view class="picture_title">菜品展示图片:</view>
+
+
+    <view class="picture_list">
+
+      <view wx:for="{{upload_picture_list}}" class="picture_item" wx:key="{{index}}">
+        <image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill" class="image"></image>
+        <image wx:if="{{item.upload_percent == 100}}" src="{{item.path_server}}" mode="aspectFill" class="image"></image>
+        <view class="upload_progress" wx:if="{{item.upload_percent < 100}}" data-index="{{index}}" bindtap="previewImg">{{item.upload_percent}}%</view>
+        <text class='del' bindtap='deleteImg' data-src='{{image}}' style='display:{{isDel}}' data-index="{{index}}">×</text>
+      </view>
+
+      <view class='picture_item'>
+        <view class="add-image" bindtap='uploadpic'>
+          <image src="/images/add_icon.png"></image>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
 
 
 </view>
 
 <view class="nav_container">
-	<view class="reset">重置</view>		
-		<navigator url="/pages/varietyOfDishes/varietyOfDishes" hover-class="none"  class="selection-item">
-			<view class="submit">提交</view>
-		</navigator>
+  <view class="reset">重置</view>
+  <navigator url="/pages/varietyOfDishes/varietyOfDishes" hover-class="none" class="selection-item">
+    <view class="submit">提交</view>
+  </navigator>
 </view>

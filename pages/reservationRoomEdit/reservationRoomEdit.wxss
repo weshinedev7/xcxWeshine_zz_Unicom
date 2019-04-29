@@ -44,7 +44,7 @@
 }
 
 .right1 image {
-  width: 40%;
+  width: 30%;
   height: 45rpx;
   margin: 30rpx 0rpx 0rpx 33rpx;
 }
@@ -62,7 +62,7 @@
 }
 
 .right image {
-  width: 40%;
+  width: 30%;
   height: 45rpx;
   margin: 30rpx 0rpx 0rpx 33rpx;
 }
