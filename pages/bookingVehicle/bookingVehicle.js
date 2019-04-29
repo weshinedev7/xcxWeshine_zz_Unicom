@@ -8,6 +8,8 @@ Page({
 	 */
 	data: {
 		"menuTapCurrent": 0,
+		number: "",
+		remarks: "",
 
 	},
 
@@ -28,6 +30,18 @@ Page({
 			dateTimeArray1: obj1.dateTimeArray,
 			dateTime1: obj1.dateTime
 		});
+	},
+	reset: function () {
+		this.setData({
+			number: "",
+			remarks: "",
+		})
+
+		// if (getCurrentPages().length >= 1) {
+
+		// 	//刷新当前页面的数据
+		// 	getCurrentPages()[getCurrentPages().length - 1].onLoad()
+		// }
 	},
 
 	/**

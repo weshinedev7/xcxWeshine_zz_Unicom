@@ -2,7 +2,7 @@
 <view class="main">
   <view class="title">
     <view class="text">会议标题：</view>
-    <input placeholder="请输入会议标题"  auto-focus/>
+    <input placeholder="请输入会议标题"  auto-focus value="{{title}}"/>
   </view>
   <view class="start_date">
     <view class="text">开始时间:</view>
@@ -29,11 +29,11 @@
   </view>
   <view class="start_date">
     <view class="text">会议人数:</view>
-    <input placeholder="会议人数"/>
+    <input placeholder="会议人数" value="{{number}}"/>
   </view>
   <view class="meeting-content">会议内容</view>
   <view class="meeting">
-    <textarea placeholder="会议内容..." maxlength="1000" />
+    <textarea placeholder="会议内容..." maxlength="1000" value="{{content}}"/>
   </view>
 
 
@@ -51,12 +51,11 @@
 
   <view class="meeting-content">备注</view>
   <view class="meeting">
-    <textarea placeholder="备注..." maxlength="1000" />
+    <textarea maxlength="1000" value="{{remarks}}"/>
   </view>
 </view>
 <view class="nav_container">
-  <view class="reset" bindtap="reset">重置</view>
-
+  <button class="reset" bindtap="reset">重置</button>
   <navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none" class="selection-item">
     <view class="submit">提交</view>
   </navigator>

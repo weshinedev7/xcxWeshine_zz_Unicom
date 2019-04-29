@@ -131,7 +131,7 @@
   			white-space: nowrap
 			}
 
-.frequency{font-size:27rpx;
+.frequency{font-size:23rpx;
 				width:150rpx;
 				margin-top:5rpx;
 				color:#838383;
@@ -142,7 +142,7 @@
 
 
 
-.price{font-size:27rpx;
+.price{font-size:28rpx;
 				width:150rpx;
 				margin-top:5rpx;
 				color:red;

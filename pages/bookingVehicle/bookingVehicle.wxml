@@ -24,15 +24,15 @@
 			</view>
 			<view class="start_date">
 				<view class="text">乘坐人数:</view>
-				<input placeholder="乘坐人数"/>
+				<input placeholder="乘坐人数" value="{{number}}"/>
 			</view>
 			<view class="meeting-content">使用途径</view>
 			<view class="meeting">
-				 <textarea placeholder="使用途径..." maxlength="1000"/>
+				 <textarea placeholder="使用途径..." maxlength="1000" value="{{remarks}}"/>
 			</view>
 		</view>
 		<view class="nav_container">
-			<view class="reset">重置</view>
+			<button class="reset" bindtap="reset">重置</button>
 			<navigator url="/pages/vehicle/vehicle" hover-class="none"  class="selection-item">
 				<view class="submit">提交</view>
 			</navigator>

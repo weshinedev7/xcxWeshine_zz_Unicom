@@ -3,7 +3,7 @@
 	<block wx:for="{{imgUrls}}">  
 		<swiper-item>  
 			<navigator url="{{item.link}}">  
-			<image src="{{item.url}}" class="banner-image" mode="aspectFill"/>  
+			<image src="{{item.url}}" class="banner-image" mode="aspectFill"/> 
 			</navigator>  
 		</swiper-item>  
 	</block>  
@@ -11,7 +11,7 @@
 
 <!-- 主体 -->
 <view class="main">
-	<view class="main-name">糖醋排骨</view>
+	<view class="main-name">{{food.name}}</view>
 	<view class="show">
 	   <view>门店1</view>
 	   <view class="l2">评分:5.5</view>
@@ -43,7 +43,7 @@
 
     <!--介绍-->
     <view wx:if="{{check=='0'}}" class="eval-all">
-		<view class="brief-content">介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍</view>
+		<view class="brief-content">{{food.details}}</view>
     </view>
 
     <!--评价-->
@@ -124,7 +124,7 @@
 <!-- 底部 -->
 <view class="nav_container">
     <view class="price">
-		<text class="money">￥139</text>
+		<text class="money">￥{{food.price}}</text>
 		<text class="original_price">￥149</text>
 	</view>
     <view class="pay">

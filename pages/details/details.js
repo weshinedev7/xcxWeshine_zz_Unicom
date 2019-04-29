@@ -19,7 +19,9 @@ Page({
 			}
 		],
 		number:1,
-		check:0
+		check:0,
+		food: 
+			{ id: "1", icon: "/images/gbjd.jpg", name: "宫保鸡丁", details: "红而不辣、辣而不猛、香辣味浓、肉质滑脆。由于其入口鲜辣，鸡肉的鲜嫩配合花生的香脆", price: "99", status: "0", sold: "99" },
 	},
 
 	numberSub() {
