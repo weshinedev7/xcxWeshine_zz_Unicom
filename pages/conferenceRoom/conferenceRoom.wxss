@@ -46,7 +46,9 @@
 }
 
 .left {
-  width: 40%;
+  width: 30%;
+	/* text-align: right;
+	padding-right:50rpx; */
 }
 
 .right {
@@ -72,7 +74,7 @@
   margin-right: 10rpx;
   text-align: center;
   line-height: 60rpx;
-  background: #51C332;
+  background: #d83131;
   color: white;
   border-radius: 26rpx;
   font-size: 30rpx;
@@ -92,11 +94,15 @@
 }
 
 .status_yes{
-  font-size:35rpx;
+  font-size:30rpx;
 }
 
-.l30 {
+/* .l30 {
   margin-left: 30rpx;
+} */
+
+.pass{height:50rpx;
+line-height: 50rpx;
 }
 
 .yes {
@@ -106,7 +112,7 @@
   margin-right: 10rpx;
   text-align: center;
   line-height: 60rpx;
-  background: #d83131;
+  background: #51C332;
   color: white;
   border-radius: 26rpx;
   font-size: 30rpx;

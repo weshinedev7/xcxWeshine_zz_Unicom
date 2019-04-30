@@ -15,31 +15,31 @@
 <view wx:if="{{check=='0'}}" class="eval-all">
   <view class='items'>
     <view class="flex-row item">
-      <view class="left ">会议标题</view>
+      <view class="left ">会议标题：</view>
       <view class="right more">人事人员培训</view>
     </view>
     <view class="flex-row item">
-      <view class="left">开始时间</view>
+      <view class="left">开始时间：</view>
       <view class="right">2019-04-28 13:30:00</view>
     </view>
     <view class="flex-row item">
-      <view class="left">结束时间</view>
+      <view class="left">结束时间：</view>
       <view class="right">2019-04-28 15:30:00</view>
     </view>
     <view class="flex-row item">
-      <view class="left">会议人数</view>
+      <view class="left">会议人数：</view>
       <view class="right">5</view>
     </view>
     <view class="flex-row item">
-      <view class="left">会议内容</view>
+      <view class="left">会议内容：</view>
       <view class="right more">人员信息要明确，做好人员的规划。做好公司的小助手</view>
     </view>
     <view class="flex-row item">
-      <view class="left">补充选项</view>
+      <view class="left">补充选项：</view>
       <view class="right">茶水、鲜花</view>
     </view>
     <view class="flex-row item">
-      <view class="left">备注</view>
+      <view class="left">备注：</view>
       <view class="right">请提前检查好投影仪</view>
     </view>
 
@@ -52,45 +52,45 @@
 
   <view class='items'>
     <view class="flex-row item">
-      <view class="left ">会议标题</view>
+      <view class="left ">会议标题:</view>
       <view class="right more">人事人员培训</view>
     </view>
     <view class="flex-row item">
-      <view class="left">开始时间</view>
+      <view class="left">开始时间:</view>
       <view class="right">2019-04-28 13:30:00</view>
     </view>
     <view class="flex-row item">
-      <view class="left">结束时间</view>
+      <view class="left">结束时间:</view>
       <view class="right">2019-04-28 15:30:00</view>
     </view>
     <view class="flex-row item">
-      <view class="left">会议人数</view>
+      <view class="left">会议人数:</view>
       <view class="right">5</view>
     </view>
     <view class="flex-row item">
-      <view class="left">会议内容</view>
+      <view class="left">会议内容:</view>
       <view class="right more">人员信息要明确，做好人员的规划。做好公司的小助手</view>
     </view>
     <view class="flex-row item">
-      <view class="left">补充选项</view>
+      <view class="left">补充选项:</view>
       <view class="right">茶水、鲜花</view>
     </view>
     <view class="flex-row item">
-      <view class="left">备注</view>
+      <view class="left">备注:</view>
       <view class="right">请提前检查好投影仪</view>
     </view>
     <view class='status_yes'>
-      <view class="flex-row">
-        <view>审批人:</view>
-        <view class="l30">admin</view>
+      <view class="flex-row ">
+        <view class="left pass">审批人:</view>
+        <view class="l30 pass">admin</view>
       </view>
       <view class='flex-row'>
-        <view>会议室:</view>
-        <view class="l30">四楼4#123</view>
+        <view class="left pass">会议室:</view>
+        <view class="l30 pass">四楼4#123</view>
       </view>
       <view class='flex-row'>
-        <view>审批时间:</view>
-        <view class="l30">2019-04-28 12:40:00</view>
+        <view class="left pass">审批时间:</view>
+        <view class="l30 pass">2019-04-28 12:40:00</view>
       </view>
       <view class='flex-row flr'>
         <view class='yes'>已通过</view>
@@ -102,15 +102,15 @@
 <view wx:if="{{check=='1'}}" class="eval-all">
   <view class='items'>
     <view class="flex-row item">
-      <view class="left ">会议标题</view>
+      <view class="left ">会议标题:</view>
       <view class="right more">人事人员培训</view>
     </view>
     <view class="flex-row item">
-      <view class="left">开始时间</view>
+      <view class="left">开始时间:</view>
       <view class="right">2019-04-28 13:30:00</view>
     </view>
     <view class="flex-row item">
-      <view class="left">结束时间</view>
+      <view class="left">结束时间:</view>
       <view class="right">2019-04-28 15:30:00</view>
     </view>
     <view class="flex-row item">
@@ -122,11 +122,11 @@
       <view class="right more">人员信息要明确，做好人员的规划。做好公司的小助手</view>
     </view>
     <view class="flex-row item">
-      <view class="left">补充选项</view>
+      <view class="left">补充选项:</view>
       <view class="right">茶水、鲜花</view>
     </view>
     <view class="flex-row item">
-      <view class="left">备注</view>
+      <view class="left">备注:</view>
       <view class="right">请提前检查好投影仪</view>
     </view>
 
@@ -140,27 +140,27 @@
 <view wx:if="{{check=='2'}}" class="eval-all">
   <view class='items'>
     <view class="flex-row item">
-      <view class="left ">会议标题</view>
+      <view class="left ">会议标题：</view>
       <view class="right more">人事人员培训</view>
     </view>
     <view class="flex-row item">
-      <view class="left">开始时间</view>
+      <view class="left">开始时间：</view>
       <view class="right">2019-04-28 13:30:00</view>
     </view>
     <view class="flex-row item">
-      <view class="left">结束时间</view>
+      <view class="left">结束时间：</view>
       <view class="right">2019-04-28 15:30:00</view>
     </view>
     <view class="flex-row item">
-      <view class="left">会议人数</view>
+      <view class="left">会议人数：</view>
       <view class="right">5</view>
     </view>
     <view class="flex-row item">
-      <view class="left">会议内容</view>
+      <view class="left">会议内容:</view>
       <view class="right more">人员信息要明确，做好人员的规划。做好公司的小助手</view>
     </view>
     <view class="flex-row item">
-      <view class="left">补充选项</view>
+      <view class="left">补充选项：</view>
       <view class="right">茶水、鲜花</view>
     </view>
     <view class="flex-row item">
@@ -171,16 +171,16 @@
     <!--判断是否通过审批-->
     <view class='status_yes'>
       <view class="flex-row">
-        <view>审批人:</view>
-        <view class="l30">admin</view>
+        <view class="left pass">审批人:</view>
+        <view class="l30 pass">admin</view>
       </view>
       <view class='flex-row'>
-        <view>会议室:</view>
+        <view class="left pass">会议室:</view>
         <view class="l30">四楼4#123</view>
       </view>
       <view class='flex-row'>
-        <view>审批时间:</view>
-        <view class="l30">2019-04-28 12:40:00</view>
+        <view class="left pass">审批时间:</view>
+        <view class="l30 pass">2019-04-28 12:40:00</view>
       </view>
       <view class='flex-row flr'>
         <view class='yes'>已通过</view>

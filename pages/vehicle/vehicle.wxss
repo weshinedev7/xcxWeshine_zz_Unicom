@@ -46,7 +46,7 @@
 }
 
 .left {
-  width: 40%;
+  width: 30%;
 }
 
 .right {
@@ -92,12 +92,15 @@
 }
 
 .status_yes {
-  font-size: 35rpx;
+  font-size: 30rpx;
 }
 
-.l30 {
+/* .l30 {
   margin-left: 30rpx;
-}
+} */
+.pass{height:50rpx;
+		line-height: 50rpx;
+		}
 
 .yes {
   width: 120rpx;

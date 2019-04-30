@@ -84,7 +84,7 @@
 	display:flex; 
 	align-items:center;
 }
-.show-title image{
+.show-title .image{
 	width:40rpx;
 	height:40rpx;
 	margin-left:30rpx;
@@ -101,6 +101,7 @@
 	display:flex; 
 	align-items:center;
 	float:right;
+	height:80rpx;
 	margin-right:30rpx;
 	display: flex;
 	flex-direction:row;

@@ -39,7 +39,7 @@
 <view class="divLine"></view>
 
 <view class="show-title">
-   <image src="/images/like.png"mode="aspectFit" />
+   <image src="/images/like.png"mode="aspectFit" class="image"/>
    <text>猜你喜欢</text>
    <navigator url="/pages/food/food" hover-class="none">
       <view class="text-more">查看全部</view>

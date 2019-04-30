@@ -56,16 +56,16 @@
     </view>
     <view class='status_yes'>
       <view class="flex-row">
-        <view>审批人:</view>
-        <view class="l30">admin</view>
+        <view class="left">审批人:</view>
+        <view class="l30 pass">admin</view>
       </view>
       <view class='flex-row'>
-        <view>车辆:</view>
-        <view class="l30">车号888888</view>
+        <view class="left">车辆:</view>
+        <view class="l30 pass">车号888888</view>
       </view>
       <view class='flex-row'>
-        <view>审批时间:</view>
-        <view class="l30">2019-04-28 12:40:00</view>
+        <view class="left">审批时间:</view>
+        <view class="l30 pass">2019-04-28 12:40:00</view>
       </view>
       <view class='flex-row flr'>
         <view class='yes'>已通过</view>
@@ -122,16 +122,16 @@
     <!--判断是否通过审批-->
     <view class='status_yes'>
       <view class="flex-row">
-        <view>审批人:</view>
-        <view class="l30">admin</view>
+        <view class="left">审批人:</view>
+        <view class="l30 pass">admin</view>
       </view>
       <view class='flex-row'>
-        <view>车辆:</view>
-        <view class="l30">车号888888</view>
+        <view class="left">车辆:</view>
+        <view class="l30 pass">车号888888</view>
       </view>
       <view class='flex-row'>
-        <view>审批时间:</view>
-        <view class="l30">2019-04-28 12:40:00</view>
+        <view class="left">审批时间:</view>
+        <view class="l30 pass">2019-04-28 12:40:00</view>
       </view>
       <view class='flex-row flr'>
         <view class='yes'>已通过</view>
