@@ -55,7 +55,7 @@
           <view class="old-price">￥18</view>
       </view>
       <view class="content-name">川香回锅肉</view>
-      <view class="content-store">北食堂</view>
+      <view class="content-store">宴桃园</view>
   </navigator>
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
       <image src="/images/doufu.jpg" mode="aspectFill"/>
@@ -64,7 +64,7 @@
           <view class="old-price">￥10</view>
       </view>
       <view class="content-name">麻婆豆腐</view>
-      <view class="content-store">北食堂</view>
+      <view class="content-store">宴桃园</view>
   </navigator>
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
       <image src="/images/gbjd.jpg" mode="aspectFill"/>
@@ -73,7 +73,7 @@
           <view class="old-price">￥15</view>
       </view>
       <view class="content-name">宫保鸡丁</view>
-      <view class="content-store">一食堂</view>
+      <view class="content-store">老渔夫.疍家粥</view>
   </navigator>
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
       <image src="/images/jiyu.jpeg" mode="aspectFill"/>
@@ -82,7 +82,7 @@
           <view class="old-price">￥20</view>
       </view>
       <view class="content-name">红烧鲫鱼</view>
-      <view class="content-store">二食堂</view>
+      <view class="content-store">天厨坊</view>
   </navigator>
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
       <image src="/images/szt.jpg" mode="aspectFill"/>
@@ -91,7 +91,7 @@
           <view class="old-price">￥15</view>
       </view>
       <view class="content-name">红烧狮子头</view>
-      <view class="content-store">北食堂</view>
+      <view class="content-store">宴桃园</view>
   </navigator>
   <navigator url="/pages/details/details" hover-class="none" class="content-item">
       <image src="/images/tds.jpg" mode="aspectFill"/>
@@ -100,7 +100,7 @@
           <view class="old-price">￥8</view>
       </view>
       <view class="content-name">酸辣土豆丝</view>
-      <view class="content-store">一食堂</view>
+      <view class="content-store">老渔夫.疍家粥</view>
   </navigator>
 </view>
 
