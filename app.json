@@ -1,6 +1,7 @@
 {
   "pages":[
-    "pages/index/index",
+		"pages/index/index",
+		"pages/food/food",
 		"pages/varietyOfAdd/varietyOfAdd",
 		"pages/varietyOfEdit/varietyOfEdit",
 		"pages/reservationRoomEdit/reservationRoomEdit",
@@ -13,7 +14,6 @@
 		"pages/vehicle/vehicle",
 		"pages/conferenceRoom/conferenceRoom",
 		"pages/search/search",
-		"pages/food/food",
 		"pages/order/order",
 		"pages/score/score"
 	],
