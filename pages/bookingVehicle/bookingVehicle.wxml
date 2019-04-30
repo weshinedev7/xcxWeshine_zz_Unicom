@@ -31,7 +31,7 @@
   </view>
   <view class="content">
     <view class="text">乘坐人数:</view>
-    <input placeholder="会议人数" value="{{number}}"/>
+    <input placeholder="人数" value="{{number}}"/>
   </view>
   <view class="meeting-content" style="border:none">用途:</view>
   <view class="meeting">
@@ -41,7 +41,7 @@
 
 <view class="nav_container">
   <button class="reset" bindtap="reset">重置</button>
-  <navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none" class="selection-item">
+  <navigator url="/pages/vehicle/vehicle" hover-class="none" class="selection-item">
     <view class="submit">提交</view>
   </navigator>
 </view>

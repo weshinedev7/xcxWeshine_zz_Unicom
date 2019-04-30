@@ -45,7 +45,7 @@
 
     <!--判断是否通过审批-->
     <view class='flex-row flr'>
-      <navigator url="" hover-class="none" class="edit">修改</navigator>
+      <navigator url="/pages/makeAnAppointment/makeAnAppointment" hover-class="none" class="edit">修改</navigator>
       <view class='cancel'>取消</view>
     </view>
   </view>
@@ -132,7 +132,7 @@
 
     <!--判断是否通过审批-->
     <view class='flex-row flr'>
-      <navigator url="" hover-class="none" class="edit">修改</navigator>
+      <navigator url="/pages/makeAnAppointment/makeAnAppointment" hover-class="none" class="edit">修改</navigator>
       <view class='cancel'>取消</view>
     </view>
   </view>
