@@ -9,9 +9,9 @@
 		<view class="top_right">
 			<image src="../../images/head.jpg" />
 		</view>
-		<!--<view class="top_bottom">
+		<view class="top_bottom">
 			<button class="get_user_details">更新个人信息</button>
-		</view>-->
+		</view>
 	</view> 
 </view>
 
