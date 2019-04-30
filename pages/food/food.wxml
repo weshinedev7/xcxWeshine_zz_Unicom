@@ -39,7 +39,7 @@
 
 			<view class="information">
 				<view class="content-name">酸辣土豆丝</view>
-				<view class="store-name">一食堂</view>
+				<view class="store-name">老渔夫.疍家粥</view>
 				<view class="content-price">
 						<view class="score">评分:8</view>
 						<view class="shell">已售:55</view>
@@ -55,7 +55,7 @@
 			
 			<view class="information">
 				<view class="content-name">红烧鲫鱼</view>
-				<view class="store-name">二食堂</view>
+				<view class="store-name">天厨坊</view>
 				<view class="content-price">
 						<view class="score">评分:9</view>
 						<view class="shell">已售:33</view>
@@ -71,7 +71,7 @@
 			
 			<view class="information">
 				<view class="content-name">红烧狮子头</view>
-				<view class="store-name">北食堂</view>
+				<view class="store-name">宴桃园</view>
 				<view class="content-price">
 						<view class="score">评分:7</view>
 						<view class="shell">已售:30</view>
@@ -87,7 +87,7 @@
 			
 			<view class="information">
       <view class="content-name">川香回锅肉</view>
-      <view class="store-name">北食堂</view>
+      <view class="store-name">宴桃园</view>
       <view class="content-price">
           <view class="score">评分:9</view>
           <view class="shell">已售:40</view>
@@ -103,7 +103,7 @@
 			
 			<view class="information">
       <view class="content-name">宫保鸡丁</view>
-      <view class="store-name">一食堂</view>
+      <view class="store-name">老渔夫.疍家粥</view>
       <view class="content-price">
           <view class="score">评分:8</view>
           <view class="shell">已售:40</view>
@@ -119,7 +119,7 @@
 			
 			<view class="information">
       <view class="content-name">麻婆豆腐</view>
-      <view class="store-name">北食堂</view>
+      <view class="store-name">宴桃园</view>
       <view class="content-price">
           <view class="score">评分:8</view>
           <view class="shell">已售:45</view>
@@ -140,7 +140,7 @@
 			
 			<view class="information">
       <view class="content-name">麻婆豆腐</view>
-      <view class="store-name">北食堂</view>
+      <view class="store-name">宴桃园</view>
       <view class="content-price">
           <view class="score">评分:8</view>
           <view class="shell">已售:45</view>
@@ -156,7 +156,7 @@
 			
 			<view class="information">
       <view class="content-name">川香回锅肉</view>
-      <view class="store-name">北食堂</view>
+      <view class="store-name">宴桃园</view>
       <view class="content-price">
           <view class="score">评分:9</view>
           <view class="shell">已售:40</view>
@@ -172,7 +172,7 @@
 			
 			<view class="information">
 				<view class="content-name">红烧狮子头</view>
-				<view class="store-name">北食堂</view>
+				<view class="store-name">宴桃园</view>
 				<view class="content-price">
 						<view class="score">评分:7</view>
 						<view class="shell">已售:30</view>
@@ -193,7 +193,7 @@
 
 			<view class="information">
 				<view class="content-name">酸辣土豆丝</view>
-				<view class="store-name">一食堂</view>
+				<view class="store-name">老渔夫.疍家粥</view>
 				<view class="content-price">
 						<view class="score">评分:8</view>
 						<view class="shell">已售:55</view>
@@ -209,7 +209,7 @@
 			
 			<view class="information">
       <view class="content-name">宫保鸡丁</view>
-      <view class="store-name">一食堂</view>
+      <view class="store-name">老渔夫.疍家粥</view>
       <view class="content-price">
           <view class="score">评分:8</view>
           <view class="shell">已售:40</view>

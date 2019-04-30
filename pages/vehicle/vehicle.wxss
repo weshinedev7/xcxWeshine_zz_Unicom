@@ -1,81 +1,113 @@
-.display{
-	width:100%;
-	display: flex;
-	flex-direction:row;
-	margin-top:50rpx;
-}
-.display-sele{
-    font-size:30rpx;
-	width:33.3%;
-	text-align:center;
-	border-bottom: 1px solid #838383;
-	height:50rpx;
+.display {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50rpx;
 }
 
-.active{
-	color: #dd2727;
-	border-bottom: 1px solid #dd2727;
+.display-sele {
+  font-size: 30rpx;
+  width: 33.3%;
+  text-align: center;
+  border-bottom: 1px solid #838383;
+  height: 50rpx;
 }
 
-
-/* 预约会议室 */
-.main{min-height:180rpx;
-				width:90%;
-				margin:20rpx auto 0rpx;
-				border-bottom:1rpx solid rgb(241, 235, 235);
-				}
-
-.content_left_content{
-				/* width:220rpx; */
-				width:32%;
-				float:left;
-				}
-
-.centent-img{width:180rpx;
-				height:130rpx;
-				border-radius: 20rpx;
-				margin:20rpx 0rpx 0rpx 20rpx;
-				}
-
-
-.content_left_right{width:65%;
-				height:130rpx;
-				padding:0rpx 10rpx;
-				margin-top:20rpx;
-				float:right;
-				}
-
-.content_name{font-size:26rpx;
-				font-weight: 900;
-				margin-top:10rpx;}
-
-.introduction{font-size:23rpx;margin-top:5rpx;}
-
-.frequency{font-size:20rpx;
-				width:150rpx;
-				margin-top:5rpx;
-				color:#838383;
-				line-height: 36rpx;
-				float:left;
-				}
-
-
-.page-top image{width:20rpx;
-	height:20rpx;}
-
-.page-bottom{
-				position:absolute;
-				width:500rpx;
-				height:500rpx;
-				background: red;
-				display:none;}
-
-
-.c-state1{
-  transform: rotate(0deg) scale(1) translate(75%,0%); 
-  -webkit-transform: rotate(0deg) scale(1) translate(75%,0%); 
+.active {
+  color: #dd2727;
+  border-bottom: 1px solid #dd2727;
 }
 
+/*全部*/
 
+.flex-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
 
+.items {
+  font-size: 30rpx;
+  margin: 30rpx;
+  padding: 30rpx;
+  border: #eee 1rpx solid;
+  border-bottom: 3px solid #eee;
+  margin-bottom: 30rpx;
+  overflow: hidden;
+}
 
+.item {
+  width: 100%;
+  border-bottom: #eee 1rpx solid;
+  margin-bottom: 30rpx;
+}
+
+.left {
+  width: 40%;
+}
+
+.right {
+  width: 60%;
+}
+
+.more {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flr {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.edit {
+  width: 120rpx;
+  height: 60rpx;
+  float: right;
+  margin-right: 10rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background: #51c332;
+  color: white;
+  border-radius: 26rpx;
+  font-size: 30rpx;
+}
+
+.cancel {
+  width: 120rpx;
+  height: 60rpx;
+  float: right;
+  margin-right: 10rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background: #838383;
+  color: white;
+  border-radius: 26rpx;
+  font-size: 30rpx;
+}
+
+.status_yes {
+  font-size: 35rpx;
+}
+
+.l30 {
+  margin-left: 30rpx;
+}
+
+.yes {
+  width: 120rpx;
+  height: 60rpx;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background: #d83131;
+  color: white;
+  border-radius: 26rpx;
+  font-size: 30rpx;
+}
