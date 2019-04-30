@@ -14,7 +14,8 @@ page {
 
 
 .top_centent{width:90%;
-		height:240rpx;
+		/*height:240rpx;*/
+    height: 160rpx;
 		padding:50rpx 0rpx;
 		margin:0rpx auto;
 		padding-bottom:10rpx;

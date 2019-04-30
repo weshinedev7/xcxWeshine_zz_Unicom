@@ -4,7 +4,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-    check:0
+    check:0,
   },
   selectDispaly:function(e){
     let _this=this;
@@ -20,9 +20,6 @@ Page({
 		// this.setData({
 		// 	time: current_time,
 		// })
-
-
-
 	},
 
 	/**
