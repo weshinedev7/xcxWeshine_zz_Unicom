@@ -1,7 +1,7 @@
 {
 	"navigationBarBackgroundColor": "#ffffff",
 	"navigationBarTextStyle": "black",
-	"navigationBarTitleText": "菜品修改",
+	"navigationBarTitleText": "会议修改",
 	"backgroundColor": "#eeeeee",
 	"backgroundTextStyle": "light",
 	"usingComponents": {}

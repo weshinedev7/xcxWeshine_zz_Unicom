@@ -1,113 +1,156 @@
-/* 开始时间 */
-.start_date{width: 80%;
-				height: 65rpx;
-				margin:20rpx auto 0rpx;
-				}
+/* pages/makeAnAppointment/makeAnAppointment.wxss */
 
-.start_date .text{
-				width:160rpx;
-				font-size:30rpx;
-				height: 60rpx;
-				line-height: 60rpx;
-				float:left;
-			}
+/* 预约会议室申请 */
 
-
-.start_date input{
-				width:65%;
-				height: 60rpx;
-				padding:0rpx 20rpx;
-				float:left;
-				border-bottom:1rpx solid #c4c0c0;
-				/* border-radius: 26rpx; */
-				font-size:25rpx;
-			}
-
-
-.meeting-content{width: 80%;
-				margin:40rpx auto 0rpx;
-				padding-top:20rpx;
-				font-size:30rpx;
-				height: 60rpx;
-				/* border-top:1rpx dashed  #838383; */
-				text-align: center;
-				line-height: 60rpx;
-			}
-
-
-.meeting{width: 80%;
-				min-height: 300rpx;
-				margin:20rpx auto 40rpx;
-				}
-
-
-.meeting textarea{width: 95%;
-				min-height:200rpx;
-				padding:20rpx 10rpx;
-				font-size:30rpx;
-				border:1rpx solid  #bebdbd;
-				border-radius: 26rpx;
+.main {
+  margin: 50rpx auto 40rpx;
+  width: 85%;
+  height: 1050rpx;
 }
 
+.content {
+  width: 100%;
+  height: 110rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.content .text {
+  width: 24%;
+  font-size: 28rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+  float: left;
+}
+
+.content input {
+  width: 76%;
+  height: 110rpx;
+  float: left;
+  color: #888;
+  font-size: 28rpx;
+}
+
+.time1 {
+  position: relative;
+}
+
+/* .time2{position:relative} */
+
+.right1 {
+  width: 15%;
+  height: 110rpx;
+  position: absolute;
+  right: -10rpx;
+  top: 0rpx;
+}
+
+.right1 image {
+  width: 40%;
+  height: 45rpx;
+  margin: 30rpx 0rpx 0rpx 33rpx;
+}
+
+.time {
+  position: relative;
+}
+
+.right {
+  width: 15%;
+  height: 110rpx;
+  position: absolute;
+  right: -10rpx;
+  top: 0rpx;
+}
+
+.right image {
+  width: 40%;
+  height: 45rpx;
+  margin: 30rpx 0rpx 0rpx 33rpx;
+}
+
+.meeting-content {
+  width: 100%;
+  margin: 0rpx auto;
+  padding: 20rpx 0rpx;
+  border-bottom: 1rpx solid #ececec;
+  font-size: 33rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.meeting {
+  width: 100%;
+}
+
+.meeting textarea {
+  width: 96%;
+  height: 360rpx;
+  padding: 20rpx 10rpx;
+  font-size: 30rpx;
+  border: 1rpx solid #ececec;
+  border-radius: 26rpx;
+}
+
+.supplement {
+  width: 100%;
+  height: 250rpx;
+  padding: 20rpx 0rpx;
+  border-bottom: 1rpx solid #ececec;
+  /* float:left; *//* margin: 0rpx auto; */
+}
+
+.supplement-content {
+  width: 80%;
+  margin: 0rpx auto;
+}
+
+.checkbox {
+  width: 50%;
+  height: 50rpx;
+  float: left;
+  margin: 6rpx 0rpx;
+  font-size: 30rpx;
+  transform: scale(0.9, 0.9);
+}
 
 /* 底部重置提交 */
-.nav_container{
-			position: fixed;
-			width: 100%;
-			height: 120rpx;
-			bottom:0px;
-			background-color: white;
-			z-index: 999;
-			box-shadow:0rpx 6rpx 6rpx 6rpx #838383;
-		}
 
-.price{margin-top:30rpx;
-			width:200rpx;
-			float:left;
-			margin:30rpx 0rpx 0rpx 50rpx
-		}
+.nav_container {
+  position: fixed;
+  width: 100%;
+  height: 140rpx;
+  bottom: 0px;
+  background-color: white;
+  z-index: 999;
+  box-shadow: 0rpx 6rpx 6rpx 6rpx #838383;
+}
 
+/* 重置数据 */
 
-.money-label{font-size:22rpx;
-			color:red;
-			}
+.reset {
+  width: 180rpx;
+  height: 80rpx;
+  float: left;
+  margin: 30rpx 0rpx 0rpx 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #dd2727;
+  color: white;
+  border-radius: 26rpx;
+  font-size: 27rpx;
+}
 
-.money{font-size:40rpx;
-			color:red;
-			font-weight: 700;
-			}
+/* 提交数据 */
 
-.original_price{font-size:22rpx;
-				color:#838383;
-				margin-left:20rpx;
-				text-decoration:line-through;
-				}
-
-
-/* 重置信息 */
-.reset{width: 180rpx;
-		height:70rpx;
-		float:left;
-		margin:25rpx 0rpx 0rpx 80rpx;
-		text-align: center;
-		line-height: 70rpx;
-		background: red;
-		color:white;
-		border-radius: 26rpx;
-		font-size:27rpx;
-
-		}
-
-/* 立即预约 */
-.submit{width: 180rpx;
-		height:70rpx;
-		float:right;
-		margin:25rpx 80rpx 0rpx 0rpx;
-		text-align: center;
-		line-height: 70rpx;
-		background: #838383;
-		color:white;
-		border-radius: 26rpx;
-		font-size:27rpx;
-
-		}
+.submit {
+  width: 180rpx;
+  height: 80rpx;
+  float: right;
+  margin: 30rpx 80rpx 0rpx 0rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #838383;
+  color: white;
+  border-radius: 26rpx;
+  font-size: 27rpx;
+}

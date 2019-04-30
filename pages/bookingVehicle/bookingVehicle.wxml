@@ -1,42 +1,47 @@
-
 <!-- 预约选项卡 -->
-		<view class="main">
-			<view class="start_date">
-				<view class="text">使用时间:</view>
-				
-					<view class="tui-picker-content">
-						<picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
-							<view class="tui-picker-detail font"><input value="{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:00" disabled/></view>
-						</picker>
+<view class="main">
+
+  <view class="content">
+    <view class="text">使用时间:</view>
+
+    <view class="tui-picker-content">
+      <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+        <view class="tui-picker-detail font time1">
+          <input value="{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:00" disabled/>
+					<view class="right1">
+						<image src="/images/right-2.png"></image>
 					</view>
-				
-			</view>
-			<view class="start_date">
-				<view class="text">结束时间:</view>
-				<view class="tui-picker-content">
- <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
- <view class="tui-picker-detail">
- 				<input value="{{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}:00" disabled/>
- </view>
- </picker>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+
+  <view class="content">
+    <view class="text">结束时间:</view>
+    <view class="tui-picker-content">
+      <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+        <view class="tui-picker-detail time">
+          <input value="{{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}:00" disabled/>
+					<view class="right"><image src="/images/right-2.png"></image></view>
+        </view>
+      </picker>
+    </view>
+
+  </view>
+  <view class="content">
+    <view class="text">乘坐人数:</view>
+    <input placeholder="会议人数" value="{{number}}"/>
+  </view>
+  <view class="meeting-content" style="border:none">用途:</view>
+  <view class="meeting">
+    <textarea placeholder="用途..." maxlength="1000" value="{{content}}"/>
+  </view>
 </view>
 
-			</view>
-			<view class="start_date">
-				<view class="text">乘坐人数:</view>
-				<input placeholder="乘坐人数" value="{{number}}"/>
-			</view>
-			<view class="meeting-content">使用途径</view>
-			<view class="meeting">
-				 <textarea placeholder="使用途径..." maxlength="1000" value="{{remarks}}"/>
-			</view>
-		</view>
-		<view class="nav_container">
-			<button class="reset" bindtap="reset">重置</button>
-			<navigator url="/pages/vehicle/vehicle" hover-class="none"  class="selection-item">
-				<view class="submit">提交</view>
-			</navigator>
-		</view>
-<!-- 预约历史 -->
-	<!-- <view class="content_right" hidden="{{menuTapCurrent!='1'}}">
-	</view> -->
+<view class="nav_container">
+  <button class="reset" bindtap="reset">重置</button>
+  <navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none" class="selection-item">
+    <view class="submit">提交</view>
+  </navigator>
+</view>
