@@ -33,7 +33,7 @@ Page({
       });
       setTimeout(function () {
         wx.navigateTo({
-          url: 'pages/vehicle/vehicle'
+          url: '/pages/bookingVehicle/bookingVehicle'
         })
       }, 3000)};
   },

@@ -2,8 +2,8 @@
   "pages":[
 		"pages/index/index",
 		"pages/conferenceRoom/conferenceRoom",
-		"/pages/vehicleLogin/vehicleLogin",
-		"/pages/roomLogin/roomLogin",
+		"pages/vehicleLogin/vehicleLogin",
+		"pages/roomLogin/roomLogin",
 		"pages/food/food",
 		"pages/varietyOfAdd/varietyOfAdd",
 		"pages/varietyOfEdit/varietyOfEdit",

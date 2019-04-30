@@ -33,7 +33,7 @@ Page({
       });
       setTimeout(function () {
         wx.navigateTo({
-          url: 'pages/conferenceRoom/conferenceRoom'
+          url: '/pages/makeAnAppointment/makeAnAppointment'
         })
       }, 3000)};
   },
