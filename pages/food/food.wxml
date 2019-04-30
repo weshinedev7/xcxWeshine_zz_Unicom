@@ -2,7 +2,7 @@
 <view class="top">
   <view class="search-block">
     <navigator url="/pages/search/search">
-      <image src="/images/icon-search.png"/>
+      <image src="/images/icon-search.png" />
       <text>搜索</text>
     </navigator>
   </view>
@@ -10,243 +10,242 @@
 
 <!--店铺-->
 <view class="top" style="padding-bottom:10rpx;">
-	<view class="top-title">
-		<view class="top_view {{check=='1' ? 'active' : ''}}" bindtap='selectStore' data-id="1">
-			<image src="/images/ct-1.jpg" class="top_icon"></image>
-			<text>宴桃园</text>
-		</view>
-		<view class="top_view {{check=='2' ? 'active' : ''}}" bindtap='selectStore' data-id="2">
-			<image src="/images/ct2.jpg" class="top_icon"></image>
-			<text>老渔夫.疍家粥</text>
-		</view>
-		<view class="top_view {{check=='3' ? 'active' : ''}}" bindtap='selectStore' data-id="3">
-			<image src="/images/ct3.jpg" class="top_icon"></image>
-			<text>天厨坊</text>
-		</view>
-		<view class="top_view {{check=='0' ? 'active' : ''}}" bindtap='selectStore' data-id="0">
-			<image src='/images/icon10.png' class="top_icon"></image>
-			<text>全部</text>
-		</view>
-	</view>
+  <view class="top-title">
+    <view class="top_view {{check=='1' ? 'active' : ''}}" bindtap='selectStore' data-id="1">
+      <image src="/images/ct-1.jpg" class="top_icon"></image>
+      <text>宴桃园</text>
+    </view>
+    <view class="top_view {{check=='2' ? 'active' : ''}}" bindtap='selectStore' data-id="2">
+      <image src="/images/ct2.jpg" class="top_icon"></image>
+      <text>老渔夫.疍家粥</text>
+    </view>
+    <view class="top_view {{check=='3' ? 'active' : ''}}" bindtap='selectStore' data-id="3">
+      <image src="/images/ct3.jpg" class="top_icon"></image>
+      <text>天厨坊</text>
+    </view>
+    <view class="top_view {{check=='0' ? 'active' : ''}}" bindtap='selectStore' data-id="0">
+      <image src='/images/icon10.png' class="top_icon"></image>
+      <text>全部</text>
+    </view>
+  </view>
 </view>
 <!--分割线-->
 <view class="line"></view>
 
 <block wx:if="{{check=='0'}}">
-  <view class="content" >
+  <view class="content">
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/tds.jpg"/>
+      <image src="/images/tds.jpg" />
 
-			<view class="information">
-				<view class="content-name">酸辣土豆丝</view>
-				<view class="store-name">老渔夫.疍家粥</view>
-				<view class="content-price">
-						<view class="score">评分:8</view>
-						<view class="shell">已售:55</view>
-				</view>
-				<view class="content-price">
-						<view class="new-price">￥6</view>
-						<view class="old-price">￥8</view>
-				</view>
-			</view>
+      <view class="information">
+        <view class="content-name">酸辣土豆丝</view>
+        <view class="store-name">老渔夫.疍家粥</view>
+        <view class="content-price">
+          <view class="score">评分:8</view>
+          <view class="shell">已售:55</view>
+        </view>
+        <view class="content-price">
+          <view class="new-price">￥6</view>
+          <view class="old-price">￥8</view>
+        </view>
+      </view>
     </navigator>
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/jiyu.jpeg"/>
-			
-			<view class="information">
-				<view class="content-name">红烧鲫鱼</view>
-				<view class="store-name">天厨坊</view>
-				<view class="content-price">
-						<view class="score">评分:9</view>
-						<view class="shell">已售:33</view>
-				</view>
-				<view class="content-price">
-						<view class="new-price">￥15</view>
-							<view class="old-price">￥20</view>
-				</view>
-			</view>
+      <image src="/images/jiyu.jpeg" />
+
+      <view class="information">
+        <view class="content-name">红烧鲫鱼</view>
+        <view class="store-name">天厨坊</view>
+        <view class="content-price">
+          <view class="score">评分:9</view>
+          <view class="shell">已售:33</view>
+        </view>
+        <view class="content-price">
+          <view class="new-price">￥15</view>
+          <view class="old-price">￥20</view>
+        </view>
+      </view>
     </navigator>
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/szt.jpg"/>
-			
-			<view class="information">
-				<view class="content-name">红烧狮子头</view>
-				<view class="store-name">宴桃园</view>
-				<view class="content-price">
-						<view class="score">评分:7</view>
-						<view class="shell">已售:30</view>
-				</view>
-				<view class="content-price">
-						<view class="new-price">￥10</view>
-							<view class="old-price">￥15</view>
-				</view>
-			</view>
+      <image src="/images/szt.jpg" />
+
+      <view class="information">
+        <view class="content-name">红烧狮子头</view>
+        <view class="store-name">宴桃园</view>
+        <view class="content-price">
+          <view class="score">评分:7</view>
+          <view class="shell">已售:30</view>
+        </view>
+        <view class="content-price">
+          <view class="new-price">￥10</view>
+          <view class="old-price">￥15</view>
+        </view>
+      </view>
     </navigator>
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/hgr.jpg"/>
-			
-			<view class="information">
-      <view class="content-name">川香回锅肉</view>
-      <view class="store-name">宴桃园</view>
-      <view class="content-price">
+      <image src="/images/hgr.jpg" />
+
+      <view class="information">
+        <view class="content-name">川香回锅肉</view>
+        <view class="store-name">宴桃园</view>
+        <view class="content-price">
           <view class="score">评分:9</view>
           <view class="shell">已售:40</view>
-      </view>
-      <view class="content-price">
+        </view>
+        <view class="content-price">
           <view class="new-price">￥16.9</view>
-            <view class="old-price">￥18</view>
+          <view class="old-price">￥18</view>
+        </view>
       </view>
-			</view>
     </navigator>
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/gbjd.jpg"/>
-			
-			<view class="information">
-      <view class="content-name">宫保鸡丁</view>
-      <view class="store-name">老渔夫.疍家粥</view>
-      <view class="content-price">
+      <image src="/images/gbjd.jpg" />
+
+      <view class="information">
+        <view class="content-name">宫保鸡丁</view>
+        <view class="store-name">老渔夫.疍家粥</view>
+        <view class="content-price">
           <view class="score">评分:8</view>
           <view class="shell">已售:40</view>
-      </view>
-      <view class="content-price">
+        </view>
+        <view class="content-price">
           <view class="new-price">￥15</view>
-            <view class="old-price">￥20</view>
+          <view class="old-price">￥20</view>
+        </view>
       </view>
-			</view>
     </navigator>
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/doufu.jpg"/>
-			
-			<view class="information">
-      <view class="content-name">麻婆豆腐</view>
-      <view class="store-name">宴桃园</view>
-      <view class="content-price">
+      <image src="/images/doufu.jpg" />
+
+      <view class="information">
+        <view class="content-name">麻婆豆腐</view>
+        <view class="store-name">宴桃园</view>
+        <view class="content-price">
           <view class="score">评分:8</view>
           <view class="shell">已售:45</view>
-      </view>
-      <view class="content-price">
+        </view>
+        <view class="content-price">
           <view class="new-price">￥8.8</view>
-            <view class="old-price">￥10</view>
+          <view class="old-price">￥10</view>
+        </view>
       </view>
-			</view>
     </navigator>
   </view>
 </block>
 
 <block wx:elif="{{check=='1'}}">
-  <view class="content" >
+  <view class="content">
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/doufu.jpg"/>
-			
-			<view class="information">
-      <view class="content-name">麻婆豆腐</view>
-      <view class="store-name">宴桃园</view>
-      <view class="content-price">
+      <image src="/images/doufu.jpg" />
+
+      <view class="information">
+        <view class="content-name">麻婆豆腐</view>
+        <view class="store-name">宴桃园</view>
+        <view class="content-price">
           <view class="score">评分:8</view>
           <view class="shell">已售:45</view>
-      </view>
-      <view class="content-price">
+        </view>
+        <view class="content-price">
           <view class="new-price">￥8.8</view>
-            <view class="old-price">￥10</view>
+          <view class="old-price">￥10</view>
+        </view>
       </view>
-			</view>
     </navigator>
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/hgr.jpg"/>
-			
-			<view class="information">
-      <view class="content-name">川香回锅肉</view>
-      <view class="store-name">宴桃园</view>
-      <view class="content-price">
+      <image src="/images/hgr.jpg" />
+
+      <view class="information">
+        <view class="content-name">川香回锅肉</view>
+        <view class="store-name">宴桃园</view>
+        <view class="content-price">
           <view class="score">评分:9</view>
           <view class="shell">已售:40</view>
-      </view>
-      <view class="content-price">
+        </view>
+        <view class="content-price">
           <view class="new-price">￥16.9</view>
-            <view class="old-price">￥18</view>
+          <view class="old-price">￥18</view>
+        </view>
       </view>
-			</view>
     </navigator>
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/szt.jpg"/>
-			
-			<view class="information">
-				<view class="content-name">红烧狮子头</view>
-				<view class="store-name">宴桃园</view>
-				<view class="content-price">
-						<view class="score">评分:7</view>
-						<view class="shell">已售:30</view>
-				</view>
-				<view class="content-price">
-						<view class="new-price">￥10</view>
-							<view class="old-price">￥15</view>
-				</view>
-			</view>
+      <image src="/images/szt.jpg" />
+
+      <view class="information">
+        <view class="content-name">红烧狮子头</view>
+        <view class="store-name">宴桃园</view>
+        <view class="content-price">
+          <view class="score">评分:7</view>
+          <view class="shell">已售:30</view>
+        </view>
+        <view class="content-price">
+          <view class="new-price">￥10</view>
+          <view class="old-price">￥15</view>
+        </view>
+      </view>
     </navigator>
   </view>
 </block>
 
 <block wx:elif="{{check=='2'}}">
-  <view class="content" >
+  <view class="content">
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/tds.jpg"/>
+      <image src="/images/tds.jpg" />
 
-			<view class="information">
-				<view class="content-name">酸辣土豆丝</view>
-				<view class="store-name">老渔夫.疍家粥</view>
-				<view class="content-price">
-						<view class="score">评分:8</view>
-						<view class="shell">已售:55</view>
-				</view>
-				<view class="content-price">
-						<view class="new-price">￥6</view>
-						<view class="old-price">￥8</view>
-				</view>
-			</view>
+      <view class="information">
+        <view class="content-name">酸辣土豆丝</view>
+        <view class="store-name">老渔夫.疍家粥</view>
+        <view class="content-price">
+          <view class="score">评分:8</view>
+          <view class="shell">已售:55</view>
+        </view>
+        <view class="content-price">
+          <view class="new-price">￥6</view>
+          <view class="old-price">￥8</view>
+        </view>
+      </view>
     </navigator>
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/gbjd.jpg"/>
-			
-			<view class="information">
-      <view class="content-name">宫保鸡丁</view>
-      <view class="store-name">老渔夫.疍家粥</view>
-      <view class="content-price">
+      <image src="/images/gbjd.jpg" />
+
+      <view class="information">
+        <view class="content-name">宫保鸡丁</view>
+        <view class="store-name">老渔夫.疍家粥</view>
+        <view class="content-price">
           <view class="score">评分:8</view>
           <view class="shell">已售:40</view>
-      </view>
-      <view class="content-price">
+        </view>
+        <view class="content-price">
           <view class="new-price">￥15</view>
-            <view class="old-price">￥20</view>
+          <view class="old-price">￥20</view>
+        </view>
       </view>
-			</view>
     </navigator>
   </view>
 </block>
 
 <block wx:elif="{{check=='3'}}">
-  <view class="content" >
+  <view class="content">
     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/jiyu.jpeg"/>
-			
-			<view class="information">
-				<view class="content-name">红烧鲫鱼</view>
-				<view class="store-name">天厨坊</view>
-				<view class="content-price">
-						<view class="score">评分:9</view>
-						<view class="shell">已售:33</view>
-				</view>
-				<view class="content-price">
-						<view class="new-price">￥15</view>
-							<view class="old-price">￥20</view>
-				</view>
-			</view>
+      <image src="/images/jiyu.jpeg" />
+
+      <view class="information">
+        <view class="content-name">红烧鲫鱼</view>
+        <view class="store-name">天厨坊</view>
+        <view class="content-price">
+          <view class="score">评分:9</view>
+          <view class="shell">已售:33</view>
+        </view>
+        <view class="content-price">
+          <view class="new-price">￥15</view>
+          <view class="old-price">￥20</view>
+        </view>
+      </view>
     </navigator>
   </view>
 </block>
 
 <block wx:else>
   <view class="middle_none">
-      暂无菜品
+    暂无菜品
   </view>
 </block>
-
