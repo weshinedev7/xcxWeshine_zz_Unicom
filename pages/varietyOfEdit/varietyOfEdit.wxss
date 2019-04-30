@@ -83,6 +83,7 @@ page {
 .meeting textarea {
   width: 96%;
   padding: 15rpx;
+	height:350rpx;
   border: 1rpx solid #ececec;
 	border-radius: 26rpx;
 }

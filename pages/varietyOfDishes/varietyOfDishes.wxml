@@ -2,13 +2,15 @@
 <view class="top">
   <view class="search-block">
     <navigator class="navigator" url="/pages/search/search">
-      <image src="/images/icon-search.png"/>
+      <image src="/images/icon-search.png" />
       <text>搜索</text>
     </navigator>
   </view>
 </view>
-<navigator class="add" url="/pages/varietyOfAdd/varietyOfAdd">
-  <image src="/images/add.png"/>
+
+<!-- 跳转添加页面 -->
+<navigator class="add" hover-class="none" url="/pages/varietyOfAdd/varietyOfAdd">
+  <image src="/images/add.png" />
 </navigator>
 
 <!-- 选项卡 -->
@@ -24,84 +26,96 @@
   </view>
 </view>
 
-<!-- 内容 -->
 
+<!-- 内容 -->
+<!-- 全部内容 -->
 <view wx:if="{{check=='0'}}" wx:for="{{food}}" class="eval-all">
 
-	<view class="main">
-	<navigator url="/pages/details/details" hover-class="none"  class="selection-item">
+  <view class="main">
+    <navigator url="/pages/details/details" hover-class="none" class="selection-item">
+      <view class="content_left_content">
+        <image class="centent-img" src="{{item.icon}}" />
+        <view class="{{item.sold > 99?'sold':''}}" style="color:white;font-size:25rpx;">{{item.sold > 99?"热销":""}}</view>
+      </view>
 
-			<view class="content_left_content">
-				<image class="centent-img" src="{{item.icon}}" />
-				<view class="{{item.status == 0?'':'status'}}">{{item.status == 0?'':'已下架'}}</view>
-			</view>
+      <view class="content_left_right">
+        <view class="content_name">
+          <view class="content_name_content">{{item.name}}</view>
+          <view class="{{item.status == 1?'status':''}}">{{item.status == 1?'已下架':''}}</view>
+        </view>
+        <view class="introduction">{{item.details}}</view>
+        <view class="price">￥{{item.price}}</view>
+        <view class="original_price">￥{{item.original_price}}</view>
+        <view class="frequency">已售:{{item.sold}}</view>
+      </view>
+    </navigator>
 
-			<view class="content_left_right">
-				<view class="content_name">{{item.name}}
-				</view>
-				<view class="introduction">{{item.details}}</view>
-				<view class="price">￥{{item.price}}</view>
-				<view class="frequency">已售:{{item.sold}}</view>
-			</view>
-	</navigator>
-				<view class="operation">
-					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
-					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf" style="background:{{item.status == 0?'#51C332':'#dd2727'}}">{{item.status == 0?'下架':'上架'}}</navigator>
-		</view>
+    <view class="operation">
+      <navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
+      <view url="" class="lower_shelf" bindtap='edit' style="background:{{item.status == 0?'#51C332':'#dd2727'}}">{{item.status == 0?'下架':'上架'}}</view>
+    </view>
+  </view>
+
 </view>
 
-</view>
-
-
+<!-- 正在销售 -->
 <view wx:if="{{check=='1'}}" wx:for="{{food_upper}}" class="eval-all">
 
-	<view class="main">
-	<navigator url="/pages/details/details" hover-class="none"  class="selection-item">
+  <view class="main">
+    <navigator url="/pages/details/details" hover-class="none" class="selection-item">
 
-			<view class="content_left_content">
-				<image class="centent-img" src="{{item.icon}}" />
-				<view class="{{item.status == 0?'':'status'}}">{{item.status == 0?'':'已下架'}}</view>
-			</view>
+      <view class="content_left_content">
+        <image class="centent-img" src="{{item.icon}}" />
+        <view class="{{item.sold > 99?'sold':''}}" style="color:white;font-size:25rpx;">{{item.sold > 99?"热销":""}}</view>
+      </view>
 
-			<view class="content_left_right">
-				<view class="content_name">{{item.name}}
-				</view>
-				<view class="introduction">{{item.details}}</view>
-				<view class="price">￥:{{item.price}}/份</view>
-				<view class="frequency">已售:{{item.sold}}份</view>
-			</view>
-	</navigator>
-				<view class="operation">
-					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
-					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf" style="background:{{item.status == 0?'#51C332':'#dd2727'}}">{{item.status == 0?'下架':'上架'}}</navigator>
-		</view>
+      <view class="content_left_right">
+        <view class="content_name">
+          <view class="content_name_content">{{item.name}}</view>
+          <view class="{{item.status == 1?'status':''}}">{{item.status == 1?'已下架':''}}</view>
+        </view>
+        <view class="introduction">{{item.details}}</view>
+        <view class="price">￥{{item.price}}</view>
+        <view class="original_price">￥{{item.original_price}}</view>
+        <view class="frequency">已售:{{item.sold}}</view>
+      </view>
+    </navigator>
+
+    <view class="operation">
+      <navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
+      <view url="" class="lower_shelf" style="background:{{item.status == 0?'#51C332':'#dd2727'}}">{{item.status == 0?'下架':'上架'}}</view>
+    </view>
+  </view>
+
 </view>
 
-</view>
 
-
+<!-- 已下架的菜品 -->
 <view wx:if="{{check=='2'}}" wx:for="{{food_lower}}" class="eval-all">
 
-	<view class="main">
-	<navigator url="/pages/details/details" hover-class="none"  class="selection-item">
+  <view class="main">
+    <navigator url="/pages/details/details" hover-class="none" class="selection-item">
 
-			<view class="content_left_content">
-				<image class="centent-img" src="{{item.icon}}" />
-				<view class="{{item.status == 0?'':'status'}}">{{item.status == 0?'':'已下架'}}</view>
-			</view>
+      <view class="content_left_content">
+        <image class="centent-img" src="{{item.icon}}" />
+        <view class="{{item.sold > 99?'sold':''}}" style="color:white;font-size:25rpx;">{{item.sold > 99?"热销":""}}</view>
+      </view>
 
-			<view class="content_left_right">
-				<view class="content_name">{{item.name}}
-				</view>
-				<view class="introduction">{{item.details}}</view>
-				<view class="price">￥:{{item.price}}/份</view>
-				<view class="frequency">已售:{{item.sold}}份</view>
-			</view>
-	</navigator>
-				<view class="operation">
-					<navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
-					<navigator url="/pages/vehicleDetails/vehicleDetails" hover-class="none" class="lower_shelf" style="background:{{item.status == 0?'#51C332':'#dd2727'}}">{{item.status == 0?'下架':'上架'}}</navigator>
-		</view>
-</view>
+      <view class="content_left_right">
+        <view class="content_name">
+          <view class="content_name_content">{{item.name}}</view>
+          <view class="{{item.status == 1?'status':''}}">{{item.status == 1?'已下架':''}}</view>
+        </view>
+        <view class="introduction">{{item.details}}</view>
+        <view class="price">￥:{{item.price}}</view>
+        <view class="original_price">￥{{item.original_price}}</view>
+        <view class="frequency">已售:{{item.sold}}</view>
+      </view>
+    </navigator>
+    <view class="operation">
+      <navigator url="/pages/varietyOfEdit/varietyOfEdit" hover-class="none" class="edit">修改</navigator>
+      <navigator url="" hover-class="none" class="lower_shelf" style="background:{{item.status == 0?'#51C332':'#dd2727'}}">{{item.status == 0?'下架':'上架'}}</navigator>
+    </view>
+  </view>
 
 </view>

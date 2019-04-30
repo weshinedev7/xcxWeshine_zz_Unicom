@@ -12,7 +12,21 @@ Page({
     remarks: "",
 
   },
+	reset: function () {
+		this.setData({
+			// input_code: "",
+			upload_picture_list: "",
+			title: "",
+			number: "",
+			content: "",
+		})
 
+		// if (getCurrentPages().length >= 1) {
+
+		// 	//刷新当前页面的数据
+		// 	getCurrentPages()[getCurrentPages().length - 1].onLoad()
+		// }
+	},
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,7 +48,7 @@ Page({
   reset: function() {
     this.setData({
       number: "",
-      remarks: "",
+			content: "",
     })
 
     // if (getCurrentPages().length >= 1) {

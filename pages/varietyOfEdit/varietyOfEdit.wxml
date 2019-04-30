@@ -6,8 +6,14 @@
   </view>
 
   <view class="content">
-    <view class="text">菜品价格:</view>
-    <input placeholder="请输入价格" value="99" class="price" />
+    <view class="text">菜品原价:</view>
+    <input placeholder="请输入原价格" value="99" class="price" />
+    <view class="text">元/份</view>
+  </view>
+
+  <view class="content">
+    <view class="text">菜品现价:</view>
+    <input placeholder="请输入现价格" value="99" class="price" />
     <view class="text">元/份</view>
   </view>
 

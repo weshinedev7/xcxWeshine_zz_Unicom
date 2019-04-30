@@ -1,13 +1,21 @@
+<!-- 新增页面 -->
 <view class="main">
 
   <view class="content">
     <view class="text">菜品名称:</view>
-    <input placeholder="请输入菜名" value="" />
+    <input placeholder="请输入菜名" value="{{title}}" />
+  </view>
+
+
+  <view class="content">
+    <view class="text">菜品原价:</view>
+    <input placeholder="请输入价格" value="{{price}}" class="price" />
+    <view class="text">元/份</view>
   </view>
 
   <view class="content">
-    <view class="text">菜品价格:</view>
-    <input placeholder="请输入价格" value="" class="price" />
+    <view class="text">菜品现价:</view>
+    <input placeholder="请输入价格" value="{{price}}" class="price" />
     <view class="text">元/份</view>
   </view>
 
@@ -23,19 +31,19 @@
     <view class="details_title">菜品详情:</view>
 
     <view class="meeting">
-      <textarea placeholder="菜品详情..." maxlength="2000" />
+      <textarea placeholder="菜品详情..." maxlength="2000" value="{{remarks}}" />
     </view>
 
   </view>
 
-<!-- 缩略图 -->
+  <!-- 缩略图 -->
   <view class="picture">
     <view class="picture_title">菜品缩略图:</view>
 
 
     <view class="picture_list">
 
-      <view wx:for="{{upload_picture_list}}" class="picture_item" wx:key="{{index}}">
+      <view wx:for="" class="picture_item" wx:key="{{index}}">
         <image src="{{source}}" mode="aspectFill" class="image"></image>
         <text class='del' bindtap='deleteImg' data-src='{{image}}' style='display:{{isDel}}' data-index="{{index}}">×</text>
       </view>
@@ -50,7 +58,7 @@
 
   </view>
 
-	<!-- 图片展示 -->
+  <!-- 图片展示 -->
   <view class="picture">
     <view class="picture_title">菜品展示图片:</view>
 
@@ -74,12 +82,12 @@
 
   </view>
 
-
-
 </view>
 
+
+<!-- 重置提交按钮 -->
 <view class="nav_container">
-  <view class="reset">重置</view>
+  <view class="reset" bindtap='reset'>重置</view>
   <navigator url="/pages/varietyOfDishes/varietyOfDishes" hover-class="none" class="selection-item">
     <view class="submit">提交</view>
   </navigator>

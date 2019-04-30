@@ -22,20 +22,20 @@ Page({
       wx.showToast({
          title: '账号、密码不能为空',
          icon: 'none',
-         duration: 2000//持续的时间
+         duration: 1000//持续的时间
       });
     }else{
       wx.showToast({
         title: '登录成功',
         icon: 'succes',
-        duration: 2000,
+        duration: 1000,
         mask: true
       });
       setTimeout(function () {
         wx.navigateTo({
           url: '/pages/varietyOfDishes/varietyOfDishes'
         })
-      }, 3000)};
+      }, 1000)};
   },
 
   /**

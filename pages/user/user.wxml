@@ -39,5 +39,11 @@
 				</view>
 			</view>
 		</navigator>
+		<!-- <navigator url="/pages/vehicle/vehicle" hover-class="none">
+			<view class="center_list">
+				<view class="center_list_text">我的消息</view>
+				<view><image src="../../images/right-2.png" /></view>
+			</view>
+		</navigator> -->
 	</view>
 </view>

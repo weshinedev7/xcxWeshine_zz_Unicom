@@ -54,7 +54,6 @@ page {
 
 .checkbox radio {
   margin: 5rpx 0rpx 0rpx;
-  /* font-size: 30rpx; */
   transform: scale(0.8, 0.8);
 }
 
@@ -82,6 +81,7 @@ page {
 
 .meeting textarea {
   width: 96%;
+  height: 350rpx;
   padding: 15rpx;
   border: 1rpx solid #ececec;
   border-radius: 26rpx;
