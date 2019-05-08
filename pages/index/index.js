@@ -1,4 +1,6 @@
 // pages/index/index.js
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
 
   /**
@@ -31,7 +33,19 @@ Page({
    */
   onLoad: function (options) {
     this.onAuthLocation();
-    
+    var that = this;
+    util.ajax({
+      url: app.globalData.path + 'ApiFoods/storename',
+      method: 'POST',
+      data: {},
+      success: function (res) {
+        console.log(res)
+        if(res.data.status == 'success'){
+        }else{
+          console.log(res.data.msg);
+        }
+      }
+    })
   },
 
   /**

@@ -74,9 +74,7 @@
         <view class="left pass">审批时间:</view>
         <view class="l30 pass">{{item.date}}</view>
       </view>
-      <!-- <view class='flex-row flr'>
-        <view class='yes'>已通过</view>
-      </view> -->
+			
     </view>
   </view>
 </view>

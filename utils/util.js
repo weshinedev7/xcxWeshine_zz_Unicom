@@ -14,7 +14,33 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const ajax = obj =>{
+  wx.request({
+    url: obj.url,
+    method: obj.method || 'POST',
+    header : {
+      "Content-Type": "application/json"
+    },
+    data: obj.data,
+    success: function (res) {
+      if (typeof obj.success == 'function'){
+        obj.success(res)
+      }
+    },
+    error:function(res){
+      if (typeof obj.error == 'function') {
+        obj.error(res)
+      }
+    },
+    complete:function(res){
+      if (typeof obj.complete == 'function') {
+        obj.error(res)
+      }
+    }
+  })
+}
+
 module.exports = {
   formatTime: formatTime,
-  
+  ajax: ajax
 }

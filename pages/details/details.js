@@ -10,12 +10,6 @@ Page({
 			{
 				link: '/pages/user/user',
 				url: '/images/tds.jpg'
-			}, {
-				link: '/pages/user/user',
-				url: '/images/tds1.jpg'
-			}, {
-				link: '/pages/user/user',
-				url: '/images/tds3.jpeg'
 			}
 		],
 		number:1,
@@ -66,7 +60,6 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-
 	},
 
 	/**

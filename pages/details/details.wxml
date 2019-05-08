@@ -2,9 +2,9 @@
 <swiper indicator-dots="true"  autoplay="true" interval="2000" duration="2000" circular="true" class="banner">  
 	<block wx:for="{{imgUrls}}">  
 		<swiper-item>  
-			<navigator url="{{item.link}}">  
+			<!-- <navigator url="{{item.link}}">   -->
 			<image src="{{item.url}}" class="banner-image" mode="aspectFill"/> 
-			</navigator>  
+			<!-- </navigator>   -->
 		</swiper-item>  
 	</block>  
 </swiper>
