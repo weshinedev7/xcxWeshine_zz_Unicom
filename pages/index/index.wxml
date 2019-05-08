@@ -12,8 +12,8 @@
 <swiper indicator-dots="true"  autoplay="true" interval="5000" duration="1000" circular="true" class="banner">  
   <block wx:for="{{imgUrls}}">  
     <swiper-item>  
-      <navigator url="{{item.link}}">  
-       <image src="{{item.url}}" class="banner-image" mode="aspectFill"/>  
+      <navigator url="">
+       <image src="{{item.img}}" class="banner-image" mode="aspectFill"/>
       </navigator>  
     </swiper-item>  
   </block>  
