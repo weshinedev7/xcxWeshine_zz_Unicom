@@ -36,6 +36,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    path:'https://first.xcxweshine.com/index.php/'
   }
 })

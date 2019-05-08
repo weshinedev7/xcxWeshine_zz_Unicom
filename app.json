@@ -1,11 +1,10 @@
 {
 	"pages": [
-		"pages/index/index",
 		"pages/bookingVehicle/bookingVehicle",
-		"pages/vehicle/vehicle",
-		"pages/makeAnAppointment/makeAnAppointment",
-		"pages/conferenceRoom/conferenceRoom",
 		"pages/vehicleLogin/vehicleLogin",
+		"pages/index/index",
+		"pages/vehicle/vehicle",
+		"pages/conferenceRoom/conferenceRoom",
 		"pages/roomLogin/roomLogin",
 		"pages/food/food",
 		"pages/varietyOfEdit/varietyOfEdit",
@@ -15,6 +14,7 @@
 		"pages/reservationRoomEdit/reservationRoomEdit",
 		"pages/details/details",
 		"pages/user/user",
+		"pages/makeAnAppointment/makeAnAppointment",
 		"pages/login/login",
 		"pages/search/search",
 		"pages/score/score"
@@ -60,5 +60,6 @@
 		"scope.userLocation": {
 			"desc": "为了给您提供更好的服务，请允许小程序使用您的地理位置"
 		}
-	}
+	},
+	"sitemapLocation": "sitemap.json"
 }

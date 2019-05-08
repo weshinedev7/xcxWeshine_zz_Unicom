@@ -11,14 +11,6 @@
 <!--店铺-->
 <view class="top" style="padding-bottom:10rpx;">
   <view class="top-title">
-    <view class="top_view {{check=='1' ? 'active' : ''}}" bindtap='selectStore' data-id="1">
-      <image src="/images/ct-1.jpg" class="top_icon"></image>
-      <text>宴桃园</text>
-    </view>
-    <view class="top_view {{check=='2' ? 'active' : ''}}" bindtap='selectStore' data-id="2">
-      <image src="/images/ct2.jpg" class="top_icon"></image>
-      <text>老渔夫.疍家粥</text>
-    </view>
     <view class="top_view {{check=='3' ? 'active' : ''}}" bindtap='selectStore' data-id="3">
       <image src="/images/ct3.jpg" class="top_icon"></image>
       <text>天厨坊</text>
