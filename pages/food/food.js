@@ -1,4 +1,6 @@
 // pages/order/order.js
+var app=getApp();
+var util=require('../../utils/util.js');
 Page({
 
   /**
@@ -20,7 +22,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that=this;
+    util.ajax({
+      url: app.globalData.path +'ApiFoods/storename',
+      method:'POST',
+      data:{},
+      success:function(res){
+        console.log(res)
+      }
+    })
   },
 
   /**
