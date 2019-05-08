@@ -13,7 +13,6 @@
       <image src="/images/pass.png" mode="aspectFill" />
       <input type='text' name="number" password="true" class="input" data-model='number' placeholder="密码" bindinput='getInput' />
     </view>
-    <!-- <view class="btn-login" bindtap="userLogin">登录</view> -->
 		<button class="btn-login" form-type="submit">登录</button>
   </form>
 </view>
