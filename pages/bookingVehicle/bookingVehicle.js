@@ -1,4 +1,3 @@
-// pages/makeAnAppointment/makeAnAppointment.js
 var dateTimePicker = require('../../utils/dateTimePicker.js');
 const app = getApp();
 Page({
@@ -19,13 +18,18 @@ Page({
       title: "",
       number: "",
       content: "",
+
+      // 选择时间
+      date: '2018-10-01',
+      time: '12:00',
+      dateTimeArray: null,
+      dateTime: null,
+      dateTimeArray1: null,
+      dateTime1: null,
+      startYear: 2000,
+      endYear: 2050
+
     })
-
-    // if (getCurrentPages().length >= 1) {
-
-    // 	//刷新当前页面的数据
-    // 	getCurrentPages()[getCurrentPages().length - 1].onLoad()
-    // }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -35,8 +39,12 @@ Page({
     var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
     var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
     // 精确到分的处理，将数组的秒去掉
-    var lastArray = obj1.dateTimeArray.pop();
-    var lastTime = obj1.dateTime.pop();
+
+    obj1.dateTimeArray.pop();
+    obj1.dateTime.pop();
+
+    obj.dateTimeArray.pop();
+    obj.dateTime.pop();
 
     this.setData({
       dateTime: obj.dateTime,
@@ -44,6 +52,7 @@ Page({
       dateTimeArray1: obj1.dateTimeArray,
       dateTime1: obj1.dateTime
     });
+		console.log(wx.getStorageSync("user"))
   },
   // 重置数据
   reset: function() {
@@ -53,24 +62,59 @@ Page({
     })
   },
   // 提交数据
-  submit: function(e) {
-    console.log(11111111)
-    console.log(app)
-    console.log(app.blobalData)
-    // wx.request({
-		// 	url: 'https://first.xcxweshine.com/index.php/Index',
-    //   data: {
-    //     "start_time": e.dateil.value.start_time,
-    //     "end_time": e.detail.value.end_time,
-		// 		"number":e.detail.value.number,
-		// 		"content":e.detail.value.content,
-    //   },
-		// 	method:"POST",
-		// 	header: { "Conent-Type": application/x-www-form-urlencoded},
-		// 	success:function(res){
-		// 		console.log(res.data)
-		// 	}
-    // })
+  formsubmit: function(e) {
+		var start_time = e.detail.value.start_time
+		var end_time = e.detail.value.end_time
+		var number = e.detail.value.number
+		var content = e.detail.value.content
+		var user = wx.getStorage("user")
+		console.log(user)
+		if (content == '') {
+			wx.showToast({
+				title: '请重新输入车辆用途',
+				icon: 'none',
+				duration: 2000 //持续的时间
+			});
+		}
+		if (number == '' || number == 0) {
+			wx.showToast({
+				title: '请重新输入乘坐的人数',
+				icon: 'none',
+				duration: 2000 //持续的时间
+			});
+		}
+		if (start_time >= end_time) {
+			wx.showToast({
+				title: '使用时间不能小于结束时间',
+				icon: 'none',
+				duration: 2500 //持续的时间
+			});
+		}
+
+		// if (start_time => time) {
+		// 	wx.showToast({
+		// 		title: '使用时间不能小于当前时间',
+		// 		icon: 'none',
+		// 		duration: 2500 //持续的时间
+		// 	});
+		// }
+    wx.request({
+      url: app.globalData.path + 'ApiBookingvehicle/index',
+      method: "POST",
+      data: {
+        start_time: e.detail.value.start_time,
+        end_time: e.detail.value.end_time,
+        number: e.detail.value.number,
+        content: e.detail.value.content,
+				user:user
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
+        console.log(res.data)
+      }
+    })
   },
 
   /**
@@ -172,4 +216,5 @@ Page({
       dateTime1: arr
     });
   }
+
 })

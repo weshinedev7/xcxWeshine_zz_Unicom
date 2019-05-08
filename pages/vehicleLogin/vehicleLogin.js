@@ -48,7 +48,7 @@ Page({
               duration: 1000,
               mask: true
             });
-						wx.setStorage({
+						wx.setStorageSync({
 							key: "user",
 							data: res.data.user
 						})
