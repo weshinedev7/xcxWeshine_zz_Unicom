@@ -1,6 +1,6 @@
 // pages/makeAnAppointment/makeAnAppointment.js
 var dateTimePicker = require('../../utils/dateTimePicker.js');
-
+const app = getApp();
 Page({
 
   /**
@@ -12,21 +12,21 @@ Page({
     remarks: "",
 
   },
-	reset: function () {
-		this.setData({
-			// input_code: "",
-			upload_picture_list: "",
-			title: "",
-			number: "",
-			content: "",
-		})
+  reset: function() {
+    this.setData({
+      // input_code: "",
+      upload_picture_list: "",
+      title: "",
+      number: "",
+      content: "",
+    })
 
-		// if (getCurrentPages().length >= 1) {
+    // if (getCurrentPages().length >= 1) {
 
-		// 	//刷新当前页面的数据
-		// 	getCurrentPages()[getCurrentPages().length - 1].onLoad()
-		// }
-	},
+    // 	//刷新当前页面的数据
+    // 	getCurrentPages()[getCurrentPages().length - 1].onLoad()
+    // }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -45,17 +45,32 @@ Page({
       dateTime1: obj1.dateTime
     });
   },
+  // 重置数据
   reset: function() {
     this.setData({
       number: "",
-			content: "",
+      content: "",
     })
-
-    // if (getCurrentPages().length >= 1) {
-
-    // 	//刷新当前页面的数据
-    // 	getCurrentPages()[getCurrentPages().length - 1].onLoad()
-    // }
+  },
+  // 提交数据
+  submit: function(e) {
+    console.log(11111111)
+    console.log(app)
+    console.log(app.blobalData)
+    // wx.request({
+		// 	url: 'https://first.xcxweshine.com/index.php/Index',
+    //   data: {
+    //     "start_time": e.dateil.value.start_time,
+    //     "end_time": e.detail.value.end_time,
+		// 		"number":e.detail.value.number,
+		// 		"content":e.detail.value.content,
+    //   },
+		// 	method:"POST",
+		// 	header: { "Conent-Type": application/x-www-form-urlencoded},
+		// 	success:function(res){
+		// 		console.log(res.data)
+		// 	}
+    // })
   },
 
   /**
