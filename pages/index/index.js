@@ -7,18 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls:[
-      {
-        link:'/pages/user/user',
-        url:'/images/img1.jpeg'
-      },{
-        link:'/pages/user/user',
-        url:'/images/img2.png'
-      },{
-        link:'/pages/user/user',
-        url:'/images/img3.png'
-      } 
-    ],
+    imgUrls:[],
   },
 
   /**
@@ -39,13 +28,32 @@ Page({
       method: 'POST',
       data: {},
       success: function (res) {
-        console.log(res)
         if(res.data.status == 'success'){
         }else{
           console.log(res.data.msg);
         }
       }
-    })
+    });
+
+    //首页轮播
+    util.ajax({
+      url:app.globalData.path+'ApiBanner/getBanner',
+      method:'POST',
+      data:{},
+      success:function(res){
+        //成功
+        if(res.data.status='200'){
+          that.setData({
+            imgUrls:res.data.info,
+          });
+          console.log(that.data);
+        }else{
+
+        }
+      }
+
+    });
+
   },
 
   /**
