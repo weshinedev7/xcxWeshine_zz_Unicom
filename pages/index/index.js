@@ -31,6 +31,7 @@ Page({
    */
   onLoad: function (options) {
     this.onAuthLocation();
+    
   },
 
   /**
