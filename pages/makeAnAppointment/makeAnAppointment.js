@@ -100,10 +100,12 @@ Page({
     var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
     var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
     // 精确到分的处理，将数组的秒去掉
-    var lastArray = obj1.dateTimeArray.pop();
-    var lastTime = obj1.dateTime.pop();
+    obj1.dateTimeArray.pop();
+    obj1.dateTime.pop();
+    obj.dateTimeArray.pop();
+    obj.dateTime.pop();
 
-    this.setData({
+      this.setData({
       dateTime: obj.dateTime,
       dateTimeArray: obj.dateTimeArray,
       dateTimeArray1: obj1.dateTimeArray,

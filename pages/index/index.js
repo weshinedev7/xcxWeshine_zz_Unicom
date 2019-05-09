@@ -28,8 +28,8 @@ Page({
         duration: 2000//持续的时间
       });
       setTimeout(function () {
-        wx.switchTab ({
-          url: '/pages/index/index'
+        wx.redirectTo ({
+          url: '/pages/roomLogin/roomLogin'
         })
       }, 3000)
 

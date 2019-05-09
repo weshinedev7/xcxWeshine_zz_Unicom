@@ -45,7 +45,6 @@ Page({
             });
           }
 
-          //成功
           if (res.data.status = '200') {
             //存用户信息到本地存储
             wx.setStorageSync('employeeInfo', res.data.info);
@@ -61,6 +60,39 @@ Page({
                 url: '/pages/index/index'
               })
             }, 500)
+            //员工与预约人登录成功
+            if(res.data.info.role==='2'){
+              //存用户信息到本地存储
+              wx.setStorageSync('employeeInfo', res.data.info);
+              wx.showToast({
+                title: '登录成功',
+                icon: 'succes',
+                duration: 2000,
+                mask: true
+              });
+              setTimeout(function () {
+                wx.switchTab ({
+                  url: '/pages/index/index'
+                })
+              }, 3000)
+            }
+
+            //店家登录成功
+            if(res.data.info.role==='1'){
+              //存用户信息到本地存储
+              wx.setStorageSync('storeInfo', res.data.info);
+              wx.showToast({
+                title: '登录成功',
+                icon: 'succes',
+                duration: 2000,
+                mask: true
+              });
+              setTimeout(function () {
+                wx.redirectTo ({
+                  url: '/pages/varietyOfDishes/varietyOfDishes'
+                })
+              }, 3000)
+            }
           }
         }
       });
@@ -83,6 +115,11 @@ Page({
 				mask: true
 			})
 		}
+    if(wx.getStorageSync('storeInfo')!==''){
+      wx.redirectTo ({
+        url: '/pages/varietyOfDishes/varietyOfDishes'
+      })
+    }
   },
 
   /**

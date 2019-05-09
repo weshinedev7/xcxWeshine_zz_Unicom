@@ -1,9 +1,9 @@
 {
 	"pages": [
-		"pages/vehicle/vehicle",
 		"pages/roomLogin/roomLogin",
-		"pages/bookingVehicle/bookingVehicle",
+		"pages/vehicle/vehicle",
 		"pages/index/index",
+		"pages/bookingVehicle/bookingVehicle",
 		"pages/user/user",
 		"pages/conferenceRoom/conferenceRoom",
 		"pages/vehicleLogin/vehicleLogin",
