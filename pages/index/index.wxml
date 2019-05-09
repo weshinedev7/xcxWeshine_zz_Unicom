@@ -25,7 +25,7 @@
     <image src="/images/food.png" mode="aspectFit"/>
     <text>餐饮</text>
   </navigator>
-  <navigator url="" bindtap="toRoom" hover-class="none"  class="selection-item">
+  <navigator bindtap="toRoom" hover-class="none"  class="selection-item">
     <image src="/images/room.png" mode="aspectFit"/>
     <text>预约会议室</text>
   </navigator>

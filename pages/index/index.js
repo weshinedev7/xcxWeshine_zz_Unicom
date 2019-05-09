@@ -21,7 +21,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //判断是否登录
     if(wx.getStorageSync('employeeInfo')===''){
       wx.showToast({
         title: '请先登录',
@@ -29,14 +28,16 @@ Page({
         duration: 2000//持续的时间
       });
       setTimeout(function () {
-        wx.redirectTo ({
-          url: '/pages/roomLogin/roomLogin'
+        wx.switchTab ({
+          url: '/pages/index/index'
         })
       }, 3000)
+
     }
 
     this.onAuthLocation();
     var that = this;
+
     //首页轮播
     util.ajax({
       url:app.globalData.path+'ApiBanner/getBanner',
@@ -48,21 +49,17 @@ Page({
           that.setData({
             imgUrls:res.data.info,
           });
-          console.log(that.data);
-        }else{
-          wx.redirectTo ({
-            url: '/pages/makeAnAppointment/makeAnAppointment'
-          })
         }
       }
 
     });
+
   },
-
   toRoom:function(e){
-    //判断权限
     if(wx.getStorageSync('employeeInfo').role==='2'){
-
+      wx.navigateTo ({
+        url: '/pages/makeAnAppointment/makeAnAppointment'
+      })
     }else{
       wx.showToast({
         title: '权限不足',
@@ -70,6 +67,7 @@ Page({
         duration: 2000//持续的时间
       });
     }
+
   },
 
   /**

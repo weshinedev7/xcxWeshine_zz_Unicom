@@ -1,12 +1,18 @@
 <view class="top">
-  <view class="block">
-        <image src="/images/user_sele.png" mode="aspectFill"/>
-		<input type="text" class="input" data-model='user' placeholder="账号" bindinput='getInput'/>        
-  </view>
+  <form bindsubmit='vehicleLogin'>
+    <view class="block">
+      <image src="/images/user_sele.png" mode="aspectFill" />
+      <input type="text" name="username" class="input" data-model='user' placeholder="账号" bindinput='getInput' />
+    </view>
 
-  <view class="block">
-        <image src="/images/pass.png" mode="aspectFill"/>
-		<input type='text' password="true"  class="input" data-model='pwd' placeholder="密码" bindinput='getInput'/>        
-  </view>
-  <view class="btn-login" bindtap="userLogin">登录</view>
+    <!-- <view class="block">
+      <image src="/images/pass.png" mode="aspectFill" />
+      <input type='text' name="pwd" password="true" class="input" data-model='pwd' placeholder="密码" bindinput='getInput' />
+    </view> -->
+    <view class="block">
+      <image src="/images/pass.png" mode="aspectFill" />
+      <input type='text' name="number" password="true" class="input" data-model='number' placeholder="密码" bindinput='getInput' />
+    </view>
+		<button class="btn-login" form-type="submit">登录</button>
+  </form>
 </view>
