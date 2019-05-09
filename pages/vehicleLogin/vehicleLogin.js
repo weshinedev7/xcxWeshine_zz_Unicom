@@ -48,10 +48,10 @@ Page({
               duration: 1000,
               mask: true
             });
-						wx.setStorageSync({
-							key: "user",
-							data: res.data.user
-						})
+            wx.setStorageSync({
+              key: "user",
+              data: res.data.user
+            })
             setTimeout(function() {
               wx.navigateTo({
                 url: '/pages/bookingVehicle/bookingVehicle'
@@ -77,8 +77,8 @@ Page({
    */
   onLoad: function(options) {
 
-		let user = wx.getStorageSync();
-		// console.log(user)
+    let user = wx.getStorageSync();
+    // console.log(user)
   },
 
   /**

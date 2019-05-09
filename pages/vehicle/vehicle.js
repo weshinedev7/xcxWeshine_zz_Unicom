@@ -1,71 +1,69 @@
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-		check: 0,
-		vehicle: [{
-			start_time: "2019-04-29 13:30:00",
-			end_time: "2019-04-29 15:30:00",
-			number: "4",
-			content: "购买公司的团建活动的材料",
-			status: "0",
-		}, {
-			start_time: "2019-04-29 13:30:00",
-			end_time: "2019-04-29 15:30:00",
-			number: "4",
-			content: "购买公司的团建活动的材料",
-			status: "1",
-			approver: "从你的世界路过",
-			reason: "待议",
-			date: "2019-04-28 12:30:00",
-		}, {
-			start_time: "2019-04-29 13:30:00",
-			end_time: "2019-04-29 15:30:00",
-			number: "4",
-			content: "购买公司的团建活动的材料",
-			status: "2",
-			approver: "从你的世界路过",
-			vehicle_id: "苏B.12345",
-			date: "2019-04-28 12:30:00",
-			}],
-		no_pass: [ {
-			start_time: "2019-04-29 13:30:00",
-			end_time: "2019-04-29 15:30:00",
-			number: "4",
-			content: "购买公司的团建活动的材料",
-			status: "1",
-			approver: "从你的世界路过",
-			reason: "待议",
-			date: "2019-04-28 12:30:00",
-		}],
-		pass: [{
-			start_time: "2019-04-29 13:30:00",
-			end_time: "2019-04-29 15:30:00",
-			number: "4",
-			content: "购买公司的团建活动的材料",
-			status: "2",
-			approver: "从你的世界路过",
-			vehicle_id: "苏B.12345",
-			date: "2019-04-28 12:30:00",
-		}]
+    check: 0,
+    vehicle: "",
   },
   selectDispaly: function(e) {
-    let _this = this;
-    _this.setData({
-      check: e.currentTarget.dataset.id
-    });
+		let _this = this;
+		_this.setData({
+			check: e.currentTarget.dataset.id
+		});
+		_this.setData({
+			vehicle: 0
+		});
+		// console.log(_this.data.check)
+    var that = this;
+    wx.request({
+      url: app.globalData.path + 'ApiBookingvehicle/index',
+      method: 'POST',
+      data: {
+        username: wx.getStorageSync('employeeInfo').name,
+        user_id: wx.getStorageSync('employeeInfo').id,
+        status: this.data.check
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
+        if (res.data.code === 1) {
+          that.setData({
+            vehicle: res.data.data
+          });
+          // console.log(this.res.data.vehicle)
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var date = new Date(); //获取系统当前时间
-    // this.setData({
-    // 	time: current_time,
-    // })
 
+    var that = this;
+    wx.request({
+      url: app.globalData.path + 'ApiBookingvehicle/index',
+      method: 'POST',
+      data: {
+        username: wx.getStorageSync('employeeInfo').name,
+        user_id: wx.getStorageSync('employeeInfo').id,
+        status: 0
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
+				if (res.data.code === 1) {
+          that.setData({
+            vehicle: res.data.data
+          });
+        }
+      }
+    })
 
 
   },

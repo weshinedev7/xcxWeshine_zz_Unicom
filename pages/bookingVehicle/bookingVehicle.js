@@ -53,8 +53,6 @@ Page({
       dateTimeArray1: obj1.dateTimeArray,
       dateTime1: obj1.dateTime
     });
-		
-
   },
   // 重置数据
   reset: function() {
@@ -65,86 +63,86 @@ Page({
   },
   // 提交数据
   formsubmit: function(e) {
-		var start_time = e.detail.value.start_time
-		var end_time = e.detail.value.end_time
-		var number = e.detail.value.number
-		var content = e.detail.value.content
-		// var user = wx.getStorage()
-		// console.log(user)
-		if (start_time >= end_time) {
-			wx.showToast({
-				title: '使用时间不能小于结束时间',
-				icon: 'none',
-				duration: 2500 //持续的时间
-			});
-			return false;
-		}
-		// 获取当前时间(年月日时分)
-		var date = utils.formatTime(new Date());
-		if (start_time <= date) {
-			wx.showToast({
-				title: '使用时间不能小于当前时间',
-				icon: 'none',
-				duration: 2500 //持续的时间
-			});
-			return false;
-		}
+    // 获取数据
+    var start_time = e.detail.value.start_time
+    var end_time = e.detail.value.end_time
+    var number = e.detail.value.number
+    var content = e.detail.value.content
 
-		if (number == '' || number == 0) {
-			wx.showToast({
-				title: '请重新输入乘坐的人数',
-				icon: 'none',
-				duration: 2000 //持续的时间
-			});
-			return false;
-		}
-		if (content == '') {
-			wx.showToast({
-				title: '请重新输入车辆用途',
-				icon: 'none',
-				duration: 2000 //持续的时间
-			});
-			return false;
-		}
-	  wx.request({
-      url: app.globalData.path + 'ApiBookingvehicle/index',
+    //判断
+    if (start_time >= end_time) {
+      wx.showToast({
+        title: '使用时间不能小于结束时间',
+        icon: 'none',
+        duration: 2500 //持续的时间
+      });
+      return false;
+    }
+    // 获取当前时间(年月日时分)
+    var date = utils.formatTime(new Date());
+    if (start_time <= date) {
+      wx.showToast({
+        title: '使用时间不能小于当前时间',
+        icon: 'none',
+        duration: 2500 //持续的时间
+      });
+      return false;
+    }
+
+    if (number == '' || number == 0) {
+      wx.showToast({
+        title: '请重新输入乘坐的人数',
+        icon: 'none',
+        duration: 2000 //持续的时间
+      });
+      return false;
+    }
+    if (content == '') {
+      wx.showToast({
+        title: '请重新输入车辆用途',
+        icon: 'none',
+        duration: 2000 //持续的时间
+      });
+      return false;
+    }
+    // 请求数据
+    wx.request({
+      url: app.globalData.path + 'ApiBookingvehicle/save',
       method: "POST",
       data: {
         start_time: e.detail.value.start_time,
         end_time: e.detail.value.end_time,
         number: e.detail.value.number,
         content: e.detail.value.content,
-				apply_time: utils.formatTime(new Date())
-				// user:user
+        apply_time: utils.formatTime(new Date()),
+				tel: wx.getStorageSync('employeeInfo').number,
+				applicant: wx.getStorageSync('employeeInfo').name,
+				user_id: wx.getStorageSync('employeeInfo').id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(res) {
-				if (res.data.code === 1) {
-					wx.showToast({
-						title: res.data.msg,
-						icon: 'succes',
-						duration: 1000,
-						mask: true
-					});
-					wx.setStorageSync({
-						key: "user",
-						data: res.data.user
-					})
-					setTimeout(function () {
-						wx.navigateTo({
-							url: '/pages/Vehicle/Vehicle'
-						})
-					}, 500)
-				} else {
-					wx.showToast({
-						title: res.data.msg,
-						icon: 'none',
-						duration: 1500,
-						mask: true
-					});
-				}
+        if (res.data.code === 1) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          });
+          setTimeout(function() {
+            wx.navigateTo({
+              url: '/pages/vehicle/vehicle'
+            })
+          }, 500)
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1500,
+            mask: true
+          });
+        }
       }
     })
   },
