@@ -77,7 +77,7 @@ Page({
    */
   onLoad: function(options) {
 
-		let user = wx.getStorageSync('user');
+		let user = wx.getStorageSync();
 		// console.log(user)
   },
 

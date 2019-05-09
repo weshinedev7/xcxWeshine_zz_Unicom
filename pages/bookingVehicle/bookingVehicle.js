@@ -1,4 +1,5 @@
 var dateTimePicker = require('../../utils/dateTimePicker.js');
+var utils = require('../../utils/util.js');
 const app = getApp();
 Page({
 
@@ -20,7 +21,7 @@ Page({
       content: "",
 
       // 选择时间
-      date: '2018-10-01',
+      date: '',
       time: '12:00',
       dateTimeArray: null,
       dateTime: null,
@@ -52,7 +53,8 @@ Page({
       dateTimeArray1: obj1.dateTimeArray,
       dateTime1: obj1.dateTime
     });
-		console.log(wx.getStorageSync("user"))
+		
+
   },
   // 重置数据
   reset: function() {
@@ -67,38 +69,44 @@ Page({
 		var end_time = e.detail.value.end_time
 		var number = e.detail.value.number
 		var content = e.detail.value.content
-		var user = wx.getStorage("user")
-		console.log(user)
-		if (content == '') {
-			wx.showToast({
-				title: '请重新输入车辆用途',
-				icon: 'none',
-				duration: 2000 //持续的时间
-			});
-		}
-		if (number == '' || number == 0) {
-			wx.showToast({
-				title: '请重新输入乘坐的人数',
-				icon: 'none',
-				duration: 2000 //持续的时间
-			});
-		}
+		// var user = wx.getStorage()
+		// console.log(user)
 		if (start_time >= end_time) {
 			wx.showToast({
 				title: '使用时间不能小于结束时间',
 				icon: 'none',
 				duration: 2500 //持续的时间
 			});
+			return false;
+		}
+		// 获取当前时间(年月日时分)
+		var date = utils.formatTime(new Date());
+		if (start_time <= date) {
+			wx.showToast({
+				title: '使用时间不能小于当前时间',
+				icon: 'none',
+				duration: 2500 //持续的时间
+			});
+			return false;
 		}
 
-		// if (start_time => time) {
-		// 	wx.showToast({
-		// 		title: '使用时间不能小于当前时间',
-		// 		icon: 'none',
-		// 		duration: 2500 //持续的时间
-		// 	});
-		// }
-    wx.request({
+		if (number == '' || number == 0) {
+			wx.showToast({
+				title: '请重新输入乘坐的人数',
+				icon: 'none',
+				duration: 2000 //持续的时间
+			});
+			return false;
+		}
+		if (content == '') {
+			wx.showToast({
+				title: '请重新输入车辆用途',
+				icon: 'none',
+				duration: 2000 //持续的时间
+			});
+			return false;
+		}
+	  wx.request({
       url: app.globalData.path + 'ApiBookingvehicle/index',
       method: "POST",
       data: {
@@ -106,13 +114,37 @@ Page({
         end_time: e.detail.value.end_time,
         number: e.detail.value.number,
         content: e.detail.value.content,
-				user:user
+				apply_time: utils.formatTime(new Date())
+				// user:user
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(res) {
-        console.log(res.data)
+				if (res.data.code === 1) {
+					wx.showToast({
+						title: res.data.msg,
+						icon: 'succes',
+						duration: 1000,
+						mask: true
+					});
+					wx.setStorageSync({
+						key: "user",
+						data: res.data.user
+					})
+					setTimeout(function () {
+						wx.navigateTo({
+							url: '/pages/Vehicle/Vehicle'
+						})
+					}, 500)
+				} else {
+					wx.showToast({
+						title: res.data.msg,
+						icon: 'none',
+						duration: 1500,
+						mask: true
+					});
+				}
       }
     })
   },

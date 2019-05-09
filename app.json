@@ -1,7 +1,7 @@
 {
 	"pages": [
-		"pages/vehicleLogin/vehicleLogin",
 		"pages/bookingVehicle/bookingVehicle",
+		"pages/vehicleLogin/vehicleLogin",
 		"pages/index/index",
 		"pages/vehicle/vehicle",
 		"pages/conferenceRoom/conferenceRoom",
