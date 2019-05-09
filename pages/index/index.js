@@ -21,6 +21,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(wx.getStorageSync('employeeInfo')===''){
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 2000//持续的时间
+      });
+      setTimeout(function () {
+        wx.switchTab ({
+          url: '/pages/index/index'
+        })
+      }, 3000)
+
+    }
+
     this.onAuthLocation();
     var that = this;
 
@@ -35,14 +49,38 @@ Page({
           that.setData({
             imgUrls:res.data.info,
           });
-          console.log(that.data);
-        }else{
-
         }
       }
 
     });
 
+  },
+  toRoom:function(e){
+    if(wx.getStorageSync('employeeInfo').role==='2'){
+      wx.navigateTo ({
+        url: '/pages/makeAnAppointment/makeAnAppointment'
+      })
+    }else{
+      wx.showToast({
+        title: '权限不足',
+        icon: 'none',
+        duration: 2000//持续的时间
+      });
+    }
+
+  },
+  toCar:function(e){
+    if(wx.getStorageSync('employeeInfo').role==='2'){
+      wx.navigateTo ({
+        url: '/pages/bookingVehicle/bookingVehicle'
+      })
+    }else{
+      wx.showToast({
+        title: '权限不足',
+        icon: 'none',
+        duration: 2000//持续的时间
+      });
+    }
   },
 
   /**
