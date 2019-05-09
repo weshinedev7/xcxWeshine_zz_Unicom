@@ -19,7 +19,7 @@ const ajax = obj =>{
     url: obj.url,
     method: obj.method || 'POST',
     header : {
-      "Content-Type": "application/json"
+      'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
     },
     data: obj.data,
     success: function (res) {

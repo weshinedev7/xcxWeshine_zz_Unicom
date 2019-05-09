@@ -1,5 +1,6 @@
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -15,34 +16,66 @@ Page({
     });
   },
 
-  userLogin:function(e){
-    var user=this.data.user;
-    var pwd=this.data.pwd;
-    if(user==='' || pwd===''){
+  userLogin:function(e) {
+    var user = this.data.user;
+    var pwd = this.data.pwd;
+    if (user === '' || pwd === '') {
       wx.showToast({
-         title: '账号、密码不能为空',
-         icon: 'none',
-         duration: 2000//持续的时间
+        title: '账号、密码不能为空',
+        icon: 'none',
+        duration: 2000//持续的时间
       });
-    }else{
-      wx.showToast({
-        title: '登录成功',
-        icon: 'succes',
-        duration: 2000,
-        mask: true
+    } else {
+
+      //登录
+      util.ajax({
+        url: app.globalData.path + 'ApiUser/login',
+        method: 'POST',
+        data: {
+          user: user,
+          pwd: pwd
+        },
+        success: function (res) {
+          //失败
+          if(res.data.status = '100'){
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 2000//持续的时间
+            });
+          }
+
+          //成功
+          if (res.data.status = '200') {
+            //存用户信息到本地存储
+            wx.setStorageSync('employeeInfo', res.data.info);
+
+            wx.showToast({
+              title: '登录成功',
+              icon: 'succes',
+              duration: 2000,
+              mask: true
+            });
+            setTimeout(function () {
+              wx.switchTab ({
+                 url: '/pages/index/index'
+              })
+            }, 3000)
+          }
+        }
       });
-      setTimeout(function () {
-        wx.navigateTo({
-          url: '/pages/makeAnAppointment/makeAnAppointment'
-        })
-      }, 3000)};
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if(wx.getStorageSync('employeeInfo')!==''){
+      wx.switchTab ({
+        url: '/pages/index/index'
+      })
+    }
   },
 
   /**

@@ -37,6 +37,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    employeeInfo:null,
     path:'https://first.xcxweshine.com/index.php/'
   }
 })
