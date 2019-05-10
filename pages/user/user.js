@@ -5,16 +5,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+		name: wx.getStorageSync('employeeInfo').name,
+		tel: wx.getStorageSync('employeeInfo').number
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+		// this.setData({
 
+		// })
   },
-
+	outlogin:function(e){
+		wx.showModal({
+			title: '提示',
+			content: '确定要注销吗？',
+			success: function (sm) {
+				if (sm.confirm) {
+					// 用户点击了确定 可以调用删除方法了
+					wx.setStorageSync('employeeInfo', "");
+					wx.showToast({
+						title: '已注销',
+						icon: 'succes',
+						duration: 1000,
+						mask: true
+					})
+					setTimeout(function () {
+						wx.redirectTo({
+							url: '/pages/roomLogin/roomLogin'
+						})
+					}, 1000)
+				} else {
+					console.log('用户点击取消')
+				}
+			}
+		})
+	},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -3,20 +3,22 @@
 <view class="top">
 	<view class="top_centent">
 		<view class="top_left">
-			<view class="user_name">从你的全世界路过</view>
+			<view class="user_name">{{name}}</view>
 			<!--<view class="user_tel">182****9478</view>-->
 		</view>
 		<view class="top_right">
 			<image src="../../images/head.jpg" />
 		</view>
 		<view class="top_bottom">
-			<button class="get_user_details">更新个人信息</button>
+		<!-- <navigator class="get_user_details" url="/pages/changePersonalData/changePersonalData">更新个人信息</navigator> -->
+			<!-- <button class="get_user_details">更新个人信息</button> -->
 		</view>
 	</view> 
 </view>
 
 <!-- 内容 -->
 <view class="main">
+
 	<view class="main_center">
 		<navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none">
 			<view class="center_list">
@@ -30,15 +32,15 @@
 				<view><image src="../../images/right-2.png" /></view>
 			</view>
 		</navigator>
-		<navigator url="/pages/login/login" hover-class="none">
+		<!--<navigator url="/pages/login/login" hover-class="none">
 			<view class="center_list">
 				<view class="center_list_text">菜品管理</view>
 				<view>
 					<image src="../../images/right-2.png" />
-					<button class="login">未登录</button>
-				</view>
+					<!-- <button class="login">未登录</button> -->
+				<!-- </view>
 			</view>
-		</navigator>
+		</navigator> -->
 		<!-- <navigator url="/pages/vehicle/vehicle" hover-class="none">
 			<view class="center_list">
 				<view class="center_list_text">我的消息</view>
@@ -46,4 +48,8 @@
 			</view>
 		</navigator> -->
 	</view>
+
 </view>
+	<view class="outlogin">
+	<view bindtap='outlogin'>注销登录</view>
+	</view>

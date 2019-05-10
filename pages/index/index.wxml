@@ -29,9 +29,9 @@
     <image src="/images/room.png" mode="aspectFit"/>
     <text>预约会议室</text>
   </navigator>
-  <navigator url="/pages/vehicleLogin/vehicleLogin" hover-class="none"  class="selection-item">
-			<image src="/images/car.png" mode="aspectFit"/>
-			<text>预约车辆</text>
+  <navigator bindtap="toCar" hover-class="none"  class="selection-item">
+    <image src="/images/car.png" mode="aspectFit"/>
+    <text>预约车辆</text>
   </navigator>
 </view>
 

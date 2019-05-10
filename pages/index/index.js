@@ -28,8 +28,8 @@ Page({
         duration: 2000//持续的时间
       });
       setTimeout(function () {
-        wx.switchTab ({
-          url: '/pages/index/index'
+        wx.redirectTo ({
+          url: '/pages/roomLogin/roomLogin'
         })
       }, 3000)
 
@@ -68,6 +68,19 @@ Page({
       });
     }
 
+  },
+  toCar:function(e){
+    if(wx.getStorageSync('employeeInfo').role==='2'){
+      wx.navigateTo ({
+        url: '/pages/bookingVehicle/bookingVehicle'
+      })
+    }else{
+      wx.showToast({
+        title: '权限不足',
+        icon: 'none',
+        duration: 2000//持续的时间
+      });
+    }
   },
 
   /**

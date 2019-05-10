@@ -139,6 +139,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    //判断是否登录
+    if(wx.getStorageSync('storeInfo')===''){
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 2000//持续的时间
+      });
+      setTimeout(function () {
+        wx.redirectTo ({
+          url: '/pages/roomLogin/roomLogin'
+        })
+      }, 3000)
+
+    }
 
   },
 
