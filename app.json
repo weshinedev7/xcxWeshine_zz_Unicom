@@ -1,10 +1,10 @@
 {
 	"pages": [
-		"pages/roomLogin/roomLogin",
+		"pages/user/user",
 		"pages/vehicle/vehicle",
+		"pages/roomLogin/roomLogin",
 		"pages/index/index",
 		"pages/bookingVehicle/bookingVehicle",
-		"pages/user/user",
 		"pages/conferenceRoom/conferenceRoom",
 		"pages/vehicleLogin/vehicleLogin",
 		"pages/food/food",

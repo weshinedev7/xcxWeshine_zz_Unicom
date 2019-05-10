@@ -5,17 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-		name: wx.getStorageSync('employeeInfo').name,
-		tel: wx.getStorageSync('employeeInfo').number
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-		// this.setData({
-
-		// })
+		this.setData({
+			name: wx.getStorageSync('employeeInfo').name,
+			tel: wx.getStorageSync('employeeInfo').number
+		})
   },
 	outlogin:function(e){
 		wx.showModal({
@@ -36,8 +36,6 @@ Page({
 							url: '/pages/roomLogin/roomLogin'
 						})
 					}, 1000)
-				} else {
-					console.log('用户点击取消')
 				}
 			}
 		})

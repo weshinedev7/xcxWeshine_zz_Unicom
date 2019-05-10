@@ -19,6 +19,7 @@
     <view class="{{item.status == 0?'status':''}}">{{item.status == 0?'待审核':''}}</view>
     <view class="{{item.status == 1?'status':''}}" style="{{item.status == 1?'background:#51c332':''}}">{{item.status == 1?'已通过':''}}</view>
     <view class="{{item.status == 2?'status':''}}">{{item.status == 2?'未通过':''}}</view>
+    <view class="{{item.status == 3?'status':''}}" style="{{item.status?'background:#838383':''}}">{{item.status == 3?'已取消':''}}</view>
     <view class="flex-row item">
       <view class="left">开始时间</view>
       <view class="right">{{item.start_time}}</view>
@@ -36,24 +37,25 @@
       <view class="right more">{{item.content}}</view>
     </view>
 
-    <!--判断是否通过审批-->
+    <!-- 判断是否通过审批
     <view class='{{item.status == 0?"flex-row flr":""}}'>
-      <navigator url="/pages/bookingVehicle/bookingVehicle" hover-class="none" class="{{item.status == 0?'edit':''}}">{{item.status == 0?"修改":""}}</navigator>
+      <navigator url="/pages/bookingVehicle/bookingVehicle?id={{item.id}}" hover-class="none" class="{{item.status == 0?'edit':''}}">{{item.status == 0?"修改":""}}</navigator>
       <view class="{{item.status == 0?'cancel':''}}">{{item.status == 0?"取消":""}}</view>
-    </view>
+    </view>     -->
+		<!--判断是否通过审批-->
 
     <view class='{{item.status == 1?"status_yes":""}}' wx:if="{{item.status == 1}}">
       <view class="tac">审核结果</view>
-      <view class="flex-row">
+      <view class="flex-row res">
         <view class="left">审批人:</view>
         <view class="l30 pass">{{item.approver}}</view>
       </view>
-      <view class='flex-row'>
+      <view class='flex-row res'>
         <view class="left">车辆牌号:</view>
         <view class="l30 pass">{{item.license_plate}}
         </view>
       </view>
-      <view class='flex-row'>
+      <view class='flex-row res'>
         <view class="left">车辆型号:</view>
         <view class="l30 pass">{{item.vehicle_type}}</view>
       </view>
@@ -76,6 +78,10 @@
       </view> -->
     </view>
 
+    <view class='flex-row flr'>
+      <navigator url="/pages/bookingVehicle/bookingVehicle?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
+      <view class="{{item.status != 3?'cancel':''}}" bindtap='cancel' data-id='{{item.id}}'>{{item.status != 3?'取消':''}}</view>
+    </view>
   </view>
 
 </view>

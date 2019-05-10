@@ -46,13 +46,42 @@ Page({
 
     obj.dateTimeArray.pop();
     obj.dateTime.pop();
-
+	
     this.setData({
       dateTime: obj.dateTime,
       dateTimeArray: obj.dateTimeArray,
       dateTimeArray1: obj1.dateTimeArray,
       dateTime1: obj1.dateTime
     });
+
+    // 接收修改预约书时传入的预约id
+    this.setData({
+      b_id: options.id
+    })
+
+    console.log(this.data.b_id)
+
+    var that = this;
+    // 修改时请求数据
+    if (this.data.b_id != null) {
+      wx.request({
+        url: app.globalData.path + 'ApiBookingvehicle/find',
+        method: 'POST',
+        data: {
+          id: this.data.b_id
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function(res) {
+          if (res.data.code === 0) {
+            that.setData({
+              vehicle: res.data.data
+            });
+          }
+        }
+      })
+    }
   },
   // 重置数据
   reset: function() {
@@ -68,6 +97,13 @@ Page({
     var end_time = e.detail.value.end_time
     var number = e.detail.value.number
     var content = e.detail.value.content
+		var that = this;
+
+		if(!this.data.b_id){
+			that.setData({
+				b_id:'',
+			})
+		}
 
     //判断
     if (start_time >= end_time) {
@@ -115,15 +151,16 @@ Page({
         number: e.detail.value.number,
         content: e.detail.value.content,
         apply_time: utils.formatTime(new Date()),
-				tel: wx.getStorageSync('employeeInfo').number,
-				applicant: wx.getStorageSync('employeeInfo').name,
-				user_id: wx.getStorageSync('employeeInfo').id
+        tel: wx.getStorageSync('employeeInfo').number,
+        applicant: wx.getStorageSync('employeeInfo').name,
+        user_id: wx.getStorageSync('employeeInfo').id,
+				b_id:that.data.b_id
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(res) {
-        if (res.data.code === 1) {
+        if (res.data.code === 0) {
           wx.showToast({
             title: res.data.msg,
             icon: 'succes',
@@ -145,7 +182,7 @@ Page({
         }
       }
     })
-  },
+	}, 
 
   /**
    * 生命周期函数--监听页面初次渲染完成

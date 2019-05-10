@@ -62,8 +62,8 @@ Page({
             }, 500)
             //员工与预约人登录成功
             if(res.data.info.role==='2'){
-              //存用户信息到本地存储
-              wx.setStorageSync('employeeInfo', res.data.info);
+							//存用户信息到本地存储
+							wx.setStorageSync('employeeInfo', res.data.info);
               wx.showToast({
                 title: '登录成功',
                 icon: 'succes',

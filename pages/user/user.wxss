@@ -152,5 +152,5 @@ page {
 		text-align: center;
 		line-height: 60rpx;
 		font-size:26rpx;
-		border-radius: 30rpx;
+		border-radius: 15rpx;
 		}

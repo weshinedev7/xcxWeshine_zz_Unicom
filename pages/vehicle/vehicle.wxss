@@ -43,7 +43,8 @@
 .item {
   width: 100%;
   border-bottom: #eee 1rpx solid;
-  margin-bottom: 30rpx;
+  margin-bottom: 20rpx;
+	padding-bottom:10rpx;
 }
 
 .left {
@@ -110,7 +111,14 @@
 
 .status_yes {
   font-size: 30rpx;
+	border-bottom:1rpx solid #eee;
+	margin-bottom:20rpx;
+	padding-bottom:10rpx;
 }
+
+.res{width: 100%;
+  margin-bottom: 10rpx;
+	}
 
 /* .l30 {
   margin-left: 30rpx;
@@ -135,9 +143,10 @@
 .tac{text-align: center;
 		width:100%;
 		height:50rpx;
+		padding-bottom:15rpx;
 		line-height: 50rpx;
-		font-size:31rpx;
-		font-weight: 600;
+		font-size:32rpx;
+		font-weight: 700;
 	}
 
 
