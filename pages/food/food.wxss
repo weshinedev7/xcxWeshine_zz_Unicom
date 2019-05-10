@@ -73,7 +73,7 @@ page {
   overflow: hidden;
   text-align: center;
   float: left;
-	border-radius: 20rpx;
+  border-radius: 20rpx;
   padding: 20rpx 0;
 }
 
@@ -86,13 +86,13 @@ page {
   display: block;
   width: 100%;
   height: 30rpx;
-	margin:0rpx auto;
+  margin: 0rpx auto;
   line-height: 30rpx;
   text-align: center;
   font-size: 26rpx;
-	overflow:hidden;
-	text-overflow:ellipsis;
-	white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .active {
@@ -190,8 +190,7 @@ page {
 }
 
 .middle_none {
-  text-align: center;
-  font-size: 28rpx;
-  color: #666;
-  margin-top: 40rpx;
+  position: relative;
+  left: -78rpx;
+  bottom: -444rpx;
 }
