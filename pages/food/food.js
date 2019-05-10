@@ -10,7 +10,10 @@ Page({
     check: -1,
     storeName: {},
     allFoodsName: {},
-    foods: {}
+    foods: [],
+    len:null,
+    openof:1,
+    page:1
   },
   //选择门店
   selectStore: function(e) {
@@ -19,28 +22,17 @@ Page({
     this.setData({
       check: id
     });
+    this.rest();
     this.onloadMethod()
   },
-  onloadMethod:function(){
-    let _this = this;
-    util.ajax({
-      url: app.globalData.path + 'ApiFoods/storeFoods',
-      method: 'GET',
-      data: {
-        id: this.data.check,
-      },
-      success: function (res) {
-        let info = res.data;
-        console.log(info);
-        if (info.status == 'success') {
-          _this.setData({
-            foods: info.list
-          })
-        }
-      }
+  rest:function(){
+    this.setData({
+      foods: [],
+      len: null,
+      openof: 1,
+      page: 1
     })
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -61,47 +53,49 @@ Page({
     this.onloadMethod()
     
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
+  onReachBottom:function(){
+    this.onloadMethod();
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
+  //商户列表
+  onloadMethod: function () {
+    var that = this;
+    if (that.data.len == 0) return false;
+    if (that.data.openof != that.data.page) return false;
+    that.data.openof++;
+    this.setData({ openof: that.data.openof })
+    console.log('--------全部下拉刷新-------')
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    wx.showLoading({ title: '加载中', mask: true });
+    util.ajax({
+      url: app.globalData.path + 'ApiFoods/storeFoods',
+      method: 'GET',
+      data: {
+        id: that.data.check,   //学校ID
+        pageSize: 10,  //每页展示的商户数据条数
+        page: that.data.page   //当前页码（从1开始）
+      },
+      success: function (data) {
+        console.log('---------------------------------',data);
+        if (data.data.status == 'success') {
+          data.data.list.forEach(function (item) {
+            that.data.foods.push(item)
+          })
+          that.data.page++;
+          that.setData({
+            len: data.data.list.length,
+            foods: that.data.foods,
+            page: that.data.page,
+            openof: that.data.page
+          });
+          wx.hideLoading()
+          wx.hideNavigationBarLoading() //完成停止加载
+        }
+      },
+      complete: function () {
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
+      },
+    });
   },
 
   /**

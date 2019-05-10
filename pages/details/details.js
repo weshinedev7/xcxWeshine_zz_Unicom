@@ -1,4 +1,6 @@
 // pages/vehicleDetails/vehicleDetails.js
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
 
 	/**
@@ -14,6 +16,10 @@ Page({
 		],
 		number:1,
 		check:0,
+    food_id: '',
+    food: {},
+    price: 0,
+    total: 0
 	},
 
 	numberSub() {
@@ -22,15 +28,19 @@ Page({
 	      return true;
 	    }
 	    num--;
+    let foodPrice = this.data.price * num
 	    this.setData({
-	      number:num
+	      number:num,
+        total: foodPrice + '.00'
 	    });
     },
   numberAdd() {
     let num = this.data.number;
     num++;
+    let foodPrice = this.data.price * num
     this.setData({
-      number:num
+      number:num,
+      total: foodPrice + '.00'
     });
   },
   numberBlur(e) {
@@ -52,7 +62,7 @@ Page({
 
   toOrder:function(e){
   	wx.switchTab({
-  		url: '/pages/order/order'
+      url: '/pages/vehicleLogin/vehicleLogin'
 	})
   },
 
@@ -60,6 +70,24 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+    var that = this;
+    this.setData({
+      food_id: options.id
+    })
+    util.ajax({
+      url: app.globalData.path + 'ApiFoods/fooddetail',
+      method: 'POST',
+      data: {
+        id: that.data.food_id
+      },
+      success: function (res) {
+        that.setData({
+          food: res.data[0],
+          price: res.data[0].price,
+          total: res.data[0].price
+        })
+      }
+    })
 	},
 
 	/**

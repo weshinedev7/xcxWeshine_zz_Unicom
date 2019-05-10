@@ -55,7 +55,7 @@ const ajax = obj =>{
     },
     complete:function(res){
       if (typeof obj.complete == 'function') {
-        obj.error(res)
+        obj.complete(res)
       }
     }
   })
