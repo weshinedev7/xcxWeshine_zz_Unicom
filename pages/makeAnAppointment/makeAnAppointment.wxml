@@ -3,7 +3,7 @@
 
   <view class="content">
     <view class="text">会议标题：</view>
-    <input class="input" bindinput='getInput' data-model='title' placeholder="请输入会议标题"  auto-focus value="{{title}}"/>
+    <input class="input" bindinput='getInput' data-model='title' placeholder="请输入会议标题" auto-focus value="{{title}}" />
   </view>
 
   <view class="content">
@@ -12,10 +12,12 @@
     <view class="tui-picker-content">
       <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
         <view class="tui-picker-detail font time1">
-          <input class="input" bindinput='getInput' data-model='start_time' value="{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:00" disabled/>
-			<view class="right1">
-			    <image src="/images/right-2.png"></image>
-			</view>
+
+          <input  wx:if="{{start_time===''}}" value="{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:00" disabled/>
+          <input  wx:if="{{start_time!==''}}" value="{{start_time}}" disabled/>
+          <view class="right1">
+            <image src="/images/right-2.png"></image>
+          </view>
         </view>
       </picker>
     </view>
@@ -26,8 +28,11 @@
     <view class="tui-picker-content">
       <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
         <view class="tui-picker-detail time">
-          <input class="input" bindinput='getInput' data-model='end_time' value="{{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}:00" disabled/>
-					<view class="right"><image src="/images/right-2.png"></image></view>
+          <input wx:if="{{end_time===''}}" value="{{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}:00" disabled/>
+           <input  wx:if="{{end_time!==''}}" value="{{end_time}}" disabled/>
+          <view class="right">
+            <image src="/images/right-2.png"></image>
+          </view>
         </view>
       </picker>
     </view>
@@ -35,35 +40,45 @@
   </view>
   <view class="content">
     <view class="text">会议人数:</view>
-    <input class="input" bindinput='getInput' data-model='number' placeholder="会议人数" value="{{number}}"/>
+    <input class="input" bindinput='getInput' data-model='number' placeholder="会议人数" value="{{number}}" />
   </view>
   <view class="meeting-content" style="border:none">会议内容:</view>
   <view class="meeting">
-    <textarea  class="input" bindinput='getInput' data-model='content' placeholder="会议内容..." maxlength="1000" value="{{content}}"/>
+    <textarea class="input" bindinput='getInput' data-model='content' placeholder="会议内容..." maxlength="1000" value="{{content}}" />
   </view>
 
-
   <!-- 补充选项 -->
-  <view class="meeting-content" sstyle="margin-top:">补充选项:</view>
-  <view class="supplement">
+  <!--<view class="meeting-content" style="display:{{dispaly}}">补充选项:</view>
+  <view class="supplement" style="display:{{dispaly}}">
     <view class="supplement-content">
-      <checkbox-group bindchange="checkboxChange" >
-        <label class="checkbox" wx:for="{{items}}" class="input" bindinput='getInput' data-model='items'>
-          <checkbox value="{{item.name}}" checked="{{item.checked}}" /> {{item.value}}
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkboxs" wx:for="{{items}}">
+          <checkbox value="{{item.id}}" checked="{{item.checked}}" /> {{item.content}}
         </label>
       </checkbox-group>
     </view>
-  </view>
+  </view>-->
 
-  <view class="meeting-content" style="border:none">备注:</view>
+  <view class="meeting-content" style="display:{{dispaly}}">补充选项:</view>
+    <view class="supplement" style="display:{{dispaly}}">
+      <view class="supplement-content">
+        <checkbox-group bindchange="checkboxChange">
+          <label class="checkboxs" wx:for="{{items}}">
+            <checkbox value="{{item.content}}" style="" checked="{{item.checked}}" /> {{item.content}}
+          </label>
+        </checkbox-group>
+      </view>
+    </view>
+
+  <view class="meeting-content" style="border:none;clear:both; ">备注:</view>
   <view class="meeting">
-    <textarea class="input" bindinput='getInput' data-model='remarks' maxlength="1000" value="{{remarks}}"/>
+    <textarea class="input" bindinput='getInput' data-model='remarks' maxlength="1000" value="{{remarks}}" />
   </view>
 </view>
 
 <view class="nav_container">
   <button class="reset" bindtap="reset">重置</button>
-  <navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none" class="selection-item">
+  <navigator bindtap="submit" hover-class="none" class="selection-item">
     <view class="submit">提交</view>
   </navigator>
 </view>

@@ -1,11 +1,13 @@
 var app = getApp();
+var utils = require('../../utils/util.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    check: 0,
+    check: 4,
     vehicle: "",
   },
   selectDispaly: function(e) {
@@ -14,9 +16,10 @@ Page({
 			check: e.currentTarget.dataset.id
 		});
 		_this.setData({
-			vehicle: 0
+			vehicle: ''
 		});
-		// console.log(_this.data.check)
+		
+		wx.showLoading({ title: '加载中', mask: true });
     var that = this;
     wx.request({
       url: app.globalData.path + 'ApiBookingvehicle/index',
@@ -30,12 +33,13 @@ Page({
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(res) {
-        if (res.data.code === 1) {
+        if (res.data.code === 0) {
           that.setData({
             vehicle: res.data.data
           });
-          // console.log(this.res.data.vehicle)
-        }
+				}
+				wx.hideLoading()
+				wx.hideNavigationBarLoading()
       }
     })
   },
@@ -43,7 +47,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+		this.setData({
+			date: utils.formatTime(new Date())
+		})
+		
+		// wx.showLoading({ title: '加载中', mask: true });
     var that = this;
     wx.request({
       url: app.globalData.path + 'ApiBookingvehicle/index',
@@ -51,22 +59,69 @@ Page({
       data: {
         username: wx.getStorageSync('employeeInfo').name,
         user_id: wx.getStorageSync('employeeInfo').id,
-        status: 0
+				status: this.data.check
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(res) {
-				if (res.data.code === 1) {
+				if (res.data.code === 0) {
           that.setData({
             vehicle: res.data.data
-          });
-        }
+					});
+					// wx.hideLoading()
+					// wx.hideNavigationBarLoading()
+				}
       }
     })
 
 
-  },
+	},
+	// 取消预约
+	cancel: function (e) {
+		wx.showModal({
+			title: '提示',
+			content: '确定要取消吗？',
+			success: function (sm) {
+				if (sm.confirm) {
+					// 用户点击了确定 可以调用删除方法了
+					var id = e.currentTarget.dataset.id
+
+					// wx.showLoading({ title: '加载中', mask: true });
+					wx.request({
+						url: app.globalData.path + 'ApiBookingvehicle/cancel',
+						method: 'POST',
+						data: {
+							id: e.currentTarget.dataset.id
+						},
+						header: {
+							'content-type': 'application/x-www-form-urlencoded'
+						},
+						success: function (res) {
+							if (res.data.code === 0) {
+								wx.showToast({
+									title: res.data.msg,
+									icon: 'succes',
+									duration: 1000,
+									mask: true
+								});
+								setTimeout(function () {
+									wx.navigateTo({
+										url: '/pages/vehicle/vehicle'
+									})
+								}, 500)
+							}
+							// wx.hideLoading()
+							// wx.hideNavigationBarLoading() //完成停止加载
+						}
+					})
+
+				}
+			}
+		})
+
+
+	},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
