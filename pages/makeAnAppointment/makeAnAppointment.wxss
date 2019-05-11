@@ -71,10 +71,10 @@
   width: 100%;
   margin: 0rpx auto;
   padding: 20rpx 0rpx;
-  border-bottom: 1rpx solid #ececec;
-  font-size: 33rpx;
+  /*border-bottom: 1rpx solid #ececec;*/
   height: 60rpx;
   line-height: 60rpx;
+  font-size: 30rpx;
 }
 
 .meeting {
@@ -92,18 +92,20 @@
 
 .supplement {
   width: 100%;
-  height: 250rpx;
+  /*height: 100rpx;*/
   padding: 20rpx 0rpx;
-  border-bottom: 1rpx solid #ececec;
+  /*border-bottom: 1rpx solid #ececec;*/
+  margin-bottom: 20rpx;
   /* float:left; *//* margin: 0rpx auto; */
 }
 
 .supplement-content {
-  width: 80%;
+  width: 90%;
   margin: 0rpx auto;
+  margin-bottom: 20rpx;
 }
 
-.checkbox {
+.checkboxs {
   width: 50%;
   height: 50rpx;
   float: left;
