@@ -1,94 +1,140 @@
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    check: 0,
-    make_an_appointment: [{
-      title: "人事人员培训",
-      start_time: "2019-04-28 13:30:00",
-      end_time: "2019-04-28 15:30:00",
-      number: "60",
-      content: "人员信息要明确，做好人员的规划。做好公司的小助手",
-      option: "茶水、鲜花",
-      remarks: "请提前检查好投影仪",
-      status: "0",
-    }, {
-      title: "人事人员第二次培训",
-      start_time: "2019-04-29 13:30:00",
-      end_time: "2019-04-29 15:30:00",
-      number: "50",
-      content: "人员信息要明确，做好人员的规划。做好公司的小助手",
-      option: "茶水、鲜花、白板",
-      remarks: "请提前检查好白板",
-      status: "1",
-      approver: "从你的世界路过",
-      conference_room_name: "四楼-401室",
-      date: "2019-04-28 12:30:00",
-    }, {
-      title: "人事人员第三次培训",
-      start_time: "2019-04-30 13:30:00",
-      end_time: "2019-04-30 15:30:00",
-      number: "67",
-      content: "人员信息要明确，做好人员的规划。做好公司的小助手",
-      option: "茶水、鲜花、笔记本电脑",
-      remarks: "请自带笔记本电脑",
-      status: "2",
-      approver: "从你的世界路过",
-      reason: "等待上级决定,再确认会议时间",
-      date: "2019-04-30 12:30:00",
-    }],
-		not_pass: [{
-			title: "人事人员培训",
-			start_time: "2019-04-28 13:30:00",
-			end_time: "2019-04-28 15:30:00",
-			number: "60",
-			content: "人员信息要明确，做好人员的规划。做好公司的小助手",
-			option: "茶水、鲜花",
-			remarks: "请提前检查好投影仪",
-			status: "0",
-		},{
-			title: "人事人员第三次培训",
-			start_time: "2019-04-30 13:30:00",
-			end_time: "2019-04-30 15:30:00",
-			number: "67",
-			content: "人员信息要明确，做好人员的规划。做好公司的小助手",
-			option: "茶水、鲜花、笔记本电脑",
-			remarks: "请自带笔记本电脑",
-			status: "2",
-			approver: "从你的世界路过",
-			reason: "等待上级决定,再确认会议时间",
-			date: "2019-04-30 12:30:00",
-		}],
-		pass: [{
-			title: "人事人员第三次培训",
-			start_time: "2019-04-30 13:30:00",
-			end_time: "2019-04-30 15:30:00",
-			number: "67",
-			content: "人员信息要明确，做好人员的规划。做好公司的小助手",
-			option: "茶水、鲜花、笔记本电脑",
-			remarks: "请自带笔记本电脑",
-			status: "1",
-			approver: "从你的世界路过",
-			reason: "等待上级决定,再确认会议时间",
-			date: "2019-04-30 12:30:00",
-		}],
+    employee_name: '',
+    check: 4,
+    display: '',
+    display2: 'none',
+    items: [],
   },
+  //选择选项卡
   selectDispaly: function(e) {
-    let _this = this;
-    _this.setData({
+    var that = this;
+    that.setData({
       check: e.currentTarget.dataset.id
     });
+    util.ajax({
+      url: app.globalData.path + 'ApiRoom/getRecord',
+      method: 'POST',
+      data: {
+        employee_id: wx.getStorageSync('employeeInfo').id,
+        check: that.data.check,
+      },
+      success: function(res) {
+        if (res.data.status === '100') {
+          that.setData({
+            display: 'none',
+            display2: '',
+          })
+        }
+        if (res.data.status === '200') {
+          that.setData({
+            display: '',
+            display2: 'none',
+            items: res.data.options,
+            employee_name: res.data.employee_name
+          })
+        }
+      }
+    });
+  },
+  //取消
+  cancel: function(e) {
+      var that = this;
+    wx.showModal({
+      title: '温馨提示',
+      content: '确定要取消吗？',
+      success: function(res) {
+        if (res.confirm) {
+            //确定取消
+          var id=e.target.dataset.id;
+          if(id===''){
+              wx.showToast({
+                  title: '取消失败',
+                  icon: 'none',
+                  duration: 2000//持续的时间
+              });
+          }
+          if(id!==''){
+              util.ajax({
+                  url: app.globalData.path + 'ApiRoom/canRecord',
+                  method: 'POST',
+                  data: {id:id},
+                  success: function (res) {
+                      if(res.data.status==='200'){
+                          wx.showToast({
+                              title: res.data.msg,
+                              icon: 'success',
+                              duration: 2000//持续的时间
+                          });
+                          setTimeout(function () {
+                              wx.navigateTo ({
+                                  url: '/pages/conferenceRoom/conferenceRoom'
+                              })
+                          }, 2000);
+                      }else{
+                          wx.showToast({
+                              title: res.data.msg,
+                              icon: 'none',
+                              duration: 2000//持续的时间
+                          });
+                      }
+                  }
+              })
+          }
+
+        } else if (res.cancel) {
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var date = new Date(); //获取系统当前时间
-    // this.setData({
-    // 	time: current_time,
-    // })
+    var that = this;
+    //获取记录
+    util.ajax({
+      url: app.globalData.path + 'ApiRoom/getRecord',
+      method: 'POST',
+      data: {
+        employee_id: wx.getStorageSync('employeeInfo').id,
+        check: that.data.check,
+      },
+      success: function(res) {
+        console.log(res.data);
+        if (res.data.status === '100') {
+          that.setData({
+            display: 'none',
+            display2: '',
+          })
+        }
+        if (res.data.status === '201') {
+          wx.showToast({
+            title: '请先登录',
+            icon: 'none',
+            duration: 2000 //持续的时间
+          });
+          setTimeout(function() {
+            wx.redirectTo({
+              url: '/pages/roomLogin/roomLogin'
+            })
+          }, 3000)
+        }
+        if (res.data.status === '200') {
+          that.setData({
+            display: '',
+            display2: 'none',
+            items: res.data.options,
+            employee_name: res.data.employee_name
+          })
+        }
+      }
+    });
   },
 
   /**

@@ -76,7 +76,11 @@ Page({
 				success: function (res) {
 					if (res.data.code === 0) {
 						that.setData({
-							vehicle: res.data.data
+							vehicle: res.data.data,
+							start_time: res.data.data.start_time,
+							end_time: res.data.data.end_time,
+							number: res.data.data.number,
+							content: res.data.data.content,
 						});
 					}
 				}
@@ -183,11 +187,19 @@ Page({
 			}
 		})
 	},
-	delete_time:function(){
-		wx.setData({
-			
-		})
-	},
+	// delete_start_time: function (e) {
+	// 	this.setData({
+	// 		start_time: '',
+	// 		dateTime: e.detail.value
+	// 	})
+	// 	console.log(this.data.deteTime)
+	// },
+	// delete_end_time: function (e) {
+	// 	this.setData({
+	// 		end_time: '',
+	// 		dateTime1: e.detail.value
+	// 	})
+	// },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -255,11 +267,13 @@ Page({
 	},
 	changeDateTime(e) {
 		this.setData({
+			start_time:'',
 			dateTime: e.detail.value
 		});
 	},
 	changeDateTime1(e) {
 		this.setData({
+			end_time: '',
 			dateTime1: e.detail.value
 		});
 	},

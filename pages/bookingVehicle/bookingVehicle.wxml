@@ -8,8 +8,8 @@
       <view class="tui-picker-content">
         <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
           <view class="tui-picker-detail font time1">
-            <input wx:if="{{vehicle.start_time == null}}" name="start_time" value="{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:00" bindtap="delete_time" disabled/>
-            <input wx:if="{{vehicle.start_time}}" name="start_time" value="{{vehicle.start_time}}" disabled/>
+            <input wx:if="{{start_time === ''}}" name="start_time" value="{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:00" disabled/>
+            <input wx:if="{{start_time!== ''}}" name="start_time" value="{{start_time}}" disabled/>
             <view class="right1">
               <image src="/images/right-2.png"></image>
             </view>
@@ -24,8 +24,8 @@
       <view class="tui-picker-content">
         <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
           <view class="tui-picker-detail time">
-            <input wx:if="{{vehicle.end_time == null}}" name="end_time" value="{{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}:00" disabled/>
-            <input wx:if="{{vehicle.end_time}}" name="end_time" value="{{vehicle.end_time}}" disabled/>
+            <input wx:if="{{end_time === ''}}" name="end_time" value="{{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}:00" disabled/>
+            <input wx:if="{{end_time !== ''}}" name="end_time" value="{{end_time}}" disabled/>
             <view class="right">
               <image src="/images/right-2.png"></image>
             </view>
@@ -36,11 +36,11 @@
     </view>
     <view class="content">
       <view class="text">乘坐人数:</view>
-      <input name="number" placeholder="人数" value="{{vehicle.number}}" />
+      <input name="number" placeholder="人数" value="{{number}}" />
     </view>
     <view class="meeting-content" style="border:none">用途:</view>
     <view class="meeting">
-      <textarea name="content" placeholder="用途..." maxlength="1000" value="{{vehicle.content}}" />
+      <textarea name="content" placeholder="用途..." maxlength="1000" value="{{content}}" />
     </view>
   </view>
 
