@@ -1,8 +1,8 @@
 {
   "pages": [
+		"pages/roomLogin/roomLogin",
     "pages/vehicle/vehicle",
     "pages/conferenceRoom/conferenceRoom",
-    "pages/roomLogin/roomLogin",
     "pages/bookingVehicle/bookingVehicle",
     "pages/vehicleLogin/vehicleLogin",
     "pages/index/index",
@@ -63,5 +63,4 @@
     }
   },
   "sitemapLocation": "sitemap.json"
->>>>>>> cd21214d1c73de3f4e53b2c0661388a3e8bda27e
 }
