@@ -89,10 +89,19 @@ Page({
 	},
 	// 重置数据
 	reset: function () {
-		this.setData({
-			number: "",
-			content: "",
-		})
+		if (this.data.vehicle){
+			this.setData({
+				start_time: this.data.vehicle.start_time,
+				end_time: this.data.vehicle.end_time,
+				number: this.data.vehicle.number,
+				content: this.data.vehicle.content,
+			})
+		}else{
+			this.setData({
+				number: "",
+				content: "",
+			})
+		}
 	},
 	// 提交数据
 	formsubmit: function (e) {
