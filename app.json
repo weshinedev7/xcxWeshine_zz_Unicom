@@ -1,12 +1,12 @@
 {
 	"pages": [
-		"pages/user/user",
 		"pages/vehicle/vehicle",
-		"pages/roomLogin/roomLogin",
-		"pages/index/index",
 		"pages/bookingVehicle/bookingVehicle",
-		"pages/conferenceRoom/conferenceRoom",
+		"pages/roomLogin/roomLogin",
 		"pages/vehicleLogin/vehicleLogin",
+		"pages/index/index",
+		"pages/user/user",
+		"pages/conferenceRoom/conferenceRoom",
 		"pages/food/food",
 		"pages/varietyOfEdit/varietyOfEdit",
 		"pages/varietyOfAdd/varietyOfAdd",
