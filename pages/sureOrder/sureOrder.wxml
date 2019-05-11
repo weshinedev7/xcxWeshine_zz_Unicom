@@ -1,0 +1,24 @@
+<view>
+  <view class="info">
+    菜品名称:　{{info.foodName}}
+  </view>
+  <view class="info">
+    菜品图片:
+    <image src="{{info.img}}" class='img'></image>
+  </view>
+  <view class="info">
+    所属门店:　{{info.storeName}}
+  </view>
+  <view class="info">
+    下单数量:　{{info.number}}
+  </view>
+  <view class="info">
+    下单金额:　{{info.total}}
+  </view>
+  <view class="info">
+    备注说明:
+    <textarea class='text' bindinput="remarks"></textarea>
+  </view>
+  <button class='anniu' type='primary' bindtap="submit">提交订单</button>
+  <button class='anniu2' type='warn'>取消</button>
+</view>

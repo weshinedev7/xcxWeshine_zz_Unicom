@@ -78,6 +78,6 @@
     <text class="money">￥{{total}}</text>
     <!-- <text class="original_price">￥8</text> -->
   </view>
-  <view class="pay" bindtap="toOrder">自付</view>
-  <view class="de-pay" bindtap="toOrder">部门代付</view>
+  <view class="pay" bindtap="toOrder" data-id='1'>自付</view>
+  <view class="de-pay" bindtap="toOrder" data-id="2">部门代付</view>
 </view>
