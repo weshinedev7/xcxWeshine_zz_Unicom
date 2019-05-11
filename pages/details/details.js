@@ -57,13 +57,25 @@ Page({
     _this.setData({
       check: e.currentTarget.dataset.id
     });
-    console.log(_this.data.check);
   },
 
   toOrder:function(e){
-  	wx.switchTab({
-      url: '/pages/vehicleLogin/vehicleLogin'
-	})
+    let that = this
+    var data={
+      type: e.currentTarget.dataset.id,
+      total: that.data.total,
+      foodName: that.data.food.name,
+      img: that.data.food.img,
+      number: that.data.number,
+      storeName: that.data.food.store_name,
+      storeId: that.data.food.store_id,
+      foodId: that.data.food_id
+    }
+    //把数据存到缓存中，相当于页面传参了
+    wx.setStorageSync('order_info', data)
+  	wx.navigateTo({
+      url: '../sureOrder/sureOrder',
+    })
   },
 
 	/**
