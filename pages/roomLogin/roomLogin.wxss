@@ -16,7 +16,7 @@
   float:left;
   line-height: 70rpx;
   color: #b2b2b2;
-  font-size:35rpx;
+  font-size:28rpx;
   margin-left:20rpx;
 }
 

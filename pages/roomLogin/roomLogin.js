@@ -36,64 +36,53 @@ Page({
           pwd: pwd
         },
         success: function(res) {
-          //失败
-          if (res.data.status = '100') {
-            wx.showToast({
-              title: res.data.msg,
-              icon: 'none',
-              duration: 2000 //持续的时间
-            });
-          }
+          // 成功
+          if (res.data.status == '200') {
 
-          if (res.data.status = '200') {
-            //存用户信息到本地存储
-            wx.setStorageSync('employeeInfo', res.data.info);
+						// 判断用户角色
+						if (res.data.info.role == 1) {
 
-            wx.showToast({
-              title: '登录成功',
-              icon: 'succes',
-              duration: 2000,
-              mask: true
-            });
-            setTimeout(function() {
-              wx.switchTab({
-                url: '/pages/index/index'
-              })
-            }, 500)
-            //员工与预约人登录成功
-            if(res.data.info.role==='2'){
-							//存用户信息到本地存储
+							// 商家用户登录区间
+							wx.setStorageSync('storeInfo', res.data.info);
+							wx.showToast({
+								title: '登录成功',
+								icon: 'succes',
+								duration: 1000,
+								mask: true
+							});
+							setTimeout(function () {
+								wx.redirectTo({
+									url: '/pages/varietyOfDishes/varietyOfDishes'
+								})
+							}, 500)
+
+						}else{
+
+							// 用户登录区间
 							wx.setStorageSync('employeeInfo', res.data.info);
-              wx.showToast({
-                title: '登录成功',
-                icon: 'succes',
-                duration: 2000,
-                mask: true
-              });
-              setTimeout(function () {
-                wx.switchTab ({
-                  url: '/pages/index/index'
-                })
-              }, 3000)
-            }
 
-            //店家登录成功
-            if(res.data.info.role==='1'){
-              //存用户信息到本地存储
-              wx.setStorageSync('storeInfo', res.data.info);
-              wx.showToast({
-                title: '登录成功',
-                icon: 'succes',
-                duration: 2000,
-                mask: true
-              });
-              setTimeout(function () {
-                wx.redirectTo ({
-                  url: '/pages/varietyOfDishes/varietyOfDishes'
-                })
-              }, 3000)
-            }
-          }
+							wx.showToast({
+								title: '登录成功',
+								icon: 'succes',
+								duration: 1000,
+								mask: true
+							});
+							setTimeout(function () {
+								wx.switchTab({
+									url: '/pages/index/index'
+								})
+							}, 500)	
+
+						}
+
+          }else{
+						// 登录失败
+						wx.showToast({
+							title: res.data.msg,
+							icon: 'none',
+							duration: 2000 //持续的时间
+						});
+					}
         }
       });
     }
@@ -103,23 +92,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+		// 判断用户是否登录
     if (wx.getStorageSync('employeeInfo') !== '') {
       wx.switchTab({
         url: '/pages/index/index'
       })
     }else{
-			wx.showToast({
-				title: '您好请登录',
-				icon: 'none',
-				duration: 1000,
-				mask: true
-			})
+			// 判断商家是否登陆
+			if (wx.getStorageSync('storeInfo') !== '') {
+				wx.redirectTo({
+					url: '/pages/varietyOfDishes/varietyOfDishes'
+				})
+			}else{
+				// 未登录提醒
+				wx.showToast({
+					title: '您好请登录',
+					icon: 'none',
+					duration: 1000,
+					mask: true
+				})
+			}
 		}
-    if(wx.getStorageSync('storeInfo')!==''){
-      wx.redirectTo ({
-        url: '/pages/varietyOfDishes/varietyOfDishes'
-      })
-    }
+
   },
 
   /**
