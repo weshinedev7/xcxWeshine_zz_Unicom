@@ -8,26 +8,29 @@ Page({
    * 页面的初始数据
    */
   data: {
+    re_id:'',
+    end_time:'',
+    start_time:'',
     dispaly:'none',
     menuTapCurrent: 0,
     items: [],
     title: "",
     number: "",
     content: "",
-    title: "",
     remarks: "",
     otions:'',
   },
 
   reset: function() {
     this.setData({
+      end_time:'',
+      start_time:'',
       dispaly:'none',
       menuTapCurrent: 0,
       items: [],
       title: "",
       number: "",
       content: "",
-      title: "",
       remarks: "",
       otions:'',
     })
@@ -37,22 +40,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    //提交会议申请
-    var that = this;
-    util.ajax({
-      url: app.globalData.path + 'ApiRoom/getOptions',
-      method: 'POST',
-      data: {},
-      success: function (res) {
-        if(res.data.status ==='200'){
-          that.setData({
-            dispaly:'',
-            items:res.data.info
-          });
-        }
-      }
-    });
-
     // 获取完整的年月日 时分秒，以及默认显示的数组
     var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
     var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
@@ -67,6 +54,54 @@ Page({
       dateTimeArray1: obj1.dateTimeArray,
       dateTime1: obj1.dateTime
     });
+
+    var re_id=options.id;
+    var that = this;
+    //判断是否是修改
+    if(re_id !==''){
+      //获取会议记录信息
+      util.ajax({
+        url: app.globalData.path + 'ApiRoom/getRecordInfo',
+        method: 'POST',
+        data: {re_id:re_id},
+        success: function (res) {
+          console.log(res.data)
+          if(res.data.status ==='200'){
+            that.setData({
+              re_id:re_id,
+              start_time:res.data.info.start_time,
+              end_time:res.data.info.end_time,
+              title:res.data.info.title,
+              number:res.data.info.number,
+              content:res.data.info.content,
+              remarks:res.data.info.remarks,
+            })
+            if(res.data.options!==''){
+              that.setData({
+                dispaly:'',
+                items:res.data.options,
+              })
+            }
+          }
+        }
+      });
+    }
+    if(re_id ===''){//获取选项
+      util.ajax({
+        url: app.globalData.path + 'ApiRoom/getOptions',
+        method: 'POST',
+        data: {},
+        success: function (res) {
+          if(res.data.status ==='200'){
+            that.setData({
+              dispaly:'',
+              items:res.data.info
+            });
+          }
+        }
+      });
+    }
+
   },
 
   //获取输入的值
@@ -131,6 +166,7 @@ Page({
       url: app.globalData.path + 'ApiRoom/submitRecord',
       method: 'POST',
       data: {
+        re_id:this.data.re_id,
         employee_id:wx.getStorageSync('employeeInfo').id,
         title:this.data.title,
         number:this.data.number,
@@ -232,12 +268,14 @@ Page({
 
   changeDateTime(e) {
     this.setData({
+      start_time:'',
       dateTime: e.detail.value
     });
 
   },
   changeDateTime1(e) {
     this.setData({
+      end_time:'',
       dateTime1: e.detail.value
     });
   },
