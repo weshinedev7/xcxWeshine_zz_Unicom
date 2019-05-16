@@ -45,7 +45,7 @@ Page({
       data:{},
       success:function(res){
         //成功
-        if(res.data.status='200'){
+        if(res.data.status=='200'){
           that.setData({
             imgUrls:res.data.info,
           });

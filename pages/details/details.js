@@ -11,7 +11,7 @@ Page({
 		imgUrls: [
 			{
 				link: '/pages/user/user',
-				url: '/images/tds.jpg'
+				url: '/images/ct-1.jpg'
 			}
 		],
 		number:1,
@@ -19,7 +19,8 @@ Page({
     food_id: '',
     food: {},
     price: 0,
-    total: 0
+    total: 0,
+		imglist:[],
 	},
 
 	numberSub() {
@@ -92,12 +93,13 @@ Page({
       data: {
         id: that.data.food_id
       },
-      success: function (res) {
-        that.setData({
-          food: res.data[0],
-          price: res.data[0].price,
-          total: res.data[0].price
-        })
+			success: function (res) {
+				that.setData({
+					food: res.data.food[0],
+					price: res.data.food[0].price,
+					total: res.data.food[0].price,
+					imglist:res.data.imglist
+				})
       }
     })
 	},

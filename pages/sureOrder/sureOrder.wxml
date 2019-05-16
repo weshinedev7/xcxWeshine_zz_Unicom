@@ -1,24 +1,48 @@
-<view>
-  <view class="info">
-    菜品名称:　{{info.foodName}}
+
+<view class="page">
+  <view class="store_icon">
+      <image src="{{info.img}}" class="icon"></image>
   </view>
-  <view class="info">
-    菜品图片:
-    <image src="{{info.img}}" class='img'></image>
+  <view class="content">
+    <view class="content_input">
+      <view class="content_text">商店名称</view>
+      <view class="text" name="name">{{info.foodName}}</view>
+    </view>
   </view>
-  <view class="info">
-    所属门店:　{{info.storeName}}
+  <view class="content">
+    <view class="content_input">
+      <view class="content_text">商品数量</view>
+      <view class="text" name="name">{{info.number}}</view>
+    </view>
   </view>
-  <view class="info">
-    下单数量:　{{info.number}}
+  <view class="content">
+    <view class="content_input">
+      <view class="content_text">商品价格</view>
+      <view class="text" name="name">{{info.total}}</view>
+    </view>
   </view>
-  <view class="info">
-    下单金额:　{{info.total}}
+  <view class="content">
+    <view class="content_input">
+      <view class="content_text">店铺名称</view>
+      <view class="text" name="name">{{info.storeName}}</view>
+    </view>
   </view>
-  <view class="info">
-    备注说明:
-    <textarea class='text' bindinput="remarks"></textarea>
+  <view class="content">
+    <view class="content_input">
+      <view class="content_text">备注</view>
+      <view class="text" name="name">{{store.name}}</view>
+    </view>
   </view>
-  <button class='anniu' type='primary' bindtap="submit">提交订单</button>
-  <button class='anniu2' type='warn'>取消</button>
+
+	
+  <view class="details">
+    <view class="content_details">
+			<textarea placeholder='请输入备注' maxlength="1000" value=""></textarea>
+    </view>
+  </view>
 </view>
+
+  <view class="nav_container">
+    <button class="reset" bindtap="reset">重置</button>
+    <button class="submit" form-type='submit' bindtap='submit'>提交</button>
+  </view>

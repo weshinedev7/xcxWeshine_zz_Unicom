@@ -1,29 +1,32 @@
 <!-- 新增页面 -->
+<form bindsubmit='formsubmit' content-type="multipart/form-data" >
 <view class="main">
 
   <view class="content">
     <view class="text">菜品名称:</view>
-    <input placeholder="请输入菜名" value="{{title}}" />
+    <input placeholder="请输入菜名" name="name" value="{{food.name}}" />
   </view>
 
 
   <view class="content">
     <view class="text">菜品原价:</view>
-    <input placeholder="请输入价格" value="{{price}}" class="price" />
+    <input placeholder="请输入价格" name="original_price" value="{{food.original_price}}" class="price" />
     <view class="text">元/份</view>
   </view>
 
   <view class="content">
     <view class="text">菜品现价:</view>
-    <input placeholder="请输入价格" value="{{price}}" class="price" />
+    <input placeholder="请输入价格" name="price" value="{{food.price}}" class="price" />
     <view class="text">元/份</view>
   </view>
 
   <view class="content">
     <view class="text">是否上架:</view>
-    <radio-group bindchange="checkboxChange">
-      <label class="checkbox" wx:for="{{items}}">
-        <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}</label>
+    <radio-group bindchange="checkboxChange" name="type">
+      <label class="checkbox">
+        <radio value="1" checked="{{food.type == 1?'true':''}}" />上架
+        <radio value="2" checked="{{food.type == 2?'true':''}}" />下架
+      </label>
     </radio-group>
   </view>
 
@@ -31,25 +34,24 @@
     <view class="details_title">菜品详情:</view>
 
     <view class="meeting">
-      <textarea placeholder="菜品详情..." maxlength="2000" value="{{remarks}}" />
+      <textarea name="brief" placeholder="菜品详情..." maxlength="2000" value="{{food.brief}}" />
     </view>
 
   </view>
 
   <!-- 缩略图 -->
   <view class="picture">
-    <view class="picture_title">菜品缩略图:</view>
-
+    <view class="picture_title">菜品缩略图(限1张):</view>
 
     <view class="picture_list">
 
-      <view wx:for="" class="picture_item" wx:key="{{index}}">
-        <image src="{{source}}" mode="aspectFill" class="image"></image>
-        <text class='del' bindtap='deleteImg' data-src='{{image}}' style='display:{{isDel}}' data-index="{{index}}">×</text>
+      <view class="picture_item" wx:if="{{thumbnail.length > 0}}">
+        <image src="{{thumbnail}}" mode="aspectFill" class="image" bindtap="previewImage1"></image>
+        <text class='del' wx:if="{{thumbnail.length > 0}}" bindtap='deleteIcon' data-src='{{image}}' style='display:{{isDel}}'>×</text>
       </view>
 
-      <view class='picture_item'>
-        <view class="add-image" bindtap='uploadimg'>
+      <view class='picture_item' wx:if="{{thumbnail.length == 0}}">
+        <view class="add-image" bindtap='upload_thumbnail'>
           <image src="/images/add_icon.png"></image>
         </view>
       </view>
@@ -57,23 +59,17 @@
     </view>
 
   </view>
-
   <!-- 图片展示 -->
   <view class="picture">
-    <view class="picture_title">菜品展示图片:</view>
-
-
+    <view class="picture_title">菜品展示图片(限3张):</view>
     <view class="picture_list">
 
-      <view wx:for="{{upload_picture_list}}" class="picture_item" wx:key="{{index}}">
-        <image wx:if="{{item.upload_percent < 100}}" src="{{item.path}}" mode="aspectFill" class="image"></image>
-        <image wx:if="{{item.upload_percent == 100}}" src="{{item.path_server}}" mode="aspectFill" class="image"></image>
-        <view class="upload_progress" wx:if="{{item.upload_percent < 100}}" data-index="{{index}}" bindtap="previewImg">{{item.upload_percent}}%</view>
-        <text class='del' bindtap='deleteImg' data-src='{{image}}' style='display:{{isDel}}' data-index="{{index}}">×</text>
-      </view>
-
-      <view class='picture_item'>
-        <view class="add-image" bindtap='uploadpic'>
+      <view class="picture_item" wx:for="{{imglist}}" wx:for-index="key" wx:for-item="value">
+        <image src="{{value}}" mode="aspectFill" class="image" bindtap="previewImage" data-index="{{key}}"></image>
+        <text class='del' bindtap='deleteImg' data-index="{{key}}" style='display:{{isDel}}'>×</text>
+      </view> 
+      <view class='picture_item' wx:if="{{imglist.length < 3}}">
+        <view class="add-image" bindtap='upload_file'>
           <image src="/images/add_icon.png"></image>
         </view>
       </view>
@@ -88,7 +84,11 @@
 <!-- 重置提交按钮 -->
 <view class="nav_container">
   <view class="reset" bindtap='reset'>重置</view>
-  <navigator url="/pages/varietyOfDishes/varietyOfDishes" hover-class="none" class="selection-item">
-    <view class="submit">提交</view>
-  </navigator>
+    <button class="submit" form-type='submit'>提交</button>
 </view>
+</form>
+
+
+	<!-- <view class='cropper' wx:if="{{originUrl}}">
+			<cropper bind:getCropperImg="getCropperImg" url="{{ originUrl }}" ratio="{{ ratio }}"></cropper> 
+	</view> -->

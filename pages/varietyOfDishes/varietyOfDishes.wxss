@@ -1,18 +1,139 @@
+page, .page {
+  height: 100%;
+  /* font-family: 'PingFang SC',
+                 'Helvetica Neue',
+                 Helvetica,
+                 'Droid Sans Fallback',
+                 'Microsoft Yachei',
+                 sans-serif; */
+}
+
+/* 侧边栏样式 */
+
+.page-slidebar {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  background-color: white;
+  z-index: 0;
+}
+
+/* 控制侧边栏的内容距离顶部的距离 */
+
+.page-content {
+  width: 100%;
+	/* position: relative; */
+}
+
+.out{
+	height:50rpx;
+  width: 35%;
+	margin:50rpx auto 0rpx;
+  font-size: 14px;
+  text-align: center;
+	line-height: 50rpx;
+  padding-top: 25rpx;
+  padding-bottom: 15rpx;
+  color: #999595;
+	font-weight: 700;
+	/* background: red; */
+	/* position: absolute;
+	bottom:60rpx;
+	right:20rpx; */
+}
+
+.out image{
+	width:32rpx;
+	height:32rpx;
+	margin-top:10rpx;
+}
+
+/* 侧边栏内容的 css 样式 */
+
+.wc {
+  /* color: black; */
+  width: 100%;
+  font-size: 13px;
+  height: 80rpx;
+  line-height: 50rpx;
+  text-align: center;
+  padding-top: 25rpx;
+  padding-bottom: 15rpx;
+  color: #999595;
+  border-bottom: 2rpx solid #f8f8f8;
+}
+
+/* 当屏幕向左滑动，出现侧边栏的时候，主页的动画样式 */
+
+/* scale：取值范围 0~1 ，表示屏幕大小是原来的百分之几，可以自己修改成 0.8 试下*/
+
+/* translate(60%,0%) 表示向左滑动的时候，侧边栏占用平时的宽度为 60%   */
+
+.c-state {
+  transform: rotate(0deg) scale(1) translate(50%, 0%);
+  -webkit-transform: rotate(0deg) scale(1) translate(50%, 0%);
+}
+
+/* 主页样式 */
+
+.page-top {
+  height: 100%;
+  position: fixed;
+  width: 750rpx;
+  background-color: white;
+  z-index: 0;
+  transition: All 0.2s ease;
+  -webkit-transition: All 0.2s ease;
+}
+
+/* 左上角图标的样式 */
+
+/* .page-top .image {
+  position: absolute;
+  width: 68rpx;
+  height: 68rpx;
+  left: 20rpx;
+  top: 20rpx;
+} */
+
+/* 遮盖层样式 */
+
+.cover {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  opacity: 0.5;
+  z-index: 9000;
+}
+
 /*头部*/
 
 .top {
-  width: 85%;
-  height: 90rpx;
+  width: 90%;
+  height: 80rpx;
+  margin: 0rpx auto;
+}
+
+.user {
+  width: 11%;
+  height: 80rpx;
   float: left;
+	/* margin-left:10rpx; */
+}
+
+.user image {
+  width: 100%;
+  height: 80rpx;
 }
 
 .search-block {
-  margin: 10rpx 30rpx;
+  margin: 5rpx 5rpx;
+  width: 85%;
+  float: right;
   display: block;
 }
 
 .search-block .navigator {
-  display: block;
   background: #eee;
   text-align: left;
   height: 50rpx;
@@ -21,37 +142,28 @@
   border-radius: 30rpx;
   color: #b2b2b2;
   position: relative;
-  display: flex;
   align-items: center;
 }
 
 .search-block .navigator image {
   height: 30rpx;
   width: 30rpx;
-  margin: 0 10rpx;
+  margin: 9rpx 10rpx;
+  position: absolute;
+  top: 10%;
+  left: 1%;
 }
 
 .search-block .navigator text {
   font-size: 30rpx;
-  margin: 0 10rpx;
+  /* margin: 0 10rpx; */
+  position: absolute;
+  top: -15%;
+  left: 10%;
 }
-
-
-/* 添加按钮 */
-.add {
-  width: 11%;
-  height: 90rpx;
-  float: left;
-  margin-top: 5rpx;
-}
-
-.add image {
-  width: 98%;
-  height: 80rpx;
-}
-
 
 /* 选项卡 */
+
 .display {
   width: 100%;
   display: flex;
@@ -72,8 +184,8 @@
   border-bottom: 1px solid #dd2727;
 }
 
-
 /* 主题内容 */
+
 .main {
   min-height: 180rpx;
   width: 90%;
@@ -82,7 +194,7 @@
 }
 
 .content_left_content {
-  width: 32%;
+  width: 28%;
   float: left;
   position: relative;
 }
@@ -91,7 +203,7 @@
   width: 180rpx;
   height: 130rpx;
   border-radius: 20rpx;
-  margin: 20rpx 0rpx 0rpx 20rpx;
+  margin-top: 20rpx;
 }
 
 .sold {
@@ -107,7 +219,7 @@
 }
 
 .content_left_right {
-  width: 50%;
+  width: 53%;
   height: 130rpx;
   padding: 0rpx 10rpx;
   margin-top: 20rpx;
@@ -149,6 +261,7 @@
 .introduction {
   font-size: 23rpx;
   margin-top: 5rpx;
+	text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -184,7 +297,7 @@
 }
 
 .operation {
-  width: 15%;
+  width: 16%;
   height: 130rpx;
   float: left;
   margin-top: 15rpx;
@@ -203,10 +316,10 @@
   text-align: center;
 }
 
-.page-top image {
+/* .page-top image {
   width: 20rpx;
   height: 20rpx;
-}
+} */
 
 .page-bottom {
   position: absolute;
@@ -214,4 +327,45 @@
   height: 500rpx;
   background: red;
   display: none;
+}
+
+/* 侧边栏内容 */
+
+.store {
+  width: 100%;
+  height: 280rpx;
+  border-bottom: 2rpx solid #f8f8f8;
+}
+
+.store image {
+  width: 48%;
+  height: 167rpx;
+  margin-top: 25rpx;
+  margin-left: 100rpx;
+  border-radius: 50%;
+}
+
+.store_name {
+  width: 100%;
+  height: 50rpx;
+  font-size: 14px;
+  text-align: center;
+  line-height: 50rpx;
+	font-weight: 700;
+  color: #999595;
+  float: left;
+}
+
+.store_icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 10rpx;
+  margin-left: 50rpx;
+  float: left;
+}
+
+.store_text {
+  width: 80%;
+  line-height: 58rpx;
+  height: 40rpx;
 }

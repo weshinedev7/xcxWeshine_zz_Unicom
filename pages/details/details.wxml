@@ -1,13 +1,13 @@
 <!--轮播banner-->
-<!-- <swiper indicator-dots="true"  autoplay="true" interval="2000" duration="2000" circular="true" class="banner">  
-	<block wx:for="{{imgUrls}}">  
-		<swiper-item>   -->
-<!-- <navigator url="{{item.link}}">   -->
-<image src="{{food.img}}" class="banner-image" mode="aspectFill" />
-<!-- </navigator>   -->
-<!-- </swiper-item>  
+<swiper indicator-dots="true"  autoplay="true" interval="2000" duration="2000" circular="true" class="banner">  
+	<block wx:for="{{imglist}}">  
+		<swiper-item>  
+<navigator url="{{item.id}}">  
+<image src="{{item.icon}}" class="banner-image" mode="aspectFill" />
+</navigator>  
+</swiper-item>  
 	</block>  
-</swiper> -->
+</swiper>
 <!-- 主体 -->
 <view class="main">
   <view class="main-name">{{food.name}}</view>
