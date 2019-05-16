@@ -55,6 +55,21 @@ Page({
       dateTime1: obj1.dateTime
     });
 
+    //选项
+    util.ajax({
+      url: app.globalData.path + 'ApiRoom/getOptions',
+      method: 'POST',
+      data: {},
+      success: function (res) {
+        if(res.data.status ==='200'){
+          that.setData({
+            dispaly:'',
+            items:res.data.info
+          });
+        }
+      }
+    });
+
     var re_id=options.id;
     var that = this;
     //判断是否是修改
@@ -82,21 +97,6 @@ Page({
                 items:res.data.options,
               })
             }
-          }
-        }
-      });
-    }
-    if(re_id ===''){//获取选项
-      util.ajax({
-        url: app.globalData.path + 'ApiRoom/getOptions',
-        method: 'POST',
-        data: {},
-        success: function (res) {
-          if(res.data.status ==='200'){
-            that.setData({
-              dispaly:'',
-              items:res.data.info
-            });
           }
         }
       });
