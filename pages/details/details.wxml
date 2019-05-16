@@ -13,7 +13,7 @@
   <view class="main-name">{{food.name}}</view>
   <view class="show">
     <view>{{food.store_name}}</view>
-    <view class="l2">评分:8</view>
+    <!-- <view class="l2">评分:8</view> -->
     <view class="l2">已售:{{food.total}}</view>
   </view>
 
@@ -47,29 +47,27 @@
 
   <!--评价-->
   <view wx:if="{{check=='1'}}" class="eval-all">
-    <view class="evaluate">
-      <view class="content_left_content">
-        <image class="centent-img" src="/images/head.jpg" mode="aspectFill" />
-      </view>
-      <view class="content_left_right">
-        <view class="introduction">
-          <view>人员服务:
-            <text>一般</text>
-          </view>
-          <view>菜品质量:
-            <text>好</text>
-          </view>
-          <view>卫生质量:
-            <text>有待改进</text>
-          </view>
-          <view>备注说明:
-            <text>可以尝试一下，挺好吃的，就是需要提高卫生条件等</text>
-          </view>
+    <block wx:for="{{list}}" wx:for-item="item" wx:key="">
+      <view class="evaluate">
+        <view class="content_left_content">
+          <image class="centent-img" src="/images/head.jpg" mode="aspectFill" />
         </view>
-        <view class="immediately">2019-03-04</view>
+        <view class="content_left_right">
+          <view class="introduction">
+            <block wx:for="{{item.question}}" wx:for-item="value" wx:key="">
+              <view>{{value.question}}:
+                <text>{{value.option}}</text>
+              </view>
+            </block>
+            <view>备注说明:
+              <text>{{item.remarks}}</text>
+            </view>
+          </view>
+          <view class="immediately">{{item.comment_time}}</view>
+        </view>
       </view>
-    </view>
-    <view class="line"></view>
+      <view class="line"></view>
+    </block>
   </view>
 </view>
 <!-- 底部 -->

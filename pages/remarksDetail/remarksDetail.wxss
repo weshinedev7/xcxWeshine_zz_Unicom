@@ -1,0 +1,26 @@
+
+.meeting-content{
+	width: 80%;
+	margin:40rpx auto 0rpx;
+	padding-top:20rpx;
+	font-size:30rpx;
+	height: 60rpx;
+	border-top:1rpx dashed  #838383;
+	text-align: center;
+	line-height: 60rpx;
+}
+
+.meeting{
+	width: 80%;
+	min-height: 300rpx;
+	margin:20rpx auto 40rpx;
+}
+
+.meeting textarea{
+	width: 95%;
+	min-height:200rpx;
+	padding:20rpx 10rpx;
+	font-size:30rpx;
+	border:1rpx solid  #838383;
+	border-radius: 26rpx;
+}

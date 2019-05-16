@@ -19,7 +19,8 @@ Page({
     food_id: '',
     food: {},
     price: 0,
-    total: 0
+    total: 0,
+    list:[]
 	},
 
 	numberSub() {
@@ -97,6 +98,18 @@ Page({
           food: res.data[0],
           price: res.data[0].price,
           total: res.data[0].price
+        })
+      }
+    })
+    util.ajax({
+      url: app.globalData.path + 'ApiFoods/FoodScore',
+      method: 'POST',
+      data: {
+        id: that.data.food_id
+      },
+      success: function(res){
+        that.setData({
+          list: res.data
         })
       }
     })

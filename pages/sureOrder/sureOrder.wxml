@@ -20,5 +20,5 @@
     <textarea class='text' bindinput="remarks"></textarea>
   </view>
   <button class='anniu' type='primary' bindtap="submit">提交订单</button>
-  <button class='anniu2' type='warn'>取消</button>
+  <button class='anniu2' type='warn' bindtap='fanhui'>取消</button>
 </view>

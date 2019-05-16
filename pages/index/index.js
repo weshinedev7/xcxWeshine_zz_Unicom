@@ -8,6 +8,7 @@ Page({
    */
   data: {
     imgUrls:[],
+    list: []
   },
 
   /**
@@ -53,6 +54,17 @@ Page({
       }
 
     });
+    //热销菜品
+    util.ajax({
+      url: app.globalData.path + 'ApiFoods/FoodsSales',
+      method: 'GET',
+      data:{},
+      success:function(res){
+        that.setData({
+          list: res.data
+        })
+      }
+    })
 
   },
   toRoom:function(e){

@@ -193,7 +193,7 @@
 
 .immediately{
 	font-size:25rpx;
-	width:150rpx;
+	/* width:150rpx; */
 	color:#838383;
 	line-height: 36rpx;
 	float:left;

@@ -18,7 +18,8 @@
     "pages/login/login",
     "pages/search/search",
     "pages/score/score",
-    "pages/sureOrder/sureOrder"
+    "pages/sureOrder/sureOrder",
+    "pages/remarksDetail/remarksDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

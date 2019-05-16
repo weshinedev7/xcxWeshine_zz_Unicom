@@ -1,0 +1,8 @@
+<view>
+  <view class="meeting-content">备注说明</view>
+  <view class="meeting">
+    <textarea value="{{remarks}}" placeholder="" maxlength="1000">
+      {{detail}}
+    </textarea>
+  </view>
+</view>
