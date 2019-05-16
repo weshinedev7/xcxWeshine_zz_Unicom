@@ -1,271 +1,279 @@
+var app = getApp();
+var util = require('../../utils/util.js');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-		// 状态
-    items: [{
-        name: '0',
-        value: '上架',
-        checked: "ture"
-      },
-      {
-        name: '1',
-        value: '下架'
-      }
-    ],
-    imgs: [],
-    list: '',
-    upload_picture_list: [],
-    // 缩略图
-    source: '',
-    title: "",
-    price: "",
-    remarks: "",
+    imglist: [],
+    thumbnail: [],
+    originUrl: '',
+    goodsPic: [],
+    id: ''
   },
-	// 重置数据
-  reset: function() {
-    this.setData({
-      title: "",
-      price: "",
-      title: "",
-      remarks: "",
-      items: [{
-          name: '0',
-          value: '上架',
-          checked: "ture"
-        },
-        {
-          name: '1',
-          value: '下架'
-        }
-      ],
-    })
-
-  },
-  /**
-	
-   * 缩略图上传图片
-	
-   */
-  uploadimg: function() {
-
-    var that = this;
-
-    wx.chooseImage({ //从本地相册选择图片或使用相机拍照
-
-      count: 1, // 默认9
-
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-
-      success: function(res) {
-
-        //console.log(res)
-
-        //前台显示
-
-        that.setData({
-
-          source: res.tempFilePaths
-
-        })
-
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-
-        var tempFilePaths = res.tempFilePaths
-
-        console.log(tempFilePaths[0])
-        // wx.uploadFile({
-
-        // 	url: 'http://www.website.com/home/api/uploadimg',
-
-        // 	filePath: tempFilePaths[0],
-
-        // 	name: 'file',
-
-
-
-        // 	success: function (res) {
-
-        // 		//打印
-
-        // 		console.log(res.data)
-
-        // 	}
-
-        // })
-
-
-
-      }
-
-    })
-
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
+    var _this = this;
 
-  },
+    _this.setData({
+      id: options.id
+    })
+    console.log(_this.data.id)
+    if (this.data.id != null) {
+      // 按条件查询数据
+      util.ajax({
+        url: app.globalData.path + 'ApiStore/add',
+        method: 'POST',
+        data: {
+					id: _this.data.id
+        },
+        success: function(res) {
+          //成功
+					_this.data.thumbnail.push(res.data.data.img);
+          if (res.data.code == 0) {
+						console.log(res.data)
+						_this.setData({
+              food: res.data.data,
+							thumbnail: _this.data.thumbnail,
+              imglist: res.data.imgs,
+            });
+          }
+					console.log(_this.data.thumbnail)
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  },
-	// 菜品图片上传
-  //选择图片方法
-  uploadpic: function(e) {
-    let that = this //获取上下文
-    let upload_picture_list = that.data.upload_picture_list
-    //选择图片
-    wx.chooseImage({
-      count: 8, // 默认9，这里显示一次选择相册的图片数量 
-      sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有  
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function(res) { // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片 
-        let tempFiles = res.tempFiles
-        //把选择的图片 添加到集合里
-        for (let i in tempFiles) {
-          tempFiles[i]['upload_percent'] = 0
-          tempFiles[i]['path_server'] = ''
-          upload_picture_list.push(tempFiles[i])
         }
-        //显示
-        that.setData({
-          upload_picture_list: upload_picture_list,
-        });
+
+      });
+    }
+  },
+  // 缩略图
+  upload_thumbnail: function() {
+    console.log('单文件上传')
+    this.upload(2, 1)
+  },
+  // 展示图片
+  upload_file: function() {
+    console.log('多文件上传')
+    var num = 3 - Number(this.data.imglist.length);
+    this.upload(1, num)
+  },
+	//菜名
+	name: function (e) {
+		this.setData({ name: e.detail.value })
+	},
+	//价格
+	price: function (e) {
+		this.setData({ price: e.detail.value })
+	},
+	originPrice: function (e) {
+		this.setData({ originPrice: e.detail.value })
+	},
+	//菜品详情
+	brief: function (e) {
+		this.setData({ brief: e.detail.value })
+	},
+  // 文件上传
+  upload: function(status, num) {
+    var _this = this;
+
+    // 选择文件
+    wx.chooseImage({
+      count: num, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function(res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        if (res.tempFilePaths) {
+
+          if (status == 1) {
+            for (var i = 0; i < res.tempFilePaths.length; i++) {
+              _this.upload_img(res.tempFilePaths[i], status)
+            }
+          } else {
+            // console.log('单文件已选择')
+            // console.log(_this.data.thumbnail)
+            // console.log(res.tempFilePaths[0])
+            _this.upload_img(res.tempFilePaths[0], status)
+            // _this.setData({
+            // 	originUrl: res.tempFilePaths[0]
+            // })
+            // console.log(_this.data.originUrl)
+          }
+        }
       }
     })
-  },
-  //点击上传图片
-  uploadimage() {
-    let page = this
-    let upload_picture_list = page.data.upload_picture_list
-    //循环把图片上传到服务器 并显示进度       
-    for (let j in upload_picture_list) {
-      if (upload_picture_list[j]['upload_percent'] == 0) {
 
-        //上传图片后端地址
-        upload_file_server('https://www.x..fds.af..a.fd.sa', page, upload_picture_list, j)
-      }
-    }
-    let imgs = wx.setStorageSync('imgs', upload_picture_list);
   },
+  getCropperImg(e) {
+    console.log(111111)
+    this.upimgAjax(e.detail.url, 2)
+    this.setData({
+      originUrl: ''
+    })
+  },
+  // 上传文件
+  upload_img: function(url, status) {
+    var ajaxurl = status == 1 ? 'ApiStore/multipleFiles' : 'ApiStore/singleFile';
+    var _this = this;
+
+    wx.uploadFile({
+      url: app.globalData.path + ajaxurl,
+      filePath: url,
+      formData: {},
+      name: 'file',
+      success: function(res) {
+        var json = JSON.parse(res.data);
+        console.log('请求成功')
+        if (status == 1) {
+          _this.data.goodsPic.push(json.file_name);
+          _this.setData({
+            imglist: _this.data.goodsPic
+          })
+        } else {
+          _this.setData({
+            thumbnail: json.file_name
+          })
+        }
+      }
+    })
+
+	},
+	formsubmit: function (e) {
+		var _this = this;
+		
+		if (e.detail.value.name == '') {
+			return _this.alertMethod('请填写菜品名称');
+		}
+		if (e.detail.value.price == '') {
+			return _this.alertMethod('请填写菜品价格');
+		}
+		if (e.detail.value.originPrice == '') {
+			return _this.alertMethod('请填写菜品原价格');
+		}
+		if (e.detail.value.brief == '') {
+			return _this.alertMethod('请填写菜品原价格');
+		}
+		if (_this.data.imglist == '') {
+			return _this.alertMethod('请选择菜品展示图片');
+		}
+		if (_this.data.thumbnail == '') {
+			return _this.alertMethod('请选择菜品缩略图');
+		}
+		// wx.showLoading({
+		// 	title: '提交中...',
+		// })
+
+		// if (that.data.id) {
+		// 	data.id = _this.data.id;
+		console.log(_this.data.thumbnail)
+		// };
+		// 数据上传
+		util.ajax({
+			url: app.globalData.path + 'ApiStore/save',
+			method: 'POST',
+			data: {
+				id: _this.data.id,
+				name: e.detail.value.name,
+				price: e.detail.value.price,
+				store_id: wx.getStorageSync('storeInfo').store_id,
+				type: e.detail.value.type,
+				original_price: e.detail.value.original_price,
+				brief: e.detail.value.brief,
+				imglist: _this.data.imglist,
+				thumbnail: _this.data.thumbnail,
+			},
+			header: {
+				'content-type': 'application/x-www-form-urlencoded'
+			},
+			success: function (res) {
+
+				if (res.data.code === 0) {
+					wx.showToast({
+						title: res.data.msg,
+						icon: 'succes',
+						duration: 1000,
+						mask: true
+					});
+					setTimeout(function () {
+						wx.navigateTo({
+							url: '/pages/varietyOfDishes/varietyOfDishes'
+						})
+					}, 500)
+				}else{
+					wx.showToast({
+						title: res.data.msg,
+						icon: 'none',
+						duration: 1500,
+						mask: true
+					});
+				}
+			}
+		})
+	},
   // 点击删除图片
   deleteImg(e) {
-    let upload_picture_list = this.data.upload_picture_list;
-    let index = e.currentTarget.dataset.index;
-    upload_picture_list.splice(index, 1);
-    this.setData({
-      upload_picture_list: upload_picture_list
-    });
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '是否删除？',
+      success: function(res) {
+        if (res.confirm) {
+          let imglist = that.data.imglist;
+          let index = e.currentTarget.dataset.index;
+					console.log(index)
+          imglist.splice(index, 1);
+          that.setData({
+            imglist: imglist
+          });
+        }
+      }
+    })
+
   },
-  // 预览图片
-  previewImg(e) {
-    //获取当前图片的下标
-    let index = e.currentTarget.dataset.index;
-    //所有图片
-    let imgs = this.data.imgs;
+  // 点击放大
+  previewImage: function(e) {
+    var that = this;
+    //获取当前图片的下表
+    var index = e.currentTarget.dataset.index;
+    //数据源
+    var pictures = that.data.imglist;
     wx.previewImage({
-      //当前显示图片
-      current: imgs[index],
-      //所有图片
-      urls: imgs
+      //当前显示下表
+      current: pictures[index],
+      //数据源
+      urls: pictures
     })
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
-})
-
-
-
-/**
- * 上传图片方法
- */
-function upload_file_server(url, that, upload_picture_list, j) {
-  //上传返回值
-  const upload_task = wx.uploadFile({
-    // 模拟https
-    url: url, //需要用HTTPS，同时在微信公众平台后台添加服务器地址  
-    filePath: upload_picture_list[j]['path'], //上传的文件本地地址    
-    name: 'file',
-    formData: {
-      'num': j
-    },
-    //附近数据，这里为路径     
-    success: function(res) {
-      var data = JSON.parse(res.data);
-      // //字符串转化为JSON  
-      if (data.Success == true) {
-        var filename = data.file //存储地址 显示
-        upload_picture_list[j]['path_server'] = filename
-      } else {
-        upload_picture_list[j]['path_server'] = filename
+  // 缩略图点击删除图片
+  deleteIcon(e) {
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '是否删除？',
+      success: function(res) {
+        if (res.confirm) {
+          that.setData({
+            thumbnail: ''
+          });
+        }
       }
-      that.setData({
-        upload_picture_list: upload_picture_list
-      });
-      wx.setStorageSync('imgs', upload_picture_list);
-    }
-  })
-  //上传 进度方法
-  upload_task.onProgressUpdate((res) => {
-    upload_picture_list[j]['upload_percent'] = res.progress
-    that.setData({
-      upload_picture_list: upload_picture_list
-    });
-  });
-}
+    })
+
+  },
+  // 缩略图点击放大
+  previewImage1: function(e) {
+    var that = this;
+    //数据源
+    let pictures = new Array();
+    pictures.push(that.data.thumbnail);
+    wx.previewImage({
+      //当前显示下表
+      current: pictures[0],
+      //数据源
+      urls: pictures
+    })
+	},
+	alertMethod: function (text) {
+		wx.showToast({
+			title: text,
+			icon: 'none'
+		});
+		return false;
+	}
+})

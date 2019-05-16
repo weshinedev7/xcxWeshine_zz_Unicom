@@ -54,10 +54,12 @@ Page({
 			dateTime1: obj1.dateTime
 		});
 
-		// 接收修改预约书时传入的预约id
-		this.setData({
-			b_id: options.id
+		// 接收修改预约时传入的预约id
+		var that = this;
+		that.setData({
+			id: options.id
 		})
+		// console.log(that.data.id)
 
 
 		var that = this;

@@ -1,0 +1,26 @@
+
+<form bindsubmit='submitData' content-type="multipart/form-data" >
+<view class="page">
+  <view class="store_icon">
+    <view class="icon_content">
+      <image src="{{file_name}}" class="icon"></image>
+    </view>
+		<button class="submit" bindtap='upload'>选择图片</button>
+  </view>
+  <view class="content">
+    <view class="content_input">
+      <view class="input_text">商店名称</view>
+      <input class="input" name="name" value="{{store.name}}" placeholder="请输商店名称名" bindinput="searchInput" />
+    </view>
+  </view>
+  <view class="content">
+    <view class="content_input">
+      <view class="input_text" style="width:30%;">商店状态<text class="ts" style="color:{{status != 2?'green':'red'}}">{{status_text}}</text></view>
+      <view class="body-view">
+        <switch class="switch" style="width:50%;" checked="{{store.status != 2?'true':''}}" style="margin-top:12rpx;" bindchange="switchChange" />
+      </view>
+    </view>
+  </view>
+		<button class="submitData" form-type='submit'>保存</button>
+</view>
+</form>

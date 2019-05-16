@@ -1,6 +1,11 @@
 {
   "pages": [
 		"pages/roomLogin/roomLogin",
+		"pages/sureOrder/sureOrder",
+		"pages/store/store",
+		"pages/varietyOfDishes/varietyOfDishes",
+		"pages/varietyOfAdd/varietyOfAdd",
+		"pages/cropper/cropper",
     "pages/vehicle/vehicle",
     "pages/conferenceRoom/conferenceRoom",
     "pages/bookingVehicle/bookingVehicle",
@@ -9,8 +14,6 @@
     "pages/user/user",
     "pages/food/food",
     "pages/varietyOfEdit/varietyOfEdit",
-    "pages/varietyOfAdd/varietyOfAdd",
-    "pages/varietyOfDishes/varietyOfDishes",
     "pages/order/order",
     "pages/reservationRoomEdit/reservationRoomEdit",
     "pages/details/details",
@@ -19,7 +22,9 @@
     "pages/search/search",
     "pages/score/score",
     "pages/sureOrder/sureOrder",
-    "pages/remarksDetail/remarksDetail"
+    "pages/remarksDetail/remarksDetail",
+    "pages/score/score"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

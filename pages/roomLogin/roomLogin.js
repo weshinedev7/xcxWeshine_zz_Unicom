@@ -40,12 +40,12 @@ Page({
           if (res.data.status == '200') {
 
 						// 判断用户角色
-						if (res.data.info.role == 1) {
-
+						if (res.data.res) {
+					
 							// 商家用户登录区间
-							wx.setStorageSync('storeInfo', res.data.info);
+							wx.setStorageSync('storeInfo', res.data.res);
 							wx.showToast({
-								title: '登录成功',
+								title: res.data.msg,
 								icon: 'succes',
 								duration: 1000,
 								mask: true
@@ -62,7 +62,7 @@ Page({
 							wx.setStorageSync('employeeInfo', res.data.info);
 
 							wx.showToast({
-								title: '登录成功',
+								title: res.data.msg,
 								icon: 'succes',
 								duration: 1000,
 								mask: true
