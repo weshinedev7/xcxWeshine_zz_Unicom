@@ -86,22 +86,37 @@ Page({
     var that = this;
     this.setData({
       food_id: options.id
+			// food_id:2
     })
+		
     util.ajax({
-      url: app.globalData.path + 'ApiFoods/fooddetail',
+			url: app.globalData.path + 'ApiFoods/foodDetail',
       method: 'POST',
       data: {
         id: that.data.food_id
       },
 			success: function (res) {
 				that.setData({
-					food: res.data.food[0],
-					price: res.data.food[0].price,
-					total: res.data.food[0].price,
+					food: res.data.food,
+					price: res.data.food.price,
+					total: res.data.food.price,
 					imglist:res.data.imglist
 				})
       }
     })
+
+		util.ajax({
+			url: app.globalData.path + 'ApiFoods/FoodScore',
+			method: 'POST',
+			data: {
+				id: that.data.food_id
+			},
+			success: function (res) {
+				that.setData({
+					list: res.data
+				})
+			}
+		})
 	},
 
 	/**

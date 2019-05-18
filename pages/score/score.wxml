@@ -1,50 +1,23 @@
-
 <view class="content_left">
-	<view class="main">
-		<view class="title">
-			<view class="text" for='service'>人员服务：</view>
-		</view>
-		<view class="radio-content">
-			<radio-group class="item-right radio-group" bindchange="changeService">
-	          <label class="radio" wx:for="{{service}}">
-	               <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
-	          </label>
-			</radio-group>
-		</view>
+  <view class="main">
+    <block wx:for="{{list}}" wx:key="">
+      <view class="title">{{item.question}}：</view>
+      <view class="radio-content">
+        <view class='radio-item-box' wx:key="" wx:for="{{item.options}}" wx:for-item="myItem" wx:for-index="myIndex">
+          <view class='radio-item {{myItem.active?"active":""}}' data-index="{{myIndex}}" data-parent="{{index}}" bindtap='chioseTap'>{{myItem.name}}</view>
+        </view>
+      </view>
+    </block>
 
-		<view class="title">
-			<view class="text" for='quality'>菜品质量：</view>
-		</view>
-		<view class="radio-content">
-			<radio-group class="item-right radio-group" bindchange="changeuality">
-	          <label class="radio" wx:for="{{quality}}">
-	               <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
-	          </label>
-			</radio-group>
-		</view>
 
-		<view class="title">
-			<view class="text" for='hygiene'>卫生质量：</view>
-		</view>
-		<view class="radio-content">
-			<radio-group class="item-right radio-group" bindchange="changeHygiene">
-	          <label class="radio" wx:for="{{hygiene}}">
-	               <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
-	          </label>
-			</radio-group>
-		</view>
-		
+    <view class="meeting-content">备注说明</view>
+    <view class="meeting">
+      <textarea bindinput='getContent' placeholder="说明备注..." maxlength="1000" />
+    </view>
+  </view>
 
-		<view class="meeting-content">备注说明</view>
-		<view class="meeting">
-			 <textarea value="{{remarks}}" placeholder="说明备注..." maxlength="1000"/>
-		</view>
-	</view>
-
-	<view class="nav_container">
-	    <view class="reset" bindtap="reset">重置</view>
-	    <view class="submit" bindtap="submit">提交</view>
-   </view>
+  <view class="nav_container">
+    <view class="reset" bindtap="submit">提交</view>
+    <view class="submit" bindtap="cancel">取消</view>
+  </view>
 </view>
-
-

@@ -1,6 +1,8 @@
 {
   "pages": [
 		"pages/roomLogin/roomLogin",
+		"pages/details/details",
+		"pages/order/order",
 		"pages/sureOrder/sureOrder",
 		"pages/store/store",
 		"pages/varietyOfDishes/varietyOfDishes",
@@ -14,9 +16,7 @@
     "pages/user/user",
     "pages/food/food",
     "pages/varietyOfEdit/varietyOfEdit",
-    "pages/order/order",
     "pages/reservationRoomEdit/reservationRoomEdit",
-    "pages/details/details",
     "pages/makeAnAppointment/makeAnAppointment",
     "pages/login/login",
     "pages/search/search",

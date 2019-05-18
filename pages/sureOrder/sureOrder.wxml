@@ -1,4 +1,5 @@
 
+<form bindsubmit="submit">
 <view class="page">
   <view class="store_icon">
       <image src="{{info.img}}" class="icon"></image>
@@ -6,43 +7,43 @@
   <view class="content">
     <view class="content_input">
       <view class="content_text">商店名称</view>
-      <view class="text" name="name">{{info.foodName}}</view>
+      <view class="text">{{info.foodName}}</view>
     </view>
   </view>
   <view class="content">
     <view class="content_input">
       <view class="content_text">商品数量</view>
-      <view class="text" name="name">{{info.number}}</view>
+      <view class="text">{{info.number}}</view>
     </view>
   </view>
   <view class="content">
     <view class="content_input">
       <view class="content_text">商品价格</view>
-      <view class="text" name="name">{{info.total}}</view>
+      <view class="text">{{info.total}}</view>
     </view>
   </view>
   <view class="content">
     <view class="content_input">
       <view class="content_text">店铺名称</view>
-      <view class="text" name="name">{{info.storeName}}</view>
+      <view class="text">{{info.storeName}}</view>
     </view>
   </view>
   <view class="content">
     <view class="content_input">
       <view class="content_text">备注</view>
-      <view class="text" name="name">{{store.name}}</view>
+      <view class="text"></view>
     </view>
   </view>
 
-	
   <view class="details">
     <view class="content_details">
-			<textarea placeholder='请输入备注' maxlength="1000" value=""></textarea>
+			<textarea placeholder='请输入备注' maxlength="1000" name="remarks" value="{{info.remarks}}"></textarea>
     </view>
   </view>
 </view>
 
   <view class="nav_container">
     <button class="reset" bindtap="reset">重置</button>
-    <button class="submit" form-type='submit' bindtap='submit'>提交</button>
+    <button class="submit" form-type='submit'>提交</button>
   </view>
+</form>

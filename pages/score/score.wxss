@@ -10,18 +10,9 @@
 }
 
 .title{
-	width: 80%;
-	height: 65rpx;
-	margin:0rpx auto;
-}
-
-.title .text{
-	width:160rpx;
-	font-size:30rpx;
-	height: 60rpx;
-	text-align: center;
-	line-height: 60rpx;
-	float:left;
+	padding:20rpx;
+	font-size:28rpx;
+  font-weight: bold;
 }
 
 .meeting-content{
@@ -130,7 +121,7 @@ radio .wx-radio-input{
 radio .wx-radio-input.wx-radio-input-checked::before{
     border-radius: 50%;
     width: 44rpx; 
-    height: 44rpx; /
+    height: 44rpx; 
     line-height: 44rpx;
     text-align: center;
     font-size: 26rpx; /* 对勾大小 26rpx */
@@ -139,10 +130,33 @@ radio .wx-radio-input.wx-radio-input-checked::before{
     border-color: #2facff;
 }
 .radio-content{
-	width: 60%;
-	height: 65rpx;
-	margin:0 auto;
+	padding:0 20rpx;
 }
 .radio{
 	font-size:30rpx;
+}
+.radio-content:after{
+  content: '';
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+.radio-item-box{
+  float: left;
+  width: 33.33%;
+  padding:8rpx;
+  box-sizing: border-box;
+}
+.radio-item{
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size:24rpx;
+  border:1px solid #ccc;
+  border-radius: 8rpx;
+  text-align: center;
+}
+.active{
+  border:1px solid red!important;
+  color:red!important;
 }

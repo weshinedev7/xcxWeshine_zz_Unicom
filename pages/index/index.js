@@ -38,21 +38,37 @@ Page({
     this.onAuthLocation();
     var that = this;
 
-    //首页轮播
-    util.ajax({
-      url:app.globalData.path+'ApiBanner/getBanner',
-      method:'POST',
-      data:{},
-      success:function(res){
-        //成功
-        if(res.data.status=='200'){
-          that.setData({
-            imgUrls:res.data.info,
-          });
-        }
-      }
+		//首页轮播
+		util.ajax({
+			url: app.globalData.path + 'ApiBanner/getBanner',
+			method: 'POST',
+			data: {},
+			success: function (res) {
+				//成功
+				if (res.data.status == '200') {
+					that.setData({
+						imgUrls: res.data.info,
+					});
+				}
+			}
 
-    });
+		});
+
+		//首页菜品
+		util.ajax({
+			url: app.globalData.path + 'ApiBanner/foods',
+			method: 'POST',
+			data: {},
+			success: function (res) {
+				//成功
+				if (res.data.code == 0) {
+					that.setData({
+						foods: res.data.data,
+					});
+				}
+			}
+
+		});
 
   },
   toRoom:function(e){

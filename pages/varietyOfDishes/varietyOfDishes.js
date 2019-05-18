@@ -127,7 +127,7 @@ Page({
       },
       success: function(res) {
         //成功
-        if (res.data.code == 0) {
+				if (res.data.code == 0) {
           that.setData({
             foods: res.data.data,
 						store:res.data.store
