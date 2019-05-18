@@ -20,7 +20,9 @@
     "pages/makeAnAppointment/makeAnAppointment",
     "pages/login/login",
     "pages/search/search",
-    "pages/score/score"
+    "pages/score/score",
+    "pages/remarksDetail/remarksDetail"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

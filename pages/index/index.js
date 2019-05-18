@@ -8,6 +8,7 @@ Page({
    */
   data: {
     imgUrls:[],
+    list: []
   },
 
   /**
@@ -37,7 +38,6 @@ Page({
 
     this.onAuthLocation();
     var that = this;
-
 		//首页轮播
 		util.ajax({
 			url: app.globalData.path + 'ApiBanner/getBanner',
@@ -69,7 +69,6 @@ Page({
 			}
 
 		});
-
   },
   toRoom:function(e){
     if(wx.getStorageSync('employeeInfo').role==='2'){

@@ -2,35 +2,35 @@
 <view class="top">
   <view class="search-block">
     <navigator url="/pages/search/search">
-      <image src="/images/icon-search.png"/>
+      <image src="/images/icon-search.png" />
       <text>搜索</text>
     </navigator>
   </view>
 </view>
 
 <!--轮播banner-->
-<swiper indicator-dots="true"  autoplay="true" interval="5000" duration="1000" circular="true" class="banner">  
-  <block wx:for="{{imgUrls}}" wx:key="">  
-    <swiper-item>  
+<swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true" class="banner">
+  <block wx:for="{{imgUrls}}" wx:key="">
+    <swiper-item>
       <navigator url="">
-       <image src="{{item.img}}" class="banner-image" mode="aspectFill"/>
-      </navigator>  
-    </swiper-item>  
-  </block>  
+        <image src="{{item.img}}" class="banner-image" mode="aspectFill" />
+      </navigator>
+    </swiper-item>
+  </block>
 </swiper>
 
 <!--功能展示-->
 <view class="section">
   <navigator url="/pages/food/food" hover-class="none" class="selection-item">
-    <image src="/images/food.png" mode="aspectFit"/>
+    <image src="/images/food.png" mode="aspectFit" />
     <text>餐饮</text>
   </navigator>
-  <navigator bindtap="toRoom" hover-class="none"  class="selection-item">
-    <image src="/images/room.png" mode="aspectFit"/>
+  <navigator bindtap="toRoom" hover-class="none" class="selection-item">
+    <image src="/images/room.png" mode="aspectFit" />
     <text>预约会议室</text>
   </navigator>
-  <navigator bindtap="toCar" hover-class="none"  class="selection-item">
-    <image src="/images/car.png" mode="aspectFit"/>
+  <navigator bindtap="toCar" hover-class="none" class="selection-item">
+    <image src="/images/car.png" mode="aspectFit" />
     <text>预约车辆</text>
   </navigator>
 </view>
@@ -39,24 +39,24 @@
 <view class="divLine"></view>
 
 <view class="show-title">
-   <image src="/images/like.png" mode="aspectFit" class="image"/>
-   <text>热门菜品</text>
-   <navigator url="/pages/food/food" hover-class="none">
-      <view class="text-more">查看全部</view>
-      <image src="/images/right.png"/> 
-    </navigator>
+  <image src="/images/like.png" mode="aspectFit" class="image" />
+  <text>热门菜品</text>
+  <navigator url="/pages/food/food" hover-class="none">
+    <view class="text-more">查看全部</view>
+    <image src="/images/right.png" />
+  </navigator>
 </view>
 
 <view class="show-content" wx:for="{{foods}}">
 
   <navigator url="/pages/details/details?id={{item.id}}" hover-class="none" class="content-item">
-      <image src="{{item.img}}" mode="aspectFill"/>
-      <view class="content-price">
-          <view class="new-price">￥{{item.original_price}}</view>
-          <view class="old-price">￥{{item.price}}</view>
-      </view>
-      <view class="content-name">{{item.f_name}}</view>
-      <view class="content-store">{{item.s_name}}</view>
+    <image src="{{item.img}}" mode="aspectFill" />
+    <view class="content-price">
+      <view class="new-price">￥{{item.original_price}}</view>
+      <view class="old-price">￥{{item.price}}</view>
+    </view>
+    <view class="content-name">{{item.f_name}}</view>
+    <view class="content-store">{{item.s_name}}</view>
   </navigator>
 
 </view>
