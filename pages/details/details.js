@@ -75,7 +75,7 @@ Page({
     //把数据存到缓存中，相当于页面传参了
     wx.setStorageSync('order_info', data)
   	wx.navigateTo({
-      url: '../sureOrder/sureOrder',
+      url: '/pages/sureOrder/sureOrder',
     })
   },
 

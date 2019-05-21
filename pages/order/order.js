@@ -58,6 +58,11 @@ Page({
     // 获取当前时间(年月日时分)
     // var date = util.formatTime(new Date());
     // console.log(date)
+		// console.log(mktime(13, 0, 0, date('m'), date('d'), date('Y')))
+		// if (mktime(13, 0, 0, date('m'), date('d'), date('Y'))){
+
+		// }
+
     if (that.data.len == 0) return false;
     if (that.data.openof != that.data.page) return false;
     that.data.openof++;
@@ -94,6 +99,7 @@ Page({
             page: that.data.page,
             openof: that.data.page
           })
+					console.log(that.data.list)
         }
       },
       complete: function() {
@@ -162,7 +168,7 @@ Page({
 									mask: true
 								});
 								setTimeout(function () {
-									wx.navigateTo({
+									wx.redirectTo({
 										url: '/pages/order/order'
 									})
 								}, 500)

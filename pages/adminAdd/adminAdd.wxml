@@ -1,0 +1,38 @@
+<!-- 新增页面 -->
+<form bindsubmit='formsubmit' content-type="multipart/form-data">
+  <view class="main">
+
+    <view class="content">
+      <view class="text">名称:</view>
+      <input placeholder="请输入管理员名称" name="name" value="{{list.name}}" />
+    </view>
+    <view class="content">
+      <view class="text">电话:</view>
+      <input placeholder="请输入电话号码" name="tel" value="{{list.tel}}"/>
+    </view>
+
+    <view class="content">
+      <view class="text">密码:</view>
+      <input type="password" placeholder="请输入密码" name="pwd"/>
+    </view>
+
+    <view class="content">
+      <view class="text">性别:</view>
+      <radio-group bindchange="checkboxChange" name="sex">
+        <label class="checkbox">
+          <radio value="0" checked="{{list.sex == 0?'true':''}}" />男
+          <radio value="1" checked="{{list.sex == 1?'true':''}}" />女
+        </label>
+      </radio-group>
+    </view>
+
+
+  </view>
+
+
+  <!-- 重置提交按钮 -->
+  <view class="nav_container">
+    <view class="reset" bindtap='reset'>重置</view>
+    <button class="submit" form-type='submit'>提交</button>
+  </view>
+</form>

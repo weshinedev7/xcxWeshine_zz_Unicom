@@ -12,7 +12,7 @@
 <view class="main">
   <view class="main-name">{{food.name}}</view>
   <view class="show">
-    <view>{{food.store_name}}</view>
+    <view style="color:#838383">{{food.store_name}}</view>
     <view class="l2">评分:8</view>
     <view class="l2">已售:{{food.total}}</view>
   </view>

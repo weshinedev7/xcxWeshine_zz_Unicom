@@ -1,0 +1,34 @@
+<view class="body">
+  <view class="list" wx:for="{{list}}">
+    <view class="title">
+      <view class="content">
+        <image class='image' src="/images/sf.png"></image>
+        <text>{{item.name}}</text>
+      </view>
+      <view class="content">
+        <image class='image' src="/images/{{item.sex == 0?'nan.png':'nve.png'}}"></image>
+        <text>{{item.sex == 0?"男":'女'}}</text>
+      </view>
+      <view class="content">
+        <image class='image' src="/images/phone.png"></image>
+        <text>{{item.tel}}</text>
+      </view>
+      <view class="content">
+        <image class='image' src="/images/gh.png"></image>
+        <text>{{item.admin_number}}</text>
+      </view>
+    </view>
+    <view class="title_content">
+      <view class="action" bindtap='statusAdmin' data-id="{{item.id}}" data-status="{{item.status}}" style="background:{{item.status== 0?'#F86870':'rgb(4, 173, 4)'}}">{{item.status== 0?'禁用':'启用'}}</view>
+
+      <view class="action" style="background:#388BE8">
+        <navigator url="/pages/adminAdd/adminAdd?id={{item.id}}">修改</navigator>
+      </view>
+      <view class="action_left" data-id="{{item.id}}" bindtap='statusAdmin' style="background:{{item.status== 0?'rgb(4, 173, 4)':'red'}}">{{item.status== 0?'已激活':'已禁用'}}</view>
+    </view>
+  </view>
+
+  <view class="btn">
+    <navigator url="/pages/adminAdd/adminAdd">新增</navigator>
+  </view>
+</view>

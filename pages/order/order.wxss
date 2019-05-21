@@ -51,6 +51,8 @@
 .eval-all{
 	margin:30rpx;
 }
+
+
 .order-info {
   font-size: 9pt;
   color: #888;
@@ -58,6 +60,15 @@
 /* .goods-list{
 	margin:0rpx 30rpx;
 } */
+
+.food_status {
+  width: 400rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 14px;
+  color: #838383;
+}
 .goods-pic {
   width: 156rpx;
   height: 156rpx;

@@ -1,9 +1,13 @@
 {
   "pages": [
 		"pages/roomLogin/roomLogin",
-		"pages/details/details",
-		"pages/order/order",
+		"pages/storeOrder/storeOrder",
+		"pages/allRemarks/allRemarks",
 		"pages/sureOrder/sureOrder",
+		"pages/order/order",
+		"pages/admin/admin",
+		"pages/adminAdd/adminAdd",
+		"pages/details/details",
 		"pages/store/store",
 		"pages/varietyOfDishes/varietyOfDishes",
 		"pages/varietyOfAdd/varietyOfAdd",

@@ -1,0 +1,274 @@
+.display {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50rpx;
+}
+
+.display-sele {
+  font-size: 30rpx;
+  width: 50%;
+  text-align: center;
+  border-bottom: 1px solid #838383;
+  height: 50rpx;
+}
+
+.active {
+  color: #ff6f43;
+  border-bottom: 1px solid #ff6f43;
+}
+
+.flex-grow-1 {
+  min-width: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 1;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+}
+
+/* .flex-grow-0 {
+  width: 300rpx;
+}
+.flex-grow-0 {
+  min-width: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+} */
+
+.flex-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.eval-all {
+  margin: 30rpx;
+  position: relative;
+}
+
+.food_status {
+  width: 100rpx;
+  height: 50rpx;
+  background: red;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 13px;
+  color: white;
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+}
+
+.order-info {
+  font-size: 9pt;
+  color: #888;
+}
+
+/* .goods-list{
+	margin:0rpx 30rpx;
+} */
+
+.goods-pic {
+  width: 156rpx;
+  height: 156rpx;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+}
+
+.content {
+  margin-top: 10rpx;
+}
+
+.goods-name {
+  margin-bottom: 10rpx;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 27rpx;
+}
+
+.attr-item {
+  display: inline-block;
+  margin-right: 36rpx;
+  font-size: 9pt;
+  color: #888;
+}
+
+.num {
+  font-size: 9pt;
+  color: #888;
+}
+
+.price {
+  color: #ff4544;
+  font-weight: 600;
+  text-align: right;
+  font-size: 30rpx;
+}
+
+.count-order {
+  border-top: 1px solid #eee;
+  margin: 30rpx 0;
+  height: 100rpx;
+  align-items: center;
+  border-bottom: 3px solid #eee;
+}
+
+.order_number {
+  width: 30%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #838383;
+  font-size: 14px;
+}
+
+.operation {
+  width: 70%;
+  height: 100rpx;
+  margin-left: 200rpx;
+}
+
+.score {
+  margin-left: 10rpx;
+  height: 50rpx;
+  float: right;
+  margin-right: 10rpx;
+  text-align: center;
+  line-height: 50rpx;
+  background: #fff;
+  border: 1px solid #838383;
+  border-radius: 26rpx;
+  font-size: 12px;
+  color: #838383;
+  padding: 0rpx 20rpx;
+  margin: 20rpx 10rpx 0rpx;
+}
+
+.tl {
+  text-align: left;
+}
+
+.tr {
+  text-align: right;
+}
+
+.middle_none {
+  text-align: center;
+  font-size: 28rpx;
+  color: #838383;
+}
+
+.btn {
+  color: green;
+  border: 1rpx solid green;
+}
+
+.cancel {
+  width: 140rpx;
+  height: 100rpx;
+  float: right;
+  margin-right: 30rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #838383;
+}
+
+/* 模态框 */
+
+.show-btn {
+  margin-top: 100rpx;
+  color: #2c2;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 540rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 35%;
+  left: 15%;
+  z-index: 9999;
+  background: #f9f9f9;
+  border-radius: 36rpx;
+}
+
+.modal-title {
+  padding-top: 30rpx;
+  font-size: 30rpx;
+  color: #333;
+  text-align: center;
+}
+
+.modal-content {
+  padding: 50rpx 32rpx;
+}
+
+.modal-input {
+  display: flex;
+  background: #fff;
+  border: 2rpx solid #ddd;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+}
+
+.textarea {
+  width: 100%;
+  height: 200rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+}
+
+input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+
+.btn-confirm {
+  width: 50%;
+  color: #dd2727;
+  text-align: center;
+}

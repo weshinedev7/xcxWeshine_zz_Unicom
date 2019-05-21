@@ -39,50 +39,57 @@ Page({
           // 成功
           if (res.data.status == '200') {
 
-						// 判断用户角色
-						if (res.data.res) {
-					
-							// 商家用户登录区间
-							wx.setStorageSync('storeInfo', res.data.res);
-							wx.showToast({
-								title: res.data.msg,
-								icon: 'succes',
-								duration: 1000,
-								mask: true
-							});
-							setTimeout(function () {
-								wx.redirectTo({
-									url: '/pages/varietyOfDishes/varietyOfDishes'
-								})
-							}, 500)
+            // 判断用户角色
+            if (res.data.res) {
+              if (res.data.res.status == 1) {
+								wx.showToast({
+									title: '账号已被禁用',
+									icon: 'none',
+									duration: 1000,
+								});
+              } else {
+                // 商家用户登录区间
+                wx.setStorageSync('storeInfo', res.data.res);
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'succes',
+                  duration: 1000,
+                  mask: true
+                });
+                setTimeout(function() {
+                  wx.redirectTo({
+                    url: '/pages/varietyOfDishes/varietyOfDishes'
+                  })
+                }, 500)
+              }
 
-						}else{
+            } else {
 
-							// 用户登录区间
-							wx.setStorageSync('employeeInfo', res.data.info);
+              // 用户登录区间
+              wx.setStorageSync('employeeInfo', res.data.info);
 
-							wx.showToast({
-								title: res.data.msg,
-								icon: 'succes',
-								duration: 1000,
-								mask: true
-							});
-							setTimeout(function () {
-								wx.switchTab({
-									url: '/pages/index/index'
-								})
-							}, 500)	
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'succes',
+                duration: 1000,
+                mask: true
+              });
+              setTimeout(function() {
+                wx.switchTab({
+                  url: '/pages/index/index'
+                })
+              }, 500)
 
-						}
+            }
 
-          }else{
-						// 登录失败
-						wx.showToast({
-							title: res.data.msg,
-							icon: 'none',
-							duration: 2000 //持续的时间
-						});
-					}
+          } else {
+            // 登录失败
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 2000 //持续的时间
+            });
+          }
         }
       });
     }
@@ -92,27 +99,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-		// 判断用户是否登录
+    // 判断用户是否登录
     if (wx.getStorageSync('employeeInfo') !== '') {
       wx.switchTab({
         url: '/pages/index/index'
       })
-    }else{
-			// 判断商家是否登陆
-			if (wx.getStorageSync('storeInfo') !== '') {
-				wx.redirectTo({
-					url: '/pages/varietyOfDishes/varietyOfDishes'
-				})
-			}else{
-				// 未登录提醒
-				wx.showToast({
-					title: '您好请登录',
-					icon: 'none',
-					duration: 1000,
-					mask: true
-				})
-			}
-		}
+    } else {
+      // 判断商家是否登陆
+      if (wx.getStorageSync('storeInfo') !== '') {
+        wx.redirectTo({
+          url: '/pages/varietyOfDishes/varietyOfDishes'
+        })
+      } else {
+        // 未登录提醒
+        wx.showToast({
+          title: '您好请登录',
+          icon: 'none',
+          duration: 1000,
+          mask: true
+        })
+      }
+    }
 
   },
 

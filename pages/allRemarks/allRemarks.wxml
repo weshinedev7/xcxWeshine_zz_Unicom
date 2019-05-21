@@ -1,0 +1,21 @@
+<view class="display">
+  <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
+    今日
+  </view>
+  <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
+    全部
+  </view>
+</view>
+
+<view class="pages" wx:if="{{list.lenght != 0}}">
+  <block wx:for="{{list}}" wx:for-item="item" wx:key="">
+    <view class="main">
+      <view class="main-left">{{item.remarks}}</view>
+      <view class="main-right">回复</view>
+    </view>
+  </block>
+</view>
+
+<view wx:else>
+  <view class="middle_none" style="margin-top:300rpx;">暂无数据</view>
+</view>
