@@ -18,8 +18,8 @@ Page({
       url: app.globalData.path + 'ApiStore/adminList',
       method: 'GET',
       data: {
-        // id: wx.getStorageSync('storeInfo').id,
-        id: 1,
+        id: wx.getStorageSync('storeInfo').store_id,
+        // id: 1,
       },
       success: function(res) {
         if (res.data.code == 0) {

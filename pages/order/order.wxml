@@ -10,7 +10,7 @@
   </view>
 </view>
 
-<!--评价-->
+<!--数据-->
 <view wx:if="{{list.length != 0}}" class="eval-all">
 
   <block wx:for="{{list}}" wx:for-item="item" wx:key="">

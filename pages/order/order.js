@@ -168,7 +168,7 @@ Page({
 									mask: true
 								});
 								setTimeout(function () {
-									wx.redirectTo({
+									wx.navigateTo({
 										url: '/pages/order/order'
 									})
 								}, 500)

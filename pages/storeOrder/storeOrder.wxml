@@ -22,7 +22,7 @@
       <view class="content flex-grow-1">
         <view class="flex-grow-1">
           <view class="goods-name text-style">{{item.name}}</view>
-          <view class="attr-item">×{{item.count_numer}}</view>
+          <view class="attr-item">×{{item.number}}</view>
         </view>
 
         <view class="flex-grow-1 flex-row">

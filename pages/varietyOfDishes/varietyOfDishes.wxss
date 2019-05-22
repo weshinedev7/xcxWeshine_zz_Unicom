@@ -14,8 +14,9 @@ page, .page {
   height: 100%;
   width: 50%;
   position: fixed;
-  background-color: white;
+  /* background-color: white; */
   z-index: 0;
+	/* background: #f3f3f3; */
 }
 
 /* 控制侧边栏的内容距离顶部的距离 */
@@ -101,8 +102,8 @@ page, .page {
 .cover {
   width: 100%;
   height: 100%;
-  background-color: gray;
-  opacity: 0.5;
+  /* background-color: rgb(175, 172, 172); */
+  /* opacity: 0.4; */
   z-index: 9000;
 }
 
@@ -112,13 +113,14 @@ page, .page {
   width: 90%;
   height: 80rpx;
   margin: 0rpx auto;
+	/* position:fixed;
+	top:0; */
 }
 
 .user {
   width: 11%;
   height: 80rpx;
   float: left;
-	/* margin-left:10rpx; */
 }
 
 .user image {
@@ -368,4 +370,10 @@ page, .page {
   width: 80%;
   line-height: 58rpx;
   height: 40rpx;
+}
+
+.middle_none {
+	text-align: center;
+	font-size:28rpx;
+	color:#838383;
 }

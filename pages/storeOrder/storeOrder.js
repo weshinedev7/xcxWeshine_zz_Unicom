@@ -52,16 +52,16 @@ Page({
   onLoad: function(options) {
     var _this = this;
     _this.setData({
-      // id: options.id,
-      id: 1
+      id: options.id,
+      // id: 1
     })
     //调接口
     util.ajax({
       url: app.globalData.path + 'ApiStore/storeOrder',
       method: 'POST',
       data: {
-        id: _this.data.id,
-        status: _this.data.check
+        id: wx.getStorageSync('storeInfo').store_id,
+        status: _this.data.check,
       },
       success: function(res) {
         if (res.data.code == 0) {

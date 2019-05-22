@@ -60,13 +60,14 @@ Page({
         sold: "99"
       },
     ],
-		// 侧边栏
-		open: false,
-		// mark 是指原点x轴坐标
-		mark: 0,
-		// newmark 是指移动的最新点的x轴坐标 
-		newmark: 0,
-		istoright: true
+    // 侧边栏
+    open: false,
+    // mark 是指原点x轴坐标
+    mark: 0,
+    // newmark 是指移动的最新点的x轴坐标 
+    newmark: 0,
+    istoright: true,
+    storeImg: wx.getStorageSync('storeInfo').img
   },
   selectDispaly: function(e) {
     let _this = this;
@@ -78,7 +79,7 @@ Page({
       foods: '',
     });
 
-		// 按条件查询数据
+    // 按条件查询数据
     util.ajax({
       url: app.globalData.path + 'ApiStore/index',
       method: 'POST',
@@ -96,6 +97,9 @@ Page({
       }
 
     });
+  },
+  search: function(e) {
+    console.log(11111111)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -127,55 +131,55 @@ Page({
       },
       success: function(res) {
         //成功
-				if (res.data.code == 0) {
+        if (res.data.code == 0) {
           that.setData({
             foods: res.data.data,
-						store:res.data.store
+            store: res.data.store
           });
         }
       }
 
     });
-	},
-	// 修改状态
-	status: function (e) {
-		var id = e.currentTarget.dataset.id
-		var status = e.currentTarget.dataset.status
-		
-		var current_state = status == 1 ?"下架":"上架"
+  },
+  // 修改状态
+  status: function(e) {
+    var id = e.currentTarget.dataset.id
+    var status = e.currentTarget.dataset.status
 
-		wx.showModal({
-			title: '提示',
-			content: '是否确认' + current_state,
-			success: function (res) {
-				if (res.confirm){
-					util.ajax({
-						url:app.globalData.path+'ApiStore/status',
-						method:'POST',
-						data:{
-							id:id
-						},
-						success:function(res){
-							if(res.data.code === 0){
-								wx.showToast({
-									title: res.data.msg,
-									icon: 'success',
-									duration: 1000,
-									mask: true
-								});
-								setTimeout(function () {
-									wx.redirectTo({
-										url: '/pages/varietyOfDishes/varietyOfDishes'
-									})
-								}, 500)
-							}
-						}
-					})
-				}
+    var current_state = status == 1 ? "下架" : "上架"
 
-			}
-		})
-	},
+    wx.showModal({
+      title: '提示',
+      content: '是否确认' + current_state,
+      success: function(res) {
+        if (res.confirm) {
+          util.ajax({
+            url: app.globalData.path + 'ApiStore/status',
+            method: 'POST',
+            data: {
+              id: id
+            },
+            success: function(res) {
+              if (res.data.code === 0) {
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'success',
+                  duration: 1000,
+                  mask: true
+                });
+                setTimeout(function() {
+                  wx.redirectTo({
+                    url: '/pages/varietyOfDishes/varietyOfDishes'
+                  })
+                }, 500)
+              }
+            }
+          })
+        }
+
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -223,72 +227,87 @@ Page({
    */
   onShareAppMessage: function() {
 
-	},
-	outLogin: function (e) {
-		wx.showModal({
-			title: '提示',
-			content: '确定要注销吗？',
-			success: function (sm) {
-				if (sm.confirm) {
-					// 用户点击了确定 可以调用删除方法了
-					wx.setStorageSync('storeInfo', "");
-					wx.showToast({
-						title: '已注销',
-						icon: 'succes',
-						duration: 1000,
-						mask: true
-					})
-					setTimeout(function () {
-						wx.redirectTo({
-							url: '/pages/roomLogin/roomLogin'
-						})
-					}, 1000)
-				}
-			}
-		})
-	},
-	// 以下为侧边栏JS
-	// 点击左上角小图标事件
-	tap_ch: function (e) {
-		if (this.data.open) {
-			this.setData({
-				open: false
-			});
-		} else {
-			this.setData({
-				open: true
-			});
-		}
-	},
+  },
+  outLogin: function(e) {
+    wx.showModal({
+      title: '提示',
+      content: '确定要注销吗？',
+      success: function(sm) {
+        if (sm.confirm) {
+          // 用户点击了确定 可以调用删除方法了
+          wx.setStorageSync('storeInfo', "");
+          wx.showToast({
+            title: '已注销',
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          })
+          setTimeout(function() {
+            wx.redirectTo({
+              url: '/pages/roomLogin/roomLogin'
+            })
+          }, 1000)
+        }
+      }
+    })
+  },
+  // 以下为侧边栏JS
+  // 点击左上角小图标事件
+  tap_ch: function(e) {
+    if (this.data.open) {
+      this.setData({
+        open: false
+      });
+    } else {
+      this.setData({
+        open: true
+      });
+    }
+  },
 
-	tap_start: function (e) {
-		// touchstart事件
-		// 把手指触摸屏幕的那一个点的 x 轴坐标赋值给 mark 和 newmark
-		this.data.mark = this.data.newmark = e.touches[0].pageX;
-	},
+  tap_start: function(e) {
+    // touchstart事件
+    // 把手指触摸屏幕的那一个点的 x 轴坐标赋值给 mark 和 newmark
+    this.data.mark = this.data.newmark = e.touches[0].pageX;
+    console.log('关闭')
+		console.log(this.data.mark)
+  },
 
-	tap_drag: function (e) {
-		// touchmove事件
-		this.data.newmark = e.touches[0].pageX;
+  tap_drag: function(e) {
+    // touchmove事件
+    this.data.newmark = e.touches[0].pageX;
 
-		// 手指从左向右移动
-		if (this.data.mark < this.data.newmark) {
-			this.istoright = true;
-		}
+    // 手指从左向右移动
+    if (this.data.mark < this.data.newmark) {
+      this.istoright = true;
+    }
 
-		// 手指从右向左移动
-		if (this.data.mark > this.data.newmark) {
-			this.istoright = false;
-		}
-		this.data.mark = this.data.newmark;
-	},
+    // 手指从右向左移动
+    if (this.data.mark > this.data.newmark) {
+      this.istoright = false;
+    }
+    this.data.mark = this.data.newmark;
+  },
 
-	tap_end: function (e) {
-		// touchend事件
-		this.data.mark = 0;
-		this.data.newmark = 0;
-		// 通过改变 opne 的值，让主页加上滑动的样式
-		if (this.istoright) {
+  tap_end: function(e) {
+		
+    // touchend事件
+    this.data.mark = 0;
+    this.data.newmark = 0;
+    // 通过改变 opne 的值，让主页加上滑动的样式
+    if (this.istoright) {
+      this.setData({
+        open: true
+      });
+    } else {
+      this.setData({
+        open: false
+      });
+    }
+
+  },
+	left_open:function(){
+		if (this.data.open == true) {
 			this.setData({
 				open: true
 			});

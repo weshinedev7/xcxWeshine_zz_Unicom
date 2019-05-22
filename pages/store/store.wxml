@@ -1,26 +1,49 @@
-
-<form bindsubmit='submitData' content-type="multipart/form-data" >
-<view class="page">
-  <view class="store_icon">
-    <view class="icon_content">
-      <image src="{{file_name}}" class="icon"></image>
+<form bindsubmit='submitData' content-type="multipart/form-data">
+  <view class="page">
+    <view class="store_icon">
+      <view class="icon_content">
+        <image src="{{file_name}}" class="icon"></image>
+      </view>
+      <button class="submit" bindtap='upload'>选择图片</button>
     </view>
-		<button class="submit" bindtap='upload'>选择图片</button>
-  </view>
-  <view class="content">
-    <view class="content_input">
-      <view class="input_text">商店名称</view>
-      <input class="input" name="name" value="{{store.name}}" placeholder="请输商店名称名" bindinput="searchInput" />
-    </view>
-  </view>
-  <view class="content">
-    <view class="content_input">
-      <view class="input_text" style="width:30%;">商店状态<text class="ts" style="color:{{status != 2?'green':'red'}}">{{status_text}}</text></view>
-      <view class="body-view">
-        <switch class="switch" style="width:50%;" checked="{{store.status != 2?'true':''}}" style="margin-top:12rpx;" bindchange="switchChange" />
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text">商店名称</view>
+        <input class="input" name="name" value="{{store.name}}" placeholder="请输商店名称名" bindinput="searchInput" />
       </view>
     </view>
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text">营业时间</view>
+        <view class="tui-picker-content">
+          <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+            <view class="tui-picker-detail font time1">
+              <input class="input" wx:if="{{start_time === ''}}" name="start_time" value="{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:00" disabled/>
+              <input class="input" wx:if="{{start_time!== ''}}" name="start_time" value="{{start_time}}" disabled/>
+              <view class="right1">
+                <image src="/images/right-2.png"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text">打烊时间</view>
+        <input class="input" name="name" value="{{store.name}}" bindinput="searchInput" disabled/>
+      </view>
+    </view>
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text" style="width:31%;">商店状态
+          <text class="ts" style="color:{{status != 2?'green':'red'}}">{{status_text}}</text>
+        </view>
+        <view class="body-view">
+          <switch class="switch" style="width:50%;" checked="{{store.status != 2?'true':''}}" style="margin-top:12rpx;" bindchange="switchChange" />
+        </view>
+      </view>
+    </view>
+    <button class="submitData" form-type='submit'>保存</button>
   </view>
-		<button class="submitData" form-type='submit'>保存</button>
-</view>
 </form>

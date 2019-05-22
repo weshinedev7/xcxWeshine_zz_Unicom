@@ -1,0 +1,43 @@
+<!-- 头部 -->
+<view class="top">
+  <view class="search-block">
+		<input class="input" name="search" placeholder="请输入菜品名" bindinput ="searchInput"/>
+    <image src="/images/icon-search.png"/>
+  </view>
+		<view class="search-text" bindtap="search">搜索</view>
+</view>
+
+<view wx:if="{{show==1}}">
+	 <view class="content" >
+    <navigator url="/pages/details/details" class="child" hover-class="none">
+      <image src="/images/jiyu.jpeg"/>
+      <view class="content-name">红烧鲫鱼</view>
+      <view class="store-name">二食堂</view>
+      <view class="content-price">
+          <view class="score">评分:9</view>
+          <view class="shell">已售:33</view>
+      </view>
+      <view class="content-price">
+          <view class="new-price">￥15</view>
+            <view class="old-price">￥20</view>
+      </view>
+    </navigator>
+     <navigator url="/pages/details/details" class="child" hover-class="none">
+      <image src="/images/tds.jpg"/>
+      <view class="content-name">酸辣土豆丝</view>
+      <view class="store-name">一食堂</view>
+      <view class="content-price">
+          <view class="score">评分:8</view>
+          <view class="shell">已售:55</view>
+      </view>
+      <view class="content-price">
+          <view class="new-price">￥6</view>
+            <view class="old-price">￥8</view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view wx:if="{{show==0}}" class="middle_none">
+暂无符合您搜索内容的菜品
+</view>

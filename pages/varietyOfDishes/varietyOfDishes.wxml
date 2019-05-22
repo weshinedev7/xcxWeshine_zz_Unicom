@@ -10,160 +10,101 @@
       <view class="wc">
         <navigator hover-class="none" class="navigator" url="/pages/storeOrder/storeOrder?id={{store.id}}">
           <image class="store_icon" src="/images/dd_2.png"></image>
-					<view class="store_text">今日订单</view>
+          <view class="store_text">今日订单</view>
         </navigator>
       </view>
       <view class="wc">
         <navigator hover-class="none" class="navigator" url="/pages/store/store">
           <image class="store_icon" src="/images/store_2.png"></image>
-					<view class="store_text">商店信息</view>
+          <view class="store_text">商店信息</view>
         </navigator>
       </view>
       <view class="wc">
         <navigator hover-class="none" class="navigator" url="/pages/varietyOfAdd/varietyOfAdd">
           <image class="store_icon" src="/images/add_2.png"></image>
-					<view class="store_text">添加菜品</view>
+          <view class="store_text">添加菜品</view>
         </navigator>
       </view>
       <view class="wc">
         <navigator hover-class="none" class="navigator" url="/pages/admin/admin?id={{store.id}}">
           <image class="store_icon" src="/images/admin.png"></image>
-					<view class="store_text">查看管理员</view>
-        </navigator>
-      </view>
-      <view class="wc">
-        <navigator hover-class="none" class="navigator" url="/pages/search/search">
-          <image class="store_icon" src="/images/gy_2.png"></image>
-					<view class="store_text">关于</view>
+          <view class="store_text">查看管理员</view>
         </navigator>
       </view>
     </view>
-		<view class="out" bindtap='outLogin'>
-			<image src="/images/tc.png"></image>
-			<text style="float:right;margin-right:30rpx;">注销</text>
-		</view>
+    <view class="out" bindtap='outLogin'>
+      <image src="/images/tc.png"></image>
+      <text style="float:right;margin-right:30rpx;">注销</text>
+    </view>
   </view>
 
   <!-- 主页内容 -->
-  <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" class="page-top {{open ? ['c-state','cover'] : ''}} ">
+  <view bindtouchmove="tap_drag" bindtouchend="tap_end" bindtap='left_open' bindtouchstart="tap_start" class="page-top {{open ? ['c-state','cover'] : ''}} ">
     <view class="top">
       <view class="user">
         <image bindtap="tap_ch" class="image" src="/images/lm.png"></image>
+        <!-- <image bindtap="tap_ch" class="image" src="{{store.img}}"></image> -->
       </view>
 
       <view class="search-block">
-        <navigator class="navigator" url="/pages/search/search">
+        <navigator class="navigator" url="/pages/foodsSearch/foodsSearch">
           <image src="/images/icon-search.png" />
           <text>搜索</text>
         </navigator>
       </view>
 
     </view>
-    <view class='content'>
-      <!-- 选项卡 -->
-      <view class="display">
-        <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
-          全部
-        </view>
-        <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
-          正在销售
-        </view>
-        <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
-          已下架
-        </view>
+    <!-- 选项卡 -->
+    <view class="display">
+      <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
+        全部
       </view>
+      <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
+        正在销售
+      </view>
+      <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
+        已下架
+      </view>
+    </view>
+    <view class='content'>
+
 
 
       <!-- 内容 -->
       <!-- 全部内容 -->
-      <view wx:if="{{check=='0'}}" wx:for="{{foods}}" class="eval-all">
+      <view wx:if="{{foods.length != 0}}">
+        <view wx:for="{{foods}}" class="eval-all">
 
-        <view class="main">
-          <navigator url="/pages/details/details" hover-class="none" class="selection-item">
-            <view class="content_left_content">
-              <image class="centent-img" src="{{item.img}}" />
-              <view class="{{item.sold > 99?'sold':''}}" style="color:white;font-size:25rpx;">{{item.sold > 99?"热销":""}}</view>
-            </view>
-
-            <view class="content_left_right">
-              <view class="content_name">
-                <view class="content_name_content">{{item.name}}</view>
-                <view class="{{item.type == 2?'status':''}}">{{item.type == 2?'已下架':''}}</view>
+          <view class="main">
+            <navigator url="/pages/details/details" hover-class="none" class="selection-item">
+              <view class="content_left_content">
+                <image class="centent-img" src="{{item.img}}" />
+                <view class="{{item.sold > 99?'sold':''}}" style="color:white;font-size:25rpx;">{{item.sold > 99?"热销":""}}</view>
               </view>
-              <view class="introduction">{{item.brief}}</view>
-              <view class="price">￥{{item.price}}</view>
-              <view class="original_price">￥{{item.original_price}}</view>
-              <view class="frequency">已售:{{item.sold}}</view>
-            </view>
-          </navigator>
 
-          <view class="operation">
-            <navigator url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
-            <view url="" data-id="{{item.id}}" data-status="{{item.type}}" class="lower_shelf" bindtap='status' style="background:{{item.type == 1?'#51C332':'#dd2727'}}">{{item.type == 1?'下架':'上架'}}</view>
+              <view class="content_left_right">
+                <view class="content_name">
+                  <view class="content_name_content">{{item.name}}</view>
+                  <view class="{{item.type == 2?'status':''}}">{{item.type == 2?'已下架':''}}</view>
+                </view>
+                <view class="introduction">{{item.brief}}</view>
+                <view class="price">￥{{item.price}}</view>
+                <view class="original_price">￥{{item.original_price}}</view>
+                <view class="frequency">已售:{{item.sold}}</view>
+              </view>
+            </navigator>
+
+            <view class="operation">
+              <navigator url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
+              <view url="" data-id="{{item.id}}" data-status="{{item.type}}" class="lower_shelf" bindtap='status' style="background:{{item.type == 1?'#51C332':'#dd2727'}}">{{item.type == 1?'下架':'上架'}}</view>
+            </view>
           </view>
+
         </view>
 
       </view>
-
-      <!-- 正在销售 -->
-      <view wx:if="{{check=='1'}}" wx:for="{{foods}}" class="eval-all">
-
-        <view class="main">
-          <navigator url="/pages/details/details" hover-class="none" class="selection-item">
-
-            <view class="content_left_content">
-              <image class="centent-img" src="{{item.img}}" />
-              <view class="{{item.sold > 99?'sold':''}}" style="color:white;font-size:25rpx;">{{item.sold > 99?"热销":""}}</view>
-            </view>
-
-            <view class="content_left_right">
-              <view class="content_name">
-                <view class="content_name_content">{{item.name}}</view>
-              </view>
-              <view class="introduction">{{item.brief}}</view>
-              <view class="price">￥{{item.price}}</view>
-              <view class="original_price">￥{{item.original_price}}</view>
-              <view class="frequency">已售:{{item.sold}}</view>
-            </view>
-          </navigator>
-
-          <view class="operation">
-            <navigator url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
-            <view url="" class="lower_shelf" style="background:#51C332">下架</view>
-          </view>
-        </view>
-
-      </view>
-
-
-      <!-- 已下架的菜品 -->
-      <view wx:if="{{check=='2'}}" wx:for="{{foods}}" class="eval-all">
-
-        <view class="main">
-          <navigator url="/pages/details/details" hover-class="none" class="selection-item">
-
-            <view class="content_left_content">
-              <image class="centent-img" src="{{item.img}}" />
-              <view class="{{item.sold > 99?'sold':''}}" style="color:white;font-size:25rpx;">{{item.sold > 99?"热销":""}}</view>
-            </view>
-
-            <view class="content_left_right">
-              <view class="content_name">
-                <view class="content_name_content">{{item.name}}</view>
-                <view class="status">已下架</view>
-              </view>
-              <view class="introduction">{{item.brief}}</view>
-              <view class="price">￥{{item.price}}</view>
-              <view class="original_price">￥{{item.original_price}}</view>
-              <view class="frequency">已售:{{item.sold}}</view>
-            </view>
-          </navigator>
-          <view class="operation">
-            <navigator url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
-            <navigator url="" hover-class="none" class="lower_shelf" style="background:{{item.type == 0?'#51C332':'#dd2727'}}">{{item.type == 0?'下架':'上架'}}</navigator>
-          </view>
-        </view>
-
+      <view wx:else>
+        <view class="middle_none" style="margin-top:300rpx;">暂无数据</view>
       </view>
     </view>
   </view>

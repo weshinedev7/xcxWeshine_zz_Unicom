@@ -14,16 +14,13 @@ Page({
    */
   onLoad: function(options) {
     var _this = this;
-    _this.setData({
-      // id: options.id
-      id: 3
-    })
+		
     if (_this.data.id != '') {
       wx.request({
         url: app.globalData.path + 'ApiStore/find',
         method: 'GET',
         data: {
-          id: _this.data.id
+					id: wx.getStorageSync('storeInfo').store_id
         },
         header: {
           'content-type': 'application/x-www-form-urlencoded'
@@ -140,7 +137,7 @@ Page({
 			url: app.globalData.path + 'ApiStore/storeSave',
 			method: 'POST',
 			data: {
-				id: _this.data.id,
+				id: wx.getStorageSync('storeInfo').store_id,
 				file_name: _this.data.file_name,
 				name: e.detail.value.name,
 				status: _this.data.status,
