@@ -190,7 +190,7 @@ Page({
 						mask: true
 					});
 					setTimeout(function () {
-						wx.navigateTo({
+						wx.redirectTo({
 							url: '/pages/varietyOfDishes/varietyOfDishes'
 						})
 					}, 500)

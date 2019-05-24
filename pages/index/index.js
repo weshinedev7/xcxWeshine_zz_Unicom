@@ -56,7 +56,7 @@ Page({
 
 		//首页菜品
 		util.ajax({
-			url: app.globalData.path + 'ApiBanner/foods',
+			url: app.globalData.path + 'ApiFoods/FoodsSales',
 			method: 'POST',
 			data: {},
 			success: function (res) {
@@ -145,5 +145,19 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+	},
+	// 查看详情
+	details: function (e) {
+		wx.navigateTo({
+			url: '/pages/details/details?id=' + e.currentTarget.dataset.id
+		})
+	},
+	// 已打烊
+	close: function (e) {
+		wx.showToast({
+			title: '该店铺已打烊',
+			icon: 'none',
+			duration: 1000,
+		});
+	}
 })

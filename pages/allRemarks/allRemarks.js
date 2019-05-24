@@ -19,6 +19,7 @@ Page({
 		_this.setData({
 			check: e.currentTarget.dataset.id,
 			order_id: wx.getStorageSync('storeInfo').id,
+			list:[]
 		});
 		//调接口
 		util.ajax({
@@ -44,7 +45,7 @@ Page({
 		var _this = this;
 		this.setData({
 			food_id: options.id,
-			// food_id: 5,
+			food_id: 5,
 			order_id: wx.getStorageSync('storeInfo').id
 		})
 		
@@ -54,11 +55,11 @@ Page({
 			method: 'GET',
 			data: {
 				food_id: _this.data.food_id,
-				order_id: _this.data.order_id,
+				// order_id: _this.data.order_id,
 				status: _this.data.check,
 			},
 			success: function (res) {
-				// console.log(res.data)
+				console.log(res.data)
 				if(res.data.data){
 					_this.setData({
 						list:res.data.data

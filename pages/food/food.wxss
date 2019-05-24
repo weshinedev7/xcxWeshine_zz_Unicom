@@ -120,6 +120,20 @@ page {
   background: white;
   margin: 0rpx 1%;
   margin-bottom: 20rpx;
+	position: relative;
+}
+
+.time{
+	width: 100rpx;
+	height:60rpx;
+	text-align: center;
+	line-height: 60rpx;
+	background: red;
+	color:white;
+	font-size:13px;
+	position:absolute;
+	top:-3px;
+	right:-3px;
 }
 
 .child image {

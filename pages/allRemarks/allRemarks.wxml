@@ -7,11 +7,11 @@
   </view>
 </view>
 
-<view class="pages" wx:if="{{list.lenght != 0}}">
+<view class="pages" wx:if="{{list.length != 0}}">
   <block wx:for="{{list}}" wx:for-item="item" wx:key="">
     <view class="main">
       <view class="main-left">{{item.remarks}}</view>
-      <view class="main-right">回复</view>
+      <!-- <view class="main-right">回复</view> -->
     </view>
   </block>
 </view>

@@ -16,10 +16,10 @@
       <view class="content_input">
         <view class="input_text">营业时间</view>
         <view class="tui-picker-content">
-          <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
-            <view class="tui-picker-detail font time1">
-              <input class="input" wx:if="{{start_time === ''}}" name="start_time" value="{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:00" disabled/>
-              <input class="input" wx:if="{{start_time!== ''}}" name="start_time" value="{{start_time}}" disabled/>
+          <picker mode="time" value="{{start_time}}" bindchange="changeTime">
+            <view class="tui-picker-detail time">
+              <input class="input1" wx:if="{{business_hours == ''}}" name="business_hours" value="{{start_time}}" disabled/>
+              <input class="input1" wx:if="{{business_hours != ''}}" name="business_hours" value="{{business_hours}}" disabled/>
               <view class="right1">
                 <image src="/images/right-2.png"></image>
               </view>
@@ -31,7 +31,15 @@
     <view class="content">
       <view class="content_input">
         <view class="input_text">打烊时间</view>
-        <input class="input" name="name" value="{{store.name}}" bindinput="searchInput" disabled/>
+        <picker mode="time" value="{{end_time}}" bindchange="changeTime1">
+          <view class="tui-picker-detail time">
+            <input class="input1" wx:if="{{closing_time == ''}}" name="closing_time" value="{{end_time}}" disabled/>
+            <input class="input1" wx:if="{{closing_time != ''}}" name="closing_time" value="{{closing_time}}" disabled/>
+            <view class="right1">
+              <image src="/images/right-2.png"></image>
+            </view>
+          </view>
+        </picker>
       </view>
     </view>
     <view class="content">

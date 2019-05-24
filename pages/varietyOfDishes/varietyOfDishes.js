@@ -269,8 +269,8 @@ Page({
     // touchstart事件
     // 把手指触摸屏幕的那一个点的 x 轴坐标赋值给 mark 和 newmark
     this.data.mark = this.data.newmark = e.touches[0].pageX;
-    console.log('关闭')
-		console.log(this.data.mark)
+    // console.log('关闭')
+		// console.log(this.data.mark)
   },
 
   tap_drag: function(e) {

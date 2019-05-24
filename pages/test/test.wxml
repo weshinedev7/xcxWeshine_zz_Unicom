@@ -1,0 +1,3 @@
+<form bindsubmit="tiXian" report-submit='true'>
+    <button class='btn' form-type="submit" disabled="{{lock}}">提现</button>
+  </form>

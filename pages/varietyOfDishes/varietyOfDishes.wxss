@@ -13,46 +13,40 @@ page, .page {
 .page-slidebar {
   height: 100%;
   width: 50%;
-  position: fixed;
-  /* background-color: white; */
+  /* position: fixed; */
+  display: none;
   z-index: 0;
-	/* background: #f3f3f3; */
+  background: #f3f3f3;
 }
 
 /* 控制侧边栏的内容距离顶部的距离 */
 
 .page-content {
   width: 100%;
-	/* position: relative; */
 }
 
-.out{
-	height:50rpx;
+.out {
+  height: 50rpx;
   width: 35%;
-	margin:50rpx auto 0rpx;
+  margin: 50rpx auto 0rpx;
   font-size: 14px;
   text-align: center;
-	line-height: 50rpx;
+  line-height: 50rpx;
   padding-top: 25rpx;
   padding-bottom: 15rpx;
   color: #999595;
-	font-weight: 700;
-	/* background: red; */
-	/* position: absolute;
-	bottom:60rpx;
-	right:20rpx; */
+  font-weight: 700;
 }
 
-.out image{
-	width:32rpx;
-	height:32rpx;
-	margin-top:10rpx;
+.out image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 10rpx;
 }
 
 /* 侧边栏内容的 css 样式 */
 
 .wc {
-  /* color: black; */
   width: 100%;
   font-size: 13px;
   height: 80rpx;
@@ -75,36 +69,39 @@ page, .page {
   -webkit-transform: rotate(0deg) scale(1) translate(50%, 0%);
 }
 
+/* -------------------------主体------------------------ */
+
 /* 主页样式 */
 
 .page-top {
   height: 100%;
-  position: fixed;
+  /* position: fixed; */
   width: 750rpx;
   background-color: white;
-  z-index: 0;
+  z-index: 9;
   transition: All 0.2s ease;
   -webkit-transition: All 0.2s ease;
 }
 
-/* 左上角图标的样式 */
-
-/* .page-top .image {
-  position: absolute;
-  width: 68rpx;
-  height: 68rpx;
-  left: 20rpx;
-  top: 20rpx;
-} */
-
 /* 遮盖层样式 */
 
+/* 
 .cover {
   width: 100%;
   height: 100%;
-  /* background-color: rgb(175, 172, 172); */
-  /* opacity: 0.4; */
+  opacity: 0.4;
   z-index: 9000;
+} */
+
+.top-main {
+  width: 100%;
+  height: 160rpx;
+  background: red;
+	position:fixed;
+	top:0;
+	right:0;
+	z-index:999;
+	background: white
 }
 
 /*头部*/
@@ -113,9 +110,9 @@ page, .page {
   width: 90%;
   height: 80rpx;
   margin: 0rpx auto;
-	/* position:fixed;
-	top:0; */
 }
+
+/* 左侧侧边栏触发图标 */
 
 .user {
   width: 11%;
@@ -127,6 +124,8 @@ page, .page {
   width: 100%;
   height: 80rpx;
 }
+
+/* 搜索框 */
 
 .search-block {
   margin: 5rpx 5rpx;
@@ -158,7 +157,6 @@ page, .page {
 
 .search-block .navigator text {
   font-size: 30rpx;
-  /* margin: 0 10rpx; */
   position: absolute;
   top: -15%;
   left: 10%;
@@ -186,7 +184,14 @@ page, .page {
   border-bottom: 1px solid #dd2727;
 }
 
-/* 主题内容 */
+.content {
+  width: 100%;
+  /* height:160rpx; */
+	
+	padding-top:160rpx;
+}
+
+/* 菜品内容 */
 
 .main {
   min-height: 180rpx;
@@ -226,6 +231,7 @@ page, .page {
   padding: 0rpx 10rpx;
   margin-top: 20rpx;
   float: left;
+  text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -263,7 +269,7 @@ page, .page {
 .introduction {
   font-size: 23rpx;
   margin-top: 5rpx;
-	text-align: left;
+  text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -318,11 +324,6 @@ page, .page {
   text-align: center;
 }
 
-/* .page-top image {
-  width: 20rpx;
-  height: 20rpx;
-} */
-
 .page-bottom {
   position: absolute;
   width: 500rpx;
@@ -353,7 +354,7 @@ page, .page {
   font-size: 14px;
   text-align: center;
   line-height: 50rpx;
-	font-weight: 700;
+  font-weight: 700;
   color: #999595;
   float: left;
 }
@@ -373,7 +374,7 @@ page, .page {
 }
 
 .middle_none {
-	text-align: center;
-	font-size:28rpx;
-	color:#838383;
+  text-align: center;
+  font-size: 28rpx;
+  color: #838383;
 }

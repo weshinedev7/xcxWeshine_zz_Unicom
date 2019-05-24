@@ -46,16 +46,17 @@
     <image src="/images/right.png" />
   </navigator>
 </view>
-  <view class="show-content" wx:for="{{foods}}">
+<view class="show-content" wx:for="{{foods}}">
 
-    <navigator url="/pages/details/details?id={{item.id}}" hover-class="none" class="content-item">
-      <image src="{{item.img}}" mode="aspectFill" />
-      <view class="content-price">
-        <view class="new-price">￥{{item.original_price}}</view>
-        <view class="old-price">￥{{item.price}}</view>
-      </view>
-      <view class="content-name">{{item.f_name}}</view>
-      <view class="content-store">{{item.s_name}}</view>
-    </navigator>
-
+  <view data-id="{{item.id}}" hover-class="none" class="content-item" bindtap="{{item.time == 0?'close':'details'}}">
+    <view class="{{item.time == 0?'time':''}}">{{item.time == 0?'已打烊':''}}</view>
+    <image src="{{item.img}}" mode="aspectFill" />
+    <view class="content-price">
+      <view class="new-price">￥{{item.original_price}}</view>
+      <view class="old-price">￥{{item.price}}</view>
+    </view>
+    <view class="content-name">{{item.f_name}}</view>
+    <view class="content-store">{{item.s_name}}</view>
   </view>
+
+</view>

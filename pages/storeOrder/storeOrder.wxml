@@ -7,7 +7,7 @@
   </view>
 </view>
 
-<!--评价-->
+<!--内容-->
 <view wx:if="{{list.length != 0}}" class="eval-all">
   <block wx:for="{{list}}" wx:for-item="item" wx:key="">
     <view class="food_status" wx:if="{{item.food_status == 2}}">{{item.food_status == 2?'已下架':''}}</view>

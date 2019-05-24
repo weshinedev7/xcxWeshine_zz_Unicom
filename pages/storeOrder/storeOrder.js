@@ -16,16 +16,17 @@ Page({
   },
 
   selectDispaly: function(e) {
-    let _this = this;
+    var _this = this;
     _this.setData({
-      check: e.currentTarget.dataset.id
+      check: e.currentTarget.dataset.id,
+			list:[],
     });
 		//调接口
 		util.ajax({
 			url: app.globalData.path + 'ApiStore/storeOrder',
 			method: 'POST',
 			data: {
-				id: _this.data.id,
+				id: wx.getStorageSync('storeInfo').store_id,
 				status: _this.data.check
 			},
 			success: function (res) {
@@ -33,28 +34,16 @@ Page({
 					_this.setData({
 						list: res.data.data
 					})
-					console.log(_this.data.list)
 				}
 			}
 		})
-  },
-  result: function() {
-    this.setData({
-      list: [],
-      len: null,
-      openof: 1,
-      page: 1
-    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     var _this = this;
-    _this.setData({
-      id: options.id,
-      // id: 1
-    })
+
     //调接口
     util.ajax({
       url: app.globalData.path + 'ApiStore/storeOrder',
@@ -66,7 +55,7 @@ Page({
       success: function(res) {
         if (res.data.code == 0) {
           _this.setData({
-            list: res.data.data
+						list: res.data.data,
           })
         }
       }

@@ -144,8 +144,8 @@
 	color:#838383;
 }
 .btn{
-	color:green;
-	border:1rpx solid green;
+	color:#fd8501;
+	border:1rpx solid #fd8501;
 }
 .cancel{
 	width:140rpx;

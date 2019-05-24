@@ -149,7 +149,24 @@
   width: 211rpx;
   float: left;
   height: 100%;
+	position:relative;
 }
+
+.time{
+	width:100rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	text-align: center;
+	/* background: rgb(143, 142, 142); */
+	background: red;
+	position: absolute;
+	top:-3px;
+	right:-3rpx;
+	font-size:13px;
+	font-weight: 600;
+	color:white;
+}
+
 
 .content-item image {
   width: 211rpx;

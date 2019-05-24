@@ -42,8 +42,8 @@
       <view class="operation">
 
         <view bindtap='cancel' wx:if="{{item.status != 1 && item.order_status != 1}}" hover-class="none" class="flex-grow-0 score" wx:if="{{item.state == 0}}" data-id="{{item.id}}" wx:if="{{item.be_overdue == 0 && item.order_status == 0 && item.state == 0}}">取消</view>
-        <navigator url="/pages/details/details?id={{item.f_id}}" hover-class="none" class="flex-grow-0 score" wx:if="{{item.state == 1 && item.order_status != 1}}">再来一单</navigator>
-        <navigator url="/pages/sureOrder/sureOrder?id={{item.id}}" hover-class="none" wx:if="{{item.state == 0 && item.order_status != 1}}" class="flex-grow-0 score">备注</navigator>
+        <navigator url="/pages/details/details?id={{item.f_id}}" hover-class="none" class="flex-grow-0 score">再来一单</navigator>
+        <navigator url="/pages/sureOrder/sureOrder?id={{item.id}}" hover-class="none" wx:if="{{item.be_overdue == 0 && item.state == 0 && item.order_status != 1}}" class="flex-grow-0 score">备注</navigator>
         <view bindtap='have_meals' wx:if="{{item.state == 0 && item.order_status != 1}}" data-id="{{item.id}}" class="flex-grow-0 score btn">确认用餐</view>
         <navigator url="/pages/score/score?id={{item.id}}&food_id={{item.food_id}}" wx:if="{{item.status != 1 && item.state == 1 && item.order_status != 1}}" hover-class="none" class="flex-grow-0 score">评分</navigator>
 

@@ -1,3 +1,5 @@
+/* page{background: #f3f3f3} */
+
 .display {
   width: 100%;
   display: flex;
@@ -21,13 +23,11 @@
 .pages {
   width: 100%;
   height: 100rpx;
-	margin-top:70rpx;
-  /* background: red; */
+	margin-top:40rpx;
 }
 
 .main {
   width: 95%;
-  /* height: 80rpx; */
   margin: 0rpx auto;
 	margin-bottom:20rpx;
 }
@@ -35,30 +35,14 @@
 .main-left {
   width: 100%;
   height: 100rpx;
-	/* border-right:1rpx solid rgb(194, 192, 192); */
+	line-height: 100rpx;
 	float:left;
-	/* line-height: 20rpx; */
-	text-align: center;
   font-size: 28rpx;
 	color:#888;
 	margin-top:20rpx;
-  /* overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; */
+	border-bottom:1rpx solid #d6d4d4
 }
 
-.main-right{
-  width: 100%;
-	height:50rpx;
-	float:left;
-	line-height: 80rpx;
-	text-align: center;
-	font-size:13px;
-	color:white;
-	padding-bottom:20rpx;
-	background: #51C332;
-	border-bottom:1rpx solid rgb(228, 225, 225);
-}
 
 .middle_none {
   text-align: center;

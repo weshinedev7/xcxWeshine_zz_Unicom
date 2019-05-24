@@ -1,7 +1,7 @@
 <!-- 头部 -->
 <view class="top">
   <view class="search-block">
-    <input class="input" name="search" placeholder="请输入菜品名" bindinput="searchInput" value="麻辣" />
+    <input class="input" name="search" placeholder="请输入菜品名" bindinput="searchInput" />
     <image src="/images/icon-search.png" />
   </view>
   <view class="search-text" bindtap="search">搜索</view>
@@ -17,7 +17,7 @@
           <view class="store-name">{{item.store_name}}</view>
           <view class="content-price">
             <view class="score">评分:8</view>
-            <view class="shell">已售:{{item.total}}</view>
+            <view class="shell">{{item.total ==0?'已售:':''}}{{item.total}}</view>
           </view>
           <view class="content-price">
             <view class="new-price">￥{{item.price}}</view>
