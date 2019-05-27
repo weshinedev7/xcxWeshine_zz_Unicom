@@ -7,7 +7,7 @@
 			<!--<view class="user_tel">182****9478</view>-->
 		</view>
 		<view class="top_right">
-			<image src="../../images/head.jpg" />
+			<image src="{{avatar}}" />
 		</view>
 		<view class="top_bottom">
 		<!-- <navigator class="get_user_details" url="/pages/changePersonalData/changePersonalData">更新个人信息</navigator> -->

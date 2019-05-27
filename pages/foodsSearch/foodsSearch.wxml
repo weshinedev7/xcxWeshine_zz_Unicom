@@ -1,43 +1,43 @@
 <!-- 头部 -->
 <view class="top">
   <view class="search-block">
-		<input class="input" name="search" placeholder="请输入菜品名" bindinput ="searchInput"/>
-    <image src="/images/icon-search.png"/>
+    <input class="input" name="search" placeholder="请输入菜品名" bindinput="searchInput" />
+    <image src="/images/icon-search.png" />
   </view>
-		<view class="search-text" bindtap="search">搜索</view>
+  <view class="search-text" bindtap="search">搜索</view>
 </view>
+<view wx:if="{{foods.length != 0}}">
+  <view wx:for="{{foods}}" class="eval-all">
 
-<view wx:if="{{show==1}}">
-	 <view class="content" >
-    <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/jiyu.jpeg"/>
-      <view class="content-name">红烧鲫鱼</view>
-      <view class="store-name">二食堂</view>
-      <view class="content-price">
-          <view class="score">评分:9</view>
-          <view class="shell">已售:33</view>
+    <view class="main">
+      <view class="selection-item">
+        <!-- <navigator url="/pages/details/details" hover-class="none" class="selection-item"> -->
+        <view class="content_left_content">
+          <image class="centent-img" src="{{item.img}}" />
+          <view class="{{item.sold > 99?'sold':''}}" style="color:white;font-size:25rpx;">{{item.sold > 99?"热销":""}}</view>
+        </view>
+
+        <view class="content_left_right">
+          <view class="content_name">
+            <view class="content_name_content">{{item.name}}</view>
+            <view class="{{item.type == 2?'status':''}}">{{item.type == 2?'已下架':''}}</view>
+          </view>
+          <view class="introduction">{{item.brief}}</view>
+          <view class="price">￥{{item.price}}</view>
+          <view class="original_price">￥{{item.original_price}}</view>
+          <view class="frequency">已售:{{item.sold}}</view>
+        </view>
       </view>
-      <view class="content-price">
-          <view class="new-price">￥15</view>
-            <view class="old-price">￥20</view>
+
+      <view class="operation">
+        <navigator url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
+        <view url="" data-id="{{item.id}}" data-status="{{item.type}}" class="lower_shelf" bindtap='status' style="background:{{item.type == 1?'#51C332':'#dd2727'}}">{{item.type == 1?'下架':'上架'}}</view>
       </view>
-    </navigator>
-     <navigator url="/pages/details/details" class="child" hover-class="none">
-      <image src="/images/tds.jpg"/>
-      <view class="content-name">酸辣土豆丝</view>
-      <view class="store-name">一食堂</view>
-      <view class="content-price">
-          <view class="score">评分:8</view>
-          <view class="shell">已售:55</view>
-      </view>
-      <view class="content-price">
-          <view class="new-price">￥6</view>
-            <view class="old-price">￥8</view>
-      </view>
-    </navigator>
+    </view>
+
   </view>
-</view>
 
-<view wx:if="{{show==0}}" class="middle_none">
-暂无符合您搜索内容的菜品
+</view>
+<view wx:if="{{show == 0}}" class="middle_none">
+  暂无符合您搜索内容的菜品
 </view>

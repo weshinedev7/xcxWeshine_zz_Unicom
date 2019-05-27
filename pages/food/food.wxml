@@ -24,8 +24,9 @@
 <!--分割线-->
 <view class="content">
   <block wx:for="{{foods}}" wx:for-index="index" wx:for-item="item" wx:key="">
-    <navigator url="/pages/details/details?id={{item.id}}" class="child" hover-class="none">
-		<view class="time">已打烊</view>
+
+    <view data-id="{{item.id}}" class="child" bindtap="{{item.time == 0?'close':'details'}}">
+      <view class="{{item.time != 1?'time':''}}">{{item.time != 1?'已打烊':''}}</view>
       <image src="{{item.img}}" />
       <view class="information">
         <view class="content-name">{{item.name}}</view>
@@ -39,8 +40,8 @@
           <view class="old-price">￥{{item.original_price}}</view>
         </view>
       </view>
-    </navigator>
+    </view>
   </block>
 </view>
-  <view class="middle_none" wx:if="{{foods.length == 0}}"> 暂无菜品</view>
-  <view class="middle_none" wx:if="{{len == 0}}">我也是有底线的</view>
+<view class="middle_none" wx:if="{{foods.length == 0}}"> 暂无菜品</view>
+<view class="middle_none" wx:if="{{len == 0}}">我也是有底线的</view>

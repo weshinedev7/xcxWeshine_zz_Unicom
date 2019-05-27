@@ -1,20 +1,38 @@
-.display{
-	width:100%;
-	display: flex;
-	flex-direction:row;
-	margin-top:50rpx;
+page{
+	position:relative;
 }
-.display-sele{
-    font-size:30rpx;
-	width:33.3%;
-	text-align:center;
-	border-bottom: 1px solid #838383;
-	height:50rpx;
+.xx_top{
+	width:100%;
+	padding-bottom:20rpx;
+	height:83rpx;
+	z-index: 999;
+	position:fixed;
+	top:0rpx;
+	background: white;
+	left:0rpx;
 }
 
-.active{
-	color: #FF6F43;
-	border-bottom: 1px solid #FF6F43;
+
+
+
+.display {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 50rpx;
+}
+
+.display-sele {
+  font-size: 30rpx;
+  width: 33.3%;
+  text-align: center;
+  border-bottom: 1px solid #838383;
+  height: 50rpx;
+}
+
+.active {
+  color: #ff6f43;
+  border-bottom: 1px solid #ff6f43;
 }
 
 .flex-grow-1 {
@@ -27,6 +45,7 @@
   -ms-flex-negative: 1;
   flex-shrink: 1;
 }
+
 /* .flex-grow-0 {
   width: 300rpx;
 }
@@ -40,6 +59,7 @@
   -ms-flex-negative: 0;
   flex-shrink: 0;
 } */
+
 .flex-row {
   display: -webkit-box;
   display: -webkit-flex;
@@ -48,35 +68,72 @@
   -webkit-flex-direction: row;
   flex-direction: row;
 }
-.eval-all{
-	margin:30rpx;
-}
 
+.eval-all {
+  margin: 30rpx;
+	padding-top:110rpx;
+}
 
 .order-info {
   font-size: 9pt;
   color: #888;
 }
-/* .goods-list{
-	margin:0rpx 30rpx;
-} */
+
 
 .food_status {
-  width: 400rpx;
-  height: 70rpx;
-  line-height: 70rpx;
+  width: 240rpx;
+  height: 90rpx;
+  line-height: 90rpx;
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
+  float: left;
   color: #838383;
 }
+
 .goods-pic {
   width: 156rpx;
   height: 156rpx;
   margin-right: 20rpx;
-  margin-top:10rpx;
+  margin-top: 10rpx;
 }
-.content{
-  margin-top:10rpx;
+
+.content {
+  margin-top: 10rpx;
+}
+
+.hf {
+  width: 100%;
+	margin-top:10rpx;
+}
+
+.clear:after {
+  content: '';
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+
+.hf .reply{
+  width: 20%;
+	float:left;
+	font-size:12px;
+	text-align: center;
+	line-height: 50rpx;
+  height: 50rpx;
+	color:#838383;
+}
+
+.reply-text{
+  width: 80%;
+	float:left;
+	line-height: 50rpx;
+	font-size:12px;
+	color:rgb(158, 157, 157);
+}
+
+.border {
+  border-top: 1rpx dotted #f7f4f4;
 }
 
 .goods-name {
@@ -85,74 +142,84 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-	font-size:27rpx;
-
+  font-size: 27rpx;
 }
- .attr-item {
+
+.attr-item {
   display: inline-block;
   margin-right: 36rpx;
   font-size: 9pt;
   color: #888;
 }
+
 .num {
   font-size: 9pt;
   color: #888;
 }
+
 .price {
   color: #ff4544;
   font-weight: 600;
-  text-align:right;
-	font-size:30rpx;
+  text-align: right;
+  font-size: 30rpx;
 }
-.count-order{
-  border-top:1px solid #eee;
-  margin:30rpx 0;
-  height:100rpx;
+
+.count-order {
+  border-top: 1px solid #eee;
+  margin: 10rpx 0 30rpx;
+  height: 100rpx;
   align-items: center;
-  border-bottom:3px solid #eee;
+  border-bottom: 3px solid #eee;
 }
 
-
-.operation{width: 70%;
-  height:100rpx;
-	margin-left:200rpx;
+.operation {
+  width: 200%;
+  height: 100rpx;
+  /* margin-left:200rpx; */
 }
-.score{
+
+.score {
   margin-left: 10rpx;
-  height:50rpx;
-  float:right;
-  margin-right:10rpx;
+  height: 50rpx;
+  float: right;
+  margin-right: 10rpx;
   text-align: center;
   line-height: 50rpx;
   background: #fff;
-  border:1px solid #838383;
+  border: 1px solid #838383;
   border-radius: 26rpx;
-  font-size:12px;
-	color:#838383;
-	padding:0rpx 20rpx;
-	margin:20rpx 10rpx 0rpx;
+  font-size: 12px;
+  color: #838383;
+  padding: 0rpx 20rpx;
+  margin: 20rpx 10rpx 0rpx;
 }
-.tl{
-  text-align:left;
+
+.tl {
+  text-align: left;
 }
-.tr{
-  text-align:right;
+
+.tr {
+  text-align: right;
 }
+
 .middle_none {
+  text-align: center;
+  font-size: 28rpx;
+  color: #838383;
+}
+
+.btn {
+  color: #fd8501;
+  border: 1rpx solid #fd8501;
+}
+
+.cancel {
+  width: 230rpx;
+  height: 100rpx;
+  float: left;
 	text-align: center;
-	font-size:28rpx;
-	color:#838383;
-}
-.btn{
-	color:#fd8501;
-	border:1rpx solid #fd8501;
-}
-.cancel{
-	width:140rpx;
-	height:100rpx;
-	float:right;
-	margin-right:30rpx;
-	line-height: 100rpx;
-	font-size:28rpx;
-	color:#838383;
+  margin-right: 30rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #838383;
 }

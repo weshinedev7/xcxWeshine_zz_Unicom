@@ -74,7 +74,7 @@ Page({
         }
       });
     });
-    if ((!this.data.content || this.data.content == '') && !types) {
+    if ((!this.data.content || this.data.content == '') || !types) {
       wx.showToast({
         title: '请选择评分项目或者填写意见',
         icon: 'none'
@@ -84,8 +84,9 @@ Page({
     util.ajax({
       url: app.globalData.path + 'ApiFoods/ScoreDetail',
       data: {
-        id: this.data.id,
-        food_id: this.data.food_id,
+				id: this.data.id,
+				food_id: this.data.food_id,
+				staff_id: wx.getStorageSync('employeeInfo').id,
         options: arr.length > 0 ? JSON.stringify(arr) : '',
         content: this.data.content ? this.data.content : ''
       },
@@ -98,9 +99,7 @@ Page({
             icon: 'none'
 					});
 					setTimeout(function () {
-						wx.navigateTo({
-							url: '/pages/order/order'
-						})
+						wx.navigateBack()
 					}, 500)
         } else {
           wx.showToast({

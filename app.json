@@ -1,13 +1,14 @@
 {
   "pages": [
 		"pages/roomLogin/roomLogin",
-		"pages/allRemarks/allRemarks",
+		"pages/order/order",
 		"pages/storeOrder/storeOrder",
+		"pages/evaluate/evaluate",
+		"pages/allRemarks/allRemarks",
 		"pages/search/search",
 		"pages/test/test",
 		"pages/food/food",
 		"pages/store/store",
-		"pages/order/order",
 		"pages/index/index",
 		"pages/foodsSearch/foodsSearch",
 		"pages/sureOrder/sureOrder",

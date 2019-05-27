@@ -31,6 +31,12 @@
           <view class="store_text">查看管理员</view>
         </navigator>
       </view>
+      <view class="wc">
+        <!-- <navigator hover-class="none" class="navigator" url="">
+          <image class="store_icon" src="/images/comment.png"></image>
+          <view class="store_text">查看评分</view>
+        </navigator> -->
+      </view>
     </view>
     <view class="out" bindtap='outLogin'>
       <image src="/images/tc.png"></image>
@@ -73,9 +79,8 @@
       <view wx:if="{{foods.length != 0}}">
         <view wx:for="{{foods}}" class="eval-all">
 
-          <view class="main">
+          <view class="main" bindlongpress="status" data-id="{{item.id}}" data-status="{{item.type}}" data-key="{{index}}">
             <view class="selection-item">
-              <!-- <navigator url="/pages/details/details" hover-class="none" class="selection-item"> -->
               <view class="content_left_content">
                 <image class="centent-img" src="{{item.img}}" />
                 <view class="{{item.sold > 99?'sold':''}}" style="color:white;font-size:25rpx;">{{item.sold > 99?"热销":""}}</view>
@@ -95,7 +100,7 @@
 
             <view class="operation">
               <navigator url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
-              <view url="" data-id="{{item.id}}" data-status="{{item.type}}" class="lower_shelf" bindtap='status' style="background:{{item.type == 1?'#51C332':'#dd2727'}}">{{item.type == 1?'下架':'上架'}}</view>
+              <navigator url="/pages/evaluate/evaluate?id={{item.id}}" hover-class="none" class="lower_shelf" style="background:#51C332">查看评价</navigator>
             </view>
           </view>
 

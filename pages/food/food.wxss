@@ -12,11 +12,14 @@ page {
 
 /*头部*/
 
+
+
 .top {
   width: 100%;
   background: white;
   position: fixed;
   top: 0;
+	z-index: 999;
 }
 
 .store_top {
@@ -24,6 +27,7 @@ page {
   background: white;
   position: fixed;
   top: 90rpx;
+	z-index: 999;
 }
 
 .search-block {
@@ -110,7 +114,7 @@ page {
 
 .content {
   width: 96%;
-  margin: 270rpx auto;
+  margin: 280rpx auto;
 }
 
 .child {

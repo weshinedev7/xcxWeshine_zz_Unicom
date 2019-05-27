@@ -1,12 +1,12 @@
 <!--轮播banner-->
-<swiper indicator-dots="true"  autoplay="true" interval="2000" duration="2000" circular="true" class="banner">  
-	<block wx:for="{{imglist}}">  
-		<swiper-item>  
-<navigator url="{{item.id}}">  
-<image src="{{item.icon}}" class="banner-image" mode="aspectFill" />
-</navigator>  
-</swiper-item>  
-	</block>  
+<swiper indicator-dots="true" autoplay="true" interval="2000" duration="2000" circular="true" class="banner">
+  <block wx:for="{{imglist}}">
+    <swiper-item>
+      <navigator url="{{item.id}}">
+        <image src="{{item.icon}}" class="banner-image" mode="aspectFill" />
+      </navigator>
+    </swiper-item>
+  </block>
 </swiper>
 <!-- 主体 -->
 <view class="main">
@@ -49,27 +49,32 @@
 
   <!--评价-->
   <view wx:if="{{check=='1'}}" class="eval-all">
-    <block wx:for="{{list}}" wx:for-item="item" wx:key="">
-      <view class="evaluate">
-        <view class="content_left_content">
-          <image class="centent-img" src="/images/head.jpg" mode="aspectFill" />
-        </view>
-        <view class="content_left_right">
-          <view class="introduction">
-          <view class="immediately">{{item.comment_time}}</view>
-            <block wx:for="{{item.question}}" wx:for-item="value" wx:key="">
-              <view class="comment_text">{{value.question}}:
-                <text class="comment_text">{{value.option}}</text>
+    <view wx:if="{{list.length != 0}}">
+      <block wx:for="{{list}}" wx:for-item="item" wx:key="">
+        <view class="evaluate">
+          <view class="content_left_content">
+            <image class="centent-img" src="{{item.avatar}}" mode="aspectFill" />
+          </view>
+          <view class="content_left_right">
+            <view class="introduction">
+              <view class="immediately">{{item.comment_time}}</view>
+              <block wx:for="{{item.question}}" wx:for-item="value" wx:key="">
+                <view class="comment_text">{{value.question}}:
+                  <text class="comment_text">{{value.option}}</text>
+                </view>
+              </block>
+              <view style="color:#726f6f">备注说明:
+                <view class="comment_text">{{item.remarks}}</view>
               </view>
-            </block>
-            <view style="color:#726f6f">备注说明:
-              <view class="comment_text">{{item.remarks}}</view>
             </view>
           </view>
         </view>
-      </view>
-      <view class="line"></view>
-    </block>
+        <view class="line"></view>
+      </block>
+    </view>
+    <view wx:else>
+      <view class="middle_none">暂无评分</view>
+    </view>
   </view>
 </view>
 <!-- 底部 -->

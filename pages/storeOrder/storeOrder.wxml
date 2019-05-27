@@ -12,8 +12,7 @@
   <block wx:for="{{list}}" wx:for-item="item" wx:key="">
     <view class="food_status" wx:if="{{item.food_status == 2}}">{{item.food_status == 2?'已下架':''}}</view>
 
-    <view class="flex-row flex-grow-1 order-info">{{item.order_time}}
-    </view>
+    <view class="flex-row flex-grow-1 order-info">{{item.order_time}}</view>
 
     <view class="goods-list flex-row">
 
@@ -38,7 +37,6 @@
           <view class="modal-content">
             <view class="modal-input">
               <textarea placeholder="请输入取消原因" class="textarea" name="store_remarks" type="text" focus="{{focus}}" />
-              <input hidden class="input" name="id" value="" />
             </view>
           </view>
           <view class="modal-footer">
@@ -50,14 +48,22 @@
 
     </view>
 
+    <view class="hf clear" style="{{item.remarks != ''?'':'display:none'}}">
+      <view class="reply">用户备注:</view>
+      <view class="reply-text">{{item.remarks}}</view>
+    </view>
+
+    <view class="hf clear border" style="padding-top:10rpx;{{item.order_status != 0?'':'display:none'}}">
+      <view class="reply">商家回复:</view>
+      <view class="reply-text">{{item.store_remarks}}</view>
+    </view>
+
     <view class="flex-row count-order">
       <view class="operation">
-        <view bindtap='showDialogBtn' hover-class="none" class="flex-grow-0 score" wx:if="{{item.order_status == 0 && item.be_overdue != 1}}" data-id="{{item.food_id}}">取消</view>
+        <text bindtap='showDialogBtn' class="complete btn3"  data-id="{{item.food_id}}" wx:if="{{item.order_status == 0 && item.be_overdue == 0}}">取消</text>
+        <text class="complete btn1"wx:if="{{item.be_overdue == 1 && item.order_status == 0}}">订单已完成</text>
 
-        <navigator url="/pages/sureOrder/sureOrder?id={{item.id}}" hover-class="none" class="flex-grow-0 score" wx:if="{{item.order_status == 0}}">发送消息</navigator>
-        <navigator url="/pages/allRemarks/allRemarks?id={{item.food_id}}" hover-class="none" class="flex-grow-0 score" wx:if="{{item.order_status == 0}}">查看备注</navigator>
-
-        <view class="cancel" wx:if="{{item.order_status == 1}}">订单已取消</view>
+        <text class="complete btn2" wx:if="{{item.order_status == 1}}">订单已取消</text>
       </view>
 
     </view>

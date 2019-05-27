@@ -6,7 +6,8 @@ Page({
    */
   data: {
     user: '',
-    pwd: ''
+    pwd: '',
+		userInfo:'',
   },
 
   getInput: function(e) {
@@ -33,7 +34,8 @@ Page({
         method: 'POST',
         data: {
           user: user,
-          pwd: pwd
+          pwd: pwd,
+					avatar: wx.getStorageSync('userInfo').avatarUrl
         },
         success: function(res) {
           // 成功
@@ -42,11 +44,11 @@ Page({
             // 判断用户角色
             if (res.data.res) {
               if (res.data.res.status == 1) {
-								wx.showToast({
-									title: '账号已被禁用',
-									icon: 'none',
-									duration: 1000,
-								});
+                wx.showToast({
+                  title: '账号已被禁用',
+                  icon: 'none',
+                  duration: 1000,
+                });
               } else {
                 // 商家用户登录区间
                 wx.setStorageSync('storeInfo', res.data.res);
@@ -99,6 +101,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+		this.setData({
+			userInfo: wx.getStorageSync('userInfo')
+		})
+		
     // 判断用户是否登录
     if (wx.getStorageSync('employeeInfo') !== '') {
       wx.switchTab({
@@ -122,7 +129,23 @@ Page({
     }
 
   },
+  bindGetUserInfo: function(e) {
 
+		var that = this;
+
+		//获取用户信息
+		wx.getUserInfo({
+			success: function (res) {
+				that.data.userInfo = res.userInfo;
+
+				that.setData({
+					userInfo: that.data.userInfo
+				})
+
+				wx.setStorageSync('userInfo', res.userInfo);
+			}
+		})
+	},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,12 +1,14 @@
-<view class="display">
-  <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
-    全部
-  </view>
-  <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
-    自付
-  </view>
-  <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
-    部门代付
+<view class="xx_top">
+  <view class="display clear">
+    <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
+      全部
+    </view>
+    <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
+      自付
+    </view>
+    <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
+      部门代付
+    </view>
   </view>
 </view>
 
@@ -35,22 +37,29 @@
         </view>
       </view>
 
-
+    </view>
+    <view class="hf clear" style="{{item.remarks != ''?'':'display:none'}}">
+      <view class="reply">我的备注:</view>
+      <view class="reply-text">{{item.remarks}}</view>
+    </view>
+    <view class="hf clear border" style="{{item.order_status != 0?'':'display:none'}}">
+      <view class="reply">商家回复:</view>
+      <view class="reply-text">{{item.store_remarks}}</view>
     </view>
 
     <view class="flex-row count-order">
       <view class="operation">
 
-        <view bindtap='cancel' wx:if="{{item.status != 1 && item.order_status != 1}}" hover-class="none" class="flex-grow-0 score" wx:if="{{item.state == 0}}" data-id="{{item.id}}" wx:if="{{item.be_overdue == 0 && item.order_status == 0 && item.state == 0}}">取消</view>
+        <view bindtap='cancel' wx:if="{{item.status != 1 && item.order_status != 1}}" hover-class="none" class="flex-grow-0 score" wx:if="{{item.state == 0}}" data-id="{{item.id}}" data-key="{{index}}" wx:if="{{item.be_overdue == 0 && item.order_status == 0 && item.state == 0}}">取消</view>
         <navigator url="/pages/details/details?id={{item.f_id}}" hover-class="none" class="flex-grow-0 score">再来一单</navigator>
         <navigator url="/pages/sureOrder/sureOrder?id={{item.id}}" hover-class="none" wx:if="{{item.be_overdue == 0 && item.state == 0 && item.order_status != 1}}" class="flex-grow-0 score">备注</navigator>
-        <view bindtap='have_meals' wx:if="{{item.state == 0 && item.order_status != 1}}" data-id="{{item.id}}" class="flex-grow-0 score btn">确认用餐</view>
-        <navigator url="/pages/score/score?id={{item.id}}&food_id={{item.food_id}}" wx:if="{{item.status != 1 && item.state == 1 && item.order_status != 1}}" hover-class="none" class="flex-grow-0 score">评分</navigator>
+        <view bindtap='have_meals' wx:if="{{item.state == 0 && item.order_status != 1}}" data-id="{{item.id}}" data-key="{{index}}" class="flex-grow-0 score btn">确认用餐</view>
+        <navigator open-type="navigate" url="/pages/score/score?id={{item.id}}&food_id={{item.food_id}}" wx:if="{{item.status != 1 && item.state == 1 && item.order_status != 1}}" hover-class="none" class="flex-grow-0 score">评分</navigator>
 
-				<view class="cancel" wx:if="{{item.state == 2}}">订单已取消</view>
+        <view class="cancel" wx:if="{{item.state == 2}}">您已取消订单...</view>
+        <view class="food_status" wx:if="{{item.order_status == 1}}">{{item.order_status == 1?'商家已取消订单...':''}}</view>
       </view>
 
-				<view class="food_status" wx:if="{{item.order_status == 1}}">{{item.order_status == 1?'商家已取消订单...':''}}</view>
     </view>
 
   </block>

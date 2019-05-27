@@ -297,3 +297,11 @@
 .comment_text{
 	color:#868686
 }
+
+
+.middle_none {
+  text-align: center;
+	margin-top:100rpx;
+  font-size: 28rpx;
+  color: #838383;
+}

@@ -1,0 +1,28 @@
+<view class="page">
+
+  <view class="main" wx:if="{{comment}}">
+    <view class="main_content" wx:for="{{comment}}">
+      <view class="main_left">
+        <image src="{{item.avatar}}"></image>
+      </view>
+      <view class="main_right">
+        <view class="main_right_top">
+          <view class="main_right_top_left">
+            <view wx:for="{{item.question}}" wx:key="key" wx:for-item="value">{{value.question}}：{{value.option}}</view>
+          </view>
+          <view class="main_right_top_right">{{item.comment_time}}</view>
+        </view>
+        <view class="main_right_bottom">
+          <view class="main_right_bottom_top">评价内容:
+            <!-- <text style="background:#636262">评价内容:</text> -->
+          </view>
+          <view class="main_right_bottom_bottom">{{item.remarks}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="middle_none">暂无评价</view>
+  </view>
+
+</view>

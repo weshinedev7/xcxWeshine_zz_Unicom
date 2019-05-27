@@ -142,11 +142,14 @@ Page({
     });
   },
   // 修改状态
-  status: function(e) {
-    var id = e.currentTarget.dataset.id
+	status: function (e) {
+		var _this = this;
+		var id = e.currentTarget.dataset.id
+		var key = e.currentTarget.dataset.key
+		
     var status = e.currentTarget.dataset.status
 
-    var current_state = status == 1 ? "下架" : "上架"
+    var current_state = status == 1? "下架" : "上架"
 
     wx.showModal({
       title: '提示',
@@ -160,18 +163,29 @@ Page({
               id: id
             },
             success: function(res) {
-              if (res.data.code === 0) {
+              if (res.data.code == 0) {
                 wx.showToast({
                   title: res.data.msg,
                   icon: 'success',
                   duration: 1000,
                   mask: true
                 });
-                setTimeout(function() {
-                  wx.redirectTo({
-                    url: '/pages/varietyOfDishes/varietyOfDishes'
-                  })
-                }, 500)
+
+								if (_this.data.check == 0){
+									_this.data.foods[key].type = _this.data.foods[key].type == 1 ? '2' : '1';
+									_this.setData({
+										foods: _this.data.foods
+									})
+								} else {
+									// 删除元素
+									var foods = _this.data.foods;
+									foods.splice(key, 1);
+									_this.setData({
+										foods: foods
+									})  
+
+								}
+
               }
             }
           })
@@ -265,29 +279,27 @@ Page({
     }
   },
 
-  tap_start: function(e) {
-    // touchstart事件
-    // 把手指触摸屏幕的那一个点的 x 轴坐标赋值给 mark 和 newmark
-    this.data.mark = this.data.newmark = e.touches[0].pageX;
-    // console.log('关闭')
-		// console.log(this.data.mark)
-  },
+  // tap_start: function(e) {
+  //   // touchstart事件
+  //   // 把手指触摸屏幕的那一个点的 x 轴坐标赋值给 mark 和 newmark
+  //   this.data.mark = this.data.newmark = e.touches[0].pageX;
+  // },
 
-  tap_drag: function(e) {
-    // touchmove事件
-    this.data.newmark = e.touches[0].pageX;
+  // tap_drag: function(e) {
+  //   // touchmove事件
+  //   this.data.newmark = e.touches[0].pageX;
 
-    // 手指从左向右移动
-    if (this.data.mark < this.data.newmark) {
-      this.istoright = true;
-    }
+  //   // 手指从左向右移动
+  //   if (this.data.mark < this.data.newmark) {
+  //     this.istoright = true;
+  //   }
 
-    // 手指从右向左移动
-    if (this.data.mark > this.data.newmark) {
-      this.istoright = false;
-    }
-    this.data.mark = this.data.newmark;
-  },
+  //   // 手指从右向左移动
+  //   if (this.data.mark > this.data.newmark) {
+  //     this.istoright = false;
+  //   }
+  //   this.data.mark = this.data.newmark;
+  // },
 
   tap_end: function(e) {
 		

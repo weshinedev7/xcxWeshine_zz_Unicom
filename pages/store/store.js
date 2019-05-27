@@ -8,8 +8,8 @@ Page({
    */
   data: {
     date: '2018-10-01',
-    start_time: '06:00',
-    end_time: '20:00',
+    // start_time: '06:00',
+    // end_time: '20:00',
   },
 
   /**
@@ -157,17 +157,18 @@ Page({
   },
   submitData: function(e) {
     var _this = this;
+		var data = {
+			id: wx.getStorageSync('storeInfo').store_id,
+			file_name: _this.data.file_name,
+			name: e.detail.value.name,
+			closing_time: e.detail.value.closing_time,
+			business_hours: e.detail.value.business_hours,
+			status: _this.data.status,
+		};
     wx.request({
       url: app.globalData.path + 'ApiStore/storeSave',
       method: 'POST',
-      data: {
-        id: wx.getStorageSync('storeInfo').store_id,
-				file_name: _this.data.file_name,
-				name: e.detail.value.name,
-				closing_time: e.detail.value.closing_time,
-				business_hours: e.detail.value.business_hours,
-        status: _this.data.status,
-      },
+      data: data,
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
@@ -180,11 +181,14 @@ Page({
             duration: 1000,
             mask: true
           });
-          setTimeout(function() {
-            wx.navigateTo({
-							url: '/pages/store/store'
-            })
-          }, 500)
+				_this.setData({
+					id:data.id,
+					file_name: data.file_name,
+					name: data.name,
+					closing_time: data.closing_time,
+					business_hours: data.business_hours,
+					status: data.status,
+				})
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -204,13 +208,13 @@ Page({
 	changeTime(e) {
 		this.setData({
 			business_hours: '',
-			start_time: e.detail.value
+			start_time: e.detail.value+':00'
 		});
 	},
 	changeTime1(e) {
 		this.setData({
 			closing_time: '',
-			end_time: e.detail.value
+			end_time: e.detail.value + ':00'
 		});
 	},
 	changeDateTime(e) {

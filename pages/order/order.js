@@ -55,14 +55,6 @@ Page({
     let that = this
     let id = wx.getStorageSync('employeeInfo').id
 
-    // 获取当前时间(年月日时分)
-    // var date = util.formatTime(new Date());
-    // console.log(date)
-		// console.log(mktime(13, 0, 0, date('m'), date('d'), date('Y')))
-		// if (mktime(13, 0, 0, date('m'), date('d'), date('Y'))){
-
-		// }
-
     if (that.data.len == 0) return false;
     if (that.data.openof != that.data.page) return false;
     that.data.openof++;
@@ -81,7 +73,7 @@ Page({
       data: {
         id: id,
         type: that.data.check,
-        pageSize: 5, //每页展示的数据条数
+        pageSize: 10, //每页展示的数据条数
         page: that.data.page //当前页码（从1开始）
       },
       success: function(res) {
@@ -99,7 +91,7 @@ Page({
             page: that.data.page,
             openof: that.data.page
           })
-					console.log(that.data.list)
+          // console.log(that.data.list)
         }
       },
       complete: function() {
@@ -107,81 +99,86 @@ Page({
         wx.stopPullDownRefresh() //停止下拉刷新
       },
     })
-	},
-	have_meals: function (e) {
-		var _this = this;
-		wx.showModal({
-			title: '提示',
-			content: '确定已用餐吗？',
-			success: function (sm) {
-				if (sm.confirm) {
-					// 用户点击了确定 可以调用删除方法了
-					// var id = e.currentTarget.dataset.id
-					util.ajax({
-						url: app.globalData.path + 'ApiFoods/haveMeals',
-						method: 'POST',
-						data: {
-							id: e.currentTarget.dataset.id,
-						},
-						success: function (res) {
-							if (res.data.code == 0) {
-								wx.showToast({
-									title: res.data.msg,
-									icon: 'succes',
-									duration: 1000,
-									mask: true
-								});
-								setTimeout(function () {
-									wx.navigateTo({
-										url: '/pages/order/order'
-									})
-								}, 500)
-							}
-						}
-					})
+  },
+  have_meals: function(e) {
+    var _this = this;
+    var key = e.currentTarget.dataset.key;
+    wx.showModal({
+      title: '提示',
+      content: '确定已用餐吗？',
+      success: function(sm) {
+        if (sm.confirm) {
+          // 用户点击了确定 可以调用删除方法了
+          util.ajax({
+            url: app.globalData.path + 'ApiFoods/haveMeals',
+            method: 'POST',
+            data: {
+              id: e.currentTarget.dataset.id,
+            },
+            success: function(res) {
+              if (res.data.code == 0) {
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'succes',
+                  duration: 1000,
+                  mask: true
+                });
+                // 重置数据
+                if (_this.data.check == 0) {
+                  _this.data.list[key].state = 1;
+                  _this.setData({
+                    list: _this.data.list
+                  })
+                }
+              }
+            }
+          })
 
 
-				}
-			}
-		})
+        }
+      }
+    })
 
-	},
-	cancel: function (e) {
-		var _this = this;
-		wx.showModal({
-			title: '提示',
-			content: '确定取消订单吗？',
-			success: function (sm) {
-				if (sm.confirm) {
-					util.ajax({
-						url: app.globalData.path + 'ApiFoods/cancel',
-						method: 'POST',
-						data: {
-							id: e.currentTarget.dataset.id,
-						},
-						success: function (res) {
-							if (res.data.code == 0) {
-								wx.showToast({
-									title: res.data.msg,
-									icon: 'succes',
-									duration: 1000,
-									mask: true
-								});
-								setTimeout(function () {
-									wx.navigateTo({
-										url: '/pages/order/order'
-									})
-								}, 500)
-							}
-						}
-					})
+  },
+  cancel: function(e) {
+    var _this = this;
+    var key = e.currentTarget.dataset.key;
+    wx.showModal({
+      title: '提示',
+      content: '确定取消订单吗？',
+      success: function(sm) {
+        if (sm.confirm) {
+          util.ajax({
+            url: app.globalData.path + 'ApiFoods/cancel',
+            method: 'POST',
+            data: {
+              id: e.currentTarget.dataset.id,
+            },
+            success: function(res) {
+              if (res.data.code == 0) {
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'succes',
+                  duration: 1000,
+                  mask: true
+                });
+                // 重置数据
+                if (_this.data.check == 0) {
+                  _this.data.list[key].state = 2;
+                  _this.setData({
+                    list: _this.data.list
+                  })
+                }
+              }
+            }
+          })
 
 
-				}
-			}
-		})
+        }
+      }
+    })
 
-	},
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -201,6 +198,18 @@ Page({
    */
   onPullDownRefresh: function() {
 
+    wx.showNavigationBarLoading() //在标题栏中显示加载		
+    this.setData({
+      page: 1
+    })
+    this.onloadMethod();
+
+    //模拟加载
+    setTimeout(function() {
+      // complete
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+    }, 1500);
   },
 
   /**

@@ -34,6 +34,7 @@ Page({
 					_this.setData({
 						list: res.data.data
 					})
+					console.log(_this.data.list)
 				}
 			}
 		})
@@ -57,6 +58,7 @@ Page({
           _this.setData({
 						list: res.data.data,
           })
+					console.log(_this.data.list)
         }
       }
     })

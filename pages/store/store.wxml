@@ -16,7 +16,7 @@
       <view class="content_input">
         <view class="input_text">营业时间</view>
         <view class="tui-picker-content">
-          <picker mode="time" value="{{start_time}}" bindchange="changeTime">
+          <picker mode="time" value="{{business_hours}}" bindchange="changeTime">
             <view class="tui-picker-detail time">
               <input class="input1" wx:if="{{business_hours == ''}}" name="business_hours" value="{{start_time}}" disabled/>
               <input class="input1" wx:if="{{business_hours != ''}}" name="business_hours" value="{{business_hours}}" disabled/>
@@ -31,7 +31,7 @@
     <view class="content">
       <view class="content_input">
         <view class="input_text">打烊时间</view>
-        <picker mode="time" value="{{end_time}}" bindchange="changeTime1">
+        <picker mode="time" value="{{closing_time}}" bindchange="changeTime1">
           <view class="tui-picker-detail time">
             <input class="input1" wx:if="{{closing_time == ''}}" name="closing_time" value="{{end_time}}" disabled/>
             <input class="input1" wx:if="{{closing_time != ''}}" name="closing_time" value="{{closing_time}}" disabled/>
