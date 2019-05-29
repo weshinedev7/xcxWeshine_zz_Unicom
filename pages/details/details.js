@@ -19,6 +19,11 @@ Page({
     price: 0,
     total: 0,
     imglist: [],
+    list: [],
+    len: null,
+    openof: 1,
+    page: 1,
+    showModal: false,
   },
 
   numberSub() {
@@ -97,6 +102,7 @@ Page({
       food_id: options.id
     })
 
+		// 商品
     util.ajax({
       url: app.globalData.path + 'ApiFoods/foodDetail',
       method: 'POST',
@@ -110,23 +116,61 @@ Page({
           total: res.data.food.price,
           imglist: res.data.imglist
         })
+				console.log(that.data.food)
       }
     })
 
-    util.ajax({
-      url: app.globalData.path + 'ApiFoods/FoodScore',
-      method: 'POST',
-      data: {
-        id: that.data.food_id
-      },
-      success: function(res) {
-        that.setData({
-          list: res.data
-        })
-      }
-    })
+		this.onloadMethod();
   },
+	//滑动加载
+	onloadMethod: function () {
+		let that = this
+		let id = wx.getStorageSync('employeeInfo').id
 
+		if (that.data.len == 0) return false;
+		if (that.data.openof != that.data.page) return false;
+		that.data.openof++;
+		this.setData({
+			openof: that.data.openof
+		})
+		wx.showNavigationBarLoading()
+		wx.showLoading({
+			title: '加载中',
+			mask: true
+		});
+		//调接口
+		util.ajax({
+			url: app.globalData.path + 'ApiFoods/FoodScore',
+			method: 'GET',
+			data: {
+				id: that.data.food_id,
+				type: that.data.check,
+				pageSize: 5, //每页展示的数据条数
+				page: that.data.page //当前页码（从1开始）
+			},
+			success: function (res) {
+				wx.hideLoading()
+				wx.hideNavigationBarLoading() //完成停止加载
+				if (res.data.code == 0) {
+					res.data.list.forEach(function (item) {
+						that.data.list.push(item)
+					})
+					that.data.page++;
+					console.log(that.data.list);
+					that.setData({
+						len: res.data.list.length,
+						list: that.data.list,
+						page: that.data.page,
+						openof: that.data.page
+					})
+				}
+			},
+			complete: function () {
+				wx.hideNavigationBarLoading() //完成停止加载
+				wx.stopPullDownRefresh() //停止下拉刷新
+			},
+		})
+	},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -167,6 +211,7 @@ Page({
    */
   onReachBottom: function() {
 
+		this.onloadMethod();
   },
 
   /**
@@ -174,6 +219,13 @@ Page({
    */
   onShareAppMessage: function() {
 
-  }
+  },
+	ts:function(){
+		wx.showToast({
+			title: '店铺已打烊',
+			icon: 'none',
+			duration: 2500//持续的时间
+		});
+	}
 
 })

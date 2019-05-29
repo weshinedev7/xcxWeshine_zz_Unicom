@@ -1,3 +1,18 @@
+page{
+	position:relative;
+}
+.xx_top{
+	width:100%;
+	padding-bottom:20rpx;
+	height:83rpx;
+	z-index: 999;
+	position:fixed;
+	top:0rpx;
+	background: white;
+	left:0rpx;
+	box-shadow: 0rpx 0rpx 20rpx 2rpx #d4d3d3
+}
+
 .display {
   width: 100%;
   display: flex;
@@ -9,7 +24,7 @@
   font-size: 30rpx;
   width: 33.3%;
   text-align: center;
-  border-bottom: 1px solid #838383;
+  border-bottom: 1px solid #f3f3f3;
   height: 50rpx;
 }
 

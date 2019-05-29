@@ -19,50 +19,72 @@ Page({
     var _this = this;
     _this.setData({
       check: e.currentTarget.dataset.id,
-			list:[],
+      list: [],
+		});
+    this.result();
+    _this.onloadMethod(_this.data.check)
+  },
+  result: function() {
+    this.setData({
+      list: [],
+      len: null,
+      openof: 1,
+      page: 1
+    })
+  },
+  //滑动加载
+  onloadMethod: function() {
+    let that = this
+    let id = wx.getStorageSync('employeeInfo').id
+
+    if (that.data.len == 0) return false;
+    if (that.data.openof != that.data.page) return false;
+    that.data.openof++;
+    this.setData({
+      openof: that.data.openof
+    })
+    wx.showNavigationBarLoading()
+    wx.showLoading({
+      title: '加载中',
+      mask: true
     });
-		//调接口
-		util.ajax({
+    //调接口
+    util.ajax({
 			url: app.globalData.path + 'ApiStore/storeOrder',
-			method: 'POST',
-			data: {
-				id: wx.getStorageSync('storeInfo').store_id,
-				status: _this.data.check
-			},
-			success: function (res) {
-				if (res.data.code == 0) {
-					_this.setData({
-						list: res.data.data
-					})
-					console.log(_this.data.list)
-				}
-			}
-		})
+      method: 'GET',
+      data: {
+        id: wx.getStorageSync('storeInfo').store_id,
+				status: that.data.check,
+        pageSize: 10, //每页展示的数据条数
+        page: that.data.page //当前页码（从1开始）
+      },
+      success: function(res) {
+        wx.hideLoading()
+        wx.hideNavigationBarLoading() //完成停止加载
+        if (res.data.code == 0) {
+          res.data.list.forEach(function(item) {
+            that.data.list.push(item)
+          })
+          that.data.page++;
+          that.setData({
+            len: res.data.list.length,
+            list: that.data.list,
+            page: that.data.page,
+            openof: that.data.page
+          })
+					// console.log(that.data.len)
+        }
+      },
+      complete: function() {
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
+      },
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-    var _this = this;
-
-    //调接口
-    util.ajax({
-      url: app.globalData.path + 'ApiStore/storeOrder',
-      method: 'POST',
-      data: {
-        id: wx.getStorageSync('storeInfo').store_id,
-        status: _this.data.check,
-      },
-      success: function(res) {
-        if (res.data.code == 0) {
-          _this.setData({
-						list: res.data.data,
-          })
-					console.log(_this.data.list)
-        }
-      }
-    })
-  },
+  onLoad: function(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -74,7 +96,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
+  onShow: function() {
+		this.onloadMethod()
+	},
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -99,9 +123,9 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  // onReachBottom: function() {
-  //   this.onloadMethod();
-  // },
+  onReachBottom: function() {
+    this.onloadMethod();
+  },
 
   /**
    * 用户点击右上角分享
@@ -113,15 +137,14 @@ Page({
    * 弹窗
    */
   showDialogBtn: function(e) {
-    // console.log(e.currentTarget.dataset.id)
+    console.log(e.currentTarget.dataset.id)
     this.setData({
       showModal: true,
-      food_id: e.currentTarget.dataset.id
+      id: e.currentTarget.dataset.id
     })
   },
   getInput: function(e) {
     let item = e.currentTarget.dataset.model;
-    // console.log(item)
     this.setData({
       [item]: e.detail.value
     });
@@ -129,7 +152,7 @@ Page({
   /**
    * 弹出框蒙层截断touchmove事件
    */
-  preventTouchMove: function() {},
+  // preventTouchMove: function() {},
   /**
    * 隐藏模态对话框
    */
@@ -148,7 +171,6 @@ Page({
    * 对话框确认按钮点击事件
    */
   onConfirm: function(e) {
-    this.hideModal();
     var _this = this;
 
     if (e.detail.value.store_remarks == '') {
@@ -159,12 +181,14 @@ Page({
       });
       return false;
     }
+
+		this.hideModal();
     util.ajax({
       url: app.globalData.path + 'ApiStore/store_cancel',
       method: 'POST',
       data: {
         store_remarks: e.detail.value.store_remarks,
-        id: _this.data.food_id,
+        id: _this.data.id,
       },
       success: function(res) {
         if (res.data.code == 0) {
@@ -174,7 +198,7 @@ Page({
             duration: 1000,
             mask: true
           });
-					// 下架商品
+          // 下架商品
           wx.showModal({
             title: '提示',
             content: '是否将该商品下架',

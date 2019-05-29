@@ -69,7 +69,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-		
+
     var _this = this;
     if (options.search != ' ') {
       _this.setData({
@@ -156,7 +156,8 @@ Page({
   // 修改状态
   status: function(e) {
     var _this = this;
-    var id = e.currentTarget.dataset.id
+		var id = e.currentTarget.dataset.id
+		var key = e.currentTarget.dataset.key
     var status = e.currentTarget.dataset.status
 
     var current_state = status == 1 ? "下架" : "上架"
@@ -181,11 +182,10 @@ Page({
                   duration: 1000,
                   mask: true
                 });
-                setTimeout(function() {
-									wx.redirectTo({
-                    url: '/pages/foodsSearch/foodsSearch?search=' + _this.data.search
+                  _this.data.foods[key].type = _this.data.foods[key].type == 1 ? '2' : '1';
+                  _this.setData({
+                    foods: _this.data.foods
                   })
-                }, 500)
               }
             }
           })

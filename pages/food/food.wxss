@@ -28,6 +28,7 @@ page {
   position: fixed;
   top: 90rpx;
 	z-index: 999;
+	box-shadow: 10rpx 0rpx 25rpx 0rpx #d4d3d3
 }
 
 .search-block {
@@ -73,9 +74,11 @@ page {
 .top-title {
   width: 94%;
   height: auto;
-  margin: 0rpx auto;
+  margin: 10rpx auto 0rpx;
+	/* padding-top:10rpx; */
   overflow: hidden;
   background: white;
+	/* border-top:2px solid #f2f2f2; */
 }
 
 .top_view {
@@ -114,7 +117,7 @@ page {
 
 .content {
   width: 96%;
-  margin: 280rpx auto;
+  margin: 290rpx auto 0rpx;
 }
 
 .child {
@@ -201,7 +204,7 @@ page {
   font-size: 25rpx;
 }
 
-.middle_none {
+.middle_none1 {
   margin: 20rpx auto 0rpx;
   width: 100%;
   height: 50rpx;
@@ -209,4 +212,22 @@ page {
   line-height: 50rpx;
   color:#b2b2b2;
 	font-size:14px;
+}
+
+.middle_none{
+  margin: 0rpx auto;
+  width: 100%;
+  height: 80rpx;
+	display:block;
+	text-align: center;
+  line-height: 80rpx;
+  color:#b2b2b2;
+	font-size:14px;
+}
+.clear:after {
+  content: '';
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
 }

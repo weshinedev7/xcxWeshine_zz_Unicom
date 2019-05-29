@@ -16,7 +16,6 @@ Page({
     var _this = this;
     this.setData({
       id: options.id
-      // id: 2
     })
     if (_this.data.id != '') {
       util.ajax({
@@ -38,7 +37,6 @@ Page({
   formsubmit: function(e) {
     var _this = this;
 		if (_this.data.id != undefined) {
-			console.log('修改数据')
       util.ajax({
         url: app.globalData.path + 'ApiStore/addAdmin',
         method: 'POST',
@@ -59,14 +57,13 @@ Page({
             });
             setTimeout(function() {
               wx.navigateTo({
-                url: '/pages/admin/admin?='+wx.getStorageSync('storeInfo').id
+                url: '/pages/admin/admin?='+wx.getStorageSync('storeInfo').store_id
               })
             }, 500)
           }
         }
       })
 		} else {
-			console.log('新增数据')
       util.ajax({
         url: app.globalData.path + 'ApiStore/addAdmin',
         method: 'POST',
@@ -75,7 +72,7 @@ Page({
           tel: e.detail.value.tel,
           pwd: e.detail.value.pwd,
           sex: e.detail.value.sex,
-					store_id:wx.getStorageSync('storeInfo').id
+					store_id: wx.getStorageSync('storeInfo').store_id
         },
         success: function(res) {
           if (res.data.code == 0) {
@@ -95,6 +92,13 @@ Page({
       })
     }
   },
+	cancel:function(){
+		wx.navigateBack({
+			delta: 2
+		})
+
+
+	},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

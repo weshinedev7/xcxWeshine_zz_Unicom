@@ -4,7 +4,9 @@
   <view class="page-slidebar" style="{{open == true?'position: fixed;display:block':''}}">
     <view class="page-content">
       <view class="store">
-        <image src="{{store.img}}"></image>
+        <navigator hover-class="none" class="navigator" url="/pages/store/store">
+          <image src="{{store.img}}"></image>
+        </navigator>
         <view class="store_name">{{store.name}}</view>
       </view>
       <view class="wc">
@@ -32,10 +34,6 @@
         </navigator>
       </view>
       <view class="wc">
-        <!-- <navigator hover-class="none" class="navigator" url="">
-          <image class="store_icon" src="/images/comment.png"></image>
-          <view class="store_text">查看评分</view>
-        </navigator> -->
       </view>
     </view>
     <view class="out" bindtap='outLogin'>
@@ -99,8 +97,8 @@
             </view>
 
             <view class="operation">
-              <navigator url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
-              <navigator url="/pages/evaluate/evaluate?id={{item.id}}" hover-class="none" class="lower_shelf" style="background:#51C332">查看评价</navigator>
+              <navigator url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}" hover-class="none" style="background:#51C332" class="edit">修改</navigator>
+              <navigator url="/pages/evaluate/evaluate?id={{item.id}}" hover-class="none" class="lower_shelf">查看评价</navigator>
             </view>
           </view>
 

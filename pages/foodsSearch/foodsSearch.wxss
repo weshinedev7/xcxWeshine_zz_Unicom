@@ -3,6 +3,12 @@
 .top{
 	width:100%;
 	height:90rpx;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:999;
+	background: white;
+	box-shadow: 10rpx 10rpx 25rpx 0rpx #d8d6d6
 }
 .search-block {
     margin: 0rpx 20rpx;
@@ -46,12 +52,15 @@
 }
 .content {
   width: 100%;
-  /* height:160rpx; */
 	
 	padding-top:160rpx;
 }
 
 /* 菜品内容 */
+.body{
+	padding-top:80rpx;
+}
+
 
 .main {
   min-height: 180rpx;
@@ -234,6 +243,7 @@
 }
 
 .middle_none {
+	padding-top:250rpx;
   text-align: center;
   font-size: 28rpx;
   color: #838383;

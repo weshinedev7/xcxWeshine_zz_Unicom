@@ -170,13 +170,14 @@ page, .page {
   display: flex;
   flex-direction: row;
   margin-top: 20rpx;
+	box-shadow: 10rpx 10rpx 25rpx 0rpx #d8d6d6
 }
 
 .display-sele {
   font-size: 30rpx;
   width: 33.3%;
   text-align: center;
-  border-bottom: 1px solid #838383;
+  border-bottom: 1px solid #d8d6d6;
   height: 50rpx;
 }
 

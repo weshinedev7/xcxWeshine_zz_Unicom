@@ -34,7 +34,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
   },
 
   /**
@@ -47,7 +46,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+	onShow: function () {
+		this.result();
     this.onloadMethod()
   },
   //滑动加载
@@ -84,14 +84,13 @@ Page({
             that.data.list.push(item)
           })
           that.data.page++;
-          console.log(that.data.list);
+          // console.log(that.data.list);
           that.setData({
             len: res.data.list.length,
             list: that.data.list,
             page: that.data.page,
             openof: that.data.page
           })
-          // console.log(that.data.list)
         }
       },
       complete: function() {

@@ -19,7 +19,7 @@
       </view>
     </view>
     <view class="title_content">
-      <view class="action" bindtap='statusAdmin' data-id="{{item.id}}" data-status="{{item.status}}" style="background:{{item.status== 0?'#F86870':'rgb(4, 173, 4)'}}">{{item.status== 0?'禁用':'启用'}}</view>
+      <view class="action" bindtap='statusAdmin' data-id="{{item.id}}" data-status="{{item.status}}" data-key="{{index}}" style="background:{{item.status== 0?'#F86870':'rgb(4, 173, 4)'}}">{{item.status== 0?'禁用':'启用'}}</view>
 
       <view class="action" style="background:#388BE8">
         <navigator url="/pages/adminAdd/adminAdd?id={{item.id}}">修改</navigator>

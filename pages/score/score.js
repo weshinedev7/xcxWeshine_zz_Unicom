@@ -10,7 +10,8 @@ Page({
     remarks: '',
     content: '',
     id: '',
-    food_id:''
+    food_id:'',
+		zp:0
   },
 
   /**
@@ -73,22 +74,25 @@ Page({
           arr.push(obj);
         }
       });
-    });
-    if ((!this.data.content || this.data.content == '') || !types) {
-      wx.showToast({
-        title: '请选择评分项目或者填写意见',
-        icon: 'none'
-      });
-      return false;
-    }
+		});
+		console.log(arr.length)
+		console.log(this.data.zp)
+		if (arr.length < 3 || this.data.zp == 0) {
+			wx.showToast({
+				title: '请选择评分项目',
+				icon: 'none'
+			});
+			return false;
+		}
     util.ajax({
       url: app.globalData.path + 'ApiFoods/ScoreDetail',
       data: {
 				id: this.data.id,
 				food_id: this.data.food_id,
 				staff_id: wx.getStorageSync('employeeInfo').id,
-        options: arr.length > 0 ? JSON.stringify(arr) : '',
-        content: this.data.content ? this.data.content : ''
+				options: arr.length > 0 ? JSON.stringify(arr) : '',
+				content: this.data.content ? this.data.content : '',
+				zp: this.data.zp
       },
       method: "POST",
       success: function(res) {
@@ -120,7 +124,22 @@ Page({
     wx.navigateBack({
       data: 1
     })
-  },
+	},
+	selectIndexNum(e) {
+		let i = e.currentTarget.dataset.index;
+		if (i == this.data.score) {
+			this.setData({
+				score: -1
+			})
+		} else {
+			this.setData({
+				score: e.currentTarget.dataset.index - 0
+			})
+		}
+		this.setData({
+			zp:this.data.score+1
+		})
+	},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

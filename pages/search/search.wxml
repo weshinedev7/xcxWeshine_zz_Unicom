@@ -8,15 +8,16 @@
 </view>
 
 <view wx:if="{{show == 1}}">
-  <view class="content">
+  <view class="content clear">
     <block wx:for="{{foods}}" wx:for-index="index" wx:for-item="item" wx:key="">
-      <navigator url="/pages/details/details?id={{item.id}}" class="child" hover-class="none">
+      <view bindtap="{{item.time == 1?'details':'close'}}" class="child">
+        <view class="{{item.time != 1?'time':''}}">{{item.time != 1?'已打烊':''}}</view>
         <image src="{{item.img}}" />
         <view class="information">
           <view class="content-name">{{item.name}}</view>
           <view class="store-name">{{item.store_name}}</view>
           <view class="content-price">
-            <view class="score">评分:8</view>
+            <view class="score">评分:{{item.num_score}}</view>
             <view class="shell">{{item.total ==0?'已售:':''}}{{item.total}}</view>
           </view>
           <view class="content-price">
@@ -24,10 +25,11 @@
             <view class="old-price">￥{{item.original_price}}</view>
           </view>
         </view>
-      </navigator>
+      </view>
     </block>
+    <view class="middle_none" wx:if="{{len < 6}}">--------------我也是有底线的，别太过分~--------------</view>
   </view>
 </view>
-<view wx:if="{{show == 0}}" class="middle_none">
+<view wx:if="{{show == 0}}" class="middle_none1">
   暂无符合您搜索内容的菜品
 </view>

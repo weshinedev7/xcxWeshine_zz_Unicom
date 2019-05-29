@@ -10,6 +10,7 @@ page{
 	top:0rpx;
 	background: white;
 	left:0rpx;
+	box-shadow: 0rpx 0rpx 25rpx 5rpx #d4d3d3
 }
 
 
@@ -26,7 +27,7 @@ page{
   font-size: 30rpx;
   width: 33.3%;
   text-align: center;
-  border-bottom: 1px solid #838383;
+  border-bottom: 1px solid #e2e0e0;
   height: 50rpx;
 }
 

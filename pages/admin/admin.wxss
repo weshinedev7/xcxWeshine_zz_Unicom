@@ -14,7 +14,7 @@ page {
   margin: 0rpx auto;
   background: white;
   min-height: 210rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
   border-radius: 20rpx;
 }
 
@@ -86,11 +86,19 @@ text {
   width: 100%;
   height: 80rpx;
   text-align: center;
-  background: #0099fc;
+  background: #dd2727;
   color: white;
   line-height: 80rpx;
   font-size: 13px;
   z-index: 999;
   bottom: 0px;
   position: fixed;
+}
+
+.btn1 {
+  background: #dd2727;
+}
+
+.btn2 {
+  background: #dd2727;
 }

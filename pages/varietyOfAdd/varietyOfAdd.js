@@ -6,7 +6,8 @@ Page({
     thumbnail: [],
     originUrl: '',
     goodsPic: [],
-    id: ''
+    id: '',
+		type:1
   },
   onLoad: function(options) {
     var _this = this;
@@ -31,10 +32,10 @@ Page({
 						_this.setData({
               food: res.data.data,
 							thumbnail: _this.data.thumbnail,
-              imglist: res.data.imgs,
+							imglist: res.data.imgs,
+							type: res.data.data.type,
             });
           }
-					console.log(_this.data.thumbnail)
 
         }
 
@@ -43,12 +44,10 @@ Page({
   },
   // 缩略图
   upload_thumbnail: function() {
-    console.log('单文件上传')
     this.upload(2, 1)
   },
   // 展示图片
   upload_file: function() {
-    console.log('多文件上传')
     var num = 3 - Number(this.data.imglist.length);
     this.upload(1, num)
   },
@@ -85,14 +84,7 @@ Page({
               _this.upload_img(res.tempFilePaths[i], status)
             }
           } else {
-            // console.log('单文件已选择')
-            // console.log(_this.data.thumbnail)
-            // console.log(res.tempFilePaths[0])
             _this.upload_img(res.tempFilePaths[0], status)
-            // _this.setData({
-            // 	originUrl: res.tempFilePaths[0]
-            // })
-            // console.log(_this.data.originUrl)
           }
         }
       }
@@ -100,7 +92,6 @@ Page({
 
   },
   getCropperImg(e) {
-    console.log(111111)
     this.upimgAjax(e.detail.url, 2)
     this.setData({
       originUrl: ''
@@ -118,7 +109,6 @@ Page({
       name: 'file',
       success: function(res) {
         var json = JSON.parse(res.data);
-        console.log('请求成功')
         if (status == 1) {
           _this.data.goodsPic.push(json.file_name);
           _this.setData({
@@ -154,14 +144,6 @@ Page({
 		if (_this.data.thumbnail == '') {
 			return _this.alertMethod('请选择菜品缩略图');
 		}
-		// wx.showLoading({
-		// 	title: '提交中...',
-		// })
-
-		// if (that.data.id) {
-		// 	data.id = _this.data.id;
-		console.log(_this.data.thumbnail)
-		// };
 		// 数据上传
 		util.ajax({
 			url: app.globalData.path + 'ApiStore/save',

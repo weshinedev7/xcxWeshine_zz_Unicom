@@ -24,8 +24,8 @@
     <view class="text">是否上架:</view>
     <radio-group bindchange="checkboxChange" name="type">
       <label class="checkbox">
-        <radio value="1" checked="{{food.type == 1?'true':''}}" />上架
-        <radio value="2" checked="{{food.type == 2?'true':''}}" />下架
+        <radio value="1" checked="{{type == 1?'true':''}}" />上架
+        <radio value="2" checked="{{type == 2?'true':''}}" />下架
       </label>
     </radio-group>
   </view>

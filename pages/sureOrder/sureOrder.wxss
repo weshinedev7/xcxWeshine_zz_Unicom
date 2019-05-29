@@ -103,7 +103,7 @@ textarea{
 
 /* 重置数据 */
 
-.reset {
+/* .reset {
   width: 180rpx;
   height: 80rpx;
   float: left;
@@ -114,7 +114,7 @@ textarea{
   color: white;
   border-radius: 26rpx;
   font-size: 27rpx;
-}
+} */
 
 /* 提交数据 */
 
@@ -125,7 +125,7 @@ textarea{
   margin: 30rpx 80rpx 0rpx 0rpx;
   text-align: center;
   line-height: 80rpx;
-  background: #838383;
+  background: #dd2727;
   color: white;
   border-radius: 26rpx;
   font-size: 27rpx;

@@ -109,8 +109,8 @@ page {
   margin: 25rpx 0rpx 0rpx 80rpx;
   text-align: center;
   line-height: 70rpx;
-  background: #dd2727;
   color: white;
+  background: #838383;
   border-radius: 26rpx;
   font-size: 27rpx;
 }
@@ -124,7 +124,7 @@ page {
   margin: 25rpx 80rpx 0rpx 0rpx;
   text-align: center;
   line-height: 70rpx;
-  background: #838383;
+  background: #dd2727;
   color: white;
   border-radius: 26rpx;
   font-size: 27rpx;

@@ -105,14 +105,12 @@ Page({
 									duration: 1000,
 									mask: true
 								});
-								setTimeout(function () {
-									wx.navigateTo({
-										url: '/pages/vehicle/vehicle'
-									})
-								}, 500)
+								// setTimeout(function () {
+								// 	wx.navigateTo({
+								// 		url: '/pages/vehicle/vehicle'
+								// 	})
+								// }, 500)
 							}
-							// wx.hideLoading()
-							// wx.hideNavigationBarLoading() //完成停止加载
 						}
 					})
 

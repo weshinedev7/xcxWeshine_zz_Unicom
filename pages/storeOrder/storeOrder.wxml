@@ -1,9 +1,11 @@
-<view class="display">
-  <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
-    今日订单
-  </view>
-  <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
-    全部订单
+<view class="xx_top">
+  <view class="display">
+    <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
+      今日订单
+    </view>
+    <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
+      全部订单
+    </view>
   </view>
 </view>
 
@@ -41,7 +43,7 @@
           </view>
           <view class="modal-footer">
             <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
-            <button form-type='submit' data-status="confirm" class="btn-confirm">确定</button>
+            <button form-type='submit' data-status="confirm" class="btn-confirm" style="border:none">确定</button>
           </view>
         </form>
       </view>
@@ -60,8 +62,8 @@
 
     <view class="flex-row count-order">
       <view class="operation">
-        <text bindtap='showDialogBtn' class="complete btn3"  data-id="{{item.food_id}}" wx:if="{{item.order_status == 0 && item.be_overdue == 0}}">取消</text>
-        <text class="complete btn1"wx:if="{{item.be_overdue == 1 && item.order_status == 0}}">订单已完成</text>
+        <text bindtap='showDialogBtn' class="complete btn3" data-id="{{item.id}}" wx:if="{{item.order_status == 0 && item.be_overdue == 0 && item.state != 1}}">取消</text>
+        <text class="complete btn1" wx:if="{{item.be_overdue == 1 && item.order_status == 0}}">订单已完成</text>
 
         <text class="complete btn2" wx:if="{{item.order_status == 1}}">订单已取消</text>
       </view>

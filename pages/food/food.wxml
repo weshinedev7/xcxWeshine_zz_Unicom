@@ -1,5 +1,5 @@
 <!-- 头部 -->
-<view class="top">
+<view class="top clear">
   <view class="search-block">
     <navigator url="/pages/search/search">
       <image src="/images/icon-search.png" />
@@ -22,7 +22,7 @@
   </view>
 </view>
 <!--分割线-->
-<view class="content">
+<view class="content clear">
   <block wx:for="{{foods}}" wx:for-index="index" wx:for-item="item" wx:key="">
 
     <view data-id="{{item.id}}" class="child" bindtap="{{item.time == 0?'close':'details'}}">
@@ -32,8 +32,8 @@
         <view class="content-name">{{item.name}}</view>
         <view class="store-name">{{item.store_name}}</view>
         <view class="content-price">
-          <view class="score">评分:8</view>
-          <view class="shell">已售:{{item.total}}</view>
+          <view class="score">评分: {{item.num_score}}</view>
+          <view class="shell">已售: {{item.total}}</view>
         </view>
         <view class="content-price">
           <view class="new-price">￥{{item.price}}</view>
@@ -43,5 +43,6 @@
     </view>
   </block>
 </view>
-<view class="middle_none" wx:if="{{foods.length == 0}}"> 暂无菜品</view>
-<view class="middle_none" wx:if="{{len == 0}}">我也是有底线的</view>
+
+<view class="middle_none1" wx:if="{{foods.length == 0}}"> 暂无菜品</view>
+<view class="middle_none" wx:if="{{len == 0}}">---------------我也是有底线的---------------</view>

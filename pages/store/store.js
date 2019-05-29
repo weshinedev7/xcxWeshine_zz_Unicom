@@ -55,7 +55,7 @@ Page({
 							closing_time: res.data.data.closing_time,
 
             });
-            var status = _this.data.store.status == 1 ? '(正在营业)' : '(今日休息)';
+            var status = _this.data.store.status == 1 ? '(正在营业)' : '(休息中)';
             var status_text = _this.data.store.status == 1 ? '1' : '2';
             if (_this.data.store.status) {
               _this.setData({

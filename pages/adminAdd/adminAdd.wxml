@@ -32,7 +32,7 @@
 
   <!-- 重置提交按钮 -->
   <view class="nav_container">
-    <view class="reset" bindtap='reset'>重置</view>
+    <view class="reset" bindtap='cancel'>取消</view>
     <button class="submit" form-type='submit'>提交</button>
   </view>
 </form>

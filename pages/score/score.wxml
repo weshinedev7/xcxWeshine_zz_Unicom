@@ -9,10 +9,16 @@
       </view>
     </block>
 
+    <view class="ping">
+      <view class="title_2">综合评分：</view>
+      <view class="ping_content">
+        <image wx:for="{{5}}" data-index="{{index}}" bindtap='selectIndexNum' src="{{score >= index ? '/images/xingxing.png' : '/images/null.png'}}" />
+      </view>
+    </view>
 
-    <view class="meeting-content">备注说明</view>
+    <view class="meeting-content">追加评论(选填)</view>
     <view class="meeting">
-      <textarea bindinput='getContent' placeholder="说明备注..." maxlength="1000" />
+      <textarea bindinput='getContent' placeholder="追加评论..." maxlength="1000" />
     </view>
   </view>
 

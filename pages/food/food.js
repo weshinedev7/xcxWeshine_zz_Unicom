@@ -11,9 +11,9 @@ Page({
     storeName: {},
     allFoodsName: {},
     foods: [],
-    len:null,
-    openof:1,
-    page:1
+    len: null,
+    openof: 1,
+    page: 1
   },
   //选择门店
   selectStore: function(e) {
@@ -25,7 +25,7 @@ Page({
     this.rest();
     this.onloadMethod()
   },
-  rest:function(){
+  rest: function() {
     this.setData({
       foods: [],
       len: null,
@@ -47,37 +47,42 @@ Page({
           that.setData({
             storeName: res.data.list
           })
-        } 
+        }
       }
     });
     this.onloadMethod()
-    
+
   },
-  onReachBottom:function(){
+  onReachBottom: function() {
+
+
     this.onloadMethod();
   },
   //商户列表
-  onloadMethod: function () {
+  onloadMethod: function() {
     var that = this;
     if (that.data.len == 0) return false;
     if (that.data.openof != that.data.page) return false;
     that.data.openof++;
-    this.setData({ openof: that.data.openof })
-    console.log('--------全部下拉刷新-------')
+    this.setData({
+      openof: that.data.openof
+    })
     wx.showNavigationBarLoading() //在标题栏中显示加载
-    wx.showLoading({ title: '加载中', mask: true });
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    });
     util.ajax({
       url: app.globalData.path + 'ApiFoods/storeFoods',
       method: 'GET',
       data: {
-        id: that.data.check,   //学校ID
-        pageSize: 10,  //每页展示的商户数据条数
-        page: that.data.page   //当前页码（从1开始）
+        id: that.data.check, //学校ID
+        pageSize: 10, //每页展示的商户数据条数
+        page: that.data.page //当前页码（从1开始）
       },
-      success: function (data) {
-        console.log('---------------------------------',data);
+      success: function(data) {
         if (data.data.status == 'success') {
-          data.data.list.forEach(function (item) {
+          data.data.list.forEach(function(item) {
             that.data.foods.push(item)
           })
           that.data.page++;
@@ -87,11 +92,12 @@ Page({
             page: that.data.page,
             openof: that.data.page
           });
+          // console.log(that.data.len)
           wx.hideLoading()
           wx.hideNavigationBarLoading() //完成停止加载
         }
       },
-      complete: function () {
+      complete: function() {
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
       },
@@ -103,19 +109,19 @@ Page({
    */
   onShareAppMessage: function() {
 
-	},
-	// 查看详情
-	details: function (e) {
-		wx.navigateTo({
-			url: '/pages/details/details?id=' + e.currentTarget.dataset.id
-		})
-	},
-	// 已打烊
-	close: function (e) {
-		wx.showToast({
-			title: '该店铺已打烊',
-			icon: 'none',
-			duration: 1000,
-		});
-	}
+  },
+  // 查看详情
+  details: function(e) {
+    wx.navigateTo({
+      url: '/pages/details/details?id=' + e.currentTarget.dataset.id
+    })
+  },
+  // 已打烊
+  close: function(e) {
+    wx.showToast({
+      title: '该店铺已打烊',
+      icon: 'none',
+      duration: 1000,
+    });
+  }
 })

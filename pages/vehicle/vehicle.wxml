@@ -1,24 +1,26 @@
 <!-- 选项卡 -->
-<view class="display">
-  <view class="display-sele {{check=='4' ? 'active' : ''}}" bindtap='selectDispaly' data-id="4">
-    全部
-  </view>
-  <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
-    待审核
-  </view>
-  <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
-    已通过
-  </view>
-  <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
-    未通过
-  </view>
-  <view class="display-sele {{check=='3' ? 'active' : ''}}" bindtap='selectDispaly' data-id="3">
-    已取消
+<view class="xx_top">
+  <view class="display">
+    <view class="display-sele {{check=='4' ? 'active' : ''}}" bindtap='selectDispaly' data-id="4">
+      全部
+    </view>
+    <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
+      待审核
+    </view>
+    <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
+      已通过
+    </view>
+    <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
+      未通过
+    </view>
+    <view class="display-sele {{check=='3' ? 'active' : ''}}" bindtap='selectDispaly' data-id="3">
+      已取消
+    </view>
   </view>
 </view>
 
 <!-- 内容 -->
-<view wx:if="{{check=='4'}}" class="eval-all">
+<view class="eval-all">
   <view wx:if="{{vehicle.length <= 0}}" class="empty1">你还没有预约.....</view>
   <view class='items' wx:for="{{vehicle}}">
 
@@ -82,178 +84,6 @@
         <view class="left">车辆型号:</view>
         <view class="l30 pass">{{item.vehicle_type}}</view>
       </view> -->
-    </view>
-
-    <view class="{{date >= item.end_time?'flr_1':'flex-row flr'}}">
-      <navigator url="/pages/bookingVehicle/bookingVehicle?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
-      <view class="{{item.status != 3?'cancel':''}}" bindtap='cancel' data-id='{{item.id}}'>{{item.status != 3?'取消':''}}</view>
-    </view>
-  </view>
-
-</view>
-
-<view wx:if="{{check=='0'}}" class="eval-all">
-  <view wx:if="{{vehicle.length <= 0}}" class="empty1">你还没有预约.....</view>
-  <view class='items' wx:for="{{vehicle}}">
-
-    <view class="status">待审核</view>
-    <view class="flex-row item">
-      <view class="left">开始时间</view>
-      <view class="right">{{item.start_time}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">结束时间</view>
-      <view class="right">{{item.end_time}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">乘坐人数</view>
-      <view class="right">{{item.number}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">用途</view>
-      <view class="right more">{{item.content}}</view>
-    </view>
-
-    <!--判断是否通过审批-->
-    <view class='{{item.status == 1?"status_yes":""}}' wx:if="{{item.status == 1}}">
-      <view class="tac">审核结果</view>
-      <view class="flex-row res">
-        <view class="left">审批人:</view>
-        <view class="l30 pass">{{item.approver}}</view>
-      </view>
-      <view class='flex-row res'>
-        <view class="left">车辆牌号:</view>
-        <view class="l30 pass">{{item.license_plate}}
-        </view>
-      </view>
-      <view class='flex-row res'>
-        <view class="left">车辆型号:</view>
-        <view class="l30 pass">{{item.vehicle_type}}</view>
-      </view>
-    </view>
-
-    <view class="{{date >= item.end_time?'flr_1':'flex-row flr'}}">
-      <navigator url="/pages/bookingVehicle/bookingVehicle?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
-      <view class="{{item.status != 3?'cancel':''}}" bindtap='cancel' data-id='{{item.id}}'>{{item.status != 3?'取消':''}}</view>
-    </view>
-  </view>
-
-</view>
-
-<view wx:if="{{check=='1'}}" class="eval-all">
-  <view wx:if="{{vehicle.length <= 0}}" class="empty1">你还没有已通过的预约.....</view>
-  <view class='items' wx:for="{{vehicle}}">
-
-    <view class="status" style="background:#51c332">已通过</view>
-    <view class="flex-row item">
-      <view class="left">开始时间</view>
-      <view class="right">{{item.start_time}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">结束时间</view>
-      <view class="right">{{item.end_time}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">乘坐人数</view>
-      <view class="right">{{item.number}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">用途</view>
-      <view class="right more">{{item.content}}</view>
-    </view>
-
-    <view class='status_yes'>
-      <view class="tac">审核结果</view>
-      <view class="flex-row">
-        <view class="left">审批人:</view>
-        <view class="l30 pass">{{item.approver}}</view>
-      </view>
-      <view class='flex-row'>
-        <view class="left">车辆牌号:</view>
-        <view class="l30 pass">{{item.license_plate}}
-        </view>
-      </view>
-      <view class='flex-row'>
-        <view class="left">车辆型号:</view>
-        <view class="l30 pass">{{item.vehicle_type}}</view>
-      </view>
-    </view>
-
-    <view class="{{date >= item.end_time?'flr_1':'flex-row flr'}}">
-      <navigator url="/pages/bookingVehicle/bookingVehicle?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
-      <view class="{{item.status != 3?'cancel':''}}" bindtap='cancel' data-id='{{item.id}}'>{{item.status != 3?'取消':''}}</view>
-    </view>
-
-  </view>
-</view>
-
-<view wx:if="{{check=='2'}}" class="eval-all">
-  <view wx:if="{{vehicle.length <= 0}}" class="empty1">你还没有未通过的预约.....</view>
-  <view class='items' wx:for="{{vehicle}}">
-
-    <view class="status">未通过</view>
-    <view class="flex-row item">
-      <view class="left">开始时间</view>
-      <view class="right">{{item.start_time}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">结束时间</view>
-      <view class="right">{{item.end_time}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">乘坐人数</view>
-      <view class="right">{{item.number}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">用途</view>
-      <view class="right more">{{item.content}}</view>
-    </view>
-
-    <view class='status_yes'>
-      <view class="tac">审核结果</view>
-      <view class="flex-row res">
-        <view class="left">审批人:</view>
-        <view class="l30 pass">{{item.approver}}</view>
-      </view>
-      <view class='flex-row res'>
-        <view class="left">取消原因:</view>
-        <view class="l30 pass">{{item.reason}}
-        </view>
-      </view>
-      <!-- <view class='flex-row'>
-        <view class="left">车辆型号:</view>
-        <view class="l30 pass">{{item.vehicle_type}}</view>
-      </view> -->
-    </view>
-
-    <view class="{{date >= item.end_time?'flr_1':'flex-row flr'}}">
-      <navigator url="/pages/bookingVehicle/bookingVehicle?id={{item.id}}" hover-class="none" class="edit">修改</navigator>
-      <view class="{{item.status != 3?'cancel':''}}" bindtap='cancel' data-id='{{item.id}}'>{{item.status != 3?'取消':''}}</view>
-    </view>
-
-  </view>
-</view>
-
-<view wx:if="{{check=='3'}}" class="eval-all">
-  <view wx:if="{{vehicle.length <= 0}}" class="empty1">你还没有预约.....</view>
-  <view class='items' wx:for="{{vehicle}}">
-
-    <view class="status" style="background:#838383">已取消</view>
-    <view class="flex-row item">
-      <view class="left">开始时间</view>
-      <view class="right">{{item.start_time}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">结束时间</view>
-      <view class="right">{{item.end_time}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">乘坐人数</view>
-      <view class="right">{{item.number}}</view>
-    </view>
-    <view class="flex-row item">
-      <view class="left">用途</view>
-      <view class="right more">{{item.content}}</view>
     </view>
 
     <view class="{{date >= item.end_time?'flr_1':'flex-row flr'}}">

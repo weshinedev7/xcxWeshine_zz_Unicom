@@ -19,7 +19,6 @@ Page({
       method: 'GET',
       data: {
         id: wx.getStorageSync('storeInfo').store_id,
-        // id: 1,
       },
       success: function(res) {
         if (res.data.code == 0) {
@@ -32,6 +31,8 @@ Page({
   },
   statusAdmin: function(e) {
     var _this = this;
+    var key = e.currentTarget.dataset.key;
+    console.log(key)
     var msg = e.currentTarget.dataset.status == 0 ? '禁用' : '启用';
     wx.showModal({
       title: '提示',
@@ -52,11 +53,12 @@ Page({
                   duration: 1000,
                   mask: true
                 });
-                setTimeout(function() {
-                  wx.navigateTo({
-                    url: '/pages/admin/admin?=' + wx.getStorageSync('storeInfo').id
-                  })
-                }, 500)
+
+                // 重置数据
+                _this.data.list[key].status = _this.data.list[key].status == 1 ? '0' : '1';
+                _this.setData({
+                  list: _this.data.list
+                })
               }
             }
           })
