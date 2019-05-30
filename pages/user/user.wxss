@@ -106,9 +106,9 @@ page {
 
 
 
-.center_list_text{font-size:30rpx;
+.center_list_text{font-size:13px;
 		float:left;
-		width:30%;
+		width:50%;
 		height:60rpx;
 	}
 
