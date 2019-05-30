@@ -1,21 +1,19 @@
 <!-- 选项卡 -->
-<view class="xx_top">
-  <view class="display">
-    <view class="display-sele {{check=='4' ? 'active' : ''}}" bindtap='selectDispaly' data-id="4">
-      全部
-    </view>
-    <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
-      待审核
-    </view>
-    <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
-      已通过
-    </view>
-    <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
-      未通过
-    </view>
-    <view class="display-sele {{check=='3' ? 'active' : ''}}" bindtap='selectDispaly' data-id="3">
-      已取消
-    </view>
+<view class="display">
+  <view class="display-sele {{check=='4' ? 'active' : ''}}" bindtap='selectDispaly' data-id="4">
+    全部
+  </view>
+  <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
+    待审核
+  </view>
+  <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
+    已通过
+  </view>
+  <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
+    未通过
+  </view>
+  <view class="display-sele {{check=='3' ? 'active' : ''}}" bindtap='selectDispaly' data-id="3">
+    已取消
   </view>
 </view>
 
@@ -44,12 +42,6 @@
       <view class="left">用途</view>
       <view class="right more">{{item.content}}</view>
     </view>
-
-    <!-- 判断是否通过审批
-    <view class='{{item.status == 0?"flex-row flr":""}}'>
-      <navigator url="/pages/bookingVehicle/bookingVehicle?id={{item.id}}" hover-class="none" class="{{item.status == 0?'edit':''}}">{{item.status == 0?"修改":""}}</navigator>
-      <view class="{{item.status == 0?'cancel':''}}">{{item.status == 0?"取消":""}}</view>
-    </view>     -->
     <!--判断是否通过审批-->
 
     <view class='{{item.status == 1?"status_yes":""}}' wx:if="{{item.status == 1}}">
@@ -80,10 +72,6 @@
         <view class="l30 pass">{{item.reason}}
         </view>
       </view>
-      <!-- <view class='flex-row'>
-        <view class="left">车辆型号:</view>
-        <view class="l30 pass">{{item.vehicle_type}}</view>
-      </view> -->
     </view>
 
     <view class="{{date >= item.end_time?'flr_1':'flex-row flr'}}">
@@ -91,5 +79,4 @@
       <view class="{{item.status != 3?'cancel':''}}" bindtap='cancel' data-id='{{item.id}}'>{{item.status != 3?'取消':''}}</view>
     </view>
   </view>
-
 </view>

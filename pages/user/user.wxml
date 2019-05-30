@@ -22,13 +22,13 @@
 	<view class="main_center">
 		<navigator url="/pages/conferenceRoom/conferenceRoom" hover-class="none">
 			<view class="center_list">
-				<view class="center_list_text">预约会议室</view>
+				<view class="center_list_text">我的会议室预约</view>
 				<view><image src="../../images/right-2.png" /></view>
 			</view>
 		</navigator>
 		<navigator url="/pages/vehicle/vehicle" hover-class="none">
 			<view class="center_list">
-				<view class="center_list_text">预约车辆</view>
+				<view class="center_list_text">我的车辆预约</view>
 				<view><image src="../../images/right-2.png" /></view>
 			</view>
 		</navigator>

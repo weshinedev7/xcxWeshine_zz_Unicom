@@ -84,13 +84,13 @@ Page({
             that.data.list.push(item)
           })
           that.data.page++;
-          // console.log(that.data.list);
           that.setData({
             len: res.data.list.length,
             list: that.data.list,
             page: that.data.page,
             openof: that.data.page
           })
+					console.log(that.data.list)
         }
       },
       complete: function() {

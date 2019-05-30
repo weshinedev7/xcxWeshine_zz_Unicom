@@ -54,13 +54,12 @@ Page({
 			dateTime1: obj1.dateTime
 		});
 
-		// 接收修改预约时传入的预约id
-		var that = this;
-		that.setData({
-			id: options.id
-		})
-		// console.log(that.data.id)
-
+		// 接收修改预约书时传入的预约id
+		if (options.id){
+			this.setData({
+				b_id: options.id
+			})
+		}
 
 		var that = this;
 		// 修改时请求数据
@@ -90,14 +89,14 @@ Page({
 	},
 	// 重置数据
 	reset: function () {
-		if (this.data.vehicle){
+		if (this.data.vehicle) {
 			this.setData({
 				start_time: this.data.vehicle.start_time,
 				end_time: this.data.vehicle.end_time,
 				number: this.data.vehicle.number,
 				content: this.data.vehicle.content,
 			})
-		}else{
+		} else {
 			this.setData({
 				number: "",
 				content: "",
@@ -197,6 +196,19 @@ Page({
 			}
 		})
 	},
+	// delete_start_time: function (e) {
+	// 	this.setData({
+	// 		start_time: '',
+	// 		dateTime: e.detail.value
+	// 	})
+	// 	console.log(this.data.deteTime)
+	// },
+	// delete_end_time: function (e) {
+	// 	this.setData({
+	// 		end_time: '',
+	// 		dateTime1: e.detail.value
+	// 	})
+	// },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -264,7 +276,7 @@ Page({
 	},
 	changeDateTime(e) {
 		this.setData({
-			start_time:'',
+			start_time: '',
 			dateTime: e.detail.value
 		});
 	},
