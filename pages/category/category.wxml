@@ -1,0 +1,52 @@
+
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+
+  <!--drawer content-->
+  <view class="drawer_title">分类管理</view>
+  <form bindsubmit='submit_data'>
+    <view class="drawer_content">
+      <view class="top grid">
+        <label class="title col-0">分类名</label>
+        <input class="input_base input_h30 col-1" name="name" focus value="{{edit_category.name}}"></input>
+        <input hidden name="id" value="{{edit_category.id}}"></input>
+      </view>
+      <view class="top grid">
+        <label class="title col-0">分类排序</label>
+        <input class="input_base input_h30 col-1" name="sort" wx:if="{{edit_category.sort}}" value="{{edit_category.sort}}"></input>
+        <input class="input_base input_h30 col-1" name="sort" wx:if="{{!edit_category.sort}}" value="99"></input>
+      </view>
+    </view>
+    <button class="btn_ok" bindtap="powerDrawer" data-statu="close" form-type='submit'>确定</button>
+  </form>
+</view>
+
+
+<view class="body">
+  <view class="list" wx:for="{{list}}">
+    <view class="title_cate">
+      <view class="content">
+        <image class='image' src="/images/sf.png"></image>
+        <text>{{item.name}}</text>
+      </view>
+      <view class="content">
+        <image class='image' src="/images/{{item.sex == 0?'nan.png':'nve.png'}}"></image>
+        <text>{{item.sort}}</text>
+      </view>
+    </view>
+    <view class="title_content">
+      <view class="action" bindtap='delete_cate' data-id="{{item.id}}" data-status="{{item.status}}" data-key="{{index}}" style="background:{{item.status== 0?'#F86870':'rgb(4, 173, 4)'}}">删除</view>
+
+      <view class="action" style="background:#388BE8">
+        <view bindtap="powerDrawer" data-statu="open" data-id="{{item.id}}" data-key="{{index}}">修改</view>
+      </view>
+    </view>
+  </view>
+
+<view style="width:100%;line-height:500rpx;text-align:center;font-size:14px;color:#838383" wx:if="{{list.length == 0}}">暂无分类</view>
+</view>
+<view class="btn">
+  <view bindtap="powerDrawer" data-id="0" data-statu="open"  data-key="1000">新增</view>
+</view>

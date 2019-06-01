@@ -1,0 +1,413 @@
+page {
+  background: #f3f3f3;
+  height: 100%;
+}
+
+.top {
+  width: 100%;
+  height: 440rpx;
+  position: relative;
+  background: white;
+	margin-bottom:10rpx;
+  /* border-bottom: 1rpx solid #838383; */
+}
+
+.top_img {
+  width: 100%;
+  height: 140rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);
+}
+
+.xx_img {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 50rpx;
+  top: 50rpx;
+}
+
+.column {
+  width: 150rpx;
+  /* height: 200rpx; */
+  background: white;
+  position: absolute;
+  right: 50rpx;
+  top: 90rpx;
+}
+
+.column_content {
+  width: 100%;
+  height: 50rpx;
+  color: #999595;
+  font-size: 13px;
+  /* background: pink; */
+  line-height: 50rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #dfdcdc;
+}
+
+.column_hidden {
+  display: hidden;
+}
+
+.top_img image {
+  width: 100%;
+  height: 100%;
+}
+
+.store_img {
+  width: 150rpx;
+  height: 150rpx;
+  position: absolute;
+  top: 50rpx;
+  left: 40%;
+}
+
+.store {
+  width: 100%;
+  height: 200rpx;
+  margin-top: 80rpx;
+}
+
+.store_name {
+  width: 60%;
+  height: 50rpx;
+  margin: 0rpx auto;
+}
+
+.store_name_content {
+  width: 60%;
+  height: 50rpx;
+  float: left;
+  margin-left: 40rpx;
+  text-align: right;
+  line-height: 50rpx;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.edit_img {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+  margin-top: 13rpx;
+  float: left;
+}
+
+.store_text {
+  width: 50%;
+  height: 50rpx;
+  margin: 0rpx auto;
+  line-height: 50rpx;
+}
+
+.store_text .store_comment {
+  width: 100%;
+  float: left;
+  font-size: 12px;
+  text-align: center;
+  color: #838383;
+}
+
+.store_operation {
+  width: 100%;
+  height: 80rpx;
+  background: white;
+  margin: 10rpx 0rpx 0rpx;
+}
+
+.add_category {
+  width: 33.3%;
+  height: 80rpx;
+  float: left;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 14px;
+}
+
+.add_category navigator {
+  width: 140rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  margin: 15rpx auto 0rpx;
+  line-height: 50rpx;
+  padding: 0rpx 10rpx;
+  font-size: 13px;
+  color: white;
+  background: #dd2727;
+}
+
+.add_food navigator {
+  width: 140rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  margin: 15rpx auto 0rpx;
+  padding: 0rpx 10rpx;
+  line-height: 50rpx;
+  font-size: 13px;
+  color: white;
+  background: #dd2727;
+}
+
+.store_set {
+  width: 33.3%;
+  height: 80rpx;
+  float: left;
+  font-size: 14px;
+  text-align: center;
+  margin: 10rpx 0rpx;
+}
+
+.add_food {
+  width: 33.3%;
+  height: 80rpx;
+  float: left;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 14px;
+}
+
+/*总体主盒子*/
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: #939393;
+}
+
+/*左侧栏主盒子*/
+
+.nav_left {
+  display: inline-block;
+  width: 25%;
+  height: 100%;
+  background: white;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*左侧栏list的item*/
+
+.nav_left .nav_left_items {
+  height: 40px;
+  line-height: 40px;
+  padding: 6px 0;
+  border-bottom: 1px solid #dedede;
+  font-size: 14px;
+}
+
+/*左侧栏list的item被选中时*/
+
+.nav_left .nav_left_items.active {
+  background: #fff;
+  color: #dd2727;
+  font-weight: 700;
+}
+
+/*右侧栏主盒子*/
+
+.nav_right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  flex: 1;
+  width: 75%;
+  box-sizing: border-box;
+  background: #f3f3f3;
+}
+
+/*右侧栏list的item*/
+
+.nav_right .nav_right_items {
+  float: right;
+  width: 98%;
+  margin-bottom: 10rpx;
+  background: white;
+  border-bottom: 1px solid #dedede;
+}
+
+/* 菜品头部 */
+
+.food_top {
+  width: 100%;
+  height: 200rpx;
+}
+
+.food_img {
+  width: 30%;
+  height: 150rpx;
+  margin-top: 25rpx;
+  margin-left: 25rpx;
+  float: left;
+}
+
+.food_img image {
+  width: 100%;
+  height: 150rpx;
+}
+
+.food_text {
+  width: 55%;
+  height: 150rpx;
+  margin-top: 25rpx;
+  margin-right: 25rpx;
+  float: right;
+}
+
+.food_name, .food_price, .food_brief {
+  width: 100%;
+  height: 40rpx;
+  margin-top: 5rpx;
+  color: black;
+  font-size: 13px;
+}
+
+.food_name {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.food_price {
+  color: red;
+  font-weight: 700;
+}
+
+.food_brief {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.food_bottom {
+  width: 100%;
+  height: 80rpx;
+}
+
+.upper_lower_shelf, .edit, .delete {
+  width: 30%;
+  height: 80rpx;
+  float: left;
+  margin-left: 15rpx;
+}
+
+.edit navigator {
+  width: 100rpx;
+  height: 50rpx;
+  padding: 0;
+  border-radius: 10rpx;
+  text-align: center;
+  margin: 15rpx auto 0rpx;
+  line-height: 50rpx;
+  font-size: 13px;
+  color: white;
+  background: #dd2727;
+}
+
+/*swtich整体大小及背景色*/
+
+.switch {
+  margin-left: 25rpx;
+  margin-top: 8rpx;
+}
+
+.wx-switch-input {
+  width: 100rpx !important;
+  height: 50rpx !important;
+  border: #dd2727 !important; /* 2018-07-18 重置开关边框颜色 */
+}
+
+/*白色样式（false的样式）*/
+
+.wx-switch-input::before {
+  width: 100rpx !important;
+  height: 50rpx !important;
+}
+
+/*绿色样式（true的样式）*/
+
+.wx-switch-input::after {
+  width: 60rpx !important;
+  height: 50rpx !important;
+}
+
+.delete navigator {
+  height: 50rpx;
+  padding: 0rpx;
+  text-align: center;
+  margin-top: 15rpx;
+  line-height: 50rpx;
+  border-radius: 10rpx;
+  font-size: 12px;
+  color: white;
+  background: #dd2727;
+}
+
+.nodata_text {
+  color: black;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  line-height: 500rpx;
+}
+
+.clear:after {
+  content: '';
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+
+/* 菜品评论选项卡 */
+
+/* 下面是tobar */
+
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: white;
+	margin-bottom:2rpx;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
+  display: inline-block;
+  width: 25%;
+  color: #777;
+  border-bottom: 0rpx;
+}
+
+.on {
+  color: #dd2727;
+  border-bottom: 2rpx solid #dd2727;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-box view {
+  text-align: center;
+}
+/* 
+swiper {
+  display:none
+} */

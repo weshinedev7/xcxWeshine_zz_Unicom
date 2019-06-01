@@ -74,13 +74,17 @@ Page({
 
   //预约会议室
   toRoom:function(e){
+<<<<<<< HEAD
     if(wx.getStorageSync('employeeInfo').role==='1'){
+=======
+    if(wx.getStorageSync('employeeInfo').role == 1){
+>>>>>>> 0ca2f17de261db1f3b115da6688f70d968d00377
       wx.navigateTo ({
         url: '/pages/makeAnAppointment/makeAnAppointment'
       })
     }else{
       wx.showToast({
-        title: '权限不足',
+        title: '你没有预约权限',
         icon: 'none',
         duration: 2000//持续的时间
       });
@@ -90,13 +94,17 @@ Page({
 
   //预约车辆
   toCar:function(e){
+<<<<<<< HEAD
     if(wx.getStorageSync('employeeInfo').role==='1'){
+=======
+    if(wx.getStorageSync('employeeInfo').role == 1){
+>>>>>>> 0ca2f17de261db1f3b115da6688f70d968d00377
       wx.navigateTo ({
         url: '/pages/bookingVehicle/bookingVehicle'
       })
     }else{
       wx.showToast({
-        title: '权限不足',
+				title: '你没有预约权限',
         icon: 'none',
         duration: 2000//持续的时间
       });

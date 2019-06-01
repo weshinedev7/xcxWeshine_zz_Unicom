@@ -1,6 +1,11 @@
 {
   "pages": [
 		"pages/roomLogin/roomLogin",
+		"pages/storeFoods/storeFoods",
+		"pages/orderDetails/orderDetails",
+		"pages/addcategory/addcategory",
+		"pages/varietyOfAdd/varietyOfAdd",
+		"pages/category/category",
 		"pages/bookingVehicle/bookingVehicle",
 		"pages/vehicle/vehicle",
 		"pages/evaluate/evaluate",
@@ -19,7 +24,6 @@
 		"pages/adminAdd/adminAdd",
 		"pages/details/details",
 		"pages/varietyOfDishes/varietyOfDishes",
-		"pages/varietyOfAdd/varietyOfAdd",
 		"pages/cropper/cropper",
     "pages/conferenceRoom/conferenceRoom",
     "pages/vehicleLogin/vehicleLogin",
