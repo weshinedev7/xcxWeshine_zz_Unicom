@@ -1,9 +1,9 @@
 {
   "pages": [
+		"pages/roomLogin/roomLogin",
 		"pages/storeFoods/storeFoods",
 		"pages/orderDetails/orderDetails",
 		"pages/addcategory/addcategory",
-		"pages/roomLogin/roomLogin",
 		"pages/varietyOfAdd/varietyOfAdd",
 		"pages/category/category",
 		"pages/bookingVehicle/bookingVehicle",
