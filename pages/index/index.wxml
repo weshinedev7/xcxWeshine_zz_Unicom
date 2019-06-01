@@ -40,61 +40,40 @@
 <view class="divLine"></view>
 
 <!--附近门店-->
-<view class="show-title">
-  <image src="/images/store.png" mode="aspectFit" class="image" />
-  <text>附近门店</text>
+<view class='recommend'>
+  <text class='recommend-title'>附近门店</text>
 </view>
-<block wx:for="{{imgUrls}}" wx:key="">
-<view class="eval-all">
-    <view class="goods-list flex-row">
-      <image class="goods-pic" mode="aspectFill" src="{{item.img}}" />
 
-      <view class="flex-grow-1">
-        <view class="flex-grow-1">
-          <view class="goods-name">门店名称</view>
+<block wx:for="{{stores}}" wx:key="">
+  <view class="eval-all">
+  <view class="goods-list flex-row">
+    <image class="goods-pic" mode="aspectFill" src="{{item.store_img}}" />
+    <view class="flex-grow-1 goods-content">
+      <view class="goods-name goods-time-list">{{item.store_name}}</view>
+      <view class="flex-row">
+        <view class="goods-time-list flex-grow-0">
+          <image mode="aspectFill" wx:for="{{5}}" wx:key="" src="/images/start.png" class="strat" />
         </view>
-        <view class="flex-grow-1 flex-row">
-          <view class="flex-grow-1">
-            <image mode="aspectFill" src="/images/start.png" class="strat" />
-            <image mode="aspectFill" src="/images/start.png" class="strat" />
-            <image mode="aspectFill" src="/images/start.png" class="strat" />
-            <image mode="aspectFill" src="/images/start.png" class="strat" />
-            <image mode="aspectFill" src="/images/start.png" class="strat" />
-          </view>
-          <view class="flex-grow-0 store_time">已售:345</view>
-        </view>
-        <view class="flex-grow-1">
-          <view class="goods-name" style="font-size: 27rpx;color: #888;">营业时间:全天24小时</view>
+        <view class="goods-time-list goods-num flex-grow-0">
+          <text>已售:{{item.count}}</text>
         </view>
       </view>
+      <view class="goods-time goods-time-list">营业时间:{{item.business_hours}}-{{item.closing_time}}</view>
     </view>
-</view>
-</block>
+  </view>
 
-
-
-<!-- 分割线 -->
-<view class="divLine"></view>
-
-<!--热门菜品-->
-<view class="show-title">
-  <image src="/images/like.png" mode="aspectFit" class="image" />
-  <text>热门菜品</text>
-  <navigator url="/pages/food/food" hover-class="none">
-    <view class="text-more">查看全部</view>
-    <image src="/images/right.png" />
-  </navigator>
-</view>
-
-<view class="show-content" wx:for="{{foods}}">
-  <view data-id="{{item.id}}" hover-class="none" class="content-item" bindtap="{{item.time == 0?'close':'details'}}">
-    <view class="{{item.time == 0?'time':''}}">{{item.time == 0?'已打烊':''}}</view>
-    <image src="{{item.img}}" mode="aspectFill" />
-    <view class="content-price">
-      <view class="new-price">￥{{item.original_price}}</view>
-      <view class="old-price">￥{{item.price}}</view>
-    </view>
-    <view class="content-name">{{item.f_name}}</view>
-    <view class="content-store">{{item.s_name}}</view>
+  <view class="show-content">
+    <navigator wx:for="{{item.foods}}" wx:key="" url="/pages/details/details?id={{item.id}}" hover-class="none" class="content-item flex-grow-0">
+      <view class='content-item-list'>
+          <image src="{{item.foods_img}}" />
+      <view class="content-name">{{item.foods_name}}</view>
+      <view class="content-price">
+        <text class="new-price">￥{{item.price}}</text>
+        <text class="old-price">￥{{item.original_price}}</text>
+      </view>
+      </view>
+    </navigator>
   </view>
 </view>
+<view class='bg-list'></view>
+</block>

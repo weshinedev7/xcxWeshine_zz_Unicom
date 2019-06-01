@@ -1,5 +1,7 @@
 /* pages/index/index.wxss */
-
+navigator view{
+  box-sizing: border-box;
+}
 .fr {
   float: right;
 }
@@ -89,168 +91,147 @@
   /*color: #a9a9a9;*/
 }
 
-/*热销商品*/
+.recommend {
+  text-align: center;
+  height: 60rpx;
+  margin-top: 30rpx;
+  padding:0 22%;
+}
 
-.show-title {
-  margin: 15rpx 0;
+.recommend-title {
+  display: table;
   width: 100%;
-  height: 100rpx;
-  display: flex;
-  align-items: center;
-}
-
-.show-title .image {
-  width: 40rpx;
-  height: 40rpx;
-  margin-left: 30rpx;
-  width: 10%;
-}
-
-.show-title text {
+  line-height: 50rpx;
+  white-space: nowrap;
+  border-spacing: 1rem 0;
   font-size: 30rpx;
-  margin-left: 0rpx;
-  float: left;
+  color: #333;
+}
+
+.recommend-title::before, .recommend-title::after {
+  display: table-cell;
+  content: "";
   width: 50%;
-}
-
-.show-title navigator {
-  width: 40%;
-  display: flex;
-  align-items: center;
-  float: right;
-  height: 80rpx;
-  margin-right: 30rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
-
-.text-more {
-  font-size: 25rpx;
-  color: #d81e06;
-}
-
-.show-title navigator image {
-  width: 30rpx;
-  height: 30rpx;
-  justify-content: space-between;
+  background: linear-gradient(#eee, #eee) repeat-x center;
+  background-size: 0.1rem 0.1rem;
 }
 
 .show-content {
   display: flex;
-  flex-wrap: wrap;
-  float: left;
-  height: 450rpx;
-  margin-bottom: 15rpx;
-  margin-right: 20rpx;
+  flex-direction: row;
+  padding:18rpx 10rpx 0 10rpx;
+  width:100%;
+  box-sizing: border-box;
 }
 
 .content-item {
-  margin-left: 20rpx;
-  width: 211rpx;
-  float: left;
-  height: 100%;
-	position:relative;
+  padding:10rpx;
+}
+.content-item-list{
+  overflow: hidden;
+  border-radius: 6rpx 6rpx 0 0;
+  background-color:#f2f2f2;
+}
+.content-item-list image{
+  display: block;
+  height: 200rpx;
+  width: 100%;
 }
 
 .time{
-	width:100rpx;
-	height: 60rpx;
-	line-height: 60rpx;
-	text-align: center;
-	/* background: rgb(143, 142, 142); */
-	background: red;
-	position: absolute;
-	top:-3px;
-	right:-3rpx;
-	font-size:13px;
-	font-weight: 600;
-	color:white;
+  width:100rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  /* background: rgb(143, 142, 142); */
+  background: red;
+  position: absolute;
+  top:-3px;
+  right:-3rpx;
+  font-size:13px;
+  font-weight: 600;
+  color:white;
 }
-
-
-.content-item image {
-  width: 211rpx;
-  height: 300rpx;
-  border-radius: 20rpx;
-}
-
 .content-price {
-  display: flex;
-  align-items: center;
-  height: 50rpx;
+  padding:8prx;
 }
 
 .new-price {
   color: #d81e06;
-  font-weight: bold;
-  font-size: 30rpx;
+  font-size: 24rpx;
+  font-weight: 800;
+  
 }
 
 .old-price {
   color: #a9a9a9;
-  font-size: 20rpx;
+  font-size: 24rpx;
   text-decoration: line-through;
-  margin-left: 20rpx;
+  margin-left:20rpx;
 }
 
 .content-name {
-  font-size: 25rpx;
+  font-size: 24rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.content-store {
-  font-size: 20rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  padding:10rpx 0 8rpx  8rpx;
 }
 
 /*分割线*/
 .divLine {
-  
   background: #eee;
   width: 100%;
   height: 15rpx;
 }
 
 /*门店*/
-.eval-all {
-  margin: 30rpx;
-  min-height: 160rpx;
-
+.eval-all{
+  width:100%;
+  /* border-bottom:1rpx solid #eee; */
 }
 .goods-list{
-  border-bottom:1rpx solid #eee;
+  padding:20rpx;
+  margin-top:16rpx;
 }
 .flex-row {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-flex-direction: row;
   flex-direction: row;
 }
 .goods-pic {
-  width: 160rpx;
-  height: 160rpx;
-  margin-right: 20rpx;
-  margin-top: 10rpx;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 8rpx;
+}
+.goods-content{
+  padding-left:20rpx;
+}
+.goods-time-list{
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.flex-grow-1{
+  flex-grow:2;
+}
+.flex-grow-0{
+  flex-grow:1;
 }
 .goods-name {
-  margin-top: 15rpx;
-  -webkit-line-clamp: 2;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   font-size: 30rpx;
+  font-weight: bold;
 }
-
+.goods-time{
+  font-size:24rpx;
+  color:#888;
+}
+.goods-num{
+  font-size:24rpx;
+  color:#555;
+}
 .strat{
-  width: 25rpx;
+  width: 36rpx;
   height: 36rpx;
+  margin-left:4rpx;
 }
 
 .store_time{
@@ -258,4 +239,8 @@
   color: #888;
   text-align:right;
   margin-left:250rpx;
+}
+.bg-list{
+  height: 14rpx;
+  background: #f2f2f2;
 }

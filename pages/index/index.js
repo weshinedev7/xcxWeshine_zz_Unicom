@@ -8,7 +8,7 @@ Page({
    */
   data: {
     imgUrls:[],
-    list: []
+    stores:[],
   },
 
   /**
@@ -22,6 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //登录
     if(wx.getStorageSync('employeeInfo')===''){
       wx.showToast({
         title: '请先登录',
@@ -35,10 +36,11 @@ Page({
       }, 3000)
 
     }
-
+    //获取位置
     this.onAuthLocation();
+
+    //首页轮播
     var that = this;
-		//首页轮播
 		util.ajax({
 			url: app.globalData.path + 'ApiBanner/getBanner',
 			method: 'POST',
@@ -51,10 +53,9 @@ Page({
 					});
 				}
 			}
-
 		});
 
-		//首页菜品
+		//门店与菜品
 		util.ajax({
 			url: app.globalData.path + 'ApiFoods/FoodsSales',
 			method: 'POST',
@@ -62,16 +63,18 @@ Page({
 			success: function (res) {
 				//成功
 				if (res.data.code == 0) {
+          console.log(res.data)
 					that.setData({
-						foods: res.data.data,
+						stores: res.data.data,
 					});
 				}
 			}
-
 		});
   },
+
+  //预约会议室
   toRoom:function(e){
-    if(wx.getStorageSync('employeeInfo').role==='2'){
+    if(wx.getStorageSync('employeeInfo').role==='1'){
       wx.navigateTo ({
         url: '/pages/makeAnAppointment/makeAnAppointment'
       })
@@ -84,8 +87,10 @@ Page({
     }
 
   },
+
+  //预约车辆
   toCar:function(e){
-    if(wx.getStorageSync('employeeInfo').role==='2'){
+    if(wx.getStorageSync('employeeInfo').role==='1'){
       wx.navigateTo ({
         url: '/pages/bookingVehicle/bookingVehicle'
       })
@@ -146,6 +151,7 @@ Page({
   onShareAppMessage: function () {
 
 	},
+
 	// 查看详情
 	details: function (e) {
 		wx.navigateTo({
