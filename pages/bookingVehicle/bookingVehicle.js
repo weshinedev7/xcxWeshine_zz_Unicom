@@ -62,6 +62,7 @@ Page({
 		}
 
 		var that = this;
+		console.log(that.data.start_time);
 		// 修改时请求数据
 		if (this.data.b_id != null) {
 			wx.request({

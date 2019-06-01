@@ -28,6 +28,12 @@
         </navigator>
       </view>
       <view class="wc">
+        <navigator hover-class="none" class="navigator">
+          <image class="store_icon" src="/images/category.png"></image>
+          <view class="store_text">分类管理</view>
+        </navigator>
+      </view>
+      <view class="wc">
         <navigator hover-class="none" class="navigator" url="/pages/admin/admin?id={{store.id}}">
           <image class="store_icon" src="/images/admin.png"></image>
           <view class="store_text">查看管理员</view>

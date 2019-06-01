@@ -1,94 +1,102 @@
 <!-- 新增页面 -->
-<form bindsubmit='formsubmit' content-type="multipart/form-data" >
-<view class="main">
+<form bindsubmit='formsubmit' content-type="multipart/form-data">
+  <view class="main">
 
-  <view class="content">
-    <view class="text">菜品名称:</view>
-    <input placeholder="请输入菜名" name="name" value="{{food.name}}" />
-  </view>
-
-
-  <view class="content">
-    <view class="text">菜品原价:</view>
-    <input placeholder="请输入价格" name="original_price" value="{{food.original_price}}" class="price" />
-    <view class="text">元/份</view>
-  </view>
-
-  <view class="content">
-    <view class="text">菜品现价:</view>
-    <input placeholder="请输入价格" name="price" value="{{food.price}}" class="price" />
-    <view class="text">元/份</view>
-  </view>
-
-  <view class="content">
-    <view class="text">是否上架:</view>
-    <radio-group bindchange="checkboxChange" name="type">
-      <label class="checkbox">
-        <radio value="1" checked="{{type == 1?'true':''}}" />上架
-        <radio value="2" checked="{{type == 2?'true':''}}" />下架
-      </label>
-    </radio-group>
-  </view>
-
-  <view class="details">
-    <view class="details_title">菜品详情:</view>
-
-    <view class="meeting">
-      <textarea name="brief" placeholder="菜品详情..." maxlength="2000" value="{{food.brief}}" />
+    <view class="content">
+      <view class="text">菜品名称:</view>
+      <input placeholder="请输入菜名" name="name" value="{{food.name}}" />
     </view>
 
-  </view>
+    <view class="content">
+      <view class="text">菜品分类:</view>
+      <picker name="category_id" value="{{category[category_index].id}}" range="{{category}}" range-key="{{'name'}}" bindchange="category">
+        <view class="picker" wx:if="{{!category_index}}">选择分类</view>
+        <view class="picker" wx:if="{{category_index}}">{{category[category_index].name}}</view>
+      </picker>
+    </view>
 
-  <!-- 缩略图 -->
-  <view class="picture">
-    <view class="picture_title">菜品缩略图(限1张):</view>
 
-    <view class="picture_list">
+    <view class="content">
+      <view class="text">菜品原价:</view>
+      <input placeholder="请输入价格" name="original_price" value="{{food.original_price}}" class="price" />
+      <view class="text">元/份</view>
+    </view>
 
-      <view class="picture_item" wx:if="{{thumbnail.length > 0}}">
-        <image src="{{thumbnail}}" mode="aspectFill" class="image" bindtap="previewImage1"></image>
-        <text class='del' wx:if="{{thumbnail.length > 0}}" bindtap='deleteIcon' data-src='{{image}}' style='display:{{isDel}}'>×</text>
+    <view class="content">
+      <view class="text">菜品现价:</view>
+      <input placeholder="请输入价格" name="price" value="{{food.price}}" class="price" />
+      <view class="text">元/份</view>
+    </view>
+
+    <view class="content">
+      <view class="text">是否上架:</view>
+      <radio-group bindchange="checkboxChange" name="type">
+        <label class="checkbox">
+          <radio value="1" checked="{{type == 1?'true':''}}" />上架
+          <radio value="2" checked="{{type == 2?'true':''}}" />下架
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="details">
+      <view class="details_title">菜品详情:</view>
+
+      <view class="meeting">
+        <textarea name="brief" placeholder="菜品详情..." maxlength="2000" value="{{food.brief}}" />
       </view>
 
-      <view class='picture_item' wx:if="{{thumbnail.length == 0}}">
-        <view class="add-image" bindtap='upload_thumbnail'>
-          <image src="/images/add_icon.png"></image>
+    </view>
+
+    <!-- 缩略图 -->
+    <view class="picture">
+      <view class="picture_title">菜品缩略图(限1张):</view>
+
+      <view class="picture_list">
+
+        <view class="picture_item" wx:if="{{thumbnail.length > 0}}">
+          <image src="{{thumbnail}}" mode="aspectFill" class="image" bindtap="previewImage1"></image>
+          <text class='del' wx:if="{{thumbnail.length > 0}}" bindtap='deleteIcon' data-src='{{image}}' style='display:{{isDel}}'>×</text>
         </view>
-      </view>
 
-    </view>
-
-  </view>
-  <!-- 图片展示 -->
-  <view class="picture">
-    <view class="picture_title">菜品展示图片(限3张):</view>
-    <view class="picture_list">
-
-      <view class="picture_item" wx:for="{{imglist}}" wx:for-index="key" wx:for-item="value">
-        <image src="{{value}}" mode="aspectFill" class="image" bindtap="previewImage" data-index="{{key}}"></image>
-        <text class='del' bindtap='deleteImg' data-index="{{key}}" style='display:{{isDel}}'>×</text>
-      </view> 
-      <view class='picture_item' wx:if="{{imglist.length < 3}}">
-        <view class="add-image" bindtap='upload_file'>
-          <image src="/images/add_icon.png"></image>
+        <view class='picture_item' wx:if="{{thumbnail.length == 0}}">
+          <view class="add-image" bindtap='upload_thumbnail'>
+            <image src="/images/add_icon.png"></image>
+          </view>
         </view>
+
+      </view>
+
+    </view>
+    <!-- 图片展示 -->
+    <view class="picture">
+      <view class="picture_title">菜品展示图片(限3张):</view>
+      <view class="picture_list">
+
+        <view class="picture_item" wx:for="{{imglist}}" wx:for-index="key" wx:for-item="value">
+          <image src="{{value}}" mode="aspectFill" class="image" bindtap="previewImage" data-index="{{key}}"></image>
+          <text class='del' bindtap='deleteImg' data-index="{{key}}" style='display:{{isDel}}'>×</text>
+        </view>
+        <view class='picture_item' wx:if="{{imglist.length < 3}}">
+          <view class="add-image" bindtap='upload_file'>
+            <image src="/images/add_icon.png"></image>
+          </view>
+        </view>
+
       </view>
 
     </view>
 
   </view>
 
-</view>
 
-
-<!-- 重置提交按钮 -->
-<view class="nav_container">
-  <view class="reset" bindtap='reset'>重置</view>
+  <!-- 重置提交按钮 -->
+  <view class="nav_container">
+    <view class="reset" bindtap='reset'>重置</view>
     <button class="submit" form-type='submit'>提交</button>
-</view>
+  </view>
 </form>
 
 
-	<!-- <view class='cropper' wx:if="{{originUrl}}">
+<!-- <view class='cropper' wx:if="{{originUrl}}">
 			<cropper bind:getCropperImg="getCropperImg" url="{{ originUrl }}" ratio="{{ ratio }}"></cropper> 
 	</view> -->

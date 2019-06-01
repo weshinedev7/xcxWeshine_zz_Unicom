@@ -7,41 +7,97 @@ Page({
     originUrl: '',
     goodsPic: [],
     id: '',
-		type:1
+    type: 1,
+    food: [],
+
+    // 分类数据
+    category: '',
+    category_index: 0,
+  },
+  category: function(e) {
+    this.setData({
+      cateId: this.data.category[e.detail.value].id
+    })
+    var cateId = this.data.category[e.detail.value].id
+    console.log(cateId)
+    this.setData({
+      category_index: e.detail.value,
+    })
   },
   onLoad: function(options) {
-    var _this = this;
 
-    _this.setData({
-      id: options.id
-    })
-    console.log(_this.data.id)
-    if (this.data.id != null) {
-      // 按条件查询数据
-      util.ajax({
-        url: app.globalData.path + 'ApiStore/add',
-        method: 'POST',
-        data: {
+		if (options.id != null) {
+			this.setData({
+				id: options.id
+			})
+		}
+  },
+	onShow:function(){
+		var _this = this;
+		// console.log(_this.data.id)
+		if (_this.data.id != null) {
+			// 按条件查询数据
+			util.ajax({
+				url: app.globalData.path + 'ApiStore/add',
+				method: 'POST',
+				data: {
 					id: _this.data.id
-        },
-        success: function(res) {
-          //成功
+				},
+				success: function (res) {
+					//成功
 					_this.data.thumbnail.push(res.data.data.img);
-          if (res.data.code == 0) {
-						console.log(res.data)
+					if (res.data.code == 0) {
 						_this.setData({
-              food: res.data.data,
+							food: res.data.data,
 							thumbnail: _this.data.thumbnail,
 							imglist: res.data.imgs,
 							type: res.data.data.type,
-            });
-          }
+						});
+					}
 
-        }
+				}
 
-      });
-    }
-  },
+			});
+		}
+
+		// 分类搜索
+		util.ajax({
+			url: app.globalData.path + 'ApiCategory/index',
+			method: 'GET',
+			data: {
+				store_id: wx.getStorageSync('storeInfo').store_id
+			},
+			success: function (res) {
+				//成功
+				if (res.data.code == 0) {
+					_this.setData({
+						category: res.data.data,
+					});
+					if (_this.data.food.category_id != 0) {
+						var arr = [];
+						var arr1 = 0;
+						_this.data.category.forEach(function (item) {
+							arr.push(item.id)
+						})
+						var food = _this.data.food;
+						var category_id = food.category_id;
+
+						arr.forEach(function (item, index) {
+							if (item == category_id) {
+								arr1 = index
+							}
+						})
+						console.log(arr1)
+						_this.setData({
+							category_index: arr1
+						})
+					}
+				}
+
+			}
+
+		});
+	},
   // 缩略图
   upload_thumbnail: function() {
     this.upload(2, 1)
@@ -51,21 +107,29 @@ Page({
     var num = 3 - Number(this.data.imglist.length);
     this.upload(1, num)
   },
-	//菜名
-	name: function (e) {
-		this.setData({ name: e.detail.value })
-	},
-	//价格
-	price: function (e) {
-		this.setData({ price: e.detail.value })
-	},
-	originPrice: function (e) {
-		this.setData({ originPrice: e.detail.value })
-	},
-	//菜品详情
-	brief: function (e) {
-		this.setData({ brief: e.detail.value })
-	},
+  //菜名
+  name: function(e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  //价格
+  price: function(e) {
+    this.setData({
+      price: e.detail.value
+    })
+  },
+  originPrice: function(e) {
+    this.setData({
+      originPrice: e.detail.value
+    })
+  },
+  //菜品详情
+  brief: function(e) {
+    this.setData({
+      brief: e.detail.value
+    })
+  },
   // 文件上传
   upload: function(status, num) {
     var _this = this;
@@ -122,71 +186,72 @@ Page({
       }
     })
 
-	},
-	formsubmit: function (e) {
-		var _this = this;
-		
-		if (e.detail.value.name == '') {
-			return _this.alertMethod('请填写菜品名称');
-		}
-		if (e.detail.value.price == '') {
-			return _this.alertMethod('请填写菜品价格');
-		}
-		if (e.detail.value.originPrice == '') {
-			return _this.alertMethod('请填写菜品原价格');
-		}
-		if (e.detail.value.brief == '') {
-			return _this.alertMethod('请填写菜品原价格');
-		}
-		if (_this.data.imglist == '') {
-			return _this.alertMethod('请选择菜品展示图片');
-		}
-		if (_this.data.thumbnail == '') {
-			return _this.alertMethod('请选择菜品缩略图');
-		}
-		// 数据上传
-		util.ajax({
-			url: app.globalData.path + 'ApiStore/save',
-			method: 'POST',
-			data: {
-				id: _this.data.id,
-				name: e.detail.value.name,
-				price: e.detail.value.price,
-				store_id: wx.getStorageSync('storeInfo').store_id,
-				type: e.detail.value.type,
-				original_price: e.detail.value.original_price,
-				brief: e.detail.value.brief,
-				imglist: _this.data.imglist,
-				thumbnail: _this.data.thumbnail,
-			},
-			header: {
-				'content-type': 'application/x-www-form-urlencoded'
-			},
-			success: function (res) {
+  },
+  formsubmit: function(e) {
+    var _this = this;
 
-				if (res.data.code === 0) {
-					wx.showToast({
-						title: res.data.msg,
-						icon: 'succes',
-						duration: 1000,
-						mask: true
-					});
-					setTimeout(function () {
-						wx.redirectTo({
-							url: '/pages/varietyOfDishes/varietyOfDishes'
-						})
-					}, 500)
-				}else{
-					wx.showToast({
-						title: res.data.msg,
-						icon: 'none',
-						duration: 1500,
-						mask: true
-					});
-				}
-			}
-		})
-	},
+    if (e.detail.value.name == '') {
+      return _this.alertMethod('请填写菜品名称');
+    }
+    if (e.detail.value.price == '') {
+      return _this.alertMethod('请填写菜品价格');
+    }
+    if (e.detail.value.originPrice == '') {
+      return _this.alertMethod('请填写菜品原价格');
+    }
+    if (e.detail.value.brief == '') {
+      return _this.alertMethod('请填写菜品原价格');
+    }
+    if (_this.data.imglist == '') {
+      return _this.alertMethod('请选择菜品展示图片');
+    }
+    if (_this.data.thumbnail == '') {
+      return _this.alertMethod('请选择菜品缩略图');
+    }
+    // 数据上传
+    util.ajax({
+      url: app.globalData.path + 'ApiStore/save',
+      method: 'POST',
+      data: {
+        id: _this.data.id,
+        name: e.detail.value.name,
+        price: e.detail.value.price,
+        store_id: wx.getStorageSync('storeInfo').store_id,
+        type: e.detail.value.type,
+        original_price: e.detail.value.original_price,
+        brief: e.detail.value.brief,
+        imglist: _this.data.imglist,
+        thumbnail: _this.data.thumbnail,
+        cateId: _this.data.cateId,
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function(res) {
+
+        if (res.data.code === 0) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'succes',
+            duration: 1000,
+            mask: true
+          });
+          setTimeout(function() {
+            wx.redirectTo({
+              url: '/pages/varietyOfDishes/varietyOfDishes'
+            })
+          }, 500)
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1500,
+            mask: true
+          });
+        }
+      }
+    })
+  },
   // 点击删除图片
   deleteImg(e) {
     var that = this;
@@ -197,7 +262,7 @@ Page({
         if (res.confirm) {
           let imglist = that.data.imglist;
           let index = e.currentTarget.dataset.index;
-					console.log(index)
+          console.log(index)
           imglist.splice(index, 1);
           that.setData({
             imglist: imglist
@@ -250,12 +315,12 @@ Page({
       //数据源
       urls: pictures
     })
-	},
-	alertMethod: function (text) {
-		wx.showToast({
-			title: text,
-			icon: 'none'
-		});
-		return false;
-	}
+  },
+  alertMethod: function(text) {
+    wx.showToast({
+      title: text,
+      icon: 'none'
+    });
+    return false;
+  }
 })

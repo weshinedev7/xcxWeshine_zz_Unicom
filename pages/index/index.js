@@ -71,13 +71,13 @@ Page({
 		});
   },
   toRoom:function(e){
-    if(wx.getStorageSync('employeeInfo').role==='2'){
+    if(wx.getStorageSync('employeeInfo').role == 1){
       wx.navigateTo ({
         url: '/pages/makeAnAppointment/makeAnAppointment'
       })
     }else{
       wx.showToast({
-        title: '权限不足',
+        title: '你没有预约权限',
         icon: 'none',
         duration: 2000//持续的时间
       });
@@ -85,13 +85,13 @@ Page({
 
   },
   toCar:function(e){
-    if(wx.getStorageSync('employeeInfo').role==='2'){
+    if(wx.getStorageSync('employeeInfo').role == 1){
       wx.navigateTo ({
         url: '/pages/bookingVehicle/bookingVehicle'
       })
     }else{
       wx.showToast({
-        title: '权限不足',
+				title: '你没有预约权限',
         icon: 'none',
         duration: 2000//持续的时间
       });
