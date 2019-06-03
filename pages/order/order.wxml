@@ -49,7 +49,7 @@
       <view class="operation">
 
         <view bindtap='cancel' hover-class="none" class="flex-grow-0 score" data-id="{{item.id}}" data-key="{{index}}" wx:if="{{item.be_overdue == 0 && item.use_status == 0 && item.order_status == 0}}">取消</view>
-        <navigator url="/pages/details/details?id={{item.f_id}}" hover-class="none" class="flex-grow-0 score">再来一单</navigator>
+        <navigator url="/pages/storeInfo/storeInfo?id={{item.store_id}}" hover-class="none" class="flex-grow-0 score">再去逛逛</navigator>
         <view bindtap='have_meals' wx:if="{{item.use_status == 0 && item.order_status != 1}}" data-id="{{item.id}}" data-key="{{index}}" class="flex-grow-0 score btn">确认用餐</view>
         <navigator open-type="navigate" url="/pages/score/score?id={{item.id}}" wx:if="{{item.comment_status == 0 && item.use_status == 1 && item.order_status == 0}}" hover-class="none" class="flex-grow-0 score">评分</navigator>
         <view class="cancel" wx:if="{{item.use_status == 2}}">您已取消订单...</view>
