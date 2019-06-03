@@ -1268,11 +1268,11 @@ l .cart-decrease, .cart-add:fade-enter-active, :fade-leave-active {
 
 .sh_content6 {
   font-size: 26rpx;
-  color: #ff690f;
+  color: #dd2727;
 }
 
 .sh_content7 {
-  color: #ff690f;
+  color: #dd2727;
   font-size: 38rpx;
   font-weight: bold;
   margin-left: 5rpx;
