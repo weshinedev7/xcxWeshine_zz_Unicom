@@ -10,14 +10,17 @@
 </swiper>
 <!-- 主体 -->
 <view class="main">
-  <view class="main-name">{{food.name}}</view>
-  <view class="show">
-    <view style="color:#838383">{{food.store_name}}</view>
-    <view class="l2">评分:{{food.num_score}}</view>
-    <view class="l2">已售:{{food.total}}</view>
-  </view>
+  <view class="main-name">{{food.foods_name}}</view>
 
-  <view class="show-number">
+  <view class="show">
+    <view class="l2">{{food.store_name}}</view>
+    <view class="l2">已售:{{food.sold}}</view>
+  </view>
+  <view class="show">
+    <view class="l2" style='color:#dd2727;font-size:30rpx;'>￥{{food.price}}</view>
+    <view class="l2" style='text-decoration:line-through;color:#838383'>￥{{food.original_price}}</view>
+  </view>
+  <!-- <view class="show-number">
     <view class="flex-row flex-y-center mb-20">
       <view class="flex-grow-1 number-size">购买数量</view>
       <view class="flex-grow-0">
@@ -30,18 +33,27 @@
         </view>
       </view>
     </view>
-  </view>
-  <view class="display">
-    <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
-      菜品介绍
+  </view> -->
+  <!-- <view class="display">
+    <view class="display-sele active" bindtap='selectDispaly' data-id="0">
+      
     </view>
-    <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
-      评分
+    <view class="display-sele active" bindtap='selectDispaly' data-id="0">
+      
+    </view>
+  </view> -->
+
+  <view class="display">
+    <view class="display-sele active" bindtap='selectDispaly' data-id="0">
+      
+    </view>
+    <view class="display-sele active" bindtap='selectDispaly' data-id="0">
+      
     </view>
   </view>
 
   <!--介绍-->
-  <view wx:if="{{check=='0'}}" class="eval-all">
+  <view wx:if="{{check=='0'}}" class="eval-all" >
     <view class="brief-content">{{food.brief}}</view>
   </view>
 
@@ -78,11 +90,10 @@
   </view>
 </view>
 <!-- 底部 -->
-<view class="nav_container">
+<!-- <view class="nav_container">
   <view class="price">
     <text class="money">￥{{total}}</text>
-    <!-- <text class="original_price">￥8</text> -->
   </view>
-  <view class="pay" bindtap="{{food.store_status == 1?'toOrder':'ts'}}" data-id='1'>自付</view>
-  <view class="de-pay" bindtap="{{food.store_status == 1?'toOrder':'ts'}}" data-id="2">部门代付</view>
-</view>
+  <view class="pay" bindtap="{{food.time == 1?'toOrder':'ts'}}" data-id='1'>自付</view>
+  <view class="de-pay" bindtap="{{food.time == 1?'toOrder':'ts'}}" data-id="2">部门代付</view>
+</view> -->

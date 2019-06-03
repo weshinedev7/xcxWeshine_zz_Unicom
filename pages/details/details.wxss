@@ -28,7 +28,6 @@
   margin-top: 10rpx;
   margin-bottom: 20rpx;
   padding-left: 0rpx;
-  color: #a9a9a9;
   display: flex;
   flex-direction: row;
 }
@@ -149,7 +148,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin-top: 50rpx;
+  margin-top: -34rpx;
 }
 
 .display-sele {
@@ -161,13 +160,14 @@
 }
 
 .active {
-  color: #ff6f43;
-  border-bottom: 1px solid #ff6f43;
+  color: #dd2727;
+  border-bottom: 1px solid #dd2727;
 }
 
 .eval-all {
   margin-bottom: 130rpx;
   min-height: 200rpx;
+
 }
 
 .evaluate {
@@ -247,7 +247,7 @@
 
 .money {
   font-size: 40rpx;
-  color: red;
+  color: #dd2727;
   font-weight: 700;
 }
 
@@ -273,7 +273,7 @@
   margin-right: 10rpx;
   text-align: center;
   line-height: 70rpx;
-  background: #ff9475;
+  background: #dd2727;
   color: white;
   border-radius: 26rpx;
   font-size: 27rpx;
@@ -288,7 +288,7 @@
   margin-right: 10rpx;
   text-align: center;
   line-height: 70rpx;
-  background: #ff6f43;
+  background: #dd2727;
   color: white;
   border-radius: 26rpx;
   font-size: 27rpx;

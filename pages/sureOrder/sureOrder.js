@@ -109,7 +109,7 @@ Page({
       url: app.globalData.path + 'ApiFoods/orderinfo',
       method: "POST",
       data: {
-        userId: store_id,
+        userId: userId,
         type: type,
         storeId: store_id,
         orderInfo: JSON.stringify(orderInfo),
