@@ -17,6 +17,18 @@ Page({
 		openof: 1,
 		page: 1
   },
+	//打开透明层
+	showRule: function () {
+		this.setData({
+			isRuleTrue: true
+		})
+	},
+	//关闭透明层
+	hideRule: function () {
+		this.setData({
+			isRuleTrue: false
+		})
+	},
   //滑动切换
   swiperTab: function(e) {
     var that = this;
@@ -261,7 +273,30 @@ Page({
         wx.stopPullDownRefresh() //停止下拉刷新
       },
     })
-  },
+	},
+	outLogin: function (e) {
+		wx.showModal({
+			title: '提示',
+			content: '确定要注销吗？',
+			success: function (sm) {
+				if (sm.confirm) {
+					// 用户点击了确定 可以调用删除方法了
+					wx.setStorageSync('storeInfo', "");
+					wx.showToast({
+						title: '已注销',
+						icon: 'succes',
+						duration: 1000,
+						mask: true
+					})
+					setTimeout(function () {
+						wx.redirectTo({
+							url: '/pages/roomLogin/roomLogin'
+						})
+					}, 1000)
+				}
+			}
+		})
+	},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

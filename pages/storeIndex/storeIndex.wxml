@@ -6,8 +6,28 @@
     <image src="{{store.img}}" class="store_img"></image>
   </view>
   <view>
-    <image class="xx_img" bindtap="powerDrawer" data-statu="open" src="/images/xx.png"></image>
+    <image class="xx_img" bindtap="showRule" data-statu="open" src="/images/xx.png"></image>
   </view>
+
+
+  <view class="float {{isRuleTrue?'isRuleShow':'isRuleHide'}}" bindtap='hideRule'>
+    <view class="column">
+      <navigator url="/pages/storeOrder/storeOrder" hover-class="none">
+        <view class="column_content">查看订单</view>
+      </navigator>
+      <navigator url="/pages/varietyOfAdd/varietyOfAdd" hover-class="none">
+        <view class="column_content">添加菜品</view>
+      </navigator>
+      <navigator url="/pages/category/category" hover-class="none">
+        <view class="column_content">分类管理</view>
+      </navigator>
+      <navigator url="/pages/admin/admin" hover-class="none">
+        <view class="column_content">管理员列表</view>
+      </navigator>
+      <view class="column_content" bindtap='outLogin'>注销</view>
+    </view>
+  </view>
+
 
   <view class="store">
     <view class="store_name">
@@ -23,7 +43,6 @@
     </view>
     <view class="store_name"></view>
   </view>
-
 </view>
 
 <!-- <view class="store_operation">
@@ -48,7 +67,7 @@
     <view class="store_container">
       <!--左侧栏-->
 
-      <scroll-view scroll-y="true" class="nav_left" style='height:{{height_h}}px'>
+      <scroll-view scroll-y="true" class="nav_left">
         <view class="nav_left_items {{curNav == '0' ? 'active' : ''}}" bindtap="switchRightTab" data-id="0">全部</view>
         <block wx:for="{{category}}">
           <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
@@ -56,7 +75,7 @@
       </scroll-view>
       <!--右侧栏-->
 
-      <scroll-view scroll-y="true" class="nav_right clear" style='height:{{height_h}}px'>
+      <scroll-view scroll-y="true" class="nav_right clear">
         <!--如果有数据，才遍历项-->
         <view wx:if="{{foods}}" style="display:inline;">
           <block wx:for="{{foods}}">

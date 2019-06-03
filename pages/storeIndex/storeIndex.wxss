@@ -9,7 +9,6 @@ page {
   position: relative;
   background: white;
   margin-bottom: 10rpx;
-  /* border-bottom: 1rpx solid #838383; */
 }
 
 .top_img {
@@ -35,26 +34,47 @@ page {
 
 .column {
   width: 150rpx;
-  /* height: 200rpx; */
   background: white;
   position: absolute;
   right: 50rpx;
   top: 90rpx;
+  box-shadow: 0rpx 0rpx 10rpx 1rpx #b1b0b0;
 }
 
 .column_content {
   width: 100%;
   height: 50rpx;
-  color: #999595;
+  color: #5f5e5e;
   font-size: 13px;
-  /* background: pink; */
   line-height: 50rpx;
   text-align: center;
   border-bottom: 1rpx solid #dfdcdc;
 }
 
-.column_hidden {
-  display: hidden;
+.isRuleShow {
+  display: block;
+}
+ 
+.isRuleHide {
+  display: none;
+}
+ 
+.float {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+ 
+.ruleHide {
+  height: 60rpx !important;
+  width: 60rpx !important;
+  position: absolute;
+  top: -9rpx;
+  right: -9rpx;
 }
 
 .top_img image {
@@ -116,66 +136,6 @@ page {
   font-size: 12px;
   text-align: center;
   color: #838383;
-}
-
-.store_operation {
-  width: 100%;
-  height: 80rpx;
-  background: white;
-  margin: 10rpx 0rpx 0rpx;
-}
-
-.add_category {
-  width: 33.3%;
-  height: 80rpx;
-  float: left;
-  line-height: 80rpx;
-  text-align: center;
-  font-size: 14px;
-}
-
-.add_category navigator {
-  width: 140rpx;
-  height: 50rpx;
-  border-radius: 10rpx;
-  text-align: center;
-  margin: 15rpx auto 0rpx;
-  line-height: 50rpx;
-  padding: 0rpx 10rpx;
-  font-size: 13px;
-  color: white;
-  background: #dd2727;
-}
-
-.add_food navigator {
-  width: 140rpx;
-  height: 50rpx;
-  border-radius: 10rpx;
-  text-align: center;
-  margin: 15rpx auto 0rpx;
-  padding: 0rpx 10rpx;
-  line-height: 50rpx;
-  font-size: 13px;
-  color: white;
-  background: #dd2727;
-}
-
-.store_set {
-  width: 33.3%;
-  height: 80rpx;
-  float: left;
-  font-size: 14px;
-  text-align: center;
-  margin: 10rpx 0rpx;
-}
-
-.add_food {
-  width: 33.3%;
-  height: 80rpx;
-  float: left;
-  text-align: center;
-  line-height: 80rpx;
-  font-size: 14px;
 }
 
 /*总体主盒子*/

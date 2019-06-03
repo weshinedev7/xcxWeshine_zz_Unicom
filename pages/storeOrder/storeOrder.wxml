@@ -9,72 +9,30 @@
   </view>
 </view>
 
-<!--内容-->
-<view wx:if="{{list.length != 0}}" class="eval-all">
-  <block wx:for="{{list}}" wx:for-item="item" wx:key="">
-    <view class="food_status" wx:if="{{item.food_status == 2}}">{{item.food_status == 2?'已下架':''}}</view>
+<!--数据-->
+<!-- <view wx:if="{{list.length != 0}}" class="eval-all"> -->
 
-    <view class="flex-row flex-grow-1 order-info">{{item.order_time}}</view>
-
-    <view class="goods-list flex-row">
-
-      <image class="goods-pic" mode="aspectFill" src="{{item.img}}" />
-
-      <view class="content flex-grow-1">
-        <view class="flex-grow-1">
-          <view class="goods-name text-style">{{item.name}}</view>
-          <view class="attr-item">×{{item.number}}</view>
-        </view>
-
-        <view class="flex-grow-1 flex-row">
-          <view class="flex-grow-0 price">￥{{item.price}}</view>
-        </view>
+<!-- <block wx:for="{{list}}"> -->
+<view class="order">
+  <view class="order_title">订单状态</view>
+  <view class="order_goods">
+    <view class="good_content">
+      <view class="good_img">
+        <image src=""></image>
       </view>
-
-      <!--弹窗-->
-      <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
-      <view class="modal-dialog" wx:if="{{showModal}}">
-        <view class="modal-title">取消原因</view>
-        <form bindsubmit='onConfirm'>
-          <view class="modal-content">
-            <view class="modal-input">
-              <textarea placeholder="请输入取消原因" class="textarea" name="store_remarks" type="text" focus="{{focus}}" />
-            </view>
-          </view>
-          <view class="modal-footer">
-            <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
-            <button form-type='submit' data-status="confirm" class="btn-confirm" style="border:none">确定</button>
-          </view>
-        </form>
+      <view class="good_text">
+        <view class="good_name"></view>
+        <view class="good_biref"></view>
       </view>
-
+      <view class="num"></view>
+      <view class="price"></view>
     </view>
-
-    <view class="hf clear" style="{{item.remarks != ''?'':'display:none'}}">
-      <view class="reply">用户备注:</view>
-      <view class="reply-text">{{item.remarks}}</view>
-    </view>
-
-    <view class="hf clear border" style="padding-top:10rpx;{{item.order_status != 0?'':'display:none'}}">
-      <view class="reply">商家回复:</view>
-      <view class="reply-text">{{item.store_remarks}}</view>
-    </view>
-
-    <view class="flex-row count-order">
-      <view class="operation">
-        <text bindtap='showDialogBtn' class="complete btn3" data-id="{{item.id}}" wx:if="{{item.order_status == 0 && item.be_overdue == 0 && item.state != 1}}">取消</text>
-        <text class="complete btn1" wx:if="{{item.be_overdue == 1 && item.order_status == 0}}">订单已完成</text>
-
-        <text class="complete btn2" wx:if="{{item.order_status == 1}}">订单已取消</text>
-      </view>
-
-    </view>
-
-  </block>
-
-  <view class="middle_none" wx:if="{{len == 0}}">我也是有底线的，别太过分~</view>
+  </view>
 </view>
+<!-- </block> -->
 
+<view class="middle_none" wx:if="{{len == 0}}">我也是有底线的，别太过分~</view>
+<!-- </view> -->
 <view wx:else>
   <view class="middle_none" style="margin-top:300rpx;">暂无订单</view>
 </view>

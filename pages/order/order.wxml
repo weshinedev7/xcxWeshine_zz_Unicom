@@ -45,15 +45,6 @@
 
     </view>
 
-    <!-- <view class="hf clear" style="{{item.remarks != null?'':'display:none'}}">
-      <view class="reply">我的备注:</view>
-      <view class="reply-text">{{item.remarks}}</view>
-    </view>
-    <view class="hf clear border" style="padding-top:10rpx;{{item.order_status != 0?'':'display:none'}}">
-      <view class="reply">商家回复:</view>
-      <view class="reply-text">{{item.store_remarks}}</view>
-    </view> -->
-
     <view class="flex-row count-order">
       <view class="operation">
 
