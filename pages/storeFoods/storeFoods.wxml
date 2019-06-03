@@ -1,23 +1,25 @@
-<view class="top">
+<view class="top" wx:if="{{store}}">
   <view class="top_img">
-    <image src="{{store.img}}"></image>
+    <image src="{{store.store_img}}"></image>
   </view>
   <view>
-    <image src="{{store.img}}" class="store_img"></image>
+    <image src="{{store.store_img}}" class="store_img"></image>
   </view>
   <view class="store">
     <view class="store_name">
-      <view class="store_name_content">{{store.name}}</view>
+      <view class="store_name_content">{{store.store_name}}</view>
     </view>
     <view class="store_text">
-      <view class="store_comment">评价 ：4.9</view>
-      <view class="store_comment">月售 ：4908单</view>
+      <view class="store_comment">
+        <image mode="aspectFill" wx:for="{{5}}" wx:key="" src="/images/start.png" class="strat" />
+      </view>
+      <view class="store_comment">已售 :{{store.count}}</view>
       <view class="store_comment">营业时间 ：{{store.business_hours}}-{{store.closing_time}}</view>
     </view>
     <view class="store_name"></view>
   </view>
-
 </view>
+
 <view class="container">
   <!--左侧栏-->
   <view class="nav_left">
@@ -37,24 +39,25 @@
             </view>
             <view class="food_text">
               <view class="food_name">{{item.name}}</view>
-              <view class="food_brief">{{item.brief}}</view>
               <view class="food_more">
-                <view class="sold">销量：4999</view>
-                <view class="sold">评分：4.9</view>
+                <view class="sold">已售:{{item.sold}}</view>
+                <view class="sold" style="padding-left:40rpx;">评分:{{item.score}}</view>
               </view>
               <view class="operation">
                 <view class="food_price">￥{{item.price}}</view>
                 <view class="num">
-                  <!-- 减号 -->
+                  
                   <view class="jian {{num <= 1 ? 'disabled' : 'normal'}}" bindtap="delCount" data-index="{{index}}">
                     <image src="/images/jian.png"></image>
                   </view>
-                  <!-- 数值 -->
+                  
                   <input class="number" type="number" value="{{num}}" disabled="disabled" />
-                  <!-- 加号 -->
+                  
+
                   <view class="jia {{num >= 10 ? 'disabled' : 'normal'}}" bindtap="addCount" data-index="{{index}}">
                     <image src="/images/jia.png"></image>
                   </view>
+
                 </view>
               </view>
             </view>
@@ -70,9 +73,7 @@
 <!-- 底部 -->
 <view class="nav_container">
   <view class="price">
-    <text class="money">￥{{total}}</text>
-    <!-- <text class="original_price">￥8</text> -->
+    <text class="money">{{total}}</text>
   </view>
-  <!-- <view class="pay" bindtap="{{food.store_status == 1?'toOrder':'ts'}}" data-id='1'>自付</view> -->
-  <view class="de-pay" bindtap="{{food.store_status == 1?'toOrder':'ts'}}" data-id="2">部门代付</view>
+  <view class="de-pay" bindtap="{{food.store_status == 1?'toOrder':'ts'}}" data-id="2">去结算</view>
 </view>

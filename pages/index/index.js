@@ -7,15 +7,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls:[],
-    stores:[],
+    imgUrls: [],
+    stores: [],
   },
 
   /**
   * 自动获取位置
   */
-  onAuthLocation(){
-    
+  onAuthLocation() {
+
   },
 
   /**
@@ -23,14 +23,14 @@ Page({
    */
   onLoad: function (options) {
     //登录
-    if(wx.getStorageSync('employeeInfo')===''){
+    if (wx.getStorageSync('employeeInfo') === '') {
       wx.showToast({
         title: '请先登录',
         icon: 'none',
         duration: 2000//持续的时间
       });
       setTimeout(function () {
-        wx.redirectTo ({
+        wx.redirectTo({
           url: '/pages/roomLogin/roomLogin'
         })
       }, 3000)
@@ -41,44 +41,43 @@ Page({
 
     //首页轮播
     var that = this;
-		util.ajax({
-			url: app.globalData.path + 'ApiBanner/getBanner',
-			method: 'POST',
-			data: {},
-			success: function (res) {
-				//成功
-				if (res.data.status == '200') {
-					that.setData({
-						imgUrls: res.data.info,
-					});
-				}
-			}
-		});
+    util.ajax({
+      url: app.globalData.path + 'ApiBanner/getBanner',
+      method: 'POST',
+      data: {},
+      success: function (res) {
+        //成功
+        if (res.data.status == '200') {
+          that.setData({
+            imgUrls: res.data.info,
+          });
+        }
+      }
+    });
 
-		//门店与菜品
-		util.ajax({
-			url: app.globalData.path + 'ApiFoods/FoodsSales',
-			method: 'POST',
-			data: {},
-			success: function (res) {
-				//成功
-				if (res.data.code == 0) {
-          console.log(res.data)
-					that.setData({
-						stores: res.data.data,
-					});
-				}
-			}
-		});
+    //门店与菜品
+    util.ajax({
+      url: app.globalData.path + 'ApiFoods/FoodsSales',
+      method: 'POST',
+      data: {},
+      success: function (res) {
+        //成功
+        if (res.data.code == 0) {
+          that.setData({
+            stores: res.data.data,
+          });
+        }
+      }
+    });
   },
 
   //预约会议室
-  toRoom:function(e){
-    if(wx.getStorageSync('employeeInfo').role == 1){
-      wx.navigateTo ({
+  toRoom: function (e) {
+    if (wx.getStorageSync('employeeInfo').role === '1') {
+      wx.navigateTo({
         url: '/pages/makeAnAppointment/makeAnAppointment'
       })
-    }else{
+    } else {
       wx.showToast({
         title: '你没有预约权限',
         icon: 'none',
@@ -89,14 +88,14 @@ Page({
   },
 
   //预约车辆
-  toCar:function(e){
-    if(wx.getStorageSync('employeeInfo').role == 1){
-      wx.navigateTo ({
+  toCar: function (e) {
+    if (wx.getStorageSync('employeeInfo').role === '1') {
+      wx.navigateTo({
         url: '/pages/bookingVehicle/bookingVehicle'
       })
-    }else{
+    } else {
       wx.showToast({
-				title: '你没有预约权限',
+        title: '你没有预约权限',
         icon: 'none',
         duration: 2000//持续的时间
       });
@@ -150,20 +149,20 @@ Page({
    */
   onShareAppMessage: function () {
 
-	},
+  },
 
-	// 查看详情
-	details: function (e) {
-		wx.navigateTo({
-			url: '/pages/details/details?id=' + e.currentTarget.dataset.id
-		})
-	},
-	// 已打烊
-	close: function (e) {
-		wx.showToast({
-			title: '该店铺已打烊',
-			icon: 'none',
-			duration: 1000,
-		});
-	}
+  // 查看详情
+  details: function (e) {
+    wx.navigateTo({
+      url: '/pages/details/details?id=' + e.currentTarget.dataset.id
+    })
+  },
+  // 已打烊
+  close: function (e) {
+    wx.showToast({
+      title: '该店铺已打烊',
+      icon: 'none',
+      duration: 1000,
+    });
+  }
 })

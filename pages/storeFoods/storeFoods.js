@@ -15,16 +15,32 @@ Page({
    */
 	onLoad: function (options) {
 		var _this = this;
+		_this.setData({
+			store_id:options.id
+	    });
+
+		//获取店铺信息
+		util.ajax({
+			url:app.globalData.path + 'ApiCategory/getStore',
+			data:{
+				id:_this.data.store_id
+			},
+			method: 'POST',
+			success:function(res){
+				if(res.data.code==0){
+					_this.setData({
+						store:res.data.data
+					});
+				}
+			}
+		})
 		// 获取分类
 		util.ajax({
 			url: app.globalData.path + 'ApiCategory/index',
 			data: {
-				store_id: wx.getStorageSync('storeInfo').store_id
+				store_id: _this.data.store_id
 			},
 			method: 'GET',
-			header: {
-				'content-type': 'application/x-www-form-urlencoded' // 默认值
-			},
 			success: function (res) {
 				//成功
 				if (res.data.code == 0) {
@@ -34,29 +50,28 @@ Page({
 				}
 			}
 		})
-		// 获取全部数据   
+
+		// 获取全部菜品   
 		util.ajax({
 			url: app.globalData.path + 'ApiStore/index',
 			data: {
-				storeId: wx.getStorageSync('storeInfo').store_id,
+				storeId: _this.data.store_id,
 				categoryId: _this.data.curNav
 			},
 			method: 'GET',
-			header: {
-				'content-type': 'application/x-www-form-urlencoded' // 默认值
-			},
 			success: function (res) {
 				//成功
 				if (res.data.code == 0) {
 					_this.setData({
 						foods: res.data.data,
-						store: res.data.store,
 					});
 				}
 			}
 		})
 
-	}, //事件处理函数  
+	},
+
+	//事件处理函数  
 	switchRightTab: function (e) {
 		// 获取item项的id，和数组的下标值  
 		let id = e.target.dataset.id,
@@ -71,19 +86,15 @@ Page({
 		util.ajax({
 			url: app.globalData.path + 'ApiStore/index',
 			data: {
-				storeId: wx.getStorageSync('storeInfo').store_id,
+				storeId: _this.data.store_id,
 				categoryId: id
 			},
 			method: 'GET',
-			header: {
-				'content-type': 'application/x-www-form-urlencoded' // 默认值
-			},
 			success: function (res) {
 				//成功
 				if (res.data.code == 0) {
 					_this.setData({
 						foods: res.data.data,
-						store: res.data.store,
 					});
 				}
 			}

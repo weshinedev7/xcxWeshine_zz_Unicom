@@ -40,12 +40,27 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "11",
 					"pathName": "pages/score/score",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "22",
+					"pathName": "pages/storeInfo/storeInfo",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "33",
+					"pathName": "pages/sureOrder/sureOrder",
+					"query": "store_id=1",
 					"scene": null
 				}
 			]
