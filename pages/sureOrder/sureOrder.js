@@ -13,37 +13,40 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-    //读取缓存数据
-    let data = wx.getStorageSync("order_info")
-    this.setData({
-      info: {
-        type: data.type,
-        foodName: data.foodName,
-        img: data.img,
-        storeName: data.storeName,
-        number: data.number,
-        total: data.total
+    var _this = this;
+    // 获取购物车数据表的数据
+    util.ajax({
+      url: app.globalData.path + 'ApiFoods/shoppingCart',
+      method: "POST",
+      data: {
+        userId: 33,
+        storeId: 1,
+      },
+      success: function(res) {
+        if (res.data.code == 0) {
+          _this.setData({
+            foods: res.data.foods,
+            store: res.data.store,
+            sum: res.data.sum,
+          })
+          console.log(_this.data.foods)
+        }
       }
     })
-
   },
 
   submit: function(e) {
-    this.data.info.staff = wx.getStorageSync("employeeInfo").id
-    this.data.info.storeId = wx.getStorageSync("order_info").storeId
-    this.data.info.foodId = wx.getStorageSync("order_info").foodId
-
-    //备注数据获取
-    this.data.info.remarks = e.detail.value.remarks
-
     //把订单信息传到后台接口
     util.ajax({
       url: app.globalData.path + 'ApiFoods/orderinfo',
       method: "POST",
-      data: this.data.info,
+			data: {
+				userId: 33,
+				storeId: 1,
+				remarks: e.detail.value.remarks
+			},
       success: function(res) {
-				if (res.data.status == 'success') {
+        if (res.data.status == 'success') {
           wx.showToast({
             title: res.data.msg,
             icon: 'success',

@@ -102,6 +102,8 @@ Page({
   have_meals: function(e) {
     var _this = this;
     var key = e.currentTarget.dataset.key;
+		console.log(key)
+		console.log(e.currentTarget.dataset.id)
     wx.showModal({
       title: '提示',
       content: '确定已用餐吗？',
@@ -124,7 +126,7 @@ Page({
                 });
                 // 重置数据
                 if (_this.data.check == 0) {
-                  _this.data.list[key].state = 1;
+                  _this.data.list[key].use_status = 1;
                   _this.setData({
                     list: _this.data.list
                   })
@@ -163,7 +165,7 @@ Page({
                 });
                 // 重置数据
                 if (_this.data.check == 0) {
-                  _this.data.list[key].state = 2;
+									_this.data.list[key].use_status = 2;
                   _this.setData({
                     list: _this.data.list
                   })

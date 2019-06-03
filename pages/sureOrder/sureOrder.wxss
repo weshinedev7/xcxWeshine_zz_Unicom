@@ -1,131 +1,228 @@
-page{
-	/* background: #f5f5f5; */
-}
-.page{
-	height:100%;
-	width: 100%;
-	padding-top:30rpx; 
+page {
+  background: #f3f3f3;
 }
 
-.store_icon{
-	width:100%;
-	height:500rpx;
-	/* padding-top:100rpx; */
+.mode {
+  width: 95%;
+  height: 80rpx;
+  background: white;
+  margin: 10rpx auto;
 }
 
-.icon{
-	width:100%;
-	height:500rpx;
-}
-
-.content{
-	width:100%;
-	height:90rpx;
-	background: red;
-	margin:0rpx auto;
-	background: white;
-	/* margin-bottom:10rpx; */
-	border-bottom:1rpx solid #f8f8f8;
-}
-
-.content_input{
-	width:95%;
-	height:90rpx;
+.mode_center{
+	width:90%;
+	height:80%;
 	margin:0rpx auto;
 }
 
-.content_text{
-	width:20%;
-	height:90rpx;
-	line-height: 90rpx;
-	font-size:14px;
+.mode_title {
+  width: 50%;
+  float: left;
+  height: 80rpx;
+  font-size: 14px;
+  line-height: 80rpx;
 	font-weight: 700;
-	float:left;
-	color:#6d6a6a;
-	padding-left:30rpx;
 }
 
-.content_input .text{
-	width: 70%;
-	float:left;
-	height:90rpx;
-	line-height: 90rpx;
-	padding-right:30rpx;
-	font-size:13px;
-	text-align: center;
-}
-
-
-.submitData{
-	width: 23%;
-	height:70rpx;
-	line-height: 70rpx;
-	font-size:14px;
-	background: white;
-	margin:50rpx auto 0rpx;
-}
-
-.ts{font-size:20rpx;}
-
-.switch{
-	width: 61%;
-	height:90rpx;
-	padding-right:30rpx;
-	font-size:13px;
+.mode_content {
+  width: 50%;
+  float: left;
 	text-align: right;
+  height: 80rpx;
+  font-size: 14px;
+  line-height: 80rpx;
 }
 
+.switch {
+  margin-top: 10rpx;
+  margin-left: 50rpx;
+}
 
+.content {
+  width: 95%;
+  background: white;
+  margin: 0rpx auto;
+}
 
-textarea{
-  width: 80%;
+.store {
+  width: 100%;
+  height: 80rpx;
+}
+
+.store_content {
+  width: 90%;
+  height: 80rpx;
+  font-size: 15px;
+  margin: 0rpx auto;
+  font-weight: 900;
+  line-height: 80rpx;
+  border-bottom: 2px solid #ebe8e8;
+}
+
+.foods {
+  width: 90%;
+  margin: 40rpx auto 0rpx;
+}
+
+.foods_content {
+  width: 100%;
+  margin-top: 20rpx;
+  height: 100rpx;
+  border-bottom: 1rpx dotted #ebe8e8;
+  padding-bottom: 20rpx;
+}
+
+.foods_img {
+  width: 20%;
+  height: 100rpx;
+  float: left;
+}
+
+.foods_img image {
+  width: 100%;
+  height: 100rpx;
+}
+
+.foods_information {
+  width: 40%;
+  height: 100rpx;
+  float: left;
+}
+
+.foods_name {
+  font-size: 13px;
+  font-weight: 700;
+  width: 90%;
+  float: right;
+  margin-top: 10rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.foods_brief {
+  font-size: 11px;
+  width: 90%;
+  height: 40rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+  float: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.foods_num {
+  width: 20%;
+  height: 100rpx;
+  font-size: 13px;
+  float: left;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.foods_price {
+  width: 20%;
+  font-size: 15px;
+  height: 100rpx;
+  font-weight: 700;
+  color: red;
+  float: left;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.clear:after {
+  content: '';
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+
+.subtotal {
+  width: 90%;
+  height: 100rpx;
+  margin: 30rpx auto 0rpx;
+  border-top: 2px solid #ebe8e8;
+}
+
+.subtotal_price {
+  width: 50%;
+  height: 100rpx;
+  float: right;
+  line-height: 100rpx;
+  text-align: right;
+  font-size: 16px;
+}
+
+.subtotal_price_title{
+	font-size:10px;
+	float:right;
+}
+
+.subtotal_price text {
+  color: red;
+  font-weight: 900;
+	float:right;
+}
+
+.remarks {
+  width: 95%;
+  background: white;
+  margin: 30rpx auto 200rpx;
+  padding-bottom: 40rpx;
+}
+
+.remarks .remark_title {
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 16px;
+  margin: 0rpx auto;
+}
+
+textarea {
+  width: 90%;
   height: 360rpx;
   padding: 20rpx 10rpx;
   font-size: 30rpx;
   border: 1rpx solid #ececec;
   border-radius: 26rpx;
-	margin:20rpx auto 300rpx;
+  margin: 0rpx auto;
 }
 
-
-
-/* 底部重置提交 */
-
+/* 底部导航 */
 .nav_container {
   position: fixed;
   width: 100%;
-  height: 140rpx;
+  height: 120rpx;
   bottom: 0px;
   background-color: white;
   z-index: 999;
-  box-shadow: 0rpx 6rpx 6rpx 6rpx #838383;
+  box-shadow: 0rpx 6rpx 12rpx 6rpx #cecdcd;
 }
 
-/* 重置数据 */
-
-/* .reset {
-  width: 180rpx;
-  height: 80rpx;
+.price {
+  margin-top: 30rpx;
+  width: 200rpx;
   float: left;
-  margin: 30rpx 0rpx 0rpx 80rpx;
-  text-align: center;
-  line-height: 80rpx;
-  background: #dd2727;
-  color: white;
-  border-radius: 26rpx;
-  font-size: 27rpx;
-} */
+  margin: 30rpx 0rpx 0rpx 50rpx;
+}
 
-/* 提交数据 */
+.money {
+  font-size: 40rpx;
+  color: red;
+  font-weight: 700;
+}
 
-.submit {
+.pay {
   width: 180rpx;
-  height: 80rpx;
+  height: 70rpx;
   float: right;
-  margin: 30rpx 80rpx 0rpx 0rpx;
+  margin-top: 25rpx;
+  margin-right: 20rpx;
   text-align: center;
-  line-height: 80rpx;
-  background: #dd2727;
+  line-height: 70rpx;
+  background: rgb(2, 165, 2);
   color: white;
   border-radius: 26rpx;
   font-size: 27rpx;

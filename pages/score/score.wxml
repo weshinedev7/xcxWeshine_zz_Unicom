@@ -23,7 +23,7 @@
   </view>
 
   <view class="nav_container">
-    <view class="reset" bindtap="submit">提交</view>
     <view class="submit" bindtap="cancel">取消</view>
+    <view class="reset" bindtap="submit">提交</view>
   </view>
 </view>

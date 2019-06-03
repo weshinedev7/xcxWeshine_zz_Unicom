@@ -1,20 +1,18 @@
-page{
-	position:relative;
-}
-.xx_top{
-	width:100%;
-	padding-bottom:20rpx;
-	height:83rpx;
-	z-index: 999;
-	position:fixed;
-	top:0rpx;
-	background: white;
-	left:0rpx;
-	box-shadow: 0rpx 0rpx 25rpx 5rpx #d4d3d3
+page {
+  position: relative;
 }
 
-
-
+.xx_top {
+  width: 100%;
+  padding-bottom: 20rpx;
+  height: 83rpx;
+  z-index: 999;
+  position: fixed;
+  top: 0rpx;
+  background: white;
+  left: 0rpx;
+  box-shadow: 0rpx 0rpx 25rpx 5rpx #d4d3d3;
+}
 
 .display {
   width: 100%;
@@ -72,7 +70,7 @@ page{
 
 .eval-all {
   margin: 30rpx;
-	padding-top:110rpx;
+  padding-top: 110rpx;
 }
 
 .order-info {
@@ -80,31 +78,35 @@ page{
   color: #888;
 }
 
-
 .food_status {
   width: 240rpx;
-  height: 90rpx;
-  line-height: 90rpx;
-  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+  /* text-align: center; */
   font-size: 13px;
   float: left;
   color: #838383;
 }
 
+.goods-list {
+  width: 100%;
+}
+
 .goods-pic {
   width: 156rpx;
-  height: 156rpx;
+  height: 120rpx;
   margin-right: 20rpx;
   margin-top: 10rpx;
 }
 
 .content {
   margin-top: 10rpx;
+  height: 100rpx;
 }
 
-.hf {
+/* .hf {
   width: 100%;
-	margin-top:10rpx;
+  margin-top: 15rpx;
 }
 
 .clear:after {
@@ -115,35 +117,34 @@ page{
   clear: both;
 }
 
-.hf .reply{
+.hf .reply {
   width: 20%;
-	float:left;
-	font-size:12px;
-	text-align: center;
-	line-height: 50rpx;
-  height: 50rpx;
-	color:#838383;
+  float: left;
+  font-size: 12px;
+  line-height: 30rpx;
+  height: 30rpx;
+  color: #838383;
 }
 
-.reply-text{
+.reply-text {
   width: 80%;
-	float:left;
-	line-height: 50rpx;
-	font-size:12px;
-	color:rgb(158, 157, 157);
-}
+  float: left;
+  line-height: 30rpx;
+  font-size: 12px;
+  color: rgb(158, 157, 157);
+} */
 
 .border {
   border-top: 1rpx dotted #f7f4f4;
 }
 
 .goods-name {
-  margin-bottom: 10rpx;
+  margin-bottom: 30rpx;
   -webkit-line-clamp: 2;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 27rpx;
+  font-size: 14px;
 }
 
 .attr-item {
@@ -156,6 +157,11 @@ page{
 .num {
   font-size: 9pt;
   color: #888;
+	float:left;
+	width:70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .price {
@@ -163,20 +169,21 @@ page{
   font-weight: 600;
   text-align: right;
   font-size: 30rpx;
+	float:right;
+	width:30%;
 }
 
 .count-order {
   border-top: 1px solid #eee;
-  margin: 10rpx 0 30rpx;
-  height: 100rpx;
+  margin: 20rpx 0 30rpx;
+  height: 90rpx;
   align-items: center;
   border-bottom: 3px solid #eee;
 }
 
 .operation {
   width: 200%;
-  height: 100rpx;
-  /* margin-left:200rpx; */
+  height: 70rpx;
 }
 
 .score {
@@ -188,11 +195,11 @@ page{
   line-height: 50rpx;
   background: #fff;
   border: 1px solid #838383;
-  border-radius: 26rpx;
+  border-radius: 8rpx;
   font-size: 12px;
   color: #838383;
   padding: 0rpx 20rpx;
-  margin: 20rpx 10rpx 0rpx;
+	margin-top:10rpx;
 }
 
 .tl {
@@ -216,11 +223,11 @@ page{
 
 .cancel {
   width: 230rpx;
-  height: 100rpx;
+  height: 70rpx;
   float: left;
-	text-align: center;
+  text-align: center;
   margin-right: 30rpx;
-  line-height: 100rpx;
+  line-height: 70rpx;
   font-size: 28rpx;
   color: #838383;
 }

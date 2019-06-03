@@ -20,8 +20,7 @@ Page({
   onLoad: function(options) {
     var that = this;
     that.setData({
-      id: options.id,
-      food_id: options.food_id
+			orderId: options.id
     })
 		
     util.ajax({
@@ -75,8 +74,6 @@ Page({
         }
       });
 		});
-		console.log(arr.length)
-		console.log(this.data.zp)
 		if (arr.length < 3 || this.data.zp == 0) {
 			wx.showToast({
 				title: '请选择评分项目',
@@ -87,8 +84,7 @@ Page({
     util.ajax({
       url: app.globalData.path + 'ApiFoods/ScoreDetail',
       data: {
-				id: this.data.id,
-				food_id: this.data.food_id,
+				orderId: this.data.orderId,
 				staff_id: wx.getStorageSync('employeeInfo').id,
 				options: arr.length > 0 ? JSON.stringify(arr) : '',
 				content: this.data.content ? this.data.content : '',

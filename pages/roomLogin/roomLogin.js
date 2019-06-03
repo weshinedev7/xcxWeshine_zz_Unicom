@@ -60,7 +60,7 @@ Page({
                 });
                 setTimeout(function() {
                   wx.redirectTo({
-                    url: '/pages/varietyOfDishes/varietyOfDishes'
+										url: '/pages/storeIndex/storeIndex'
                   })
                 }, 500)
               }
@@ -115,7 +115,7 @@ Page({
       // 判断商家是否登陆
       if (wx.getStorageSync('storeInfo') !== '') {
         wx.redirectTo({
-          url: '/pages/varietyOfDishes/varietyOfDishes'
+					url: '/pages/storeIndex/storeIndex'
         })
       } else {
         // 未登录提醒
