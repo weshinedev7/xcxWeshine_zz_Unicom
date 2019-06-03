@@ -18,7 +18,7 @@
     </view>
     <view class="store_text">
       <view class="store_comment">评价 ：{{score.score}}</view>
-      <view class="store_comment">月售 ：4908单</view>
+      <view class="store_comment">已售 ：{{count}}</view>
       <view class="store_comment">营业时间 ：{{store.business_hours}}-{{store.closing_time}}</view>
     </view>
     <view class="store_name"></view>
@@ -49,49 +49,48 @@
       <!--左侧栏-->
 
       <scroll-view scroll-y="true" class="nav_left" style='height:{{height_h}}px'>
-          <view class="nav_left_items {{curNav == '0' ? 'active' : ''}}" bindtap="switchRightTab" data-id="0">全部</view>
-          <block wx:for="{{category}}">
-            <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
-          </block>
+        <view class="nav_left_items {{curNav == '0' ? 'active' : ''}}" bindtap="switchRightTab" data-id="0">全部</view>
+        <block wx:for="{{category}}">
+          <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
+        </block>
       </scroll-view>
       <!--右侧栏-->
 
       <scroll-view scroll-y="true" class="nav_right clear" style='height:{{height_h}}px'>
-          <!--如果有数据，才遍历项-->
-          <view wx:if="{{foods}}" style="display:inline;">
-            <block wx:for="{{foods}}">
-              <view class="nav_right_items" bindlongpress="foodDelete" data-id="{{item.id}}">
-                <view class="food_top">
-                  <view class="food_img">
-                    <image src="{{item.img}}"></image>
-                  </view>
-                  <view class="food_text">
-                    <view class="food_name">{{item.name}}</view>
-                    <view class="food_price">{{item.price}}</view>
-                    <view class="food_brief">{{item.brief}}</view>
-                  </view>
+        <!--如果有数据，才遍历项-->
+        <view wx:if="{{foods}}" style="display:inline;">
+          <block wx:for="{{foods}}">
+            <view class="nav_right_items" bindlongpress="foodDelete" data-id="{{item.id}}">
+              <view class="food_top">
+                <view class="food_img">
+                  <image src="{{item.img}}"></image>
                 </view>
-                <view class="food_bottom">
-                  <view class="upper_lower_shelf">
-                    <switch class="wx-switch-input switch" color='#dd2727' data-key="{{index}}" data-id="{{item.id}}" checked="{{item.type != 2?'true':''}}" bindchange="upperLowerShelf" />
-                  </view>
-                  <view class="edit">
-                    <!-- <button>修改</button> -->
-                    <navigator hover-class="none" url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}">修改</navigator>
-                  </view>
-                  <view class="delete">
-                    <!-- <button>查看评论</button> -->
-                    <navigator hover-class="none" url="/pages/evaluate/evaluate?id={{item.id}}">查看评论</navigator>
-                  </view>
+                <view class="food_text">
+                  <view class="food_name">{{item.name}}</view>
+                  <view class="food_price">{{item.price}}</view>
+                  <view class="food_brief">{{item.brief}}</view>
+                  <view class="food_sold">已售:{{item.sold}}</view>
                 </view>
               </view>
-            </block>
-            <!--如果无数据，则显示数据-->
-            <view class="nodata_text" wx:if="{{foods.length == 0}}">到的了,别划,再划也没有了...</view>
-          </view>
-          <view class="nodata_text" wx:else>该分类暂无数据</view>
+              <view class="food_bottom">
+                <view class="upper_lower_shelf">
+                  <switch class="wx-switch-input switch" color='#dd2727' data-key="{{index}}" data-id="{{item.id}}" checked="{{item.type != 2?'true':''}}" bindchange="upperLowerShelf" />
+                </view>
+                <view class="edit">
+                  <navigator hover-class="none" url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}">修改</navigator>
+                </view>
+                <view class="delete">
+                  <view class="delete_btn" bindtap="foodDelete">删除</view>
+                </view>
+              </view>
+            </view>
+          </block>
+          <!--如果无数据，则显示数据-->
+          <view class="nodata_text" wx:if="{{foods.length == 0}}">到的了,别划,再划也没有了...</view>
+        </view>
+        <view class="nodata_text" wx:else>该分类暂无数据</view>
       </scroll-view>
-			
+
     </view>
   </swiper-item>
   <swiper-item>
@@ -103,14 +102,19 @@
         <view class="main_right">
           <view class="main_right_top">
             <view class="main_right_top_left">
-              <view wx:for="{{item.question}}" wx:key="key" wx:for-item="value">{{value.question}}：{{value.option}}</view>
+              <view wx:for="{{item.question}}" wx:key="key" wx:for-item="value">
+                <text style="color:#585757;">{{value.question}}</text>：{{value.option}}</view>
             </view>
-            <view class="main_right_top_right">{{item.comment_time}}</view>
+            <view class="main_right_top_right">
+              <view class="comment_date">{{item.comment_time}}</view>
+              <view class="comment_socre">
+                <text style="color:#585757;">综合评分</text>：{{item.comprehensive_score}}</view>
+            </view>
           </view>
-          <view class="main_right_bottom">
+          <view class="main_right_bottom clear" wx:if="{{item.remarks}}">
             <view class="main_right_bottom_top">评价内容:
             </view>
-            <view class="main_right_bottom_bottom">{{item.remarks}}</view>
+            <view class="main_right_bottom_bottom clear">{{item.remarks}}</view>
           </view>
         </view>
       </view>

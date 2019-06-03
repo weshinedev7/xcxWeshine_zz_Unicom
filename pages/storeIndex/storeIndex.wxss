@@ -8,7 +8,7 @@ page {
   height: 440rpx;
   position: relative;
   background: white;
-	margin-bottom:10rpx;
+  margin-bottom: 10rpx;
   /* border-bottom: 1rpx solid #838383; */
 }
 
@@ -185,13 +185,14 @@ page {
   width: 100%;
   height: 100%;
   color: #939393;
-	margin-top:10rpx;
 }
 
 /*左侧栏主盒子*/
+
 .nav_left {
-  position: absolute;
-  left: 0;
+  /* position: absolute; */
+  /* left: 0; */
+	float:left;
   width: 25%;
   height: 100%;
   background: white;
@@ -199,16 +200,18 @@ page {
 }
 
 /*左侧栏list的item*/
+
 .nav_left .nav_left_items {
   height: 40px;
   line-height: 40px;
   padding: 6px 0;
-	text-align: center;
+  text-align: center;
   border-bottom: 1px solid #dedede;
   font-size: 14px;
 }
 
 /*左侧栏list的item被选中时*/
+
 .nav_left .nav_left_items.active {
   background: #fff;
   color: #dd2727;
@@ -218,8 +221,9 @@ page {
 /*右侧栏主盒子*/
 
 .nav_right {
-  position: absolute;
-  right: 0;
+  /* position: absolute;
+  right: 0; */
+	float:left;
   width: 75%;
   height: 100%;
   flex: 1;
@@ -228,6 +232,7 @@ page {
 }
 
 /*右侧栏list的item*/
+
 .nav_right .nav_right_items {
   float: right;
   width: 98%;
@@ -264,12 +269,12 @@ page {
   float: right;
 }
 
-.food_name, .food_price, .food_brief {
+.food_name, .food_price, .food_brief, .food_sold {
   width: 100%;
-  height: 40rpx;
+  height: 35rpx;
   margin-top: 5rpx;
   color: black;
-  font-size: 13px;
+  font-size: 11px;
 }
 
 .food_name {
@@ -278,11 +283,18 @@ page {
 }
 
 .food_price {
+  font-size: 13px;
   color: red;
   font-weight: 700;
 }
 
 .food_brief {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.food_sold {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -313,11 +325,23 @@ page {
   background: #dd2727;
 }
 
+.delete .delete_btn {
+  height: 50rpx;
+  width: 100rpx;
+  text-align: center;
+  margin-top: 15rpx;
+  line-height: 50rpx;
+  border-radius: 10rpx;
+  font-size: 12px;
+  color: white;
+  background: #dd2727;
+}
+
 /*swtich整体大小及背景色*/
 
 .switch {
-  margin-left: 25rpx;
-  margin-top: 8rpx;
+  margin-left: 30rpx;
+  margin-top: 10rpx;
 }
 
 .wx-switch-input {
@@ -340,18 +364,6 @@ page {
   height: 50rpx !important;
 }
 
-.delete navigator {
-  height: 50rpx;
-  padding: 0rpx;
-  text-align: center;
-  margin-top: 15rpx;
-  line-height: 50rpx;
-  border-radius: 10rpx;
-  font-size: 12px;
-  color: white;
-  background: #dd2727;
-}
-
 .nodata_text {
   color: black;
   font-size: 14px;
@@ -370,42 +382,43 @@ page {
 
 /* 菜品评论选项卡 */
 
-.swiper-tab{
+.swiper-tab {
   width: 100%;
   border-bottom: 2rpx solid #ccc;
   text-align: center;
   height: 88rpx;
-	background: white;
+  background: white;
   line-height: 88rpx;
   font-weight: 700;
-	font-size:15px;
+  font-size: 15px;
 }
-.swiper-tab-item{
+
+.swiper-tab-item {
   display: inline-block;
   width: 33.33%;
-  color:#838282;
+  color: #838282;
 }
-.active{
+
+.active {
   /* color:aqua; */
-  color:#dd2727;
-  border-bottom: 4rpx solid #dd2727;
+  color: #dd2727;
+  border-bottom: 2rpx solid #dd2727;
 }
 
-swiper{display:inline;
-height:0;}
-
+swiper {
+  display: inline;
+}
 
 /* 评价 */
 
 .main {
   width: 100%;
-  /* padding-top: 20rpx; */
-	/* padding-bottom:20rpx; */
+  /* padding-top: 20rpx; *//* padding-bottom:20rpx; */
 }
 
 .main_content {
   width: 96%;
-  border-radius: 26rpx;
+  /* border-radius: 26rpx; */
   padding: 20rpx 0rpx;
   margin: 10rpx auto;
   background: white;
@@ -447,19 +460,31 @@ height:0;}
   width: 100%;
   height: 33%;
   float: left;
-  font-size: 13px;
+  font-size: 11px;
   color: #838383;
 }
 
 .main_right_top_right {
   width: 50%;
   float: left;
-  font-size: 13px;
+  font-size: 11px;
   color: #838383;
+}
+
+.comment_date {
+  width: 100%;
+  height: 50rpx;
+}
+
+.comment_socre {
+  width: 100%;
+  height: 40rpx;
+  margin-top: 15rpx;
 }
 
 .main_right_bottom {
   padding-top: 10rpx;
+  width: 96%;
 }
 
 .main_right_bottom_top {
@@ -468,11 +493,12 @@ height:0;}
   padding-bottom: 5rpx;
   font-size: 13px;
   color: #1d1c1c;
+  font-weight: 700;
 }
 
 .main_right_bottom_bottom {
   width: 100%;
-  font-size: 13px;
+  font-size: 11px;
   color: #636262;
 }
 

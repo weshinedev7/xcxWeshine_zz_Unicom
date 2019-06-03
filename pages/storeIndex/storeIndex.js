@@ -43,15 +43,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var _this = this;
-		wx.getSystemInfo({
-			success: function(res) {
-				console.log(res);
-				_this.setData({
-					height_h: res.screenHeight-310
-				})
-			},
-		})
+		var _this = this;
+		// wx.getSystemInfo({
+		// 	success: function(res) {
+		// 		_this.setData({
+		// 			height_h: res.screenHeight-310
+		// 		})
+		// 	},
+		// })
     // 获取分类
     util.ajax({
       url: app.globalData.path + 'ApiCategory/index',
@@ -88,11 +87,10 @@ Page({
           _this.setData({
             foods: res.data.data,
             store: res.data.store,
-						score: res.data.score
+						score: res.data.score,
+						count: res.data.count,
           });
         }
-        console.log(_this.data.store)
-        console.log(_this.data.foods)
       }
     })
 
@@ -126,7 +124,6 @@ Page({
             store: res.data.store,
           });
         }
-        console.log(_this.data.foods)
       }
     })
   },
@@ -217,7 +214,7 @@ Page({
       }
     })
   },
-  //滑动加载
+  //滑动加载  评分
   onloadMethod: function() {
     let that = this
 
@@ -255,6 +252,8 @@ Page({
             openof: that.data.page,
             comment: that.data.list,
           })
+
+					console.log(that.data.comment)
         }
       },
       complete: function() {
