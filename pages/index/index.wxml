@@ -41,7 +41,7 @@
 
 <!--附近门店-->
 <view class='recommend'>
-  <text class='recommend-title'>附近门店</text>
+  <text class='recommend-title'>餐饮美食</text>
 </view>
 
 <block wx:for="{{stores}}" wx:key="">

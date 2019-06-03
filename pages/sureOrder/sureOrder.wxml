@@ -1,5 +1,4 @@
-<form bindsubmit="submit">
-  <view class="pages">
+<view class="pages">
 
     <!-- <view class="mode">
       <view class="mode_center">
@@ -51,4 +50,3 @@
     <button class="pay" bindtap="pay" data-id="0" form-type='submit'>自付</button>
     <button class="pay" bindtap="pay" data-id="1" form-type='submit'>部门代付</button>
   </view>
-</form>
