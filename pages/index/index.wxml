@@ -23,10 +23,10 @@
 
 <!--功能展示-->
 <view class="section">
-  <navigator url="/pages/food/food" hover-class="none" class="selection-item">
+  <!-- <navigator url="/pages/food/food" hover-class="none" class="selection-item">
     <image src="/images/food.png" mode="aspectFit" />
     <text>餐饮美食</text>
-  </navigator>
+  </navigator> -->
   <navigator bindtap="toRoom" hover-class="none" class="selection-item">
     <image src="/images/room.png" mode="aspectFit" />
     <text>预约会议室</text>
@@ -46,7 +46,7 @@
 
 <block wx:for="{{stores}}" wx:key="">
   <view class="eval-all">
-  <view class="goods-list flex-row">
+  <navigator class="goods-list flex-row" url="/pages/storeInfo/storeInfo?id={{item.id}}" hover-class="none">
     <image class="goods-pic" mode="aspectFill" src="{{item.store_img}}" />
     <view class="flex-grow-1 goods-content">
       <view class="goods-name goods-time-list">{{item.store_name}}</view>
@@ -60,12 +60,12 @@
       </view>
       <view class="goods-time goods-time-list">营业时间:{{item.business_hours}}-{{item.closing_time}}</view>
     </view>
-  </view>
+  </navigator>
 
   <view class="show-content">
     <navigator wx:for="{{item.foods}}" wx:key="" url="/pages/details/details?id={{item.id}}" hover-class="none" class="content-item flex-grow-0">
       <view class='content-item-list'>
-          <image src="{{item.foods_img}}" />
+          <image src="{{item.foods_img}}" mode="aspectFill" />
       <view class="content-name">{{item.foods_name}}</view>
       <view class="content-price">
         <text class="new-price">￥{{item.price}}</text>

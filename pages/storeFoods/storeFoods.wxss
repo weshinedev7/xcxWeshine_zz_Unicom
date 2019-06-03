@@ -2,7 +2,6 @@ page {
   background: #f3f3f3;
   height: 100%;
 }
-
 .top {
   width: 100%;
   height: 440rpx;
@@ -51,17 +50,22 @@ page {
 }
 
 .store_name_content {
-  width: 60%;
+  width: 100%;
   height: 50rpx;
   float: left;
-  margin-left: 40rpx;
-  text-align: right;
+  text-align: center;
   line-height: 50rpx;
   font-weight: 700;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.strat{
+  width: 36rpx;
+  height: 36rpx;
+  margin-left:4rpx;
+}
+
 
 .edit_img {
   width: 30rpx;
@@ -72,7 +76,6 @@ page {
 }
 
 .store_text {
-  width: 50%;
   height: 50rpx;
   margin: 0rpx auto;
   line-height: 50rpx;
@@ -160,7 +163,6 @@ page {
 .nav_left {
   display: inline-block;
   width: 25%;
-  height: 100%;
   background: white;
   text-align: center;
   position: absolute;
@@ -196,6 +198,7 @@ page {
   width: 75%;
   box-sizing: border-box;
   background: #f3f3f3;
+  padding-bottom:100rpx;
 }
 
 /*右侧栏list的item*/
@@ -219,7 +222,7 @@ page {
   width: 30%;
   height: 170rpx;
   margin-top: 25rpx;
-  margin-left: 25rpx;
+  margin-left: 15rpx;
   float: left;
 }
 
@@ -229,10 +232,9 @@ page {
 }
 
 .food_text {
-  width: 55%;
+  width: 65%;
   height: 170rpx;
   margin-top: 25rpx;
-  margin-right: 25rpx;
   float: right;
 }
 
@@ -250,10 +252,10 @@ page {
 }
 
 .sold{
-	width:50%;
 	font-size:12px;
 	float:left;
 	color:#888787;
+  padding:20rpx 10rpx 10rpx 0rpx;
 }
 
 .food_name {
@@ -274,6 +276,8 @@ page {
 	/* background: pink; */
   font-size: 12px;
 	color:#888787;
+  clear:both;
+  overflow:hidden;
 }
 
 .food_price {

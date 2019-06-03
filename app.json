@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/storeInfo/storeInfo",
 		"pages/roomLogin/roomLogin",
 		"pages/storeFoods/storeFoods",
 		"pages/orderDetails/orderDetails",
@@ -20,7 +22,6 @@
 		"pages/allRemarks/allRemarks",
 		"pages/test/test",
 		"pages/store/store",
-		"pages/index/index",
 		"pages/adminAdd/adminAdd",
 		"pages/details/details",
 		"pages/varietyOfDishes/varietyOfDishes",

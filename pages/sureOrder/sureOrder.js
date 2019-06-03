@@ -7,53 +7,128 @@ Page({
    * 页面的初始数据
    */
   data: {
+    remarks: "",
     info: {}
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var _this = this;
 
-    //读取缓存数据
-    let data = wx.getStorageSync("order_info")
-    this.setData({
-      info: {
-        type: data.type,
-        foodName: data.foodName,
-        img: data.img,
-        storeName: data.storeName,
-        number: data.number,
-        total: data.total
-      }
+    //读取购物车中的信息
+    var userId = wx.getStorageSync('employeeInfo').id,
+      orderInfo = wx.getStorageSync('orderInfo'),
+      totalPic = wx.getStorageSync('totalPic'),
+      totalPrice = wx.getStorageSync('totalPrice');
+    if (userId == '') {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 2000//持续的时间
+      });
+      setTimeout(function () {
+        wx.redirectTo({
+          url: '/pages/roomLogin/roomLogin'
+        })
+      }, 3000)
+    }
+    if (orderInfo == '' || options.store_id == '') {
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+    }
+    _this.setData({
+      orderInfo: orderInfo,
+      totalPic: totalPic,
+      totalPrice: totalPrice
     })
 
+    //获取店铺信息
+    util.ajax({
+      url: app.globalData.path + 'ApiCategory/getStore',
+      data: {
+        id: options.store_id
+      },
+      method: 'POST',
+      success: function(res) {
+        if (res.data.code == 0) {
+
+          _this.setData({
+            store: res.data.data
+          });
+        }
+      }
+    })
   },
 
-  submit: function(e) {
-    this.data.info.staff = wx.getStorageSync("employeeInfo").id
-    this.data.info.storeId = wx.getStorageSync("order_info").storeId
-    this.data.info.foodId = wx.getStorageSync("order_info").foodId
+  //获取输入的值
+  getInput: function(e) {
+    let item = e.currentTarget.dataset.model;
+    this.setData({
+      [item]: e.detail.value
+    })
+  },
 
-    //备注数据获取
-    this.data.info.remarks = e.detail.value.remarks
-
-    //把订单信息传到后台接口
+  //付款
+  pay: function(e) {
+    var userId = wx.getStorageSync('employeeInfo').id,
+      type = e.target.dataset.id,
+      store_id = this.data.store.id,
+      orderInfo = this.data.orderInfo,
+      totalPic = this.data.totalPic,
+      totalPrice = this.data.totalPrice;
+    if(type==''){
+      wx.showToast({
+        title: '请选择付款方式',
+        icon: 'none',
+        duration: 2000//持续的时间
+      });
+    }
+    if (userId==''){
+        wx.showToast({
+          title: '请先登录',
+          icon: 'none',
+          duration: 2000//持续的时间
+        });
+        setTimeout(function () {
+          wx.redirectTo({
+            url: '/pages/roomLogin/roomLogin'
+          })
+        }, 3000)
+      }
+    if (orderInfo == '' || store_id == '') {
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+    }
+    console.log(orderInfo);
+  
+    //订单记录表
     util.ajax({
       url: app.globalData.path + 'ApiFoods/orderinfo',
       method: "POST",
-      data: this.data.info,
-      success: function(res) {
-				if (res.data.status == 'success') {
+      data: {
+        userId: store_id,
+        type: type,
+        storeId: store_id,
+        orderInfo: JSON.stringify(orderInfo),
+        totalPic: totalPic,
+        totalPrice: totalPrice,
+        remarks: this.data.remarks
+      },
+      success: function (res) {
+        if (res.data.status == '1') {
           wx.showToast({
             title: res.data.msg,
             icon: 'success',
-            duration: 1000 //持续的时间
+            duration: 1000
           });
-          setTimeout(function() {
+          setTimeout(function () {
             wx.switchTab({
               url: '/pages/order/order',
             })
-          }, 500);
+          }, 1000);
         }
       }
     })

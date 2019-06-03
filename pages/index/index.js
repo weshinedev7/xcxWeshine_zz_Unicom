@@ -63,7 +63,6 @@ Page({
 			success: function (res) {
 				//成功
 				if (res.data.code == 0) {
-          console.log(res.data)
 					that.setData({
 						stores: res.data.data,
 					});
@@ -74,11 +73,7 @@ Page({
 
   //预约会议室
   toRoom:function(e){
-<<<<<<< HEAD
     if(wx.getStorageSync('employeeInfo').role==='1'){
-=======
-    if(wx.getStorageSync('employeeInfo').role == 1){
->>>>>>> 0ca2f17de261db1f3b115da6688f70d968d00377
       wx.navigateTo ({
         url: '/pages/makeAnAppointment/makeAnAppointment'
       })
@@ -94,11 +89,7 @@ Page({
 
   //预约车辆
   toCar:function(e){
-<<<<<<< HEAD
     if(wx.getStorageSync('employeeInfo').role==='1'){
-=======
-    if(wx.getStorageSync('employeeInfo').role == 1){
->>>>>>> 0ca2f17de261db1f3b115da6688f70d968d00377
       wx.navigateTo ({
         url: '/pages/bookingVehicle/bookingVehicle'
       })
