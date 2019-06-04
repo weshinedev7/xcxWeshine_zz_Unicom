@@ -62,7 +62,7 @@
     </view>
   </navigator>
 
-  <view class="show-content">
+  <view class="show-content" wx:if="{{item.foods.length>2}}">
     <navigator wx:for="{{item.foods}}" wx:key="" url="/pages/details/details?id={{item.id}}" hover-class="none" class="content-item flex-grow-0">
       <view class='content-item-list'>
           <image src="{{item.foods_img}}" mode="aspectFill" />
