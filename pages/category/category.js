@@ -31,7 +31,6 @@ Page({
         }
       }
     })
-		console.log(_this.data.list)
   },
   delete_cate: function(e) {
     var _this = this;
@@ -138,14 +137,23 @@ Page({
     }
   },
   submit_data: function(e) {
-    var _this = this;
-    if (e.detail.value.name == '') {
-      wx.showToast({
-        title: '分类名不能为空',
-        icon: 'none',
-        duration: 2000 //持续的时间
-      });
-    }
+		var _this = this;
+		if (e.detail.value.name == '') {
+			wx.showToast({
+				title: '分类名不能为空',
+				icon: 'none',
+				duration: 2000 //持续的时间
+			});
+			return false;
+		}
+		if (e.detail.value.sort == '') {
+			wx.showToast({
+				title: '排序不能为空',
+				icon: 'none',
+				duration: 2000 //持续的时间
+			});
+			return false;
+		}
     if (_this.data.cate_id != 0) {
       var data = {
         cate_id: _this.data.cate_id,
@@ -165,7 +173,6 @@ Page({
               duration: 1000,
               mask: true
             });
-
             setTimeout(function() {
               wx.redirectTo({
                 url: '/pages/category/category'

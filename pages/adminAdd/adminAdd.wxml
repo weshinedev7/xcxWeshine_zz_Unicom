@@ -20,7 +20,7 @@
       <view class="text">性别:</view>
       <radio-group bindchange="checkboxChange" name="sex">
         <label class="checkbox">
-          <radio value="0" checked="{{list.sex == 0?'true':''}}" />男
+          <radio value="0" checked />男
           <radio value="1" checked="{{list.sex == 1?'true':''}}" />女
         </label>
       </radio-group>

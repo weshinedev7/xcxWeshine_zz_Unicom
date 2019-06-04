@@ -55,56 +55,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-		var _this = this;
-		// wx.getSystemInfo({
-		// 	success: function(res) {
-		// 		_this.setData({
-		// 			height_h: res.screenHeight-310
-		// 		})
-		// 	},
-		// })
-    // 获取分类
-    util.ajax({
-      url: app.globalData.path + 'ApiCategory/index',
-      data: {
-        store_id: wx.getStorageSync('storeInfo').store_id
-      },
-      method: 'GET',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      success: function(res) {
-        //成功
-        if (res.data.code == 0) {
-          _this.setData({
-            category: res.data.data,
-          });
-        }
-      }
-    })
-    // 获取全部数据   
-    util.ajax({
-      url: app.globalData.path + 'ApiStore/index',
-      data: {
-        storeId: wx.getStorageSync('storeInfo').store_id,
-        categoryId: _this.data.curNav
-      },
-      method: 'GET',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      success: function(res) {
-        //成功
-        if (res.data.code == 0) {
-          _this.setData({
-            foods: res.data.data,
-            store: res.data.store,
-						score: res.data.score,
-						count: res.data.count,
-          });
-        }
-      }
-    })
+
 
   }, //事件处理函数  
   switchRightTab: function(e) {
@@ -311,6 +262,56 @@ Page({
 		if (_this.data.currentTab == 1) {
 			_this.onloadMethod()
     }
+		
+		// wx.getSystemInfo({
+		// 	success: function(res) {
+		// 		_this.setData({
+		// 			height_h: res.screenHeight-310
+		// 		})
+		// 	},
+		// })
+		// 获取分类
+		util.ajax({
+			url: app.globalData.path + 'ApiCategory/index',
+			data: {
+				store_id: wx.getStorageSync('storeInfo').store_id
+			},
+			method: 'GET',
+			header: {
+				'content-type': 'application/x-www-form-urlencoded' // 默认值
+			},
+			success: function (res) {
+				//成功
+				if (res.data.code == 0) {
+					_this.setData({
+						category: res.data.data,
+					});
+				}
+			}
+		})
+		// 获取全部数据   
+		util.ajax({
+			url: app.globalData.path + 'ApiStore/index',
+			data: {
+				storeId: wx.getStorageSync('storeInfo').store_id,
+				categoryId: _this.data.curNav
+			},
+			method: 'GET',
+			header: {
+				'content-type': 'application/x-www-form-urlencoded' // 默认值
+			},
+			success: function (res) {
+				//成功
+				if (res.data.code == 0) {
+					_this.setData({
+						foods: res.data.data,
+						store: res.data.store,
+						score: res.data.score,
+						count: res.data.count,
+					});
+				}
+			}
+		})
   },
 
   /**

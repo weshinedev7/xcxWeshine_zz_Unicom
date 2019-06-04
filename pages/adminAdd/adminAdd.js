@@ -35,7 +35,33 @@ Page({
     }
   },
   formsubmit: function(e) {
-    var _this = this;
+
+		var _this = this;
+		if (e.detail.value.name == '') {
+			wx.showToast({
+				title: '姓名不能为空',
+				icon: 'none',
+				duration: 1500 //持续的时间
+			});
+			return false;
+		}
+		if (e.detail.value.tel == '') {
+			wx.showToast({
+				title: '电话不能为空',
+				icon: 'none',
+				duration: 1500 //持续的时间
+			});
+			return false;
+		}
+		if (e.detail.value.pwd == '' && _this.data.id == undefined) {
+			wx.showToast({
+				title: '密码不能为空',
+				icon: 'none',
+				duration: 1500 //持续的时间
+			});
+			return false;
+		}
+
 		if (_this.data.id != undefined) {
       util.ajax({
         url: app.globalData.path + 'ApiStore/addAdmin',
@@ -83,7 +109,7 @@ Page({
 							mask: true
 						});
 						setTimeout(function () {
-							wx.navigateTo({
+							wx.redirectTo({
 								url: '/pages/admin/admin?=' + wx.getStorageSync('storeInfo').id
 							})
 						}, 500)

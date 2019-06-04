@@ -50,7 +50,7 @@
 
 				<!-- 商家未接单，用户已提交(未取消)，未过期 -->
         <view bindtap='cancel' hover-class="none" class="flex-grow-0 score" data-id="{{item.id}}" data-key="{{index}}" wx:if="{{ item.be_overdue == 1 && item.use_status == 0 && item.order_status == 0}}">取消</view>
-        <navigator url="/pages/details/details?id={{item.f_id}}" hover-class="none" class="flex-grow-0 score">再来一单</navigator>
+        <navigator url="/pages/storeInfo/storeInfo?id={{item.store_id}}" hover-class="none" class="flex-grow-0 score">再来一单</navigator>
         <!-- 未确认用餐，商家已接单 -->
 				<view bindtap='have_meals' wx:if="{{item.use_status == 0 && item.order_status == 1}}" data-id="{{item.id}}" data-key="{{index}}" class="flex-grow-0 score btn">确认用餐</view>
 				<!-- 已确认用餐，未评分 -->

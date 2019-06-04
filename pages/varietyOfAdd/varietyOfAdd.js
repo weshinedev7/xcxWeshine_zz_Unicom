@@ -34,7 +34,6 @@ Page({
   },
 	onShow:function(){
 		var _this = this;
-		// console.log(_this.data.id)
 		if (_this.data.id != null) {
 			// 按条件查询数据
 			util.ajax({
@@ -240,8 +239,8 @@ Page({
             mask: true
           });
           setTimeout(function() {
-            wx.redirectTo({
-              url: '/pages/varietyOfDishes/varietyOfDishes'
+						wx.navigateBack({
+							delta: 2
             })
           }, 500)
         } else {

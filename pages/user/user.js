@@ -12,8 +12,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-		console.log(wx.getStorageSync('employeeInfo'))
-		this.setData({
+		var _this = this;
+		_this.setData({
 			name: wx.getStorageSync('employeeInfo').name,
 			tel: wx.getStorageSync('employeeInfo').number,
 			avatar: wx.getStorageSync('employeeInfo').avatar

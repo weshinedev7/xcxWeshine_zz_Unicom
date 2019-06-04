@@ -127,5 +127,6 @@
         </view>
       </view>
     </view>
+      <view class="nodata_text" wx:else="{{comment.length == 0}}">暂无评分</view>
   </swiper-item>
 </swiper>

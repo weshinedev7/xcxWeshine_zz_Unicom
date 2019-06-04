@@ -20,6 +20,7 @@ Page({
   userLogin: function(e) {
     var user = this.data.user;
     var pwd = this.data.pwd;
+		console.log(wx.getStorageSync('userInfo').avatarUrl);
     if (user === '' || pwd === '') {
       wx.showToast({
         title: '账号、密码不能为空',
@@ -68,8 +69,10 @@ Page({
             } else {
 
               // 用户登录区间
-              wx.setStorageSync('employeeInfo', res.data.info);
-
+							wx.setStorageSync('employeeInfo', res.data.info);
+							console.log(res.data.info);
+              var a = wx.getStorageSync('employeeInfo')
+							console.log(a)
               wx.showToast({
                 title: res.data.msg,
                 icon: 'succes',

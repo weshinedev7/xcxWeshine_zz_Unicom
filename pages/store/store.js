@@ -8,8 +8,6 @@ Page({
    */
   data: {
     date: '2018-10-01',
-    // start_time: '06:00',
-    // end_time: '20:00',
   },
 
   /**
