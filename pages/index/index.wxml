@@ -63,11 +63,11 @@
       </view>
     </view>
     <!-- </navigator> -->
-
+     
     <view class="show-content">
       <!-- <navigator wx:for="{{item.foods}}" wx:key="" url="/pages/details/details?id={{item.id}}" hover-class="none" class="content-item flex-grow-0"> -->
 			
-    <view wx:for="{{item.foods}}" wx:for-item="v" class="content-item flex-grow-0" bindtap="{{item.time == 1?'details':'close'}}" data-id="{{item.id}}">
+    <view wx:for="{{item.foods}}" wx:if="{{item.foods.length>2}}" wx:for-item="v" class="content-item flex-grow-0" bindtap="{{item.time == 1?'details':'close'}}" data-id="{{item.id}}">
         <view class='content-item-list'>
           <image src="{{v.foods_img}}" mode="aspectFill" />
           <view class="content-name">{{v.foods_name}}</view>
@@ -79,6 +79,7 @@
 				</view>
       <!-- </navigator> -->
     </view>
+
   </view>
   <view class='bg-list'></view>
 </block>
