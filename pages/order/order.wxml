@@ -48,12 +48,23 @@
     <view class="flex-row count-order">
       <view class="operation">
 
+				<!-- 商家未接单，用户已提交(未取消)，未过期 -->
         <view bindtap='cancel' hover-class="none" class="flex-grow-0 score" data-id="{{item.id}}" data-key="{{index}}" wx:if="{{item.be_overdue == 0 && item.use_status == 0 && item.order_status == 0}}">取消</view>
         <navigator url="/pages/details/details?id={{item.f_id}}" hover-class="none" class="flex-grow-0 score">再来一单</navigator>
-        <view bindtap='have_meals' wx:if="{{item.use_status == 0 && item.order_status != 1}}" data-id="{{item.id}}" data-key="{{index}}" class="flex-grow-0 score btn">确认用餐</view>
-        <navigator open-type="navigate" url="/pages/score/score?id={{item.id}}" wx:if="{{item.comment_status == 0 && item.use_status == 1 && item.order_status == 0}}" hover-class="none" class="flex-grow-0 score">评分</navigator>
+        <!-- 未确认用餐，商家已接单 -->
+				<view bindtap='have_meals' wx:if="{{item.use_status == 0 && item.order_status == 1}}" data-id="{{item.id}}" data-key="{{index}}" class="flex-grow-0 score btn">确认用餐</view>
+				<!-- 已确认用餐，未评分 -->
+        <navigator open-type="navigate" url="/pages/score/score?id={{item.id}}" wx:if="{{item.comment_status == 0 && item.use_status == 1}}" hover-class="none" class="flex-grow-0 score">评分</navigator>
+				<!-- 已取消订单 -->
         <view class="cancel" wx:if="{{item.use_status == 2}}">您已取消订单...</view>
-        <view class="food_status" wx:if="{{item.order_status == 1}}">{{item.order_status == 1?'商家已取消订单...':''}}</view>
+				<!-- 商家已接单，用户未确认订单 -->
+        <view class="cancel" wx:if="{{item.order_status == 1 && item.ues_status == 0}}">商家已接单</view>
+				<!-- 商家未接单 -->
+        <view class="cancel" wx:if="{{item.order_status == 0 && item.use_status == 0}}">订单已提交</view>
+				<!-- 商家取消订单 -->
+        <view class="cancel" wx:if="{{item.order_status == 2}}">商家已取消</view>
+				<!-- 商家已接单 ，并且已过期 -->
+        <view class="cancel" style="color:green" wx:if="{{item.order_status == 1 && item.ues_status == 1 || item.be_overdue == 1 && item.order_status == 1}}">订单已完成</view>
 
       </view>
 

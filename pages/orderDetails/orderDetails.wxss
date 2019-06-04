@@ -6,7 +6,7 @@ page {
   width: 95%;
   background: white;
   margin: 10rpx auto;
-	padding-bottom:10rpx;
+  padding-bottom: 10rpx;
 }
 
 .order_status {
@@ -23,15 +23,15 @@ page {
   line-height: 100rpx;
 }
 
-
-.store_remarks{
-	width:90%;
-	height:60rpx;
-	line-height: 60rpx;
-	margin:10rpx auto;
-	font-size:14px;
-	color:#6e6e6e;
+.store_remarks {
+  width: 90%;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 10rpx auto;
+  font-size: 14px;
+  color: #6e6e6e;
 }
+
 
 .content {
   width: 95%;
@@ -185,15 +185,23 @@ page {
   width: 95%;
   background: white;
   margin: 10rpx auto 0rpx;
+	padding-bottom:10rpx;
 }
 
 .remarks .remark_title {
   width: 90%;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 60rpx;
+  line-height: 60rpx;
   font-size: 14px;
   margin: 0rpx auto;
   color: #333;
+}
+
+.remark_text {
+  width: 90%;
+	margin:0rpx auto;
+	font-size:12px;
+	color:#696868;
 }
 
 /* 订单详情 */
