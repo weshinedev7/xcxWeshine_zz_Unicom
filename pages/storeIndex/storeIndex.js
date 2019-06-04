@@ -196,7 +196,7 @@ Page({
       success: function(res) {
         if (res.confirm) {
           util.ajax({
-            url: app.globalData.path + 'ApiStore/foodDelte',
+						url: app.globalData.path + 'ApiStore/foodDelete',
             method: 'POST',
             data: {
               foodId: foodId,

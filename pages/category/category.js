@@ -62,12 +62,14 @@ Page({
 									list: list
 								})  
               }else{
-								wx.showToast({
-									title: '删除失败',
-									icon: 'succes',
-									duration: 1000,
-									mask: true
-								});
+								if(res.data.code == 1){
+									wx.showToast({
+										title: res.data.msg,
+										icon: 'none',
+										duration: 1000,
+										mask: true
+									});
+								}
 							}
             }
           })

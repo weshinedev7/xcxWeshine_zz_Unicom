@@ -1,4 +1,3 @@
-
 <!--mask-->
 <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
 <!--使用animation属性指定需要执行的动画-->
@@ -27,26 +26,21 @@
 <view class="body">
   <view class="list" wx:for="{{list}}">
     <view class="title_cate">
-      <view class="content">
-        <image class='image' src="/images/sf.png"></image>
-        <text>{{item.name}}</text>
+      <view class="content" style="width:40%" style="margin-left:20rpx;font-size:13px;"><view style="float:left;">分类名：</view><text style="color:#838383">{{item.name}}</text>
       </view>
-      <view class="content">
-        <image class='image' src="/images/{{item.sex == 0?'nan.png':'nve.png'}}"></image>
-        <text>{{item.sort}}</text>
+      <view class="content" style="width:25%;margin-left:10rpx;"><view style="float:left;font-size:13px;">分类排序：</view><text style="color:#838383">{{item.sort}}</text>
       </view>
-    </view>
-    <view class="title_content">
-      <view class="action" bindtap='delete_cate' data-id="{{item.id}}" data-status="{{item.status}}" data-key="{{index}}" style="background:{{item.status== 0?'#F86870':'rgb(4, 173, 4)'}}">删除</view>
-
-      <view class="action" style="background:#388BE8">
-        <view bindtap="powerDrawer" data-statu="open" data-id="{{item.id}}" data-key="{{index}}">修改</view>
+      <view class="content" style="width:35%;margin-left:25rpx;">
+        <view class="action" style="background:#838383">
+          <view bindtap="powerDrawer" data-statu="open" data-id="{{item.id}}" data-key="{{index}}">修改</view>
+        </view>
+        <view class="action" bindtap='delete_cate' data-id="{{item.id}}" data-status="{{item.status}}" data-key="{{index}}" style="margin-left:10rpx;background:#dd2727">删除</view>
       </view>
     </view>
   </view>
 
-<view style="width:100%;line-height:500rpx;text-align:center;font-size:14px;color:#838383" wx:if="{{list.length == 0}}">暂无分类</view>
+  <view style="width:100%;line-height:500rpx;text-align:center;font-size:14px;color:#838383" wx:if="{{list.length == 0}}">暂无分类</view>
 </view>
 <view class="btn">
-  <view bindtap="powerDrawer" data-id="0" data-statu="open"  data-key="1000">新增</view>
+  <view bindtap="powerDrawer" data-id="0" data-statu="open" data-key="1000">新增</view>
 </view>

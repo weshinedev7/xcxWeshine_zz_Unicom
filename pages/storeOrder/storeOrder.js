@@ -20,7 +20,7 @@ Page({
     _this.setData({
       check: e.currentTarget.dataset.id,
       list: [],
-		});
+    });
     this.result();
     _this.onloadMethod(_this.data.check)
   },
@@ -50,11 +50,11 @@ Page({
     });
     //调接口
     util.ajax({
-			url: app.globalData.path + 'ApiStore/storeOrder',
+      url: app.globalData.path + 'ApiStore/storeOrder',
       method: 'GET',
       data: {
         id: wx.getStorageSync('storeInfo').store_id,
-				status: that.data.check,
+        status: that.data.check,
         pageSize: 10, //每页展示的数据条数
         page: that.data.page //当前页码（从1开始）
       },
@@ -72,7 +72,7 @@ Page({
             page: that.data.page,
             openof: that.data.page
           })
-					// console.log(that.data.len)
+          console.log(that.data.list)
         }
       },
       complete: function() {
@@ -81,10 +81,50 @@ Page({
       },
     })
   },
+	receipt:function(e){
+		var _this = this;
+		var key = e.currentTarget.dataset.key
+		console.log(key)
+		wx.showModal({
+			title: '提示',
+			content: '确定接单吗？',
+			success: function (sm) {
+				if (sm.confirm) {
+					// 用户点击了确定 可以调用删除方法了
+					util.ajax({
+						url: app.globalData.path + 'ApiStore/receiptOrder',
+						method: 'POST',
+						data: {
+							orderId: e.currentTarget.dataset.id,
+						},
+						success: function (res) {
+							if (res.data.code == 0) {
+								wx.showToast({
+									title: res.data.msg,
+									icon: 'succes',
+									duration: 1000,
+									mask: true
+								});
+								// 重置数据
+								_this.data.list[key].order_status = 1;
+								_this.setData({
+									list: _this.data.list
+								})
+							}
+						}
+					})
+
+
+				}
+			}
+		})
+	},
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+
+	},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -97,8 +137,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-		this.onloadMethod()
-	},
+    this.onloadMethod()
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -182,9 +222,9 @@ Page({
       return false;
     }
 
-		this.hideModal();
+    this.hideModal();
     util.ajax({
-      url: app.globalData.path + 'ApiStore/store_cancel',
+			url: app.globalData.path + 'ApiStore/storeCancel',
       method: 'POST',
       data: {
         store_remarks: e.detail.value.store_remarks,
@@ -218,11 +258,10 @@ Page({
                         duration: 1000,
                         mask: true
                       });
-                      setTimeout(function() {
-                        wx.redirectTo({
-                          url: '/pages/storeOrder/storeOrder'
-                        })
-                      }, 500)
+											_this.data.list[key].order_status = 2;
+											_this.setData({
+												list: _this.data.list
+											})
                     }
                   }
                 })

@@ -30,8 +30,6 @@ Page({
 						sum: res.data.sum,
 						order: res.data.order,
           })
-					console.log(_this.data.foods)
-          console.log(_this.data.store)
         }
       }
     })

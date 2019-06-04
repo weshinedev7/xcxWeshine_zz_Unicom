@@ -13,7 +13,7 @@ page {
   width: 95%;
   margin: 0rpx auto;
   background: white;
-  min-height: 210rpx;
+  height: 100rpx;
   margin-bottom: 20rpx;
   border-radius: 20rpx;
 }
@@ -27,11 +27,13 @@ page {
 
 .content {
   float: left;
-  margin-left: 22rpx;
-  margin-bottom: 10rpx;
   line-height: 50rpx;
-  width: 45%;
+  width: 32%;
+	margin-top:15rpx;
   height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .image {
@@ -43,10 +45,11 @@ page {
 }
 
 text {
-  font-size: 13px;
-  color: #908d8e;
-  margin-left: 30rpx;
+  font-size: 12px;
   float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .title_content {
@@ -59,11 +62,10 @@ text {
   width: 100rpx;
   height: 50rpx;
   border-radius: 26rpx;
-  float: right;
-  margin-right: 20rpx;
+  margin-right: 10rpx;
   font-size: 14px;
-  margin-top: 10rpx;
   color: white;
+	float:left;
   line-height: 50rpx;
   text-align: center;
 }

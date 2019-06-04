@@ -42,9 +42,14 @@
     </view>
   </view>
 
-  <view class="remarks" wx:if="{{item.remarks}}">
+  <view class="remarks" wx:if="{{order.remarks}}">
     <view class="remark_title">备注：</view>
-    <view>{{item.remarks}}</view>
+    <view class="remark_text">{{order.remarks}}</view>
+  </view>
+
+  <view class="remarks" wx:if="{{order.store_remarks}}">
+    <view class="remark_title">商家取消：</view>
+    <view class="remark_text">{{order.store_remarks}}</view>
   </view>
 
   <view class="order">

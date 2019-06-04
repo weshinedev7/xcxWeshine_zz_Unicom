@@ -19,9 +19,9 @@
       </view>
     </view>
     <view class="title_content">
-      <view class="action" bindtap='statusAdmin' data-id="{{item.id}}" data-status="{{item.status}}" data-key="{{index}}" style="background:{{item.status== 0?'#F86870':'rgb(4, 173, 4)'}}">{{item.status== 0?'禁用':'启用'}}</view>
+      <view class="action" bindtap='statusAdmin' data-id="{{item.id}}" data-status="{{item.status}}" data-key="{{index}}" style="background:#dd2727">{{item.status== 0?'禁用':'启用'}}</view>
 
-      <view class="action" style="background:#388BE8">
+      <view class="action" style="background:#838383">
         <navigator url="/pages/adminAdd/adminAdd?id={{item.id}}">修改</navigator>
       </view>
       <view class="action_left" data-id="{{item.id}}" bindtap='statusAdmin' style="background:{{item.status== 0?'rgb(4, 173, 4)':'red'}}">{{item.status== 0?'已激活':'已禁用'}}</view>
