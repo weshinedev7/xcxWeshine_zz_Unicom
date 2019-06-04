@@ -1867,3 +1867,98 @@ l .cart-decrease, .cart-add:fade-enter-active, :fade-leave-active {
   text-align: center;
   color: #838383;
 }
+
+/* 菜品评论选项卡 */
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #ccc;
+  text-align: center;
+  height: 88rpx;
+  background: white;
+  line-height: 88rpx;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.swiper-tab-item {
+  display: inline-block;
+  width: 33.33%;
+  color: #838282;
+}
+
+.active {
+  /* color:aqua; */
+  color: #dd2727;
+  border-bottom: 2rpx solid #dd2727;
+}
+
+swiper {
+  display: inline;
+}
+
+.eval-all {
+  margin-bottom: 130rpx;
+  min-height: 200rpx;
+
+}
+
+.evaluate {
+  width: 100%;
+  margin: 0rpx auto 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.content_left_content {
+  width: 100rpx;
+  float: left;
+  margin: 20rpx 0rpx 0rpx 25rpx;
+}
+
+.centent-img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}
+
+.content_left_right {
+	width:70%;
+  margin-left: 20rpx;
+  margin-right: 12rpx;
+  margin-top: 25rpx;
+  float: right;
+}
+
+.content_name {
+  font-size: 26rpx;
+  font-weight: 900;
+  margin-top: 10rpx;
+}
+
+.introduction {
+  font-size: 25rpx;
+  margin-top: 5rpx;
+  margin-bottom: 10rpx;
+}
+
+.introduction view text {
+  margin-left: 10rpx;
+}
+
+.immediately {
+  font-size: 25rpx;
+  width: 100%;
+  color: #838383;
+  line-height: 36rpx;
+  float: right;
+}
+
+
+.middle_none {
+  text-align: center;
+  font-size: 28rpx;
+  color: #838383;
+  margin-top: 300rpx;
+}
+

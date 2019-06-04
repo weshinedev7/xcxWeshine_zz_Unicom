@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    currentTab:0,
     selected1: true,
     toastHidden: true,
     changeHidden: true,
@@ -84,6 +85,9 @@ Page({
         }
       }
     })
+
+    //获取评价
+    
 
   },
   ycgg: function() {
@@ -505,5 +509,23 @@ Page({
       url: '../index/index',
     })
   },
+
+  //点击切换
+  clickTab: function (e) {
+    var _this = this;
+    if (_this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      _this.setData({
+        currentTab: e.target.dataset.current
+      })
+
+    }
+    if (e.target.dataset.current == 1) {
+      this.onloadMethod()
+    }
+  },
+
+  
   
 })

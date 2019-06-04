@@ -1,12 +1,12 @@
 {
   "pages": [
 		"pages/roomLogin/roomLogin",
+    "pages/index/index",
 		"pages/order/order",
 		"pages/category/category",
 		"pages/storeOrder/storeOrder",
 		"pages/admin/admin",
 		"pages/storeIndex/storeIndex",
-    "pages/index/index",
     "pages/storeInfo/storeInfo",
 		"pages/orderDetails/orderDetails",
 		"pages/storeFoods/storeFoods",

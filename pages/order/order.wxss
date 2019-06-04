@@ -30,8 +30,8 @@ page {
 }
 
 .active {
-  color: #ff6f43;
-  border-bottom: 1px solid #ff6f43;
+  color: #dd2727;
+  border-bottom: 1px solid #dd2727;
 }
 
 .flex-grow-1 {
@@ -165,7 +165,7 @@ page {
 }
 
 .price {
-  color: #ff4544;
+  color: #dd2727;
   font-weight: 600;
   text-align: right;
   font-size: 30rpx;
