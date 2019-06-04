@@ -151,12 +151,18 @@ Page({
 
   },
 
-  // 查看详情
-  details: function (e) {
-    wx.navigateTo({
-      url: '/pages/details/details?id=' + e.currentTarget.dataset.id
-    })
-  },
+	// 查看详情
+	storeInfo: function (e) {
+		wx.navigateTo({
+			url: '/pages/storeInfo/storeInfo?id=' + e.currentTarget.dataset.id
+		})
+	},
+	// 查看详情
+	details: function (e) {
+		wx.navigateTo({
+			url: '/pages/details/details?id=' + e.currentTarget.dataset.id
+		})
+	},
   // 已打烊
   close: function (e) {
     wx.showToast({

@@ -195,10 +195,13 @@ Page({
     }
     if (e.detail.value.price == '') {
       return _this.alertMethod('请填写菜品价格');
-    }
-    if (e.detail.value.originPrice == '') {
-      return _this.alertMethod('请填写菜品原价格');
-    }
+		}
+		if (e.detail.value.category == '') {
+			return _this.alertMethod('请选择菜品分类');
+		}
+		if (e.detail.value.originPrice == '') {
+			return _this.alertMethod('请填写菜品原价格');
+		}
     if (e.detail.value.brief == '') {
       return _this.alertMethod('请填写菜品原价格');
     }

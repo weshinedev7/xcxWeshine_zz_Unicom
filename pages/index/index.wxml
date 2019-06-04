@@ -1,12 +1,12 @@
 <!-- 头部 -->
-<view class="top">
+<!-- <view class="top">
   <view class="search-block">
     <navigator url="/pages/search/search">
       <image src="/images/icon-search.png" />
       <text>搜索</text>
     </navigator>
   </view>
-</view>
+</view> -->
 
 <!--轮播banner-->
 <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true" class="banner">
@@ -46,34 +46,40 @@
 
 <block wx:for="{{stores}}" wx:key="">
   <view class="eval-all">
-  <navigator class="goods-list flex-row" url="/pages/storeInfo/storeInfo?id={{item.id}}" hover-class="none">
-    <image class="goods-pic" mode="aspectFill" src="{{item.store_img}}" />
-    <view class="flex-grow-1 goods-content">
-      <view class="goods-name goods-time-list">{{item.store_name}}</view>
-      <view class="flex-row">
-        <view class="goods-time-list flex-grow-0">
-          <image mode="aspectFill" wx:for="{{5}}" wx:key="" src="/images/start.png" class="strat" />
+    <!-- <navigator class="goods-list flex-row" url="/pages/storeInfo/storeInfo?id={{item.id}}" hover-class="none"> -->
+    <view class="goods-list flex-row" bindtap="{{item.time == 1?'storeInfo':'close'}}" data-id="{{item.id}}">
+      <image class="goods-pic" mode="aspectFill" src="{{item.store_img}}" />
+      <view class="flex-grow-1 goods-content">
+        <view class="goods-name goods-time-list">{{item.store_name}}</view>
+        <view class="flex-row">
+          <view class="goods-time-list flex-grow-0">
+            <image mode="aspectFill" wx:for="{{5}}" wx:key="" src="/images/start.png" class="strat" />
+          </view>
+          <view class="goods-time-list goods-num flex-grow-0">
+            <text>已售:{{item.count}}</text>
+          </view>
         </view>
-        <view class="goods-time-list goods-num flex-grow-0">
-          <text>已售:{{item.count}}</text>
-        </view>
+        <view class="goods-time goods-time-list">营业时间:{{item.business_hours}}-{{item.closing_time}}</view>
       </view>
-      <view class="goods-time goods-time-list">营业时间:{{item.business_hours}}-{{item.closing_time}}</view>
     </view>
-  </navigator>
+    <!-- </navigator> -->
+     
+    <view class="show-content">
+      <!-- <navigator wx:for="{{item.foods}}" wx:key="" url="/pages/details/details?id={{item.id}}" hover-class="none" class="content-item flex-grow-0"> -->
+			
+    <view wx:for="{{item.foods}}" wx:if="{{item.foods.length>2}}" wx:for-item="v" class="content-item flex-grow-0" bindtap="{{item.time == 1?'details':'close'}}" data-id="{{item.id}}">
+        <view class='content-item-list'>
+          <image src="{{v.foods_img}}" mode="aspectFill" />
+          <view class="content-name">{{v.foods_name}}</view>
+          <view class="content-price">
+            <text class="new-price">￥{{v.price}}</text>
+            <text class="old-price">￥{{v.original_price}}</text>
+          </view>
+        </view>
+				</view>
+      <!-- </navigator> -->
+    </view>
 
-  <view class="show-content" wx:if="{{item.foods.length>2}}">
-    <navigator wx:for="{{item.foods}}" wx:key="" url="/pages/details/details?id={{item.id}}" hover-class="none" class="content-item flex-grow-0">
-      <view class='content-item-list'>
-          <image src="{{item.foods_img}}" mode="aspectFill" />
-      <view class="content-name">{{item.foods_name}}</view>
-      <view class="content-price">
-        <text class="new-price">￥{{item.price}}</text>
-        <text class="old-price">￥{{item.original_price}}</text>
-      </view>
-      </view>
-    </navigator>
   </view>
-</view>
-<view class='bg-list'></view>
+  <view class='bg-list'></view>
 </block>

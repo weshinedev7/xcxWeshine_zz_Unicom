@@ -23,7 +23,6 @@
 		"pages/store/store",
 		"pages/adminAdd/adminAdd",
 		"pages/details/details",
-		"pages/varietyOfDishes/varietyOfDishes",
 		"pages/cropper/cropper",
     "pages/conferenceRoom/conferenceRoom",
     "pages/user/user",
