@@ -35,7 +35,7 @@ Page({
 					})
 					setTimeout(function () {
 						wx.redirectTo({
-							url: '/pages/roomLogin/roomLogin'
+							url: '/pages/login/login'
 						})
 					}, 1000)
 				}

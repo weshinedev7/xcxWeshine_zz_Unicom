@@ -1,0 +1,29 @@
+<view class="content_left">
+  <view class="main">
+    <block wx:for="{{list}}" wx:key="">
+      <view class="title">{{item.question}}：</view>
+      <view class="radio-content">
+        <view class='radio-item-box' wx:key="" wx:for="{{item.options}}" wx:for-item="myItem" wx:for-index="myIndex">
+          <view class='radio-item {{myItem.active?"active":""}}' data-index="{{myIndex}}" data-parent="{{index}}" bindtap='chioseTap'>{{myItem.name}}</view>
+        </view>
+      </view>
+    </block>
+
+    <view class="ping">
+      <view class="title_2">综合评分：</view>
+      <view class="ping_content">
+        <image wx:for="{{5}}" data-index="{{index}}" bindtap='selectIndexNum' src="{{score >= index ? '/images/xingxing.png' : '/images/null.png'}}" />
+      </view>
+    </view>
+
+    <view class="meeting-content">追加评论(选填)</view>
+    <view class="meeting">
+      <textarea bindinput='getContent' placeholder="追加评论..." maxlength="1000" />
+    </view>
+  </view>
+
+  <view class="nav_container">
+    <view class="submit" bindtap="cancel">取消</view>
+    <view class="reset" bindtap="submit">提交</view>
+  </view>
+</view>

@@ -5,10 +5,10 @@ page {
 
 .top {
   width: 100%;
-  height: 440rpx;
   position: relative;
   background: white;
   margin-bottom: 10rpx;
+	padding-bottom:10rpx;
 }
 
 .top_img {
@@ -25,10 +25,10 @@ page {
 }
 
 .xx_img {
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
   position: absolute;
-  right: 50rpx;
+  right: 40rpx;
   top: 50rpx;
 }
 
@@ -38,9 +38,8 @@ page {
   position: absolute;
   right: 50rpx;
   top: 90rpx;
-	border:1rpx solid #dfdcdc;
-	border-bottom:none;
-  /* box-shadow: 0rpx 0rpx 10rpx 1rpx #b1b0b0; */
+  border: 1rpx solid #e6e4e4;
+  border-bottom: none;
 }
 
 .column_content {
@@ -50,17 +49,17 @@ page {
   font-size: 13px;
   line-height: 60rpx;
   text-align: center;
-  border-bottom: 1rpx solid #dfdcdc;
+  border-bottom: 1rpx solid #f8f6f6;
 }
 
 .isRuleShow {
   display: block;
 }
- 
+
 .isRuleHide {
   display: none;
 }
- 
+
 .float {
   height: 100%;
   width: 100%;
@@ -70,7 +69,6 @@ page {
   left: 0;
 }
 
- 
 .ruleHide {
   height: 60rpx !important;
   width: 60rpx !important;
@@ -84,6 +82,18 @@ page {
   height: 100%;
 }
 
+.store_status {
+  width: 100rpx;
+  height: 40rpx;
+  position: absolute;
+	top:37rpx;
+	left:49%;
+	margin:0rpx auto;
+  font-size: 11px;
+  line-height: 40rpx;
+  text-align: center;
+}
+
 .store_img {
   width: 150rpx;
   height: 150rpx;
@@ -94,7 +104,7 @@ page {
 
 .store {
   width: 100%;
-  height: 200rpx;
+  /* height: 200rpx; */
   margin-top: 80rpx;
 }
 
@@ -127,34 +137,61 @@ page {
 
 .store_text {
   width: 50%;
-  height: 50rpx;
   margin: 0rpx auto;
   line-height: 50rpx;
 }
 
 .store_text .store_comment {
   width: 100%;
-  float: left;
   font-size: 12px;
   text-align: center;
   color: #838383;
 }
 
+.store_notice {
+  width: 40%;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin: 0rpx auto;
+  font-size: 10px;
+  color: #5f5e5e;
+}
+
+.notice_title {
+  width: 20%;
+  height: 30rpx;
+  float: left;
+  line-height: 30rpx;
+  margin-top: 10rpx;
+  text-align: center;
+  color: white;
+  background: green;
+}
+
+.notice_text {
+  width: 78%;
+  height: 50rpx;
+  float: right;
+  line-height: 50rpx;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /*总体主盒子*/
 
 .store_container {
-  position: relative;
+  /* position: relative; */
   width: 100%;
-  height: 100%;
   color: #939393;
 }
 
 /*左侧栏主盒子*/
 
 .nav_left {
-  /* position: absolute; */
-  /* left: 0; */
-	float:left;
+  /* position: absolute; *//* left: 0; */
+  float: left;
   width: 25%;
   height: 100%;
   background: white;
@@ -172,6 +209,25 @@ page {
   font-size: 14px;
 }
 
+.category_status{
+	width:50%;
+	height:100rpx;
+	float:left;
+	color:rgb(66, 65, 65);
+	line-height: 100rpx;
+  font-size: 14px;
+}
+
+.categoryTime {
+  font-size: 14px;
+	height:100rpx;
+	line-height: 100rpx;
+  width: 50%;
+	text-align: center;
+	float:right;
+  color: rgb(66, 65, 65);
+}
+
 /*左侧栏list的item被选中时*/
 
 .nav_left .nav_left_items.active {
@@ -185,10 +241,11 @@ page {
 .nav_right {
   /* position: absolute;
   right: 0; */
-	float:left;
+  float: left;
   width: 75%;
   height: 100%;
   flex: 1;
+	margin-top:10rpx;
   box-sizing: border-box;
   background: #f3f3f3;
 }
@@ -204,6 +261,13 @@ page {
 }
 
 /* 菜品头部 */
+
+.cate_operation {
+  width: 96%;
+  margin: 0rpx auto 10rpx;
+  height: 100rpx;
+  background: white;
+}
 
 .food_top {
   width: 100%;
@@ -278,7 +342,7 @@ page {
   width: 100rpx;
   height: 50rpx;
   padding: 0;
-  border-radius: 10rpx;
+  border-radius: 6rpx;
   text-align: center;
   margin: 15rpx auto 0rpx;
   line-height: 50rpx;
@@ -304,6 +368,10 @@ page {
 .switch {
   margin-left: 30rpx;
   margin-top: 10rpx;
+}
+
+.switch1 {
+  margin-left: 30rpx;
 }
 
 .wx-switch-input {
@@ -357,7 +425,7 @@ page {
 
 .swiper-tab-item {
   display: inline-block;
-  width: 50%;
+  width: 25%;
   color: #838282;
 }
 
@@ -368,7 +436,8 @@ page {
 }
 
 swiper {
-  display: inline;
+  /* display: inline; */
+  height: 100%;
 }
 
 /* 评价 */
@@ -485,4 +554,70 @@ swiper {
   visibility: hidden;
   height: 0;
   clear: both;
+}
+
+.bb {
+  border-bottom: 1rpx solid #e0e0e0;
+}
+
+.store_details {
+  width: 96%;
+  margin: 0rpx auto;
+  margin-top: 10rpx;
+  background: white;
+}
+
+.store_title {
+  width: 94%;
+  height: 100rpx;
+  line-height: 80rpx;
+  margin: 0rpx auto;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.store_details_content {
+  width: 94%;
+  height: 100rpx;
+  margin: 0rpx auto;
+  font-size: 12px;
+	color:rgb(112, 112, 112);
+  border-top: 1rpx solid #e0e0e0;
+}
+
+.store_details_title {
+  width: 25%;
+  height: 100rpx;
+  float: left;
+  line-height: 100rpx;
+  font-size: 14px;
+	color:rgb(59, 59, 59);
+  font-weight: 700;
+}
+
+.store_details_text {
+  width: 75%;
+  height: 100rpx;
+  float: left;
+  text-align: right;
+  line-height: 100rpx;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.store_details_notice {
+  width: 94%;
+  background: white;
+  margin: 0rpx auto;
+}
+
+.store_details_text1 {
+  width: 72%;
+  float: left;
+  text-align: right;
+  padding:35rpx 0rpx 15rpx;
+  padding-right: 10rpx;
+  font-size: 12px;
 }

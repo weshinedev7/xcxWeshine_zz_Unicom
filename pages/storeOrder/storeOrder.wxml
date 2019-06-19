@@ -15,11 +15,9 @@
   <block wx:for="{{list}}">
     <view class="order">
       <view class="order_title">订单状态
-        <view class="status_text" wx:if="{{item.use_status == 2}}">用户已取消订单...</view>
+        <view class="status_text" wx:if="{{item.use_status == 1 && item.order_status == 0}}">用户已取消订单</view>
         <view class="status_text" wx:if="{{item.use_status == 0 && item.order_status == 0 && item.be_overdue == 0}}">已提交订单</view>
-        <view class="status_text" wx:if="{{item.order_status == 1 && item.be_overdue == 0}}">已接单</view>
-        <view class="status_text" wx:if="{{item.order_status == 2}}">商家已取消订单...</view>
-        <view class="status_text" wx:if="{{item.use_status == 0 && item.order_status == 0 && item.be_overdue == 1}}">商家未接单...</view>
+        <view class="status_text" wx:if="{{item.use_status == 0 && item.order_status == 1}}">商家已取消订单</view>
       </view>
 
       <view class="number">
@@ -30,11 +28,11 @@
       <view class="order_goods" wx:for="{{item.foods}}" wx:for-item="v">
         <view class="good_content">
           <view class="good_img">
-            <image src="{{v.img}}"></image>
+            <image src="{{v.food_img}}"></image>
           </view>
           <view class="good_text">
-            <view class="good_name">{{v.name}}</view>
-            <view class="good_biref">{{v.brief}}</view>
+            <view class="good_name">{{v.food_name}}</view>
+            <view class="good_biref">{{v.food_brief}}</view>
           </view>
           <view class="good_num">X{{v.count}}</view>
           <view class="good_price">￥{{v.totalprice}}</view>
@@ -42,8 +40,8 @@
       </view>
 
       <view class="news">
-        <view class="user_news" wx:if="{{item.remarks}}">用户备注：{{item.remarks}}</view>
-        <view class="store_news" wx:if="{{item.store_remarks}}">商家取消：{{item.store_remarks}}</view>
+        <view class="user_news" wx:if="{{item.remarks}}"><text>用户备注：</text>{{item.remarks}}</view>
+        <view class="store_news" wx:if="{{item.store_remarks}}"><text>商家取消：</text>{{item.store_remarks}}</view>
       </view>
 
       <view class="operation">
@@ -51,13 +49,9 @@
           <text style="font-size:10px;color:black;margin-right:10rpx;">小计</text>{{item.count_price}}</view>
         <view class="count_btn">
 					<!-- 用户已提交，商家未取消，并且订单未过期 -->
-          <view bindtap='showDialogBtn' data-id="{{item.id}}" class="btn1" wx:if="{{item.use_status == 0 && item.order_status != 2 && item.be_overdue == 0}}">取消</view>
-					<!-- 用户已提交订单，商家未接单，并且订单未过期 -->
-          <view class="btn" wx:if="{{item.use_status == 0 && item.order_status == 0 && item.be_overdue == 0}}" bindtap='receipt' data-id="{{item.id}}" data-key="{{index}}">确认订单</view>
+          <view bindtap='showDialogBtn' data-id="{{item.id}}" data-key="{{index}}" class="btn1" wx:if="{{item.use_status == 0 && item.order_status == 0 && item.be_overdue == 0}}">取消</view>
 					<!-- 商家已接单，用户确认用餐 -->
-          <view class="btn2" wx:if="{{item.use_status == 1 || item.order_status == 1}}">订单已完成</view>
-					<!-- 商家未接单，用户未确认用餐，并且订单已过期  item.be_overdue == 1 为已过期-->
-          <view class="btn2" wx:if="{{item.use_status == 0 && item.order_status == 0 && item.be_overdue == 1}}" style="color:rgb(109, 107, 107)">订单已失效</view>
+          <view class="btn2" wx:if="{{item.order_status == 0 && item.be_overdue == 1 || item.use_status == 0 && item.order_status == 0}}">订单已完成</view>
         </view>
       </view>
     </view>

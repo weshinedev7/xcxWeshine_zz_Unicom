@@ -16,7 +16,7 @@ Page({
     var _this = this;
     // 获取购物车数据表的数据
     util.ajax({
-			url: app.globalData.path + 'ApiFoods/orderDetail',
+			url: app.globalData.path + 'ApiOrder/orderDetail',
       method: "get",
       data: {
 				orderId: options.id,

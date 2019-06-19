@@ -1,52 +1,63 @@
 <view class="pages">
 
-    <!-- <view class="mode">
-      <view class="mode_center">
-        <view class="mode_title">付款方式</view>
-        <view class="mode_content">自付</view>
+  <view class="mode" wx:if="{{payType == 2}}">
+    <view class="mode_center">
+      <view class="mode_title">
+        <view class="yy_title">预约点餐</view>
       </view>
-    </view> -->
-
-    <view class="content clear">
-
-      <view class="store">
-        <view class="store_content">{{store.store_name}}</view>
-      </view>
-
-      <block wx:for="{{orderInfo}}">
-        <view class="foods clear">
-          <view class="foods_content">
-            <view class="foods_img">
-              <image src="{{item.img}}"></image>
+      <view class="mode_content">
+        <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+          <view class="tui-picker-detail font time1">
+            <input wx:if="{{!start_time}}" class="input" name="start_time" bindinput="appinput" value="{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}:00" disabled/>
+            <view class="right1">
+              <image src="/images/right-2.png"></image>
             </view>
-            <view class="foods_information">
-              <view class="foods_name">{{item.name}}</view>
-              <!-- <view class="foods_brief">{{item.brief}}</view> -->
-            </view>
-            <view class="foods_num">x{{item.one}}</view>
-            <view class="foods_price">￥{{item.totalPrice}}</view>
           </view>
-        </view>
-      </block>
-
-      <view class="subtotal">
-        <view class="subtotal_price">
-          <text>￥{{totalPrice}}</text>
-          <view class="subtotal_price_title">小计</view>
-        </view>
+        </picker>
       </view>
     </view>
-    <view class="remarks">
-      <view class="remark_title">备注(选填)：</view>
-      <textarea placeholder='请输入备注' maxlength="500" name="remarks"  bindinput='getInput' data-model='remarks'></textarea>
+  </view>
+
+  <view class="content clear">
+
+    <view class="store">
+      <view class="store_content">{{store.store_name}}</view>
+    </view>
+
+    <block wx:for="{{orderInfo}}">
+      <view class="foods clear">
+        <view class="foods_content">
+          <view class="foods_img">
+            <image src="{{item.img}}"></image>
+          </view>
+          <view class="foods_information">
+            <view class="foods_name">{{item.name}}</view>
+            <view class="foods_brief">{{item.brief}}</view>
+          </view>
+          <view class="foods_num">x{{item.one}}</view>
+          <view class="foods_price">￥{{item.totalPrice}}</view>
+        </view>
+      </view>
+    </block>
+
+    <view class="subtotal">
+      <view class="subtotal_price">
+        <text>￥{{totalPrice}}</text>
+        <view class="subtotal_price_title">小计</view>
+      </view>
     </view>
   </view>
-  <!-- 底部 -->
-  <view class="nav_container">
-    <view class="price">
-      <text class="money">￥{{totalPrice}}</text>
-    </view>
-    <!-- <view class="pay" bindtap="{{food.store_status == 1?'toOrder':'ts'}}" data-id="2">立即下单</view> -->
-    <button class="pay" bindtap="pay" data-id="0" form-type='submit'>自付</button>
-    <button class="pay" bindtap="pay" data-id="1" form-type='submit'>部门代付</button>
+  <view class="remarks">
+    <view class="remark_title">备注(选填)：</view>
+    <textarea placeholder='请输入备注' maxlength="500" name="remarks" bindinput='getInput' data-model='remarks'></textarea>
   </view>
+</view>
+<!-- 底部 -->
+<view class="nav_container">
+  <view class="price">
+    <text class="money">￥{{totalPrice}}</text>
+  </view>
+  <!-- <view class="pay" bindtap="{{food.store_status == 1?'toOrder':'ts'}}" data-id="2">立即下单</view> -->
+  <button class="pay" bindtap="pay" data-id="0" form-type='submit'>自付</button>
+  <button class="pay" bindtap="pay" data-id="1" form-type='submit'>部门代付</button>
+</view>

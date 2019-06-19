@@ -10,7 +10,7 @@ page{
 	top:0rpx;
 	background: white;
 	left:0rpx;
-	box-shadow: 0rpx 0rpx 20rpx 2rpx #d4d3d3
+	box-shadow: 0rpx 0rpx 20rpx 2rpx #c0c0c0
 }
 
 .display {
@@ -120,12 +120,12 @@ page{
   width: 120rpx;
   height: 60rpx;
   float: right;
-  margin-right: 10rpx;
+  margin-right: 20rpx;
   text-align: center;
   line-height: 60rpx;
   background: #d83131;
   color: white;
-  border-radius: 26rpx;
+  border-radius: 6px;
   font-size: 30rpx;
 }
 
@@ -138,7 +138,7 @@ page{
   line-height: 60rpx;
   background: #838383;
   color: white;
-  border-radius: 26rpx;
+  border-radius: 6px;
   font-size: 30rpx;
 }
 

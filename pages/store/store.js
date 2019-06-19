@@ -8,29 +8,38 @@ Page({
    */
   data: {
     date: '2018-10-01',
+    start_app: "00:00:00",
+    end_app: "00:00:00",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    // 获取完整的年月日 时分秒，以及默认显示的数组
+    var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    var obj2 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    var obj3 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    // 精确到分的处理，将数组的秒去掉
+    obj.dateTimeArray.pop();
+    obj.dateTime.pop();
 
-		// 获取完整的年月日 时分秒，以及默认显示的数组
-		var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
-		var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
-		// 精确到分的处理，将数组的秒去掉
-		obj.dateTimeArray.pop();
-		obj.dateTime.pop();
+    obj1.dateTimeArray.pop();
+    obj1.dateTime.pop();
 
-		obj1.dateTimeArray.pop();
-		obj1.dateTime.pop();
+    obj2.dateTimeArray.pop();
+    obj2.dateTime.pop();
 
-		this.setData({
-			dateTime: obj.dateTime,
-			dateTimeArray: obj.dateTimeArray,
-			dateTimeArray1: obj1.dateTimeArray,
-			dateTime1: obj1.dateTime
-		});
+    obj3.dateTimeArray.pop();
+    obj3.dateTime.pop();
+
+    this.setData({
+      dateTime: obj.dateTime,
+      dateTimeArray: obj.dateTimeArray,
+      dateTimeArray1: obj1.dateTimeArray,
+      dateTime1: obj1.dateTime
+    });
 
     var _this = this;
 
@@ -49,8 +58,10 @@ Page({
             _this.setData({
               store: res.data.data,
               file_name: res.data.data.img,
-							business_hours: res.data.data.business_hours,
-							closing_time: res.data.data.closing_time,
+              business_hours: res.data.data.business_hours,
+              closing_time: res.data.data.closing_time,
+              start_appointment: res.data.data.start_appointment,
+              end_appointment: res.data.data.end_appointment,
 
             });
             var status = _this.data.store.status == 1 ? '(正在营业)' : '(休息中)';
@@ -155,14 +166,107 @@ Page({
   },
   submitData: function(e) {
     var _this = this;
-		var data = {
-			id: wx.getStorageSync('storeInfo').store_id,
-			file_name: _this.data.file_name,
-			name: e.detail.value.name,
-			closing_time: e.detail.value.closing_time,
-			business_hours: e.detail.value.business_hours,
-			status: _this.data.status,
-		};
+
+    if (e.detail.value.name == '') {
+      wx.showToast({
+        title: '餐厅名称不能为空',
+        icon: 'none',
+        duration: 1500,
+        mask: true
+      });
+      return false;
+    }
+    // if (e.detail.value.closing_time == '') {
+    //   wx.showToast({
+    //     title: '营业时间不能为空',
+    //     icon: 'none',
+    //     duration: 1500,
+    //     mask: true
+    //   });
+    //   return false;
+    // }
+    // if (e.detail.value.business_hours == '') {
+    //   wx.showToast({
+    //     title: '打烊时间不能为空',
+    //     icon: 'none',
+    //     duration: 1500,
+    //     mask: true
+    //   });
+    //   return false;
+    // }
+    // if (e.detail.value.start_appointment == '') {
+    //   wx.showToast({
+    //     title: '请输入可预约时间',
+    //     icon: 'none',
+    //     duration: 1500,
+    //     mask: true
+    //   });
+    //   return false;
+    // }
+    // if (e.detail.value.end_appointment == '') {
+    //   wx.showToast({
+    //     title: '请输入可预约时间',
+    //     icon: 'none',
+    //     duration: 1500,
+    //     mask: true
+    //   });
+    //   return false;
+    // }
+    if (e.detail.value.start_appointment && e.detail.value.end_appointment) {
+      if (e.detail.value.end_appointment <= e.detail.value.start_appointment) {
+        wx.showToast({
+          title: '开始预约时间不能大于结束预约时间',
+          icon: 'none',
+          duration: 1500,
+          mask: true
+        });
+        return false;
+      }
+    }
+    // if (e.detail.value.type == '') {
+    //   wx.showToast({
+    //     title: '请输餐厅主营品类',
+    //     icon: 'none',
+    //     duration: 1500,
+    //     mask: true
+    //   });
+    //   return false;
+    // }
+    // if (e.detail.value.store_tel == '') {
+    //   wx.showToast({
+    //     title: '请输餐厅电话',
+    //     icon: 'none',
+    //     duration: 1500,
+    //     mask: true
+    //   });
+    //   return false;
+    // }
+    // if (e.detail.value.address == '') {
+    //   wx.showToast({
+    //     title: '请输餐厅地址',
+    //     icon: 'none',
+    //     duration: 1500,
+    //     mask: true
+    //   });
+    // }
+    var data = {
+      id: wx.getStorageSync('storeInfo').store_id,
+      file_name: _this.data.file_name,
+      name: e.detail.value.name,
+      type: e.detail.value.type,
+      store_tel: e.detail.value.store_tel,
+      address: e.detail.value.address,
+      type: e.detail.value.type,
+      morning_time: e.detail.value.morning_time,
+      noon_time: e.detail.value.noon_time,
+      evening_time: e.detail.value.evening_time,
+      notice: e.detail.value.notice,
+      closing_time: e.detail.value.closing_time,
+      business_hours: e.detail.value.business_hours,
+      start_appointment: e.detail.value.start_appointment,
+      end_appointment: e.detail.value.end_appointment,
+      status: _this.data.status,
+    };
     wx.request({
       url: app.globalData.path + 'ApiStore/storeSave',
       method: 'POST',
@@ -179,14 +283,16 @@ Page({
             duration: 1000,
             mask: true
           });
-				_this.setData({
-					id:data.id,
-					file_name: data.file_name,
-					name: data.name,
-					closing_time: data.closing_time,
-					business_hours: data.business_hours,
-					status: data.status,
-				})
+          _this.setData({
+            id: data.id,
+            file_name: data.file_name,
+            name: data.name,
+            closing_time: data.closing_time,
+            business_hours: data.business_hours,
+            start_appointment: data.start_appointment,
+            end_appointment: data.end_appointment,
+            status: data.status,
+          })
         } else {
           wx.showToast({
             title: res.data.msg,
@@ -197,51 +303,87 @@ Page({
         }
       }
     })
-	},
-	changeDate(e) {
-		this.setData({
-			date: e.detail.value
-		});
-	},
-	changeTime(e) {
-		this.setData({
-			business_hours: '',
-			start_time: e.detail.value+':00'
-		});
-	},
-	changeTime1(e) {
-		this.setData({
-			closing_time: '',
-			end_time: e.detail.value + ':00'
-		});
-	},
-	changeDateTime(e) {
-		this.setData({
-			dateTime: e.detail.value
-		});
-	},
-	changeDateTimeColumn(e) {
-		var arr = this.data.dateTime,
-			dateArr = this.data.dateTimeArray;
+  },
+  changeDate(e) {
+    this.setData({
+      date: e.detail.value
+    });
+  },
+  changeTime(e) {
+    this.setData({
+      business_hours: '',
+      start_time: e.detail.value + ':00'
+    });
+  },
+  changeTime1(e) {
+    this.setData({
+      closing_time: '',
+      end_time: e.detail.value + ':00'
+    });
+  },
+  changeTime2(e) {
+    this.setData({
+      start_appointment: '',
+      start_app: e.detail.value + ':00'
+    });
+  },
+  changeTime3(e) {
+    this.setData({
+      end_appointment: '',
+      end_app: e.detail.value + ':00'
+    });
+  },
+  changeDateTime(e) {
+    this.setData({
+      dateTime: e.detail.value
+    });
+  },
+  changeDateTimeColumn(e) {
+    var arr = this.data.dateTime,
+      dateArr = this.data.dateTimeArray;
 
-		arr[e.detail.column] = e.detail.value;
-		dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+    arr[e.detail.column] = e.detail.value;
+    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
 
-		this.setData({
-			dateTimeArray: dateArr,
-			dateTime: arr
-		});
-	},
-	changeDateTimeColumn1(e) {
-		var arr = this.data.dateTime1,
-			dateArr = this.data.dateTimeArray1;
+    this.setData({
+      dateTimeArray: dateArr,
+      dateTime: arr
+    });
+  },
+  changeDateTimeColumn1(e) {
+    var arr = this.data.dateTime1,
+      dateArr = this.data.dateTimeArray1;
 
-		arr[e.detail.column] = e.detail.value;
-		dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+    arr[e.detail.column] = e.detail.value;
+    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
 
-		this.setData({
-			dateTimeArray1: dateArr,
-			dateTime1: arr
-		});
-	}
+    this.setData({
+      dateTimeArray1: dateArr,
+      dateTime1: arr
+    });
+  },
+  changeDateTimeColumn2(e) {
+    var arr = this.data.dateTime2,
+      dateArr = this.data.dateTimeArray2;
+
+    arr[e.detail.column] = e.detail.value;
+    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+
+    this.setData({
+      dateTimeArray1: dateArr,
+      dateTime1: arr
+    });
+  },
+  changeDateTimeColumn3(e) {
+    var arr = this.data.dateTime3,
+      dateArr = this.data.dateTimeArray3;
+
+    arr[e.detail.column] = e.detail.value;
+    dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+
+    this.setData({
+      dateTimeArray1: dateArr,
+      dateTime1: arr
+    });
+  }
 })

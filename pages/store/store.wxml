@@ -42,6 +42,81 @@
         </picker>
       </view>
     </view>
+    <!-- 预约时间 -->
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text" style="width:27%;">预约时间(开始)</view>
+        <view class="tui-picker-content" style="width:64%;float:left;padding-right:30rpx;">
+          <picker mode="time" value="{{start_appointment}}" bindchange="changeTime2">
+            <view class="tui-picker-detail time">
+              <input class="input1" style="width:92%;" wx:if="{{start_appointment == ''}}" name="start_appointment" value="{{start_app}}" disabled/>
+              <input class="input1" style="width:92%;" wx:if="{{start_appointment != ''}}" name="start_appointment" value="{{start_appointment}}" disabled/>
+              <view class="right1">
+                <image src="/images/right-2.png" style="width:50%;"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text" style="width:27%;">预约时间(结束)</view>
+        <view class="tui-picker-content" style="width:64%;float:left;padding-right:30rpx;">
+          <picker mode="time" value="{{end_appointment}}" bindchange="changeTime3">
+            <view class="tui-picker-detail time">
+              <input class="input1" style="width:92%;" wx:if="{{end_appointment == ''}}" name="end_appointment" value="{{end_app}}" disabled/>
+              <input class="input1" style="width:92%;" wx:if="{{end_appointment != ''}}" name="end_appointment" value="{{end_appointment}}" disabled/>
+              <view class="right1">
+                <image src="/images/right-2.png" style="width:50%;"></image>
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text">主营品类</view>
+        <input class="input" name="type" value="{{store.type}}" placeholder="请输餐厅主营品类" bindinput="searchInput" />
+      </view>
+    </view>
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text">餐厅电话</view>
+        <input class="input" name="store_tel" value="{{store.store_tel}}" placeholder="请输餐厅电话" bindinput="searchInput" />
+      </view>
+    </view>
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text">餐厅地址</view>
+        <input class="input" name="address" value="{{store.address}}" placeholder="请输餐厅地址" bindinput="searchInput" />
+      </view>
+    </view>
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text">售卖时间(早)</view>
+        <input class="input" name="morning_time" value="{{store.morning_time}}" placeholder="请输餐厅早上售卖时间" bindinput="searchInput" />
+      </view>
+    </view>
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text">售卖时间(中)</view>
+        <input class="input" name="noon_time" value="{{store.noon_time}}" placeholder="请输餐厅中午售卖时间" bindinput="searchInput" />
+      </view>
+    </view>
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text">售卖时间(晚)</view>
+        <input class="input" name="evening_time" value="{{store.evening_time}}" placeholder="请输餐厅晚上售卖时间" bindinput="searchInput" />
+      </view>
+    </view>
+    <view class="content">
+      <view class="content_input">
+        <view class="input_text">公告(选填)</view>
+        <input class="input" name="notice" value="{{store.notice}}" placeholder="请输餐厅公告" bindinput="searchInput" />
+      </view>
+    </view>
     <view class="content">
       <view class="content_input">
         <view class="input_text" style="width:31%;">商店状态

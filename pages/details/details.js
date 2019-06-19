@@ -13,7 +13,6 @@ Page({
       url: '/images/ct-1.jpg'
     }],
     number: 1,
-    check: 0,
     food_id: '',
     food: {},
     price: 0,
@@ -97,31 +96,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options.id);
-    var that = this;
-    that.setData({
-      food_id: options.id
-    })
 
-		// 商品
-    util.ajax({
-      url: app.globalData.path + 'ApiFoods/foodDetail',
-      method: 'POST',
-      data: {
-        id: that.data.food_id
-      },
-      success: function(res) {
-        that.setData({
-          food: res.data.food,
-          price: res.data.food.price,
-          total: res.data.food.price,
-          imglist: res.data.imglist
-        })
-				console.log(that.data.food)
-      }
-    })
-
-		this.onloadMethod();
+		var that = this;
+		that.setData({
+			food_id: options.id
+		})
   },
 	//滑动加载
 	onloadMethod: function () {
@@ -144,8 +123,7 @@ Page({
 			url: app.globalData.path + 'ApiFoods/FoodScore',
 			method: 'GET',
 			data: {
-				id: that.data.food_id,
-				type: that.data.check,
+				foodId: that.data.food_id,
 				pageSize: 5, //每页展示的数据条数
 				page: that.data.page //当前页码（从1开始）
 			},
@@ -165,6 +143,7 @@ Page({
 						openof: that.data.page
 					})
 				}
+				console.log(that.data.list)
 			},
 			complete: function () {
 				wx.hideNavigationBarLoading() //完成停止加载
@@ -183,7 +162,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+		let that = this;
+		// 商品
+		util.ajax({
+			url: app.globalData.path + 'ApiFoods/foodDetail',
+			method: 'POST',
+			data: {
+				id: that.data.food_id
+			},
+			success: function (res) {
+				that.setData({
+					food: res.data.food,
+					price: res.data.food.price,
+					total: res.data.food.price,
+					imglist: res.data.imglist
+				})
+			}
+		})
 
+		that.onloadMethod();
   },
 
   /**
@@ -211,7 +208,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
 		this.onloadMethod();
   },
 
@@ -221,12 +217,4 @@ Page({
   onShareAppMessage: function() {
 
   },
-	ts:function(){
-		wx.showToast({
-			title: '店铺已打烊',
-			icon: 'none',
-			duration: 2500//持续的时间
-		});
-	}
-
 })

@@ -1,5 +1,5 @@
 <!--mask-->
-<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}" data-key="00"></view>
 <!--使用animation属性指定需要执行的动画-->
 <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
 
@@ -12,13 +12,35 @@
         <input class="input_base input_h30 col-1" name="name" focus value="{{edit_category.name}}"></input>
         <input hidden name="id" value="{{edit_category.id}}"></input>
       </view>
+
       <view class="top grid">
         <label class="title col-0">分类排序</label>
         <input class="input_base input_h30 col-1" name="sort" wx:if="{{edit_category.sort}}" value="{{edit_category.sort}}"></input>
         <input class="input_base input_h30 col-1" name="sort" wx:if="{{!edit_category.sort}}" value="99"></input>
       </view>
+
+      <view class="top grid" style="height:70rpx">
+        <label class="title col-0">售卖时间</label>
+          <picker mode="time" value="{{business_hours}}" bindchange="changeTime">
+            <view class="tui-picker-detail time">
+              <input class="input_base input_h30 col-1" wx:if="{{business_hours == ''}}" name="start_time" value="{{start_time}}" disabled/>
+              <input class="input_base input_h30 col-1"  wx:if="{{business_hours != ''}}" name="start_time" value="{{business_hours}}" disabled/>
+            </view>
+          </picker>
+      </view>
+
+      <view class="top grid">
+        <label class="title col-0">结束时间</label>
+          <picker mode="time" value="{{closing_time}}" bindchange="changeTime1">
+            <view class="tui-picker-detail time">
+              <input class="input_base input_h30 col-1" wx:if="{{closing_time == ''}}" name="end_time" value="{{end_time}}" disabled/>
+              <input class="input_base input_h30 col-1"  wx:if="{{closing_time != ''}}" name="end_time" value="{{closing_time}}" disabled/>
+            </view>
+          </picker>
+      </view>
+			
     </view>
-    <button class="btn_ok" bindtap="powerDrawer" data-statu="close" form-type='submit'>确定</button>
+    <button class="btn_ok" data-statu="close" form-type='submit'>确定</button>
   </form>
 </view>
 
@@ -26,15 +48,17 @@
 <view class="body">
   <view class="list" wx:for="{{list}}">
     <view class="title_cate">
-      <view class="content" style="width:40%" style="margin-left:20rpx;font-size:13px;"><view style="float:left;">分类名：</view><text style="color:#838383">{{item.name}}</text>
+      <view class="content">
+				<view class="category_name">分类名：{{item.name}}</view>
+				<view class="category_name">分类排序：{{item.sort}}</view>
       </view>
-      <view class="content" style="width:25%;margin-left:10rpx;"><view style="float:left;font-size:13px;">分类排序：</view><text style="color:#838383">{{item.sort}}</text>
+      <view class="content">
+				<view class="category_name">售卖时间：{{item.start_time}}</view>
+				<view class="category_name">结束时间：{{item.end_time}}</view>
       </view>
-      <view class="content" style="width:35%;margin-left:25rpx;">
-        <view class="action" style="background:#838383">
-          <view bindtap="powerDrawer" data-statu="open" data-id="{{item.id}}" data-key="{{index}}">修改</view>
-        </view>
-        <view class="action" bindtap='delete_cate' data-id="{{item.id}}" data-status="{{item.status}}" data-key="{{index}}" style="margin-left:10rpx;background:#dd2727">删除</view>
+      <view class="operation">
+        <view bindtap="powerDrawer" class="action" data-statu="open" data-id="{{item.id}}" data-key="{{index}}">修改</view>
+        <view class="action" style="background:#838383" bindtap='delete_cate' data-id="{{item.id}}" data-status="{{item.status}}" data-key="{{index}}">删除</view>
       </view>
     </view>
   </view>
@@ -42,5 +66,5 @@
   <view style="width:100%;line-height:500rpx;text-align:center;font-size:14px;color:#838383" wx:if="{{list.length == 0}}">暂无分类</view>
 </view>
 <view class="btn">
-  <view bindtap="powerDrawer" data-id="0" data-statu="open" data-key="1000">新增</view>
+  <view bindtap="powerDrawer" data-id="0" data-statu="open" data-key="10000">新增</view>
 </view>

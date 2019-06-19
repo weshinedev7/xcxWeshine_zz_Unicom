@@ -6,28 +6,28 @@ page {
   width: 95%;
   height: 80rpx;
   background: white;
-  margin: 10rpx auto;
+  margin: 10rpx auto 15rpx;
 }
 
-.mode_center{
-	width:90%;
-	height:80%;
-	margin:0rpx auto;
+.mode_center {
+  width: 90%;
+  height: 80%;
+  margin: 0rpx auto;
 }
 
 .mode_title {
-  width: 50%;
+  width: 48%;
   float: left;
   height: 80rpx;
   font-size: 14px;
   line-height: 80rpx;
-	font-weight: 700;
+  font-weight: 700;
 }
 
 .mode_content {
   width: 50%;
   float: left;
-	text-align: right;
+  text-align: right;
   height: 80rpx;
   font-size: 14px;
   line-height: 80rpx;
@@ -154,21 +154,21 @@ page {
   font-size: 16px;
 }
 
-.subtotal_price_title{
-	font-size:10px;
-	float:right;
+.subtotal_price_title {
+  font-size: 10px;
+  float: right;
 }
 
 .subtotal_price text {
   color: red;
   font-weight: 900;
-	float:right;
+  float: right;
 }
 
 .remarks {
   width: 95%;
   background: white;
-  margin: 30rpx auto 200rpx;
+  margin: 15rpx auto 200rpx;
   padding-bottom: 40rpx;
 }
 
@@ -176,7 +176,8 @@ page {
   width: 90%;
   height: 80rpx;
   line-height: 80rpx;
-  font-size: 16px;
+  font-size: 13px;
+  font-weight: 700;
   margin: 0rpx auto;
 }
 
@@ -184,13 +185,14 @@ textarea {
   width: 90%;
   height: 360rpx;
   padding: 20rpx 10rpx;
-  font-size: 30rpx;
+  font-size: 12px;
   border: 1rpx solid #ececec;
-  border-radius: 26rpx;
+  border-radius: 10rpx;
   margin: 0rpx auto;
 }
 
 /* 底部导航 */
+
 .nav_container {
   position: fixed;
   width: 100%;
@@ -224,6 +226,81 @@ textarea {
   line-height: 70rpx;
   background: #dd2727;
   color: white;
-  border-radius: 26rpx;
+  border-radius: 10rpx;
   font-size: 27rpx;
+}
+
+.input {
+  width: 90%;
+  height: 80rpx;
+  float: left;
+  color: #888;
+  font-size: 26rpx;
+}
+
+.time1 {
+  position: relative;
+}
+
+.right1 {
+  width: 15%;
+  height: 110rpx;
+  position: absolute;
+  right: -10rpx;
+  top: 0rpx;
+}
+
+.right1 image {
+  width: 80%;
+  height: 40rpx;
+  margin: 18rpx 0rpx 0rpx 25rpx;
+}
+
+.time {
+  position: relative;
+}
+
+.right {
+  width: 15%;
+  height: 110rpx;
+  position: absolute;
+  right: -10rpx;
+  top: 0rpx;
+}
+
+.right image {
+  width: 40%;
+  height: 45rpx;
+  margin: 30rpx 0rpx 0rpx 33rpx;
+}
+
+.yy_title {
+  width: 40%;
+  float: left;
+}
+
+/*swtich整体大小及背景色*/
+
+.switch1 {
+	margin-bottom: 10rpx;
+}
+
+.wx-switch-input {
+  width: 100rpx !important;
+  height: 50rpx !important;
+  border: #dd2727 !important; /* 2018-07-18 重置开关边框颜色 */
+}
+
+/*白色样式（false的样式）*/
+
+.wx-switch-input::before {
+  width: 100rpx !important;
+  height: 50rpx !important;
+}
+
+/*绿色样式（true的样式）*/
+
+.wx-switch-input::after {
+  width: 60rpx !important;
+  height: 50rpx !important;
 }

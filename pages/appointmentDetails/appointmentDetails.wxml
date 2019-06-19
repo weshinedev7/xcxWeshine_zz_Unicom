@@ -1,0 +1,80 @@
+<view class="pages">
+
+  <view class="mode">
+    <view class="order_status">
+			<!-- 订单已提交 -->
+      <view class="status" wx:if="{{order.use_status == 0 && order.order_status == 0 && order.be_overdue == 1}}">订单已提交</view>
+			<!-- 商家取消订单 -->
+      <view class="status" wx:if="{{order.order_status == 1}}">商家已取消订单</view>
+			<!-- 用户已取消订单 -->
+      <view class="status" wx:if="{{order.order_status == 0 && order.use_status == 1}}">您已取消订单</view>
+			<!-- 订单已完成 -->
+      <view class="status" wx:if="{{order.order_status == 0 && order.use_status == 0 && item.be_overdue == 0}}">订单已完成</view>
+    </view>
+    <view class="store_remarks" wx:if="{{store.order_status == 1}}">
+      <view class="remarks_content">商家回复:</view>
+    </view>
+  </view>
+
+  <view class="content clear">
+
+    <view class="store">
+      <view class="store_content">
+			<navigator url="/pages/storeInfo/storeInfo?id={{store.id}}" hover-class="none">
+        <view class="store_name">{{store.name}}</view>
+				<view class="right"><image src="/images/right-3.png"></image></view>
+        </navigator>
+      </view>
+    </view>
+
+    <view class="foods clear" wx:for="{{foods}}">
+
+      <view class="foods_content">
+        <view class="foods_img">
+          <image src="{{item.food_img}}"></image>
+        </view>
+        <view class="foods_information">
+          <view class="foods_name">{{item.food_name}}</view>
+          <view class="foods_brief">{{item.food_brief}}</view>
+        </view>
+        <view class="foods_num">x{{item.count}}</view>
+        <view class="foods_price">￥{{item.food_price}}</view>
+      </view>
+    </view>
+
+    <view class="subtotal">
+      <view class="subtotal_price">
+        <text>￥{{sum}}</text>
+        <view class="subtotal_price_title">小计</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="remarks" wx:if="{{order.remarks}}">
+    <view class="remark_title">备注：</view>
+    <view class="remark_text">{{order.remarks}}</view>
+  </view>
+
+  <view class="remarks" wx:if="{{order.store_remarks}}">
+    <view class="remark_title">商家取消：</view>
+    <view class="remark_text">{{order.store_remarks}}</view>
+  </view>
+
+  <view class="order">
+    <view class="order_title">
+      <view style="padding-left:35rpx">订单信息</view>
+    </view>
+    <view class="order_number">
+      <view class="number_title">订单号：</view>
+      <view class="number_content">{{order.order_number}}</view>
+    </view>
+    <view class="order_number">
+      <view class="number_title">支付方式：</view>
+      <view class="number_content">{{order.type == 0?'自付':'部门代付'}}</view>
+    </view>
+    <view class="order_number">
+      <view class="number_title">下单时间：</view>
+      <view class="number_content">{{order.order_time}}</view>
+    </view>
+  </view>
+</view>

@@ -2,7 +2,14 @@
 
   <view class="mode">
     <view class="order_status">
-      <view class="status">订单已完成</view>
+			<!-- 订单已提交 -->
+      <view class="status" wx:if="{{order.use_status == 0 && order.order_status == 0 && order.be_overdue == 1}}">订单已提交</view>
+			<!-- 商家取消订单 -->
+      <view class="status" wx:if="{{order.use_status == 0 && order.order_status == 1}}">商家已取消订单</view>
+			<!-- 用户已取消订单 -->
+      <view class="status" wx:if="{{order.order_status == 0 && order.use_status == 1}}">你已取消订单</view>
+			<!-- 订单已完成 -->
+      <view class="status" wx:if="{{order.order_status == 0 && order.use_status == 0 && order.be_overdue == 0}}">订单已完成</view>
     </view>
     <view class="store_remarks" wx:if="{{store.order_status == 1}}">
       <view class="remarks_content">商家回复:</view>
@@ -13,9 +20,10 @@
 
     <view class="store">
       <view class="store_content">
+			<navigator url="/pages/storeInfo/storeInfo?id={{store.id}}" hover-class="none">
         <view class="store_name">{{store.name}}</view>
 				<view class="right"><image src="/images/right-3.png"></image></view>
-        
+        </navigator>
       </view>
     </view>
 
@@ -23,11 +31,11 @@
 
       <view class="foods_content">
         <view class="foods_img">
-          <image src="{{item.img}}"></image>
+          <image src="{{item.food_img}}"></image>
         </view>
         <view class="foods_information">
           <view class="foods_name">{{item.food_name}}</view>
-          <view class="foods_brief">{{item.brief}}</view>
+          <view class="foods_brief">{{item.food_brief}}</view>
         </view>
         <view class="foods_num">x{{item.count}}</view>
         <view class="foods_price">￥{{item.food_price}}</view>

@@ -45,7 +45,7 @@ page{
 }
 
 .input_text{
-	width:21%;
+	width:23%;
 	height:90rpx;
 	line-height: 90rpx;
 	font-size:14px;
@@ -56,7 +56,7 @@ page{
 }
 
 .content_input .input{
-	width: 70%;
+	width: 68%;
 	height:90rpx;
 	padding-right:30rpx;
 	font-size:13px;
@@ -100,7 +100,7 @@ page{
 	line-height: 70rpx;
 	font-size:14px;
 	background: white;
-	margin:50rpx auto 0rpx;
+	margin:50rpx auto;
 }
 
 .ts{font-size:20rpx;}

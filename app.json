@@ -1,13 +1,18 @@
 {
   "pages": [
-		"pages/roomLogin/roomLogin",
+		"pages/login/login",
+		"pages/foodScoring/foodScoring",
+		"pages/storeAppointmentOrder/storeAppointmentOrder",
+		"pages/appointmentDetails/appointmentDetails",
+		"pages/appointmentFoods/appointmentFoods",
+		"pages/foodScore/foodScore",
+		"pages/storeInfo/storeInfo",
     "pages/index/index",
 		"pages/order/order",
 		"pages/category/category",
 		"pages/storeOrder/storeOrder",
 		"pages/admin/admin",
 		"pages/storeIndex/storeIndex",
-    "pages/storeInfo/storeInfo",
 		"pages/orderDetails/orderDetails",
 		"pages/storeFoods/storeFoods",
 		"pages/varietyOfAdd/varietyOfAdd",
@@ -28,7 +33,6 @@
     "pages/user/user",
     "pages/reservationRoomEdit/reservationRoomEdit",
     "pages/makeAnAppointment/makeAnAppointment",
-    "pages/login/login",
     "pages/remarksDetail/remarksDetail"
 
   ],

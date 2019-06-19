@@ -1,17 +1,36 @@
-/* 选项卡 */
+page{
+	position:relative;
+}
+.xx_top{
+	width:100%;
+	padding-bottom:20rpx;
+	height:83rpx;
+	z-index: 999;
+	position:fixed;
+	top:0rpx;
+	background: white;
+	left:0rpx;
+	box-shadow: 0rpx 0rpx 20rpx 2rpx #c0c0c0
+}
 
 .display {
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin-top: 50rpx;
+	position:fixed;
+	top:0;
+	background: white;
+	left:0;
+	z-index: 999;
+  padding-top: 50rpx;
+	box-shadow: 0rpx 0rpx 6rpx 3rpx #f3f3f3;
 }
 
 .display-sele {
   font-size: 30rpx;
   width: 33.3%;
   text-align: center;
-  border-bottom: 1px solid #838383;
+  border-bottom: 1px solid #f3f3f3;
   height: 50rpx;
 }
 
@@ -22,6 +41,7 @@
 
 /*全部*/
 
+.eval-all{margin-top:140rpx;}
 .flex-row {
   display: -webkit-box;
   display: -webkit-flex;
@@ -33,7 +53,7 @@
 
 .items {
   position: relative;
-  font-size: 30rpx;
+  font-size: 14px;
   margin: 30rpx;
   padding: 30rpx;
   border: #eee 1rpx solid;
@@ -84,12 +104,12 @@
   width: 120rpx;
   height: 60rpx;
   float: right;
-  margin-right: 10rpx;
+  margin-right: 20rpx;
   text-align: center;
   line-height: 60rpx;
   background: #d83131;
   color: white;
-  border-radius: 26rpx;
+  border-radius: 6px;
   font-size: 30rpx;
 }
 
@@ -102,7 +122,7 @@
   line-height: 60rpx;
   background: #838383;
   color: white;
-  border-radius: 26rpx;
+  border-radius: 6px;
   font-size: 30rpx;
 }
 
@@ -130,6 +150,5 @@
   color: #838383;
   text-align: center;
   font-size: 30rpx;
-  width: 80%;
-  margin: 10px;
+	margin:300rpx auto 0rpx;
 }
