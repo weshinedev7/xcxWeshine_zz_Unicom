@@ -21,21 +21,6 @@ Page({
     otions:'',
   },
 
-  reset: function() {
-    this.setData({
-      end_time:'',
-      start_time:'',
-      dispaly:'none',
-      menuTapCurrent: 0,
-      items: [],
-      title: "",
-      number: "",
-      content: "",
-      remarks: "",
-      otions:'',
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -181,19 +166,19 @@ Page({
           wx.showToast({
             title: res.data.msg,
             icon: 'none',
-            duration: 2000//持续的时间
+            duration: 1000//持续的时间
           });
         }else{
           wx.showToast({
             title: res.data.msg,
             icon: 'success',
-            duration: 2000//持续的时间
+						duration: 1000//持续的时间
           });
           setTimeout(function () {
             wx.navigateTo ({
               url: '/pages/conferenceRoom/conferenceRoom'
             })
-          }, 3000)
+					}, 1000)
         }
       }
     })

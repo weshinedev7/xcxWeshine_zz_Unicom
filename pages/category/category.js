@@ -1,5 +1,6 @@
 var app = getApp();
 var util = require('../../utils/util.js');
+var dateTimePicker = require('../../utils/dateTimePicker.js');
 Page({
 
   /**
@@ -7,13 +8,32 @@ Page({
    */
   data: {
     showModalStatus: false,
-    cate_id: 0,
+		cate_id: 0,
+		business_hours:"00:00",
+		closing_time: "00:00"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+		// 获取完整的年月日 时分秒，以及默认显示的数组
+		var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+		var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+		// 精确到分的处理，将数组的秒去掉
+		obj.dateTimeArray.pop();
+		obj.dateTime.pop();
+
+		obj1.dateTimeArray.pop();
+		obj1.dateTime.pop();
+
+		this.setData({
+			dateTime: obj.dateTime,
+			dateTimeArray: obj.dateTimeArray,
+			dateTimeArray1: obj1.dateTimeArray,
+			dateTime1: obj1.dateTime
+		});
     var _this = this;
     util.ajax({
       url: app.globalData.path + 'ApiCategory/index',
@@ -25,12 +45,11 @@ Page({
 				console.log(res.data.data)
         if (res.data.code == 0) {
           _this.setData({
-            list: res.data.data
+            list: res.data.data,
           })
-					console.log(res.data.data)
         }
       }
-    })
+		})
   },
   delete_cate: function(e) {
     var _this = this;
@@ -65,7 +84,7 @@ Page({
 									wx.showToast({
 										title: res.data.msg,
 										icon: 'none',
-										duration: 1000,
+										duration: 1500,
 										mask: true
 									});
 								}
@@ -78,16 +97,21 @@ Page({
 
   },
   powerDrawer: function(e) {
+		var _this = this;
     var key = e.currentTarget.dataset.key
-		if (key != 1000) {
-      this.setData({
-        cate_id: e.currentTarget.dataset.id,
-        key: e.currentTarget.dataset.key,
-        edit_category: this.data.list[key]
-      })
-    }
+		if(key !== "00"){
+			if (key != 10000) {
+				_this.setData({
+					cate_id: e.currentTarget.dataset.id,
+					key: e.currentTarget.dataset.key,
+					edit_category: _this.data.list[key],
+					business_hours: _this.data.list[key].start_time,
+					closing_time: _this.data.list[key].end_time
+				})
+			}
+		}
     var currentStatu = e.currentTarget.dataset.statu;
-    this.add(currentStatu)
+		_this.add(currentStatu)
   },
   add: function(currentStatu) {
     /* 动画部分 */
@@ -124,7 +148,9 @@ Page({
           showModalStatus: false,
           cate_id: 0,
           key: '',
-          edit_category: ''
+					edit_category: '',
+					business_hours: "00:00",
+					closing_time: "00:00"
         });
       }
     }.bind(this), 200)
@@ -154,11 +180,23 @@ Page({
 			});
 			return false;
 		}
+		var start_time = e.detail.value.start_time
+		var end_time = e.detail.value.end_time
+		if (start_time >= end_time){
+			wx.showToast({
+				title: '开始时间不能大于结束时间',
+				icon: 'none',
+				duration: 2000 //持续的时间
+			});
+			return false;
+		}
     if (_this.data.cate_id != 0) {
       var data = {
         cate_id: _this.data.cate_id,
         name: e.detail.value.name,
 				sort: e.detail.value.sort,
+				startTime: e.detail.value.start_time,
+				endTime: e.detail.value.end_time,
 				store_id: wx.getStorageSync('storeInfo').store_id,
       }
       util.ajax({
@@ -192,7 +230,9 @@ Page({
       var data = {
         cate_id: _this.data.cate_id,
         name: e.detail.value.name,
-        sort: e.detail.value.sort,
+				sort: e.detail.value.sort,
+				startTime: e.detail.value.start_time,
+				endTime: e.detail.value.end_time,
         store_id: wx.getStorageSync('storeInfo').store_id,
       }
       util.ajax({
@@ -271,5 +311,52 @@ Page({
    */
   onShareAppMessage: function() {
 
-  }
+	},
+	changeDate(e) {
+		this.setData({
+			date: e.detail.value
+		});
+	},
+	changeTime(e) {
+		console.log(e.detail.value)
+		this.setData({
+			business_hours: '',
+			start_time: e.detail.value
+		});
+	},
+	changeTime1(e) {
+		this.setData({
+			closing_time: '',
+			end_time: e.detail.value
+		});
+	},
+	changeDateTime(e) {
+		this.setData({
+			dateTime: e.detail.value
+		});
+	},
+	changeDateTimeColumn(e) {
+		var arr = this.data.dateTime,
+			dateArr = this.data.dateTimeArray;
+
+		arr[e.detail.column] = e.detail.value;
+		dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+
+		this.setData({
+			dateTimeArray: dateArr,
+			dateTime: arr
+		});
+	},
+	changeDateTimeColumn1(e) {
+		var arr = this.data.dateTime1,
+			dateArr = this.data.dateTimeArray1;
+
+		arr[e.detail.column] = e.detail.value;
+		dateArr[2] = dateTimePicker.getMonthDay(dateArr[0][arr[0]], dateArr[1][arr[1]]);
+
+		this.setData({
+			dateTimeArray1: dateArr,
+			dateTime1: arr
+		});
+	}
 })

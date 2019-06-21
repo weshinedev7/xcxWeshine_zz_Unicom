@@ -46,14 +46,13 @@
 
 <block wx:for="{{stores}}" wx:key="">
   <view class="eval-all">
-    <!-- <navigator class="goods-list flex-row" url="/pages/storeInfo/storeInfo?id={{item.id}}" hover-class="none"> -->
-    <view class="goods-list flex-row" bindtap="{{item.time == 1?'storeInfo':'close'}}" data-id="{{item.id}}">
+    <view class="goods-list flex-row" bindtap="storeInfo" data-id="{{item.id}}">
       <image class="goods-pic" mode="aspectFill" src="{{item.store_img}}" />
       <view class="flex-grow-1 goods-content">
         <view class="goods-name goods-time-list">{{item.store_name}}</view>
         <view class="flex-row">
           <view class="goods-time-list flex-grow-0">
-            <image mode="aspectFill" wx:for="{{5}}" wx:key="" src="/images/start.png" class="strat" />
+						<text class="score">评分:{{item.score}}</text>
           </view>
           <view class="goods-time-list goods-num flex-grow-0">
             <text>已售:{{item.count}}</text>
@@ -62,12 +61,10 @@
         <view class="goods-time goods-time-list">营业时间:{{item.business_hours}}-{{item.closing_time}}</view>
       </view>
     </view>
-    <!-- </navigator> -->
      
-    <view class="show-content">
-      <!-- <navigator wx:for="{{item.foods}}" wx:key="" url="/pages/details/details?id={{item.id}}" hover-class="none" class="content-item flex-grow-0"> -->
+    <!-- <view class="show-content">
 			
-    <view wx:for="{{item.foods}}" wx:if="{{item.foods.length>2}}" wx:for-item="v" class="content-item flex-grow-0" bindtap="{{item.time == 1?'details':'close'}}" data-id="{{item.id}}">
+    <view wx:for="{{item.foods}}" wx:if="{{item.foods.length>2}}" wx:for-item="v" class="content-item flex-grow-0" bindtap="{{item.time == 1?'details':'close'}}" data-id="{{v.id}}">
         <view class='content-item-list'>
           <image src="{{v.foods_img}}" mode="aspectFill" />
           <view class="content-name">{{v.foods_name}}</view>
@@ -77,8 +74,7 @@
           </view>
         </view>
 				</view>
-      <!-- </navigator> -->
-    </view>
+    </view> -->
 
   </view>
   <view class='bg-list'></view>

@@ -1,0 +1,77 @@
+<view class="xx_top">
+  <view class="display clear">
+    <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
+      全部
+    </view>
+    <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
+      员工刷卡
+    </view>
+    <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
+      部门代付
+    </view>
+  </view>
+</view>
+
+<!--数据-->
+<view wx:if="{{list.length != 0}}" class="eval-all">
+
+  <block wx:for="{{list}}" wx:for-item="item" wx:key="">
+    <view class="flex-row flex-grow-1 order-info">
+      <view class="flex-grow-1 tl">订单号:{{item.order_number}}</view>
+      <view class="flex-grow-0 tr">{{item.order_time}}</view>
+    </view>
+
+    <view class="goods-list flex-row">
+
+      <image class="goods-pic" mode="aspectFill" src="{{item.img}}" />
+
+      <view class="content flex-grow-1">
+
+        <navigator url="/pages/storeDetails/storeDetails?id={{item.id}}" hover-class="none">
+          <view class="flex-grow-1">
+            <view class="goods-name text-style">{{item.store_name}}</view>
+          </view>
+        </navigator>
+
+        <view class="flex-grow-1 flex-row">
+
+          <navigator url="/pages/appointmentDetails/appointmentDetails?id={{item.id}}" hover-class="none" class="num">
+            <view class="flex-grow-1" wx:if="{{item.sum == 1}}">{{item.food_name}}</view>
+            <view class="flex-grow-1" wx:else>{{item.food_name}}等{{item.sum}}份商品</view>
+          </navigator>
+
+          <view class="flex-grow-0 price">￥{{item.count_price}}</view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="use_time">用餐时间：{{item.appointment}}</view>
+    <view class="flex-row count-order">
+      <view class="operation">
+
+				<!-- 商家未接单，用户已提交(未取消)，未过期 -->
+        <view bindtap='cancel' hover-class="none" class="flex-grow-0 score" data-id="{{item.id}}" data-key="{{index}}" wx:if="{{ item.be_overdue == 1 && item.use_status == 0 && item.order_status == 0}}">取消</view>
+        <navigator url="/pages/storeInfo/storeInfo?id={{item.store_id}}" hover-class="none" class="flex-grow-0 score">再来一单</navigator>
+				<!-- 已确认用餐，未评分 -->
+        <!-- <navigator open-type="navigate" url="/pages/score/score?id={{item.id}}" wx:if="{{item.comment_status == 0 && item.use_status == 0 && item.be_overdue == 0 && item.order_status == 0}}" hover-class="none" class="flex-grow-0 score">评分</navigator> -->
+				<!-- 已取消订单 -->
+        <view class="cancel" wx:if="{{item.use_status == 1}}">您已取消订单...</view>
+				<!-- 订单已提交 -->
+        <view class="cancel" wx:if="{{item.order_status == 0 && item.use_status == 0 && item.be_overdue == 1}}">订单待消费</view>
+				<!-- 商家取消订单 -->
+        <view class="cancel" wx:if="{{item.order_status == 1}}">商家已取消</view>
+				<!-- 商家已接单，并且已过期 -->
+        <view class="cancel" style="color:green" wx:if="{{item.use_status == 0 && item.be_overdue == 0 && item.order_status == 0}}">订单已完成</view>
+      </view>
+
+    </view>
+
+  </block>
+
+  <view class="middle_none" wx:if="{{len == 0}}">我也是有底线的，别太过分~</view>
+</view>
+
+<view wx:else>
+  <view class="middle_none" style="margin-top:300rpx;">暂无订单</view>
+</view>

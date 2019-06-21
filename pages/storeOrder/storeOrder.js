@@ -177,10 +177,12 @@ Page({
    * 弹窗
    */
   showDialogBtn: function(e) {
-    console.log(e.currentTarget.dataset.id)
+		console.log(e.currentTarget.dataset.id)
+		console.log(e.currentTarget.dataset.key)
     this.setData({
       showModal: true,
-      id: e.currentTarget.dataset.id
+			id: e.currentTarget.dataset.id,
+			key: e.currentTarget.dataset.key
     })
   },
   getInput: function(e) {
@@ -238,6 +240,12 @@ Page({
             duration: 1000,
             mask: true
           });
+					var key = _this.data.key;
+					// 重置数据
+					_this.data.list[key].order_status = 2;
+					_this.setData({
+						list: _this.data.list
+					})
           // 下架商品
           wx.showModal({
             title: '提示',

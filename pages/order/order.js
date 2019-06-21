@@ -46,9 +46,11 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-	onShow: function () {
-		this.result();
-    this.onloadMethod()
+  onShow: function() {
+		if (this.data.page) {
+			this.result();
+			this.onloadMethod()
+		}
   },
   //滑动加载
   onloadMethod: function() {
@@ -68,7 +70,7 @@ Page({
     });
     //调接口
     util.ajax({
-      url: app.globalData.path + 'ApiFoods/orderlist',
+      url: app.globalData.path + 'ApiOrder/index',
       method: 'GET',
       data: {
         id: id,
@@ -90,7 +92,6 @@ Page({
             page: that.data.page,
             openof: that.data.page
           })
-					console.log(that.data.list)
         }
       },
       complete: function() {
@@ -102,8 +103,6 @@ Page({
   have_meals: function(e) {
     var _this = this;
     var key = e.currentTarget.dataset.key;
-		console.log(key)
-		console.log(e.currentTarget.dataset.id)
     wx.showModal({
       title: '提示',
       content: '确定已用餐吗？',
@@ -111,7 +110,7 @@ Page({
         if (sm.confirm) {
           // 用户点击了确定 可以调用删除方法了
           util.ajax({
-            url: app.globalData.path + 'ApiFoods/haveMeals',
+            url: app.globalData.path + 'ApiOrder/haveMeals',
             method: 'POST',
             data: {
               id: e.currentTarget.dataset.id,
@@ -150,7 +149,7 @@ Page({
       success: function(sm) {
         if (sm.confirm) {
           util.ajax({
-            url: app.globalData.path + 'ApiFoods/cancel',
+            url: app.globalData.path + 'ApiOrder/cancel',
             method: 'POST',
             data: {
               id: e.currentTarget.dataset.id,
@@ -165,7 +164,7 @@ Page({
                 });
                 // 重置数据
                 if (_this.data.check == 0) {
-									_this.data.list[key].use_status = 2;
+                  _this.data.list[key].use_status = 2;
                   _this.setData({
                     list: _this.data.list
                   })

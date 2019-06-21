@@ -32,6 +32,12 @@
 				<view><image src="../../images/right-2.png" /></view>
 			</view>
 		</navigator>
+		<navigator url="/pages/appointmentFoods/appointmentFoods" hover-class="none">
+			<view class="center_list">
+				<view class="center_list_text">我的菜品预约</view>
+				<view><image src="../../images/right-2.png" /></view>
+			</view>
+		</navigator>
 		<!--<navigator url="/pages/login/login" hover-class="none">
 			<view class="center_list">
 				<view class="center_list_text">菜品管理</view>

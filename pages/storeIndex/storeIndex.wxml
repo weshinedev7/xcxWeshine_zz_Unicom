@@ -9,11 +9,13 @@
     <image class="xx_img" bindtap="showRule" data-statu="open" src="/images/xx.png"></image>
   </view>
 
-
   <view class="float {{isRuleTrue?'isRuleShow':'isRuleHide'}}" bindtap='hideRule'>
     <view class="column">
       <navigator url="/pages/storeOrder/storeOrder" hover-class="none">
         <view class="column_content">查看订单</view>
+      </navigator>
+      <navigator url="/pages/storeAppointmentOrder/storeAppointmentOrder" hover-class="none">
+        <view class="column_content">预约订单</view>
       </navigator>
       <navigator url="/pages/varietyOfAdd/varietyOfAdd" hover-class="none">
         <view class="column_content">添加菜品</view>
@@ -39,70 +41,141 @@
     <view class="store_text">
       <view class="store_comment">评价 ：{{score.score}}</view>
       <view class="store_comment">已售 ：{{count}}</view>
-      <view class="store_comment">营业时间 ：{{store.business_hours}}-{{store.closing_time}}</view>
     </view>
-    <view class="store_name"></view>
+    <view class="store_notice" wx:if="{{store.notice}}">
+      <view class="notice_title">公告</view>
+      <view class="notice_text">{{store.notice}}</view>
+    </view>
+    <view class="store_status" style="{{store.status == 1?'background:green;color:white':'background:red;color:white'}}">{{store.status == 1?'今日营业':'今日休息'}}</view>
   </view>
 </view>
 
 <view class="swiper-tab">
   <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">菜品</view>
-  <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">评价</view>
-  <!-- <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">店铺</view> -->
+  <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">预约</view>
+  <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">评分</view>
+  <view class="swiper-tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="clickTab">店铺</view>
 </view>
 
-<swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
-  <swiper-item>
-    <view class="store_container">
-      <!--左侧栏-->
 
-      <scroll-view scroll-y="true" class="nav_left">
-        <view class="nav_left_items {{curNav == '0' ? 'active' : ''}}" bindtap="switchRightTab" data-id="0">全部</view>
-        <block wx:for="{{category}}">
-          <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
-        </block>
-      </scroll-view>
-      <!--右侧栏-->
+<!-- 全部菜品 -->
+<view class="store_container" wx:if="{{currentTab==0}}">
+  <!--左侧栏-->
 
-      <scroll-view scroll-y="true" class="nav_right clear">
-        <!--如果有数据，才遍历项-->
-        <view wx:if="{{foods}}" style="display:inline;">
-          <block wx:for="{{foods}}">
-            <view class="nav_right_items" bindlongpress="foodDelete" data-id="{{item.id}}">
-              <view class="food_top">
-                <view class="food_img">
-                  <image src="{{item.img}}"></image>
-                </view>
-                <view class="food_text">
-                  <view class="food_name">{{item.name}}</view>
-                  <view class="food_price">{{item.price}}</view>
-                  <view class="food_brief">{{item.brief}}</view>
-                  <view class="food_sold">已售:{{item.sold}}</view>
-                </view>
+  <scroll-view scroll-y="true" class="nav_left" style="height:{{height_h}}px;">
+    <view class="nav_left_items {{curNav == '0' ? 'active' : ''}}" bindtap="switchRightTab" data-id="0">全部</view>
+    <block wx:for="{{category}}">
+      <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
+    </block>
+  </scroll-view>
+
+  <!--右侧栏-->
+  <scroll-view scroll-y="true" style="height:{{height_h}}px;" class="nav_right">
+    <view class="cate_operation" wx:if="{{categoryId}}">
+      <view class="category_status">
+        <switch class="wx-switch-input switch1" color='#dd2727' data-key="{{index}}" data-id="{{categoryId}}" bindchange="categoryLowerShelf" checked="{{categoryType == 1?'true':''}}" />
+        <text style="margin-left:30rpx;">{{categoryType == 1?'已上架':'已下架'}}</text>
+      </view>
+      <view class="categoryTime">{{start_time}} -- {{end_time}}</view>
+    </view>
+    <!--如果有数据，才遍历项-->
+    <view wx:if="{{foods}}" style="display:inline;">
+      <block wx:for="{{foods}}">
+        <!-- <view class="nav_right_items" bindlongpress="foodDelete" data-id="{{item.id}}"> -->
+        <view class="nav_right_items" data-id="{{item.id}}">
+
+          <navigator hover-class="none" url="/pages/foodScoring/foodScoring?id={{item.id}}">
+            <view class="food_top">
+              <view class="food_img">
+                <image src="{{item.img}}"></image>
               </view>
-              <view class="food_bottom">
-                <view class="upper_lower_shelf">
-                  <switch class="wx-switch-input switch" color='#dd2727' data-key="{{index}}" data-id="{{item.id}}" checked="{{item.type != 2?'true':''}}" bindchange="upperLowerShelf" />
-                </view>
-                <view class="edit">
-                  <navigator hover-class="none" url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}">修改</navigator>
-                </view>
-                <view class="delete">
-                  <view class="delete_btn" bindtap="foodDelete" data-id="{{item.id}}">删除</view>
-                </view>
+              <view class="food_text">
+                <view class="food_name">{{item.name}}</view>
+                <view class="food_price">{{item.price}}</view>
+                <view class="food_brief">{{item.brief}}</view>
+                <view class="food_sold">已售:{{item.sold}}</view>
               </view>
             </view>
-          </block>
-          <!--如果无数据，则显示数据-->
-          <view class="nodata_text" wx:if="{{foods.length == 0}}">该分类暂无数据</view>
-          <!-- <view class="nodata_text" wx:if="{{foods.length == 0}}">到的了,别划,再划也没有了...</view> -->
+          </navigator>
+          <view class="food_bottom">
+            <view class="upper_lower_shelf">
+              <switch class="wx-switch-input switch" color='#dd2727' data-key="{{index}}" data-id="{{item.id}}" checked="{{item.type != 2?'true':''}}" bindchange="upperLowerShelf" />
+            </view>
+            <view class="edit">
+              <navigator hover-class="none" url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}">修改</navigator>
+            </view>
+            <view class="delete">
+              <view class="delete_btn" bindtap="foodDelete" data-id="{{item.id}}" data-key="{{index}}">删除</view>
+            </view>
+          </view>
         </view>
-      </scroll-view>
-
+      </block>
+      <!-- <view class="middle_none1">到底了,再划也没有了</view> -->
+      <!--如果无数据，则显示数据-->
+      <view class="nodata_text" wx:if="{{foods.length == 0}}">该分类暂无数据</view>
     </view>
-  </swiper-item>
-  <swiper-item>
-    <view class="main" wx:if="{{comment}}">
+  </scroll-view>
+
+</view>
+
+<!-- 预约菜品 -->
+<view class="store_container" wx:if="{{currentTab==1}}">
+  <!--左侧栏-->
+
+  <scroll-view scroll-y="true" class="nav_left" style="height:{{height_h}}px;">
+    <view class="nav_left_items {{curNav == '0' ? 'active' : ''}}" bindtap="switchRightTab" data-id="0">预约菜品</view>
+  </scroll-view>
+
+  <!--右侧栏-->
+  <scroll-view scroll-y="true" style="height:{{height_h}}px;" class="nav_right">
+    <view class="cate_operation">
+      <view class="category_status" style="width:70%">
+        <switch class="wx-switch-input switch1" color='#dd2727' bindchange="appointment_cz" checked="{{appointment_foods.length > 0?'true':''}}" disabled="{{appointment_foods.length == 0?'disabled':''}}" />
+        <text style="margin-left:30rpx;font-weight:700">{{appointment_foods.length > 0?'清除全部预约菜品':'无预约菜品'}}</text>
+      </view>
+    </view>
+    <!--如果有数据，才遍历项-->
+    <view wx:if="{{appointment_foods}}" style="display:inline;">
+      <block wx:for="{{appointment_foods}}">
+        <view class="nav_right_items" bindlongpress="foodDelete" data-id="{{item.id}}">
+
+          <navigator hover-class="none" url="/pages/foodScoring/foodScoring?id={{item.id}}">
+            <view class="food_top">
+              <view class="food_img">
+                <image src="{{item.img}}"></image>
+              </view>
+              <view class="food_text">
+                <view class="food_name">{{item.name}}</view>
+                <view class="food_price">{{item.price}}</view>
+                <view class="food_brief">{{item.brief}}</view>
+                <view class="food_sold">已售:{{item.sold}}</view>
+              </view>
+            </view>
+          </navigator>
+          <view class="food_bottom">
+            <view class="upper_lower_shelf">
+              <switch class="wx-switch-input switch" color='#dd2727' data-key="{{index}}" data-id="{{item.id}}" checked="{{item.type != 2?'true':''}}" bindchange="upperLowerShelf" />
+            </view>
+            <view class="edit">
+              <navigator hover-class="none" url="/pages/varietyOfAdd/varietyOfAdd?id={{item.id}}">修改</navigator>
+            </view>
+            <view class="delete">
+              <view class="delete_btn" bindtap="foodDelete" data-id="{{item.id}}" data-key="{{index}}">删除</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <!--如果无数据，则显示数据-->
+      <view class="nodata_text" wx:if="{{appointment_foods.length == 0}}">无预约菜品</view>
+    </view>
+  </scroll-view>
+
+</view>
+
+<!-- 评分 -->
+<view wx:if="{{currentTab == 2}}">
+  <scroll-view scroll-y="true" style="height:{{height_h}}px;" class="main">
+    <view wx:if="{{comment}}">
       <view class="main_content" wx:for="{{comment}}">
         <view class="main_left">
           <image src="{{item.avatar}}"></image>
@@ -127,6 +200,54 @@
         </view>
       </view>
     </view>
-      <view class="nodata_text" wx:else="{{comment.length == 0}}">暂无评分</view>
-  </swiper-item>
-</swiper>
+    <view class="nodata_text" wx:else>暂无评分</view>
+    <view class="nodata_text" wx:if="{{len == 0}}">到底了,再划也没有了</view>
+  </scroll-view>
+</view>
+
+<!-- 店铺信息 -->
+
+<view wx:if="{{currentTab == 3}}">
+  <view class="store_details">
+    <view class="store_title bb">商家信息</view>
+    <view class="store_details_content">
+      <view class="store_details_title">品类</view>
+      <view class="store_details_text">{{store.type}}</view>
+    </view>
+    <view class="store_details_content">
+      <view class="store_details_title">电话</view>
+      <view class="store_details_text">{{store.store_tel}}</view>
+    </view>
+    <view class="store_details_content">
+      <view class="store_details_title">地址</view>
+      <view class="store_details_text">{{store.address}}</view>
+    </view>
+    <view class="store_details_content">
+      <view class="store_details_title" style="width: 40%;">预约时间(开始)</view>
+      <view class="store_details_text" style="width: 60%;">{{store.start_appointment}}</view>
+    </view>
+    <view class="store_details_content">
+      <view class="store_details_title" style="width: 40%;">预约时间(结束)</view>
+      <view class="store_details_text" style="width: 60%;">{{store.end_appointment}}</view>
+    </view>
+    <view class="store_details_content">
+      <view class="store_details_title" style="width: 30%;">用餐时间(早)</view>
+      <view class="store_details_text" style="width: 70%;">{{store.morning_time}}</view>
+    </view>
+    <view class="store_details_content">
+      <view class="store_details_title" style="width: 30%;">用餐时间(中)</view>
+      <view class="store_details_text" style="width: 70%;">{{store.noon_time}}</view>
+    </view>
+    <view class="store_details_content">
+      <view class="store_details_title" style="width: 30%;">用餐时间(晚)</view>
+      <view class="store_details_text" style="width: 70%;">{{store.evening_time}}</view>
+    </view>
+  </view>
+
+  <view class="store_details" style="margin-top:20rpx;">
+    <view class="store_details_notice clear">
+      <view class="store_details_title">公告</view>
+      <view class="store_details_text1">{{store.notice}}</view>
+    </view>
+  </view>
+</view>

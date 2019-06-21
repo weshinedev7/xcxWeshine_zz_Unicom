@@ -31,7 +31,7 @@ Page({
       });
       setTimeout(function () {
         wx.redirectTo({
-          url: '/pages/roomLogin/roomLogin'
+					url: '/pages/login/login'
         })
       }, 3000)
 
@@ -67,6 +67,7 @@ Page({
             stores: res.data.data,
           });
         }
+				console.log(that.data.stores);
       }
     });
   },
@@ -164,11 +165,11 @@ Page({
 		})
 	},
   // 已打烊
-  close: function (e) {
-    wx.showToast({
-      title: '该店铺已打烊',
-      icon: 'none',
-      duration: 1000,
-    });
-  }
+  // close: function (e) {
+  //   wx.showToast({
+  //     title: '该店铺已打烊',
+  //     icon: 'none',
+  //     duration: 1000,
+  //   });
+  // }
 })

@@ -10,8 +10,8 @@
     <view class="content">
       <view class="text">菜品分类:</view>
       <picker name="category_id" value="{{category[category_index].id}}" range="{{category}}" range-key="{{'name'}}" bindchange="category">
-        <view class="picker" wx:if="{{!category_index}}">选择分类</view>
-        <view class="picker" wx:if="{{category_index}}">{{category[category_index].name}}</view>
+        <view class="picker" wx:if="{{category_index === ''}}">选择分类</view>
+        <view class="picker" wx:if="{{category_index !== ''}}">{{category[category_index].name}}</view>
       </picker>
     </view>
 
@@ -32,8 +32,18 @@
       <view class="text">是否上架:</view>
       <radio-group bindchange="checkboxChange" name="type">
         <label class="checkbox">
-          <radio value="1" checked="{{type == 1?'true':''}}" />上架
+          <radio value="1" checked />上架
           <radio value="2" checked="{{type == 2?'true':''}}" />下架
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="content">
+      <view class="text">是否可预约:</view>
+      <radio-group bindchange="checkboxChange1" name="appointment">
+        <label class="checkbox">
+          <radio value="0" checked />不可预约
+          <radio value="1" checked="{{appointment == 1?'true':''}}" />可预约
         </label>
       </radio-group>
     </view>
@@ -91,12 +101,7 @@
 
   <!-- 重置提交按钮 -->
   <view class="nav_container">
-    <view class="reset" bindtap='reset'>重置</view>
+    <!-- <view class="reset" bindtap='reset'>重置</view> -->
     <button class="submit" form-type='submit'>提交</button>
   </view>
 </form>
-
-
-<!-- <view class='cropper' wx:if="{{originUrl}}">
-			<cropper bind:getCropperImg="getCropperImg" url="{{ originUrl }}" ratio="{{ ratio }}"></cropper> 
-	</view> -->

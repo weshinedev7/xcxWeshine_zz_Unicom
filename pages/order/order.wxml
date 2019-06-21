@@ -4,7 +4,7 @@
       全部
     </view>
     <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
-      自付
+      员工刷卡
     </view>
     <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
       部门代付
@@ -23,7 +23,9 @@
 
     <view class="goods-list flex-row">
 
-      <image class="goods-pic" mode="aspectFill" src="{{item.img}}" />
+      <navigator url="/pages/storeInfo/storeInfo?id={{item.store_id}}" hover-class="none">
+        <image class="goods-pic" mode="aspectFill" src="{{item.img}}" />
+      </navigator>
 
       <view class="content flex-grow-1">
 
@@ -36,7 +38,8 @@
         <view class="flex-grow-1 flex-row">
 
           <navigator url="/pages/orderDetails/orderDetails?id={{item.id}}" hover-class="none" class="num">
-            <view class="flex-grow-1">{{item.food_name}}等{{item.sum}}份商品</view>
+            <view class="flex-grow-1" wx:if="{{item.sum == 1}}">{{item.food_name}}</view>
+            <view class="flex-grow-1" wx:else>{{item.food_name}}等{{item.sum}}份商品</view>
           </navigator>
 
           <view class="flex-grow-0 price">￥{{item.count_price}}</view>
@@ -48,23 +51,17 @@
     <view class="flex-row count-order">
       <view class="operation">
 
-				<!-- 商家未接单，用户已提交(未取消)，未过期 -->
+        <!-- 商家未接单，用户已提交(未取消)，未过期 -->
         <view bindtap='cancel' hover-class="none" class="flex-grow-0 score" data-id="{{item.id}}" data-key="{{index}}" wx:if="{{ item.be_overdue == 1 && item.use_status == 0 && item.order_status == 0}}">取消</view>
         <navigator url="/pages/storeInfo/storeInfo?id={{item.store_id}}" hover-class="none" class="flex-grow-0 score">再来一单</navigator>
-        <!-- 未确认用餐，商家已接单 -->
-				<view bindtap='have_meals' wx:if="{{item.use_status == 0 && item.order_status == 1}}" data-id="{{item.id}}" data-key="{{index}}" class="flex-grow-0 score btn">确认用餐</view>
-				<!-- 已确认用餐，未评分 -->
-        <navigator open-type="navigate" url="/pages/score/score?id={{item.id}}" wx:if="{{item.comment_status == 0 && item.use_status == 1}}" hover-class="none" class="flex-grow-0 score">评分</navigator>
-				<!-- 已取消订单 -->
-        <view class="cancel" wx:if="{{item.use_status == 2}}">您已取消订单...</view>
-				<!-- 商家已接单，用户未确认订单 -->
-        <view class="cancel" wx:if="{{item.order_status == 1 && item.ues_status == 0}}">商家已接单</view>
-				<!-- 商家未接单 -->
-        <view class="cancel" wx:if="{{item.order_status == 0 && item.use_status == 0}}">订单已提交</view>
-				<!-- 商家取消订单 -->
-        <view class="cancel" wx:if="{{item.order_status == 2}}">商家已取消</view>
-				<!-- 商家已接单 ，并且已过期 -->
-        <view class="cancel" style="color:green" wx:if="{{item.order_status == 1 && item.ues_status == 1 || item.be_overdue == 0 && item.order_status == 1}}">订单已完成</view>
+        <!-- 已取消订单 -->
+        <view class="cancel" wx:if="{{item.use_status == 1}}">您已取消订单...</view>
+        <!-- 订单已提交 -->
+        <view class="cancel" wx:if="{{item.order_status == 0 && item.use_status == 0 && item.be_overdue == 1}}">订单已提交</view>
+        <!-- 商家取消订单 -->
+        <view class="cancel" wx:if="{{item.order_status == 1}}">商家已取消</view>
+        <!-- 商家已接单，并且已过期 -->
+        <view class="cancel" style="color:green" wx:if="{{item.use_status == 0 && item.be_overdue == 0 && item.order_status == 0}}">订单已完成</view>
 
       </view>
 

@@ -1,0 +1,95 @@
+<view class="xx_top">
+  <view class="display">
+    <view class="display-sele {{check=='0' ? 'active' : ''}}" bindtap='selectDispaly' data-id="0">
+    今日预约
+    </view>
+    <view class="display-sele {{check=='1' ? 'active' : ''}}" bindtap='selectDispaly' data-id="1">
+      全部订单
+    </view>
+    <view class="display-sele {{check=='2' ? 'active' : ''}}" bindtap='selectDispaly' data-id="2">
+      明日订单
+    </view>
+  </view>
+</view>
+
+<!--数据-->
+<view wx:if="{{list.length != 0}}" class="eval-all">
+
+  <block wx:for="{{list}}">
+    <view class="order">
+      <view class="order_title">订单状态
+        <view class="status_text" wx:if="{{item.use_status == 1}}">用户已取消订单</view>
+        <view class="status_text" wx:if="{{item.use_status == 0 && item.order_status == 0 && item.be_overdue == 1}}">已提交订单</view>
+        <view class="status_text" wx:if="{{item.use_status == 0 && item.order_status == 1}}">商家已取消</view>
+      </view>
+
+      <view class="number">
+        <view class="order_number">订单号：{{item.order_number}}</view>
+        <view class="order_date">{{item.order_time}}</view>
+      </view>
+
+      <view class="order_goods" wx:for="{{item.foods}}" wx:for-item="v">
+        <view class="good_content">
+          <view class="good_img">
+            <image src="{{v.food_img}}"></image>
+          </view>
+          <view class="good_text">
+            <view class="good_name">{{v.food_name}}</view>
+            <view class="good_biref">{{v.food_brief}}</view>
+          </view>
+          <view class="good_num">X{{v.count}}</view>
+          <view class="good_price">￥{{v.totalprice}}</view>
+        </view>
+      </view>
+
+      <view class="news">
+        <view class="user_news" wx:if="{{item.remarks}}"><text>用户备注：</text>{{item.remarks}}</view>
+        <view class="store_news" wx:if="{{item.store_remarks}}"><text>商家取消：</text>{{item.store_remarks}}</view>
+        <view class="store_news"><text>用餐时间：</text>{{item.appointment}}</view>
+      </view>
+			
+      <view class="user_content" wx:if="{{item.username}}">
+        <view class="user">
+          <view class="user_title">下单信息:</view>
+          <view class="user_text">
+            <text>姓名：</text>{{item.username}}</view>
+          <view class="user_text">
+            <text>电话：</text>{{item.usertel}}</view>
+        </view>
+      </view>
+
+      <view class="operation">
+        <view class="count_price">
+          <text style="font-size:10px;color:black;margin-right:10rpx;">小计</text>{{item.count_price}}</view>
+        <view class="count_btn">
+					<!-- 用户已提交，商家未取消，并且订单未过期 -->
+          <view bindtap='showDialogBtn' data-id="{{item.id}}" data-key="{{index}}" class="btn1" wx:if="{{item.use_status == 0 && item.order_status == 0 && item.be_overdue == 1}}">取消</view>
+					<!-- 商家已接单，用户确认用餐 -->
+          <view class="btn2" wx:if="{{item.be_overdue == 0 && item.use_status == 0 && item.order_status == 0}}">订单已完成</view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view class="middle_none" wx:if="{{len == 0}}">------------我也是有底线的，别太过分~------------</view>
+</view>
+<view wx:else>
+  <view class="middle_none" style="margin-top:300rpx;">暂无订单</view>
+</view>
+
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">取消原因</view>
+  <form bindsubmit='onConfirm'>
+    <view class="modal-content">
+      <view class="modal-input">
+        <textarea placeholder="请输入取消原因" class="textarea" name="store_remarks" type="text" focus="{{focus}}" />
+      </view>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <button form-type='submit' data-status="confirm" class="btn-confirm" style="border:none">确定</button>
+    </view>
+  </form>
+</view>

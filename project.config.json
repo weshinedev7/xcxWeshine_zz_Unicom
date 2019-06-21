@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 18,
 			"list": [
 				{
 					"id": -1,
@@ -68,6 +68,110 @@
 					"name": "44",
 					"pathName": "pages/details/details",
 					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "商家订单",
+					"pathName": "pages/storeOrder/storeOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户订单",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家菜品修改",
+					"pathName": "pages/varietyOfAdd/varietyOfAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "菜品详情",
+					"pathName": "pages/details/details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品分类",
+					"pathName": "pages/category/category",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品列表",
+					"pathName": "pages/storeInfo/storeInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "下单",
+					"pathName": "pages/sureOrder/sureOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "个人中心",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约订单",
+					"pathName": "pages/appointmentFoods/appointmentFoods",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家预约订单",
+					"pathName": "pages/storeAppointmentOrder/storeAppointmentOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家预约订单",
+					"pathName": "pages/storeAppointmentOrder/storeAppointmentOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品修改",
+					"pathName": "pages/varietyOfAdd/varietyOfAdd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家信息",
+					"pathName": "pages/store/store",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/storeOrder/storeOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约订单",
+					"pathName": "pages/storeAppointmentOrder/storeAppointmentOrder",
 					"scene": null
 				}
 			]

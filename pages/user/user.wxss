@@ -148,9 +148,9 @@ page {
 		margin:30rpx auto 0rpx; 
 		color:#858282;
 		background: white;
-		border:1rpx solid rgb(204, 202, 202);
+		border:1rpx solid rgb(219, 217, 217);
 		text-align: center;
 		line-height: 60rpx;
 		font-size:26rpx;
-		border-radius: 15rpx;
+		border-radius: 5px;
 		}

@@ -24,11 +24,10 @@ Page({
     })
 		
     util.ajax({
-      url: app.globalData.path + 'ApiFoods/scoreoption',
+      url: app.globalData.path + 'ApiOrder/scoreoption',
       method: "GET",
       data: {},
       success: function(res) {
-        console.log('res', res);
         if (res.data.status == 'success') {
           res.data.list.forEach(function(item) {
             item.options = [];
@@ -82,7 +81,7 @@ Page({
 			return false;
 		}
     util.ajax({
-      url: app.globalData.path + 'ApiFoods/ScoreDetail',
+			url: app.globalData.path + 'ApiOrder/ScoreDetail',
       data: {
 				orderId: this.data.orderId,
 				staff_id: wx.getStorageSync('employeeInfo').id,
@@ -99,7 +98,9 @@ Page({
             icon: 'none'
 					});
 					setTimeout(function () {
-						wx.navigateBack()
+						wx.navigateBack({
+							data: 1
+						})
 					}, 500)
         } else {
           wx.showToast({

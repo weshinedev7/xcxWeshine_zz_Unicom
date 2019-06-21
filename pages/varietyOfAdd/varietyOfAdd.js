@@ -6,13 +6,15 @@ Page({
     thumbnail: [],
     originUrl: '',
     goodsPic: [],
+		cateId:0,
     id: '',
     type: 1,
     food: [],
+		appointment:0,
 
     // 分类数据
     category: '',
-    category_index: 0,
+    category_index: '',
   },
   category: function(e) {
     this.setData({
@@ -26,77 +28,80 @@ Page({
   },
   onLoad: function(options) {
 
-		if (options.id != null) {
-			this.setData({
-				id: options.id
-			})
-		}
+    if (options.id != null) {
+      this.setData({
+        id: options.id
+      })
+    }
   },
-	onShow:function(){
-		var _this = this;
-		if (_this.data.id != null) {
-			// 按条件查询数据
-			util.ajax({
-				url: app.globalData.path + 'ApiStore/add',
-				method: 'POST',
-				data: {
-					id: _this.data.id
-				},
-				success: function (res) {
-					//成功
-					_this.data.thumbnail.push(res.data.data.img);
-					if (res.data.code == 0) {
-						_this.setData({
+  onShow: function() {
+    let _this = this;
+    if (_this.data.id == 0) {
+      // 分类搜索
+      util.ajax({
+        url: app.globalData.path + 'ApiCategory/index',
+        method: 'GET',
+        data: {
+          store_id: wx.getStorageSync('storeInfo').store_id
+        },
+        success: function(res) {
+          //成功
+          if (res.data.code == 0) {
+            _this.setData({
+              category: res.data.data,
+            });
+          }
+        }
+      });
+    } else {
+      // 按条件查询数据
+      util.ajax({
+        url: app.globalData.path + 'ApiStore/add',
+        method: 'GET',
+        data: {
+          id: _this.data.id,
+          store_id: wx.getStorageSync('storeInfo').store_id
+        },
+        success: function(res) {
+          //成功
+          _this.data.thumbnail.push(res.data.data.img);
+          if (res.data.code == 0) {
+            _this.setData({
 							food: res.data.data,
-							thumbnail: _this.data.thumbnail,
-							imglist: res.data.imgs,
-							type: res.data.data.type,
-						});
-					}
+							appointment: res.data.data.appointment,
+              thumbnail: _this.data.thumbnail,
+              imglist: res.data.imgs,
+              type: res.data.data.type,
+              category: res.data.category,
+            });
 
-				}
+            // 分类
+            if (_this.data.food.category_id != 0) {
+              var arr = [];
+              var arr1 = 0;
+              _this.data.category.forEach(function(item) {
+                arr.push(item.id)
+              })
+              var food = _this.data.food;
+              var category_id = food.category_id;
 
-			});
-		}
+              arr.forEach(function(item, index) {
+                if (item == category_id) {
+                  arr1 = index
+                }
+              })
+              _this.setData({
+                category_index: arr1,
+								cateId: _this.data.food.category_id
+              })
+            }
+          }
 
-		// 分类搜索
-		util.ajax({
-			url: app.globalData.path + 'ApiCategory/index',
-			method: 'GET',
-			data: {
-				store_id: wx.getStorageSync('storeInfo').store_id
-			},
-			success: function (res) {
-				//成功
-				if (res.data.code == 0) {
-					_this.setData({
-						category: res.data.data,
-					});
-					if (_this.data.food.category_id != 0) {
-						var arr = [];
-						var arr1 = 0;
-						_this.data.category.forEach(function (item) {
-							arr.push(item.id)
-						})
-						var food = _this.data.food;
-						var category_id = food.category_id;
+        }
 
-						arr.forEach(function (item, index) {
-							if (item == category_id) {
-								arr1 = index
-							}
-						})
-						console.log(arr1)
-						_this.setData({
-							category_index: arr1
-						})
-					}
-				}
-
-			}
-
-		});
-	},
+      });
+    }
+  },
   // 缩略图
   upload_thumbnail: function() {
     this.upload(2, 1)
@@ -188,21 +193,20 @@ Page({
   },
   formsubmit: function(e) {
     var _this = this;
-
     if (e.detail.value.name == '') {
       return _this.alertMethod('请填写菜品名称');
     }
     if (e.detail.value.price == '') {
       return _this.alertMethod('请填写菜品价格');
-		}
-		if (e.detail.value.category == '') {
-			return _this.alertMethod('请选择菜品分类');
-		}
-		if (e.detail.value.originPrice == '') {
-			return _this.alertMethod('请填写菜品原价格');
-		}
-    if (e.detail.value.brief == '') {
+    }
+    if (_this.data.cateId == 0) {
+      return _this.alertMethod('请选择菜品分类');
+    }
+    if (e.detail.value.originPrice == '') {
       return _this.alertMethod('请填写菜品原价格');
+    }
+    if (e.detail.value.brief == '') {
+      return _this.alertMethod('请填写菜品详情');
     }
     if (_this.data.imglist == '') {
       return _this.alertMethod('请选择菜品展示图片');
@@ -210,6 +214,7 @@ Page({
     if (_this.data.thumbnail == '') {
       return _this.alertMethod('请选择菜品缩略图');
     }
+		console.log(_this.data.cateId)
     // 数据上传
     util.ajax({
       url: app.globalData.path + 'ApiStore/save',
@@ -223,6 +228,7 @@ Page({
         original_price: e.detail.value.original_price,
         brief: e.detail.value.brief,
         imglist: _this.data.imglist,
+        appointment: e.detail.value.appointment,
         thumbnail: _this.data.thumbnail,
         cateId: _this.data.cateId,
       },
@@ -239,8 +245,8 @@ Page({
             mask: true
           });
           setTimeout(function() {
-						wx.navigateBack({
-							delta: 2
+            wx.navigateBack({
+              delta: 2
             })
           }, 500)
         } else {
@@ -264,7 +270,6 @@ Page({
         if (res.confirm) {
           let imglist = that.data.imglist;
           let index = e.currentTarget.dataset.index;
-          console.log(index)
           imglist.splice(index, 1);
           that.setData({
             imglist: imglist
@@ -324,5 +329,5 @@ Page({
       icon: 'none'
     });
     return false;
-  }
+  },
 })

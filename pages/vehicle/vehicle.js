@@ -91,7 +91,7 @@ Page({
 			data: {
 				user_id: id,
 				status: that.data.check,
-				pageSize: 5, //每页展示的数据条数
+				pageSize: 4, //每页展示的数据条数
 				page: that.data.page //当前页码（从1开始）
 			},
 			success: function (res) {

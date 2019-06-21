@@ -111,7 +111,7 @@ page {
   line-height: 70rpx;
   color: white;
   background: #838383;
-  border-radius: 26rpx;
+  border-radius: 6px;
   font-size: 27rpx;
 }
 
@@ -126,6 +126,6 @@ page {
   line-height: 70rpx;
   background: #dd2727;
   color: white;
-  border-radius: 26rpx;
+  border-radius: 6px;
   font-size: 27rpx;
 }

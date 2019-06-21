@@ -16,7 +16,7 @@ Page({
     var _this = this;
     // 获取购物车数据表的数据
     util.ajax({
-			url: app.globalData.path + 'ApiFoods/orderDetail',
+			url: app.globalData.path + 'ApiOrder/orderDetail',
       method: "get",
       data: {
 				orderId: options.id,
@@ -26,6 +26,7 @@ Page({
         if (res.data.code == 0) {
           _this.setData({
             foods: res.data.data,
+						user:res.data.user,
             store: res.data.store,
 						sum: res.data.sum,
 						order: res.data.order,

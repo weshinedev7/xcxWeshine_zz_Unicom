@@ -46,19 +46,7 @@
   <view class="meeting">
     <textarea class="input" bindinput='getInput' data-model='content' placeholder="会议内容..." maxlength="1000" value="{{content}}" />
   </view>
-
-  <!-- 补充选项 -->
-  <!--<view class="meeting-content" style="display:{{dispaly}}">补充选项:</view>
-  <view class="supplement" style="display:{{dispaly}}">
-    <view class="supplement-content">
-      <checkbox-group bindchange="checkboxChange">
-        <label class="checkboxs" wx:for="{{items}}">
-          <checkbox value="{{item.id}}" checked="{{item.checked}}" /> {{item.content}}
-        </label>
-      </checkbox-group>
-    </view>
-  </view>-->
-
+	
   <view class="meeting-content" style="display:{{dispaly}}">补充选项:</view>
     <view class="supplement" style="display:{{dispaly}}">
       <view class="supplement-content">
@@ -77,7 +65,6 @@
 </view>
 
 <view class="nav_container">
-  <button class="reset" bindtap="reset">重置</button>
   <navigator bindtap="submit" hover-class="none" class="selection-item">
     <view class="submit">提交</view>
   </navigator>

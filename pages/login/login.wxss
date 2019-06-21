@@ -1,41 +1,92 @@
-.top{
-  width:100%;
-  margin-top:150rpx;
+.top {
+  width: 100%;
+  margin-top: 200rpx;
 }
+
 .block {
-    margin: 30rpx 80rpx;
-    height: 90rpx;
-    display:flex;
-    align-items:center;
-    border-radius: 30rpx;
-    background: #eee;
+  margin: 30rpx 50rpx;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 10rpx;
+  background: #eee;
 }
-.block input{
+
+.block input {
   background: #eee;
   height: 90rpx;
-  float:left;
+	width:100%;
+  float: left;
   line-height: 70rpx;
   color: #b2b2b2;
-  font-size:35rpx;
-  margin-left:20rpx;
+  font-size: 28rpx;
+  margin-left: 20rpx;
 }
 
-.block image{
+.block image {
   height: 40rpx;
   width: 40rpx;
-  margin-left:30rpx;
+  margin-left: 30rpx;
 }
 
-.btn-login{
-  margin: 40rpx 80rpx;
+.btn-login {
+  margin: 40rpx 50rpx;
   height: 90rpx;
-  display:flex;
-  align-items:center;
-  border-radius: 30rpx;
-  /* background: #9F0000; */
-  /* background: #E43130 */
-  background: #DD2727;
-  text-align:center;
-  justify-content:center;
+  display: flex;
+	font-size:16px;
+	font-weight:700;
+  align-items: center;
+  border-radius: 10rpx;
+  background: #dd2727;
+  text-align: center;
+  justify-content: center;
   color: white;
+}
+
+.weixin {
+  width: 100%;
+  margin-top: 100rpx;
+}
+
+.header {
+  margin: 0rpx auto;
+  width: 90%;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  height: 300rpx;
+  line-height: 450rpx;
+}
+
+.header image {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.content {
+  margin: 0rpx auto;
+  width: 90%;
+}
+
+.bottom {
+  border-radius: 80rpx;
+  margin: 70rpx 50rpx;
+  font-size: 32rpx;
+}
+
+.apply {
+  font-size: 15px;
+  margin: 0rpx auto;
+  text-align: center;
+  display: block;
+  color: #9d9d9d;
+  margin-top: 40rpx;
+}
+
+.information {
+  font-size: 15px;
+  margin: 0rpx auto;
+  text-align: center;
+  display: block;
+  color: #9d9d9d;
+  margin-top: 40rpx;
 }
